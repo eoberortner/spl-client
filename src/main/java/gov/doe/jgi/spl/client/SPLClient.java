@@ -47,12 +47,15 @@ public class SPLClient {
 			throws SPLClientException {
 		
 		WebTarget webTarget = client.target(SPL_REST_URL).path("auth").path("login");
+		System.out.println("[login] " + username + ", " + password);
 		
 		Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
 		JSONObject jsonRequest = new JSONObject();
 		jsonRequest.put("username", username);
 		jsonRequest.put("password", password);
 
+		System.out.println(jsonRequest);
+		
 		Response response = null;
 		try {
 			response = invocationBuilder.post(
@@ -118,9 +121,6 @@ public class SPLClient {
 			throw new SPLClientException(e.getLocalizedMessage());
 		}
 
-		
-
-		
 		return null;
 	}
 }
