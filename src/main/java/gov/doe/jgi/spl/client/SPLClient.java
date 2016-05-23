@@ -1,9 +1,8 @@
 package gov.doe.jgi.spl.client;
 
-import java.io.BufferedReader;
-import java.io.Console;
-import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -13,9 +12,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
-import org.sbolstandard.core2.Sequence;
 
 import gov.doe.jgi.spl.client.exception.SPLClientException;
 
@@ -29,7 +26,10 @@ public class SPLClient {
 	private Client client;
 	private String token;
 	
-	private static final String SPL_REST_URL = "http://localhost:8080/spl-web/rest";
+	// local dev
+//	private static final String SPL_REST_URL = "http://localhost:8080/spl-web/rest";
+	
+	private static final String SPL_REST_URL = "https://spl.jgi.doe.gov/rest";
 	
 	/**
 	 * default no-args constructor 
@@ -76,6 +76,7 @@ public class SPLClient {
 
 		// handle the response
 		if(null != response) {
+
 			switch(response.getStatus()) {
 			case 200:	// OK
 				// the response must have a token (for an authenticated user)
@@ -85,6 +86,8 @@ public class SPLClient {
 					// the response does not have a token
 					throw new SPLClientException("Invalid username/password!");
 				} 
+				
+				return;
 			default:
 				// for every response code other then 200, 
 				// we throw an exception
@@ -104,11 +107,14 @@ public class SPLClient {
 	
 	/**
 	 * 
-	 * @param sequences
-	 * @param constraints
+	 * @param sequencesFilename
+	 * @param type
+	 * @param vendor
 	 * @return
+	 * @throws SPLClientException
 	 */
-	public List<Sequence> verify(final List<Sequence> sequences, final String constraints) 
+	public Map<String, Map<String, List<String>>> verify(
+			final String sequencesFilename, SequenceType type, final Vendor vendor) 
 			throws SPLClientException {
 		
 		// check if the user did a login previously
@@ -116,26 +122,126 @@ public class SPLClient {
 			throw new SPLClientException("You must authenticate first!");
 		}
 		
-		JSONObject jsonRequest = new JSONObject();
+		/*
+		 * build the request
+		 */
+		JSONObject jsonRequestData = new JSONObject();
+
+		// sequence information
+		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION, 
+				RequestBuilder.buildSequenceData(sequencesFilename, type, false));
 		
-		JSONArray sequenceData = new JSONArray();
-		for(Sequence sequence : sequences) {
-			sequenceData.put(sequence.getElements());
-		}
+		// constraints information
+		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
+				RequestBuilder.buildConstraintsData(vendor));
 		
-		jsonRequest.put(JSON2InputArgs.SEQUENCE_INFORMATION, sequenceData);
-		
-		WebTarget webTarget = client.target(SPL_REST_URL).path("polisher").path("verify");
-		
-		Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
-		Response response = null;
 		try {
-			response = invocationBuilder.post(
-					Entity.entity(jsonRequest.toString(), MediaType.APPLICATION_JSON));
+			/*
+			 * invoke the verify resource
+			 */
+			Response response = this.invoke("polisher/verify", jsonRequestData);
+		
+			switch(response.getStatus()) {
+			case 200:	// OK
+				/*
+				 *  TODO: parse the response
+				 */  
+				return new HashMap<String, Map<String, List<String>>>();
+			default:
+				throw new SPLClientException(response.getEntity().toString());
+			}
 		} catch(Exception e) {
 			throw new SPLClientException(e.getLocalizedMessage());
 		}
+	}
+	
+	
+	/**
+	 * 
+	 * @param sequencesFilename
+	 * @param type
+	 * @param bCodingSequences
+	 * @param vendor
+	 * @param strategy
+	 * @param codonUsageTableFilename
+	 * @throws SPLClientException
+	 */
+	public void polish(final String sequencesFilename, SequenceType type, boolean bCodingSequences,
+			Vendor vendor, Strategy strategy, final String codonUsageTableFilename) 
+				throws SPLClientException {
+		
+		// check if the user did a login previously
+		if(null == token) {
+			throw new SPLClientException("You must authenticate first!");
+		}
+		
+		/*
+		 * build the request
+		 */
+		JSONObject jsonRequestData = new JSONObject();
 
-		return null;
+		// sequence information
+		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION, 
+				RequestBuilder.buildSequenceData(sequencesFilename, type, bCodingSequences));
+		
+		// constraints information
+		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
+				RequestBuilder.buildConstraintsData(vendor));
+
+//		// modification information
+//		jsonRequest.put(JSON2InputArgs.MODIFICATION_INFORMATION, 
+//				RequestBuilder.buildModificationData(strategy, codonUsageTableFilename);
+		
+		/*
+		 * invoke the resource
+		 */
+		try {
+			/*
+			 * invoke the verify resource
+			 */
+			Response response = this.invoke("polisher/verify", jsonRequestData);
+		
+			switch(response.getStatus()) {
+			case 200:	// OK
+				/*
+				 *  TODO: parse the response
+				 */  
+				return;
+			default:
+				throw new SPLClientException(response.getEntity().toString());
+			}
+		} catch(Exception e) {
+			throw new SPLClientException(e.getLocalizedMessage());
+		}
+	}
+	
+	/**
+	 * 
+	 * @param resource
+	 * @param jsonRequestData
+	 * @return
+	 * @throws SPLClientException
+	 */
+	public Response invoke(final String resource, final JSONObject jsonRequestData) 
+			throws SPLClientException {
+		
+		WebTarget webTarget = client.target(SPL_REST_URL).path(resource);
+		
+		Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
+		invocationBuilder.header("authorization", this.token);
+		
+		try {
+			Response response = invocationBuilder.post(
+					Entity.entity(jsonRequestData.toString(), MediaType.APPLICATION_JSON));
+			
+			switch(response.getStatus()) {
+			case 200:	// OK
+				return response;
+			default:
+				throw new SPLClientException(response.getEntity().toString());
+			}
+		} catch(Exception e) {
+			throw new SPLClientException(e.getLocalizedMessage());
+		}
 	}
 }

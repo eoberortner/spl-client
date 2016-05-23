@@ -81,10 +81,18 @@ public class DemoClient {
 		/*
 		 * verify
 		 */
-
+		client.verify("./data/sequences.fasta", SequenceType.DNA, Vendor.LIFE_TECHNOLOGIES);
+		
 		/*
 		 * polish (verify + modify)
 		 */
+		client.polish(
+				"./data/sequences.fasta",	// sequences 
+				SequenceType.DNA, 				// sequence type
+				true,							// all 5'-3' coding sequences 
+				Vendor.LIFE_TECHNOLOGIES, 		// vendor
+				Strategy.BALANCED_TO_RANDOM,
+				"./data/Ecoli.cudb");
 		
 		/*
 		 * partition
