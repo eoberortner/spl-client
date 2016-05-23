@@ -106,11 +106,17 @@ public class SPLClient {
 	}
 	
 	/**
+	 * The verify() method verifies the sequences of a given file with the 
+	 * gene synthesis constraints of a given vendor.
 	 * 
-	 * @param sequencesFilename
-	 * @param type
-	 * @param vendor
-	 * @return
+	 * @param sequencesFilename ... the name of the file that contains the sequences
+	 * @param type ... the type of sequences, i.e. DNA, RNA, Protein
+	 * @param vendor ... the vendor
+	 * 
+	 * @return a map, where each key represents a file and its corresponding 
+	 * value is a map, where each key represents a sequence id and its corresponding
+	 * value is a list of violations represented as String objects
+	 * 
 	 * @throws SPLClientException
 	 */
 	public Map<String, Map<String, List<String>>> verify(
@@ -157,13 +163,23 @@ public class SPLClient {
 	
 	
 	/**
+	 * The polish() method verifies the sequences in a given file against the 
+	 * gene synthesis constraints of a commercial synthesis vendor. 
+	 * In case of violations, the polish() method modifies the coding regions 
+	 * of the sequence using the specified codon replacement strategy.
+	 *  
+	 * @param sequencesFilename ... the name of the file that contains the sequences
+	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
+	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
+	 * support sequence feature annotations and if bCoding sequences is set to true, 
+	 * then are all sequences are treated as coding sequences. If the sequences are 
+	 * encoded in a format that does support sequence feature annotations, then the 
+	 * bCodingSequences flag is ignored. 
+	 * @param vendor ... the name of commercial synthesis provider
+	 * @param strategy ... the codon replacement strategy
+	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
+	 * usage table
 	 * 
-	 * @param sequencesFilename
-	 * @param type
-	 * @param bCodingSequences
-	 * @param vendor
-	 * @param strategy
-	 * @param codonUsageTableFilename
 	 * @throws SPLClientException
 	 */
 	public void polish(final String sequencesFilename, SequenceType type, boolean bCodingSequences,
@@ -188,7 +204,9 @@ public class SPLClient {
 		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
 				RequestBuilder.buildConstraintsData(vendor));
 
-//		// modification information
+		/*
+		 * TODO: -- modification information
+		 */ 
 //		jsonRequest.put(JSON2InputArgs.MODIFICATION_INFORMATION, 
 //				RequestBuilder.buildModificationData(strategy, codonUsageTableFilename);
 		
