@@ -1,5 +1,6 @@
 package gov.doe.jgi.spl.client;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,10 @@ import javax.ws.rs.core.Response;
 import org.json.JSONObject;
 
 import gov.doe.jgi.spl.client.exception.SPLClientException;
+import gov.doe.jgi.spl.commons.FileFormat;
+import gov.doe.jgi.spl.commons.SequenceType;
+import gov.doe.jgi.spl.commons.Strategy;
+import gov.doe.jgi.spl.commons.Vendor;
 
 /**
  * 
@@ -27,9 +32,9 @@ public class SPLClient {
 	private String token;
 	
 	// local dev
-//	private static final String SPL_REST_URL = "http://localhost:8080/spl-web/rest";
+	private static final String SPL_REST_URL = "http://localhost:8080/spl-web/rest";
 	
-	private static final String SPL_REST_URL = "https://spl.jgi.doe.gov/rest";
+//	private static final String SPL_REST_URL = "https://spl.jgi.doe.gov/rest";
 	
 	/**
 	 * default no-args constructor 
@@ -103,6 +108,110 @@ public class SPLClient {
 			return jsonResponse.getString("token");
 		}
 		return null;
+	}
+	
+	/**
+	 * 
+	 * @param filenameSequences
+	 * @param type
+	 * @param bCodingSequences
+	 * @param strategy
+	 * @param filenameCodonUsageTable
+	 */
+	public void reverseTranslate(
+			final String filenameSequences, 
+			Strategy strategy, final String filenameCodonUsageTable,
+			final FileFormat outputFormat)
+				throws SPLClientException, IOException {
+
+		Response response = 
+				this.invokeJuggler(filenameSequences, SequenceType.PROTEIN, true,
+						strategy, filenameCodonUsageTable, outputFormat);
+
+		handleResponse(response);
+	}
+	
+	/**
+	 * 
+	 * @param filenameSequences
+	 * @param strategy
+	 * @param filenameCodonUsageTable
+	 * @param outputFormat
+	 * @throws SPLClientException
+	 * @throws IOException
+	 */
+	public void codonJuggle(
+			final String filenameSequences, boolean bAutoAnnotate, 
+			Strategy strategy, final String filenameCodonUsageTable,
+			final FileFormat outputFormat)
+				throws SPLClientException, IOException {
+
+		Response response = 
+				this.invokeJuggler(
+						filenameSequences, SequenceType.DNA, bAutoAnnotate,
+						strategy, filenameCodonUsageTable, 
+						outputFormat);
+		
+		handleResponse(response);
+	}
+	
+	/**
+	 * 
+	 * @param filenameSequences
+	 * @param type
+	 * @param strategy
+	 * @param filenameCodonUsageTable
+	 * @param outputFormat
+	 * @return
+	 * @throws SPLClientException
+	 * @throws IOException
+	 */
+	public Response invokeJuggler(
+			final String filenameSequences, SequenceType type, boolean bAutoAnnotate,
+			Strategy strategy, final String filenameCodonUsageTable,
+			final FileFormat outputFormat)
+					throws SPLClientException, IOException {
+		
+		JSONObject jsonRequestData = new JSONObject();
+		
+		// sequence information
+		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION,  
+				RequestBuilder.buildSequenceData(filenameSequences, type, bAutoAnnotate));
+		
+		// modification information
+		jsonRequestData.put(JSON2InputArgs.MODIFICATION_INFORMATION,
+				RequestBuilder.buildModificationData(strategy, filenameCodonUsageTable));
+		
+		// output information
+		jsonRequestData.put(JSON2InputArgs.OUTPUT_INFORMATION, 
+				RequestBuilder.buildOutputData(outputFormat));
+		
+		return this.invoke("juggler/juggle", jsonRequestData);
+	}
+	
+	/**
+	 * 
+	 * @param response
+	 * @throws SPLClientException
+	 */
+	public void handleResponse(Response response) 
+			throws SPLClientException {
+		
+		switch(response.getStatus()) {
+		case 200:	// OK
+			JSONObject jsonResponseData = new JSONObject(response.readEntity(String.class));
+			
+			if(jsonResponseData.has(JSON2InputArgs.TEXT)) {
+				System.out.println(jsonResponseData.get(JSON2InputArgs.TEXT));
+			} else if(jsonResponseData.has(JSON2InputArgs.FILE)) {
+				System.out.println(jsonResponseData.get(JSON2InputArgs.TEXT));
+			}
+			
+			break;
+			
+		default:
+			throw new SPLClientException(response.getStatus() + ": " + response.getStatusInfo());
+		}
 	}
 	
 	/**

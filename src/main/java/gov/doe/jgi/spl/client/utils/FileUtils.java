@@ -8,6 +8,8 @@ import java.nio.file.Paths;
 
 public class FileUtils {
 	
+	private static final String NEWLINE = System.lineSeparator();
+	
 	public static String readFile(final String filename) 
 			throws IOException {
 		BufferedReader reader = Files.newBufferedReader(
@@ -15,7 +17,7 @@ public class FileUtils {
 		String line = null;
 		StringBuilder sb = new StringBuilder();
 		while ( (line = reader.readLine()) != null ) {
-			sb.append(line);
+			sb.append(line).append(NEWLINE);
 		}
 		return sb.toString();
 	}

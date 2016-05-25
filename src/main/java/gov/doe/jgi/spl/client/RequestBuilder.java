@@ -7,6 +7,11 @@ import org.json.JSONObject;
 
 import gov.doe.jgi.spl.client.exception.SPLClientException;
 import gov.doe.jgi.spl.client.utils.FileUtils;
+import gov.doe.jgi.spl.commons.FileFormat;
+import gov.doe.jgi.spl.commons.GeneticCode;
+import gov.doe.jgi.spl.commons.SequenceType;
+import gov.doe.jgi.spl.commons.Strategy;
+import gov.doe.jgi.spl.commons.Vendor;
 
 public class RequestBuilder {
 
@@ -30,17 +35,39 @@ public class RequestBuilder {
 		} catch (IOException e1) {
 			throw new SPLClientException(e1.getLocalizedMessage());
 		}
-		sequenceData.put("text", sequences);
+		sequenceData.put(JSON2InputArgs.TEXT, sequences);
 		
-		// sequence typ
+		// sequence type
 		JSONArray types = new JSONArray();
 		types.put(type);
-		sequenceData.put("types", types);
+		sequenceData.put(JSON2InputArgs.SEQUENCE_TYPE, types);
 		
 		// auto-annotate?
-		sequenceData.put("auto-annotate", "true");
-		
+		sequenceData.put(JSON2InputArgs.AUTO_ANNOTATE, bAutoAnnotate);
+
 		return sequenceData;
+	}
+	
+	/**
+	 * 
+	 * @param strategy
+	 * @param filename
+	 * @return
+	 */
+	public static JSONObject buildModificationData(final Strategy strategy, final String filename) 
+			throws IOException {
+		
+		JSONObject jsonData = new JSONObject();
+		jsonData.put(JSON2InputArgs.STRATEGY_NAME, strategy);
+		jsonData.put(JSON2InputArgs.TEXT, FileUtils.readFile(filename));
+		jsonData.put(JSON2InputArgs.STRATEGY_GENETIC_CODE, GeneticCode.STANDARD);
+		return jsonData;
+	}
+	
+	public static JSONObject buildOutputData(final FileFormat format) {
+		JSONObject jsonData = new JSONObject();
+		jsonData.put(JSON2InputArgs.OUTPUT_FORMAT, format);
+		return jsonData;
 	}
 	
 	/**

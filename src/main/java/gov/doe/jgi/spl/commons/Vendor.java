@@ -1,4 +1,4 @@
-package gov.doe.jgi.spl.client;
+package gov.doe.jgi.spl.commons;
 
 public enum Vendor {
 

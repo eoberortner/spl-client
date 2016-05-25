@@ -5,6 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
 
+import gov.doe.jgi.spl.commons.FileFormat;
+import gov.doe.jgi.spl.commons.Strategy;
+
 
 /**
  * The DemoClient demonstrates the use of the 
@@ -74,25 +77,36 @@ public class DemoClient {
 		 * reverse translate
 		 */
 		
+		client.reverseTranslate(
+				"./data/protein.fasta", 
+				Strategy.MostlyUsed, 
+				"./data/Ecoli.cudb", 
+				FileFormat.GENBANK);
+		
 		/*
 		 * codon juggle
 		 */
+		client.codonJuggle(
+				"./data/dna.fasta", true,
+				Strategy.MostlyUsed,
+				"./data/Ecoli.cudb", 
+				FileFormat.GENBANK);
 
-		/*
-		 * verify
-		 */
-		client.verify("./data/sequences.fasta", SequenceType.DNA, Vendor.LIFE_TECHNOLOGIES);
-		
-		/*
-		 * polish (verify + modify)
-		 */
-		client.polish(
-				"./data/sequences.fasta",	// sequences 
-				SequenceType.DNA, 				// sequence type
-				true,							// all 5'-3' coding sequences 
-				Vendor.LIFE_TECHNOLOGIES, 		// vendor
-				Strategy.BALANCED_TO_RANDOM,
-				"./data/Ecoli.cudb");
+//		/*
+//		 * verify
+//		 */
+//		client.verify("./data/dna.fasta", SequenceType.DNA, Vendor.LIFE_TECHNOLOGIES);
+//		
+//		/*
+//		 * polish (verify + modify)
+//		 */
+//		client.polish(
+//				"./data/dna.fasta",	// sequences 
+//				SequenceType.DNA, 				// sequence type
+//				true,							// all 5'-3' coding sequences 
+//				Vendor.LIFE_TECHNOLOGIES, 		// vendor
+//				Strategy.BALANCED_TO_RANDOM,
+//				"./data/Ecoli.cudb");
 		
 		/*
 		 * partition

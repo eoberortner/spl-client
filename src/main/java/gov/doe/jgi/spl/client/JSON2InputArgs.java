@@ -16,9 +16,8 @@ public class JSON2InputArgs {
 	public static final String CONSTRAINTS_INFORMATION = "constraints";
 	public static final String VENDOR_NAME = "vendor";
 	
-	// sequence information related keys
 	public static final String SEQUENCE_INFORMATION = "sequences";
-	public static final String SEQEUENCES_TYPES = "sequences-types";
+	public static final String SEQUENCE_TYPE = "sequences-types";
 	public static final String AUTO_ANNOTATE = "auto-annotate";
 	
 	// pattern-related keys
@@ -27,7 +26,8 @@ public class JSON2InputArgs {
 	// modification-related keys
 	public static final String MODIFICATION_INFORMATION = "modifications";
 	public static final String STRATEGY_NAME = "strategy";
-	public static final String CODON_USAGE_TABLE = "codon-usage-table";
+	public static final String STRATEGY_CODON_USAGE_TABLE = "codon-usage-table";
+	public static final String STRATEGY_GENETIC_CODE = "genetic-code";
 
 	// output-related keys
 	public static final String OUTPUT_INFORMATION = "output";
@@ -40,6 +40,12 @@ public class JSON2InputArgs {
 	public static final String TEXT = "text";
 	public static final String SAVE_AS = "save-as";
 
+	// response
+	public static final String STATUS = "STATUS";
+	public static final String STATUS_ERROR = "ERROR";
+	public static final String STATUS_OK = "OK";
+	
+	
 	/*------------------------
 	 * KEY NAMES FOR RESPONSE
 	 *------------------------*/
