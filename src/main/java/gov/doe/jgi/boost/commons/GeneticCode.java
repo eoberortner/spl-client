@@ -1,4 +1,4 @@
-package gov.doe.jgi.spl.commons;
+package gov.doe.jgi.boost.commons;
 
 public enum GeneticCode {
 	STANDARD

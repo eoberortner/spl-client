@@ -1,16 +1,16 @@
-package gov.doe.jgi.spl.client.exception;
+package gov.doe.jgi.boost.exception;
 
 /**
  * 
  * @author Ernst Oberortner
  *
  */
-public class SPLClientException 
+public class BOOSTClientException 
 		extends Exception {
 
 	private static final long serialVersionUID = -1588108509942777028L;
 
-	public SPLClientException(String msg) {
+	public BOOSTClientException(String msg) {
 		super(msg);
 	}
 }

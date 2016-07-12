@@ -1,4 +1,4 @@
-package gov.doe.jgi.spl.client;
+package gov.doe.jgi.boost.client;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -15,51 +15,44 @@ import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
-import gov.doe.jgi.spl.client.exception.SPLClientException;
-import gov.doe.jgi.spl.commons.FileFormat;
-import gov.doe.jgi.spl.commons.SequenceType;
-import gov.doe.jgi.spl.commons.Strategy;
-import gov.doe.jgi.spl.commons.Vendor;
+import gov.doe.jgi.boost.commons.FileFormat;
+import gov.doe.jgi.boost.commons.SequenceType;
+import gov.doe.jgi.boost.commons.Strategy;
+import gov.doe.jgi.boost.commons.Vendor;
+import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 /**
  * 
  * @author Ernst Oberortner
- *
  */
-public class SPLClient {
+public class BOOSTClient {
 
 	private Client client;
 	private String token;
 	
 	// local dev
-	private static final String SPL_REST_URL = "http://localhost:8080/spl-web/rest";
+//	private static final String SPL_REST_URL = "http://localhost:8080/spl-web/rest";
 	
-//	private static final String SPL_REST_URL = "https://spl.jgi.doe.gov/rest";
+	private static final String SPL_REST_URL = "https://boost.jgi.doe.gov/rest/";
 	
 	/**
 	 * default no-args constructor 
 	 */
-	public SPLClient() {
+	public BOOSTClient() {
 		this.client = ClientBuilder.newClient();
 		this.token = null;
 	}
 
-	/**
-	 * The login() method reads the username and password 
-	 * from the command line and authenticates the user
-	 * 
-	 * @throws SPLClientException ... if the authentication was not successful
-	 */
 	/**
 	 * The login() method authenticates a SPL user with username and password.
 	 * 
 	 * @param username ... the username
 	 * @param password ... the password
 	 * 
-	 * @throws SPLClientException
+	 * @throws BOOSTClientException
 	 */
 	public void login(final String username, final String password) 
-			throws SPLClientException {
+			throws BOOSTClientException {
 
 		// build the URL of the SPL REST authentication resource
 		WebTarget webTarget = client.target(SPL_REST_URL).path("auth").path("login");
@@ -76,7 +69,7 @@ public class SPLClient {
 			response = invocationBuilder.post(
 					Entity.entity(jsonRequest.toString(), MediaType.APPLICATION_JSON));
 		} catch(Exception e) {
-			throw new SPLClientException(e.getLocalizedMessage());
+			throw new BOOSTClientException(e.getLocalizedMessage());
 		}
 
 		// handle the response
@@ -89,14 +82,14 @@ public class SPLClient {
 				
 				if(null == token) {
 					// the response does not have a token
-					throw new SPLClientException("Invalid username/password!");
+					throw new BOOSTClientException("Invalid username/password!");
 				} 
 				
 				return;
 			default:
 				// for every response code other then 200, 
 				// we throw an exception
-				throw new SPLClientException(response.getStatus() + ": " + response.getStatusInfo());
+				throw new BOOSTClientException(response.getStatus() + ": " + response.getStatusInfo());
 			}
 		}
 
@@ -122,7 +115,7 @@ public class SPLClient {
 			final String filenameSequences, 
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
-				throws SPLClientException, IOException {
+				throws BOOSTClientException, IOException {
 
 		Response response = 
 				this.invokeJuggler(filenameSequences, SequenceType.PROTEIN, true,
@@ -137,14 +130,14 @@ public class SPLClient {
 	 * @param strategy
 	 * @param filenameCodonUsageTable
 	 * @param outputFormat
-	 * @throws SPLClientException
+	 * @throws BOOSTClientException
 	 * @throws IOException
 	 */
 	public void codonJuggle(
 			final String filenameSequences, boolean bAutoAnnotate, 
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
-				throws SPLClientException, IOException {
+				throws BOOSTClientException, IOException {
 
 		Response response = 
 				this.invokeJuggler(
@@ -163,14 +156,14 @@ public class SPLClient {
 	 * @param filenameCodonUsageTable
 	 * @param outputFormat
 	 * @return
-	 * @throws SPLClientException
+	 * @throws BOOSTClientException
 	 * @throws IOException
 	 */
 	public Response invokeJuggler(
 			final String filenameSequences, SequenceType type, boolean bAutoAnnotate,
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
-					throws SPLClientException, IOException {
+					throws BOOSTClientException, IOException {
 		
 		JSONObject jsonRequestData = new JSONObject();
 		
@@ -192,10 +185,10 @@ public class SPLClient {
 	/**
 	 * 
 	 * @param response
-	 * @throws SPLClientException
+	 * @throws BOOSTClientException
 	 */
 	public void handleResponse(Response response) 
-			throws SPLClientException {
+			throws BOOSTClientException {
 		
 		switch(response.getStatus()) {
 		case 200:	// OK
@@ -210,7 +203,7 @@ public class SPLClient {
 			break;
 			
 		default:
-			throw new SPLClientException(response.getStatus() + ": " + response.getStatusInfo());
+			throw new BOOSTClientException(response.getStatus() + ": " + response.getStatusInfo());
 		}
 	}
 	
@@ -226,15 +219,15 @@ public class SPLClient {
 	 * value is a map, where each key represents a sequence id and its corresponding
 	 * value is a list of violations represented as String objects
 	 * 
-	 * @throws SPLClientException
+	 * @throws BOOSTClientException
 	 */
 	public Map<String, Map<String, List<String>>> verify(
 			final String sequencesFilename, SequenceType type, final Vendor vendor) 
-			throws SPLClientException {
+			throws BOOSTClientException {
 		
 		// check if the user did a login previously
 		if(null == token) {
-			throw new SPLClientException("You must authenticate first!");
+			throw new BOOSTClientException("You must authenticate first!");
 		}
 		
 		/*
@@ -263,10 +256,10 @@ public class SPLClient {
 				 */  
 				return new HashMap<String, Map<String, List<String>>>();
 			default:
-				throw new SPLClientException(response.getEntity().toString());
+				throw new BOOSTClientException(response.getEntity().toString());
 			}
 		} catch(Exception e) {
-			throw new SPLClientException(e.getLocalizedMessage());
+			throw new BOOSTClientException(e.getLocalizedMessage());
 		}
 	}
 	
@@ -289,15 +282,15 @@ public class SPLClient {
 	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
 	 * usage table
 	 * 
-	 * @throws SPLClientException
+	 * @throws BOOSTClientException
 	 */
 	public void polish(final String sequencesFilename, SequenceType type, boolean bCodingSequences,
 			Vendor vendor, Strategy strategy, final String codonUsageTableFilename) 
-				throws SPLClientException {
+				throws BOOSTClientException {
 		
 		// check if the user did a login previously
 		if(null == token) {
-			throw new SPLClientException("You must authenticate first!");
+			throw new BOOSTClientException("You must authenticate first!");
 		}
 		
 		/*
@@ -335,10 +328,10 @@ public class SPLClient {
 				 */  
 				return;
 			default:
-				throw new SPLClientException(response.getEntity().toString());
+				throw new BOOSTClientException(response.getEntity().toString());
 			}
 		} catch(Exception e) {
-			throw new SPLClientException(e.getLocalizedMessage());
+			throw new BOOSTClientException(e.getLocalizedMessage());
 		}
 	}
 	
@@ -347,10 +340,10 @@ public class SPLClient {
 	 * @param resource
 	 * @param jsonRequestData
 	 * @return
-	 * @throws SPLClientException
+	 * @throws BOOSTClientException
 	 */
 	public Response invoke(final String resource, final JSONObject jsonRequestData) 
-			throws SPLClientException {
+			throws BOOSTClientException {
 		
 		WebTarget webTarget = client.target(SPL_REST_URL).path(resource);
 		
@@ -365,10 +358,10 @@ public class SPLClient {
 			case 200:	// OK
 				return response;
 			default:
-				throw new SPLClientException(response.getEntity().toString());
+				throw new BOOSTClientException(response.getEntity().toString());
 			}
 		} catch(Exception e) {
-			throw new SPLClientException(e.getLocalizedMessage());
+			throw new BOOSTClientException(e.getLocalizedMessage());
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package gov.doe.jgi.spl.client;
+package gov.doe.jgi.boost.client;
 
 import java.util.HashMap;
 import java.util.Map;

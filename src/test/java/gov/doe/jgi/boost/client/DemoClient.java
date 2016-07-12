@@ -1,23 +1,15 @@
-package gov.doe.jgi.spl.client;
+package gov.doe.jgi.boost.client;
 
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-import gov.doe.jgi.spl.commons.FileFormat;
-import gov.doe.jgi.spl.commons.Strategy;
+import gov.doe.jgi.boost.commons.FileFormat;
+import gov.doe.jgi.boost.commons.Strategy;
 
-
-/**
- * The DemoClient demonstrates the use of the 
- * SPL client's functions.
- * 
- * @author Ernst Oberortner
- *
- */
 public class DemoClient {
-
+	
 	/**
 	 * The loadUsernameAndPassword() method loads the username 
 	 * and password from a local .properties file
@@ -61,13 +53,13 @@ public class DemoClient {
 	public static void main(String[] args) 
 			throws Exception {
 		
-		// instantiate the SPL client
-		SPLClient client = new SPLClient();
+		// instantiate the BOOST client
+		BOOSTClient client = new BOOSTClient();
 
 		/*
 		 * login
 		 */
-		Properties prop = loadUsernameAndPassword("spl.properties");
+		Properties prop = loadUsernameAndPassword("login.properties");
 
 		client.login(
 				prop.getProperty("username").trim(), 
@@ -76,21 +68,21 @@ public class DemoClient {
 		/*
 		 * reverse translate
 		 */
-		
 		client.reverseTranslate(
-				"./data/protein.fasta", 
-				Strategy.MostlyUsed, 
-				"./data/Ecoli.cudb", 
-				FileFormat.GENBANK);
+				"./data/protein.fasta",		// input sequences 
+				Strategy.MostlyUsed, 		// codon selection strategy
+				"./data/Ecoli.cudb", 		// codon usage table
+				FileFormat.GENBANK);		// output format
 		
-		/*
-		 * codon juggle
-		 */
-		client.codonJuggle(
-				"./data/dna.fasta", true,
-				Strategy.MostlyUsed,
-				"./data/Ecoli.cudb", 
-				FileFormat.GENBANK);
+//		/*
+//		 * codon juggle
+//		 */
+//		client.codonJuggle(
+//				"./data/dna.fasta",			// input sequences 
+//				true,						// exclusively 5'-3' coding sequences 
+//				Strategy.MostlyUsed,		// codon selection strategy
+//				"./data/Ecoli.cudb", 		// codon usage table
+//				FileFormat.GENBANK);		// output format
 
 //		/*
 //		 * verify

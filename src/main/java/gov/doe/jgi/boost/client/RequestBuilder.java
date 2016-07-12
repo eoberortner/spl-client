@@ -1,17 +1,17 @@
-package gov.doe.jgi.spl.client;
+package gov.doe.jgi.boost.client;
 
 import java.io.IOException;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import gov.doe.jgi.spl.client.exception.SPLClientException;
-import gov.doe.jgi.spl.client.utils.FileUtils;
-import gov.doe.jgi.spl.commons.FileFormat;
-import gov.doe.jgi.spl.commons.GeneticCode;
-import gov.doe.jgi.spl.commons.SequenceType;
-import gov.doe.jgi.spl.commons.Strategy;
-import gov.doe.jgi.spl.commons.Vendor;
+import gov.doe.jgi.boost.client.utils.FileUtils;
+import gov.doe.jgi.boost.commons.FileFormat;
+import gov.doe.jgi.boost.commons.GeneticCode;
+import gov.doe.jgi.boost.commons.SequenceType;
+import gov.doe.jgi.boost.commons.Strategy;
+import gov.doe.jgi.boost.commons.Vendor;
+import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 public class RequestBuilder {
 
@@ -21,10 +21,10 @@ public class RequestBuilder {
 	 * @param type
 	 * @param bAutoAnnotate
 	 * @return
-	 * @throws SPLClientException
+	 * @throws BOOSTClientException
 	 */
 	public static JSONObject buildSequenceData(final String filename, SequenceType type, boolean bAutoAnnotate) 
-			throws SPLClientException {
+			throws BOOSTClientException {
 
 		// sequence information
 		JSONObject sequenceData = new JSONObject();
@@ -33,7 +33,7 @@ public class RequestBuilder {
 		try {
 			sequences = FileUtils.readFile(filename);
 		} catch (IOException e1) {
-			throw new SPLClientException(e1.getLocalizedMessage());
+			throw new BOOSTClientException(e1.getLocalizedMessage());
 		}
 		sequenceData.put(JSON2InputArgs.TEXT, sequences);
 		

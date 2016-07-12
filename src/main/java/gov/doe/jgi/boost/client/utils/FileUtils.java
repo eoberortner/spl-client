@@ -1,4 +1,4 @@
-package gov.doe.jgi.spl.client.utils;
+package gov.doe.jgi.boost.client.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
