@@ -62,7 +62,7 @@ public class BOOSTClient {
 		JSONObject jsonRequest = RequestBuilder.buildLogin(username, password);
 
 		// use POST to submit the request
-		Response response = RESTInvoker.doPost(
+		Response response = RESTInvoker.sendPost(
 				BOOSTResources.LOGIN_RESOURCE, jsonRequest, this.token);
 		
 		// handle the response
@@ -97,28 +97,63 @@ public class BOOSTClient {
 	}
 	
 	/**
+	 * The reverseTranslate method invokes BOOT's reverse-translate functionality.
+	 *  
+	 * @param filenameSequences  ... the name of the file that contains the input sequences
+	 * @param strategy ... the codon selection strategy 
+	 * @param filenameCodonUsageTable ... the name of the file that contains the codon usage table
+	 * @param outputFormat ... the desired output format
 	 * 
-	 * @param filenameSequences
-	 * @param type
-	 * @param bCodingSequences
-	 * @param strategy
-	 * @param filenameCodonUsageTable
+	 * @throws BOOSTClientException 
+	 * @throws IOException
 	 */
 	public void reverseTranslate(
-			final String filenameSequences, 
+			final String filenameSequences,
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
 				throws BOOSTClientException, IOException {
 		
+		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildReverseTranslate(
 				filenameSequences, strategy, filenameCodonUsageTable, outputFormat);
 		
-		Response response = 
-				RESTInvoker.doPost(BOOSTResources.REVERSE_TRANSLATE_RESOURCE, requestData, this.token);
+		// send the request
+		Response response = RESTInvoker.sendPost(
+				BOOSTResources.REVERSE_TRANSLATE_RESOURCE, requestData, this.token);
 
+		// process the response
 		System.out.println(response);
+	}
+	
+	/**
+	 * The codonJuggle method invokes BOOT's codon-juggling functionality.
+	 *  
+	 * @param filenameSequences  ... the name of the file that contains the input sequences
+	 * @param bAutoAnnotate ... true ... all sequences exclusively 5'-3' protein coding sequences (is only considered 
+	 * when the sequences don't have feature annotations, e.g. FASTA or CSV)
+	 * @param strategy ... the codon replacement strategy 
+	 * @param filenameCodonUsageTable ... the name of the file that contains the codon usage table
+	 * @param outputFormat ... the desired output format
+	 * 
+	 * @throws BOOSTClientException 
+	 * @throws IOException
+	 */
+	public void codonJuggle(
+			final String filenameSequences, boolean bAutoAnnotate, 
+			Strategy strategy, final String filenameCodonUsageTable,
+			final FileFormat outputFormat)
+				throws BOOSTClientException {
 		
-		//handleResponse(response);
+		// construct the request's JSON object 
+		JSONObject requestData = RequestBuilder.buildCodonJuggle(
+				filenameSequences, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
+		
+		// send the request
+		Response response = RESTInvoker.sendPost(
+				BOOSTResources.REVERSE_TRANSLATE_RESOURCE, requestData, this.token);
+
+		// process the response
+		System.out.println(response);
 	}
 	
 //	/**

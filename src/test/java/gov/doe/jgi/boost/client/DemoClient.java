@@ -78,15 +78,15 @@ public class DemoClient {
 				"./data/Ecoli.cudb", 		// codon usage table
 				FileFormat.GENBANK);		// output format
 		
-//		/*
-//		 * codon juggle
-//		 */
-//		client.codonJuggle(
-//				"./data/dna.fasta",			// input sequences 
-//				true,						// exclusively 5'-3' coding sequences 
-//				Strategy.MostlyUsed,		// codon selection strategy
-//				"./data/Ecoli.cudb", 		// codon usage table
-//				FileFormat.GENBANK);		// output format
+		/*
+		 * codon juggle
+		 */
+		client.codonJuggle(
+				"./data/dna.fasta",			// input sequences 
+				true,						// exclusively 5'-3' coding sequences 
+				Strategy.MostlyUsed,		// codon selection strategy
+				"./data/Ecoli.cudb", 		// codon usage table
+				FileFormat.GENBANK);		// output format
 
 //		/*
 //		 * verify
