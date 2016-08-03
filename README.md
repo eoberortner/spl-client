@@ -10,7 +10,7 @@ functionalities programmatically:
 
 The data exchanged between a client and the BOOST REST API is represented in JavaScript Object Notation (JSON). 
 After a successful login, every request from a client to the BOOST REST API requires a JSON Web Token (JWT) in 
-the message header ([https://jwt.io/](https://jwt.io/)).
+the message header ([https://jwt.io/](https://jwt.io/){target="_blank"}).
 
 We have developed a simple Java client that abstracts JSON data representation and the JWT-based authentication mechanism 
 by providing a method for each functionality of the BOOST REST API.
