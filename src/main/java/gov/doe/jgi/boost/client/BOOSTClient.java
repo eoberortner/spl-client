@@ -1,46 +1,50 @@
 package gov.doe.jgi.boost.client;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
 import gov.doe.jgi.boost.commons.FileFormat;
-import gov.doe.jgi.boost.commons.SequenceType;
 import gov.doe.jgi.boost.commons.Strategy;
-import gov.doe.jgi.boost.commons.Vendor;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 /**
+ * The BOOSTClient provides methods to invoke the BOOST REST API.
  * 
  * @author Ernst Oberortner
  */
 public class BOOSTClient {
 
-	private Client client;
 	private String token;
-	
-	// local dev
-//	private static final String SPL_REST_URL = "http://localhost:8080/spl-web/rest";
-	
-	private static final String SPL_REST_URL = "https://boost.jgi.doe.gov/rest/";
+
+	/**
+	 * Instantiation of the BOOST client using username and password.
+	 * 
+	 * @param username  ... the username
+	 * @param password  ... the password
+	 * 
+	 * @throws BOOSTClientException ... in case the username or password is invalid
+	 */
+	public BOOSTClient(final String username, final String password) 
+			throws BOOSTClientException {
+		
+		// try to login the user
+		this.login(username, password);
+	}
 	
 	/**
-	 * default no-args constructor 
+	 * Instantiation of the BOOST client using a JSON Web Token (JWT)
+	 * 
+	 * @param token ... the JWT
+	 * 
+	 * @throws BOOSTClientException ... in case the JWT is invalid
 	 */
-	public BOOSTClient() {
-		this.client = ClientBuilder.newClient();
-		this.token = null;
+	public BOOSTClient(final String token)
+			throws BOOSTClientException {
+		
+		this.token = token;
 	}
 
 	/**
@@ -51,27 +55,16 @@ public class BOOSTClient {
 	 * 
 	 * @throws BOOSTClientException
 	 */
-	public void login(final String username, final String password) 
+	private void login(final String username, final String password) 
 			throws BOOSTClientException {
 
-		// build the URL of the SPL REST authentication resource
-		WebTarget webTarget = client.target(SPL_REST_URL).path("auth").path("login");
-		Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
-		
-		// build the request data
-		JSONObject jsonRequest = new JSONObject();
-		jsonRequest.put("username", username);
-		jsonRequest.put("password", password);
+		// represent the username/password combo as JSON object
+		JSONObject jsonRequest = RequestBuilder.buildLogin(username, password);
 
 		// use POST to submit the request
-		Response response = null;
-		try {
-			response = invocationBuilder.post(
-					Entity.entity(jsonRequest.toString(), MediaType.APPLICATION_JSON));
-		} catch(Exception e) {
-			throw new BOOSTClientException(e.getLocalizedMessage());
-		}
-
+		Response response = RESTInvoker.doPost(
+				BOOSTResources.LOGIN_RESOURCE, jsonRequest, this.token);
+		
 		// handle the response
 		if(null != response) {
 
@@ -116,252 +109,223 @@ public class BOOSTClient {
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
 				throws BOOSTClientException, IOException {
-
+		
+		JSONObject requestData = RequestBuilder.buildReverseTranslate(
+				filenameSequences, strategy, filenameCodonUsageTable, outputFormat);
+		
 		Response response = 
-				this.invokeJuggler(filenameSequences, SequenceType.PROTEIN, true,
-						strategy, filenameCodonUsageTable, outputFormat);
+				RESTInvoker.doPost(BOOSTResources.REVERSE_TRANSLATE_RESOURCE, requestData, this.token);
 
-		handleResponse(response);
+		System.out.println(response);
+		
+		//handleResponse(response);
 	}
 	
-	/**
-	 * 
-	 * @param filenameSequences
-	 * @param strategy
-	 * @param filenameCodonUsageTable
-	 * @param outputFormat
-	 * @throws BOOSTClientException
-	 * @throws IOException
-	 */
-	public void codonJuggle(
-			final String filenameSequences, boolean bAutoAnnotate, 
-			Strategy strategy, final String filenameCodonUsageTable,
-			final FileFormat outputFormat)
-				throws BOOSTClientException, IOException {
+//	/**
+//	 * 
+//	 * @param filenameSequences
+//	 * @param strategy
+//	 * @param filenameCodonUsageTable
+//	 * @param outputFormat
+//	 * @throws BOOSTClientException
+//	 * @throws IOException
+//	 */
+//	public void codonJuggle(
+//			final String filenameSequences, boolean bAutoAnnotate, 
+//			Strategy strategy, final String filenameCodonUsageTable,
+//			final FileFormat outputFormat)
+//				throws BOOSTClientException, IOException {
+//
+//		Response response = 
+//				this.invokeJuggler(
+//						filenameSequences, SequenceType.DNA, bAutoAnnotate,
+//						strategy, filenameCodonUsageTable, 
+//						outputFormat);
+//		
+//		handleResponse(response);
+//	}
 
-		Response response = 
-				this.invokeJuggler(
-						filenameSequences, SequenceType.DNA, bAutoAnnotate,
-						strategy, filenameCodonUsageTable, 
-						outputFormat);
-		
-		handleResponse(response);
-	}
-	
-	/**
-	 * 
-	 * @param filenameSequences
-	 * @param type
-	 * @param strategy
-	 * @param filenameCodonUsageTable
-	 * @param outputFormat
-	 * @return
-	 * @throws BOOSTClientException
-	 * @throws IOException
-	 */
-	public Response invokeJuggler(
-			final String filenameSequences, SequenceType type, boolean bAutoAnnotate,
-			Strategy strategy, final String filenameCodonUsageTable,
-			final FileFormat outputFormat)
-					throws BOOSTClientException, IOException {
-		
-		JSONObject jsonRequestData = new JSONObject();
-		
-		// sequence information
-		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(filenameSequences, type, bAutoAnnotate));
-		
-		// modification information
-		jsonRequestData.put(JSON2InputArgs.MODIFICATION_INFORMATION,
-				RequestBuilder.buildModificationData(strategy, filenameCodonUsageTable));
-		
-		// output information
-		jsonRequestData.put(JSON2InputArgs.OUTPUT_INFORMATION, 
-				RequestBuilder.buildOutputData(outputFormat));
-		
-		return this.invoke("juggler/juggle", jsonRequestData);
-	}
-	
-	/**
-	 * 
-	 * @param response
-	 * @throws BOOSTClientException
-	 */
-	public void handleResponse(Response response) 
-			throws BOOSTClientException {
-		
-		switch(response.getStatus()) {
-		case 200:	// OK
-			JSONObject jsonResponseData = new JSONObject(response.readEntity(String.class));
-			
-			if(jsonResponseData.has(JSON2InputArgs.TEXT)) {
-				System.out.println(jsonResponseData.get(JSON2InputArgs.TEXT));
-			} else if(jsonResponseData.has(JSON2InputArgs.FILE)) {
-				System.out.println(jsonResponseData.get(JSON2InputArgs.TEXT));
-			}
-			
-			break;
-			
-		default:
-			throw new BOOSTClientException(response.getStatus() + ": " + response.getStatusInfo());
-		}
-	}
-	
-	/**
-	 * The verify() method verifies the sequences of a given file with the 
-	 * gene synthesis constraints of a given vendor.
-	 * 
-	 * @param sequencesFilename ... the name of the file that contains the sequences
-	 * @param type ... the type of sequences, i.e. DNA, RNA, Protein
-	 * @param vendor ... the vendor
-	 * 
-	 * @return a map, where each key represents a file and its corresponding 
-	 * value is a map, where each key represents a sequence id and its corresponding
-	 * value is a list of violations represented as String objects
-	 * 
-	 * @throws BOOSTClientException
-	 */
-	public Map<String, Map<String, List<String>>> verify(
-			final String sequencesFilename, SequenceType type, final Vendor vendor) 
-			throws BOOSTClientException {
-		
-		// check if the user did a login previously
-		if(null == token) {
-			throw new BOOSTClientException("You must authenticate first!");
-		}
-		
-		/*
-		 * build the request
-		 */
-		JSONObject jsonRequestData = new JSONObject();
-
-		// sequence information
-		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION, 
-				RequestBuilder.buildSequenceData(sequencesFilename, type, false));
-		
-		// constraints information
-		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
-				RequestBuilder.buildConstraintsData(vendor));
-		
-		try {
-			/*
-			 * invoke the verify resource
-			 */
-			Response response = this.invoke("polisher/verify", jsonRequestData);
-		
-			switch(response.getStatus()) {
-			case 200:	// OK
-				/*
-				 *  TODO: parse the response
-				 */  
-				return new HashMap<String, Map<String, List<String>>>();
-			default:
-				throw new BOOSTClientException(response.getEntity().toString());
-			}
-		} catch(Exception e) {
-			throw new BOOSTClientException(e.getLocalizedMessage());
-		}
-	}
-	
-	
-	/**
-	 * The polish() method verifies the sequences in a given file against the 
-	 * gene synthesis constraints of a commercial synthesis vendor. 
-	 * In case of violations, the polish() method modifies the coding regions 
-	 * of the sequence using the specified codon replacement strategy.
-	 *  
-	 * @param sequencesFilename ... the name of the file that contains the sequences
-	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
-	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
-	 * support sequence feature annotations and if bCoding sequences is set to true, 
-	 * then are all sequences are treated as coding sequences. If the sequences are 
-	 * encoded in a format that does support sequence feature annotations, then the 
-	 * bCodingSequences flag is ignored. 
-	 * @param vendor ... the name of commercial synthesis provider
-	 * @param strategy ... the codon replacement strategy
-	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
-	 * usage table
-	 * 
-	 * @throws BOOSTClientException
-	 */
-	public void polish(final String sequencesFilename, SequenceType type, boolean bCodingSequences,
-			Vendor vendor, Strategy strategy, final String codonUsageTableFilename) 
-				throws BOOSTClientException {
-		
-		// check if the user did a login previously
-		if(null == token) {
-			throw new BOOSTClientException("You must authenticate first!");
-		}
-		
-		/*
-		 * build the request
-		 */
-		JSONObject jsonRequestData = new JSONObject();
-
-		// sequence information
-		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION, 
-				RequestBuilder.buildSequenceData(sequencesFilename, type, bCodingSequences));
-		
-		// constraints information
-		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
-				RequestBuilder.buildConstraintsData(vendor));
-
-		/*
-		 * TODO: -- modification information
-		 */ 
-//		jsonRequest.put(JSON2InputArgs.MODIFICATION_INFORMATION, 
-//				RequestBuilder.buildModificationData(strategy, codonUsageTableFilename);
-		
-		/*
-		 * invoke the resource
-		 */
-		try {
-			/*
-			 * invoke the verify resource
-			 */
-			Response response = this.invoke("polisher/verify", jsonRequestData);
-		
-			switch(response.getStatus()) {
-			case 200:	// OK
-				/*
-				 *  TODO: parse the response
-				 */  
-				return;
-			default:
-				throw new BOOSTClientException(response.getEntity().toString());
-			}
-		} catch(Exception e) {
-			throw new BOOSTClientException(e.getLocalizedMessage());
-		}
-	}
-	
-	/**
-	 * 
-	 * @param resource
-	 * @param jsonRequestData
-	 * @return
-	 * @throws BOOSTClientException
-	 */
-	public Response invoke(final String resource, final JSONObject jsonRequestData) 
-			throws BOOSTClientException {
-		
-		WebTarget webTarget = client.target(SPL_REST_URL).path(resource);
-		
-		Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
-		invocationBuilder.header("authorization", this.token);
-		
-		try {
-			Response response = invocationBuilder.post(
-					Entity.entity(jsonRequestData.toString(), MediaType.APPLICATION_JSON));
-			
-			switch(response.getStatus()) {
-			case 200:	// OK
-				return response;
-			default:
-				throw new BOOSTClientException(response.getEntity().toString());
-			}
-		} catch(Exception e) {
-			throw new BOOSTClientException(e.getLocalizedMessage());
-		}
-	}
+//	/**
+//	 * 
+//	 * @param response
+//	 * @throws BOOSTClientException
+//	 */
+//	public void handleResponse(Response response) 
+//			throws BOOSTClientException {
+//		
+//		switch(response.getStatus()) {
+//		case 200:	// OK
+//			JSONObject jsonResponseData = new JSONObject(response.readEntity(String.class));
+//			
+//			if(jsonResponseData.has(JSON2InputArgs.TEXT)) {
+//				System.out.println(jsonResponseData.get(JSON2InputArgs.TEXT));
+//			} else if(jsonResponseData.has(JSON2InputArgs.FILE)) {
+//				System.out.println(jsonResponseData.get(JSON2InputArgs.TEXT));
+//			}
+//			
+//			break;
+//			
+//		default:
+//			throw new BOOSTClientException(response.getStatus() + ": " + response.getStatusInfo());
+//		}
+//	}
+//	
+//	/**
+//	 * The verify() method verifies the sequences of a given file with the 
+//	 * gene synthesis constraints of a given vendor.
+//	 * 
+//	 * @param sequencesFilename ... the name of the file that contains the sequences
+//	 * @param type ... the type of sequences, i.e. DNA, RNA, Protein
+//	 * @param vendor ... the vendor
+//	 * 
+//	 * @return a map, where each key represents a file and its corresponding 
+//	 * value is a map, where each key represents a sequence id and its corresponding
+//	 * value is a list of violations represented as String objects
+//	 * 
+//	 * @throws BOOSTClientException
+//	 */
+//	public Map<String, Map<String, List<String>>> verify(
+//			final String sequencesFilename, SequenceType type, final Vendor vendor) 
+//			throws BOOSTClientException {
+//		
+//		// check if the user did a login previously
+//		if(null == token) {
+//			throw new BOOSTClientException("You must authenticate first!");
+//		}
+//		
+//		/*
+//		 * build the request
+//		 */
+//		JSONObject jsonRequestData = new JSONObject();
+//
+//		// sequence information
+//		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION, 
+//				RequestBuilder.buildSequenceData(sequencesFilename, type, false));
+//		
+//		// constraints information
+//		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
+//				RequestBuilder.buildConstraintsData(vendor));
+//		
+//		try {
+//			/*
+//			 * invoke the verify resource
+//			 */
+//			Response response = this.invoke("polisher/verify", jsonRequestData);
+//		
+//			switch(response.getStatus()) {
+//			case 200:	// OK
+//				/*
+//				 *  TODO: parse the response
+//				 */  
+//				return new HashMap<String, Map<String, List<String>>>();
+//			default:
+//				throw new BOOSTClientException(response.getEntity().toString());
+//			}
+//		} catch(Exception e) {
+//			throw new BOOSTClientException(e.getLocalizedMessage());
+//		}
+//	}
+//	
+//	
+//	/**
+//	 * The polish() method verifies the sequences in a given file against the 
+//	 * gene synthesis constraints of a commercial synthesis vendor. 
+//	 * In case of violations, the polish() method modifies the coding regions 
+//	 * of the sequence using the specified codon replacement strategy.
+//	 *  
+//	 * @param sequencesFilename ... the name of the file that contains the sequences
+//	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
+//	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
+//	 * support sequence feature annotations and if bCoding sequences is set to true, 
+//	 * then are all sequences are treated as coding sequences. If the sequences are 
+//	 * encoded in a format that does support sequence feature annotations, then the 
+//	 * bCodingSequences flag is ignored. 
+//	 * @param vendor ... the name of commercial synthesis provider
+//	 * @param strategy ... the codon replacement strategy
+//	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
+//	 * usage table
+//	 * 
+//	 * @throws BOOSTClientException
+//	 */
+//	public void polish(final String sequencesFilename, SequenceType type, boolean bCodingSequences,
+//			Vendor vendor, Strategy strategy, final String codonUsageTableFilename) 
+//				throws BOOSTClientException {
+//		
+//		// check if the user did a login previously
+//		if(null == token) {
+//			throw new BOOSTClientException("You must authenticate first!");
+//		}
+//		
+//		/*
+//		 * build the request
+//		 */
+//		JSONObject jsonRequestData = new JSONObject();
+//
+//		// sequence information
+//		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION, 
+//				RequestBuilder.buildSequenceData(sequencesFilename, type, bCodingSequences));
+//		
+//		// constraints information
+//		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
+//				RequestBuilder.buildConstraintsData(vendor));
+//
+//		/*
+//		 * TODO: -- modification information
+//		 */ 
+////		jsonRequest.put(JSON2InputArgs.MODIFICATION_INFORMATION, 
+////				RequestBuilder.buildModificationData(strategy, codonUsageTableFilename);
+//		
+//		/*
+//		 * invoke the resource
+//		 */
+//		try {
+//			/*
+//			 * invoke the verify resource
+//			 */
+//			Response response = this.invoke("polisher/verify", jsonRequestData);
+//		
+//			switch(response.getStatus()) {
+//			case 200:	// OK
+//				/*
+//				 *  TODO: parse the response
+//				 */  
+//				return;
+//			default:
+//				throw new BOOSTClientException(response.getEntity().toString());
+//			}
+//		} catch(Exception e) {
+//			throw new BOOSTClientException(e.getLocalizedMessage());
+//		}
+//	}
+//	
+////	/**
+////	 * 
+////	 * @param resource
+////	 * @param jsonRequestData
+////	 * @return
+////	 * @throws BOOSTClientException
+////	 */
+////	public Response invoke(final String resource, final JSONObject jsonRequestData) 
+////			throws BOOSTClientException {
+////		
+////		WebTarget webTarget = client.target(SPL_REST_URL).path(resource);
+////		
+////		Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
+////		invocationBuilder.header("authorization", this.token);
+////		
+////		try {
+////			Response response = invocationBuilder.post(
+////					Entity.entity(jsonRequestData.toString(), MediaType.APPLICATION_JSON));
+////
+////			switch(response.getStatus()) {
+////			case 200:	// OK
+////				return response;
+////			default:
+////				throw new BOOSTClientException(response.getEntity().toString());
+////			}
+////		} catch(Exception e) {
+////			e.printStackTrace();
+////			throw new BOOSTClientException(e.getLocalizedMessage());
+////		}
+////	}
 }

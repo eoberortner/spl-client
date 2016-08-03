@@ -8,6 +8,12 @@ import java.util.Properties;
 import gov.doe.jgi.boost.commons.FileFormat;
 import gov.doe.jgi.boost.commons.Strategy;
 
+/**
+ * The DemoClient exemplifies how to invoke each functionality 
+ * of the BOOST REST API.  
+ *  
+ * @author Ernst Oberortner
+ */
 public class DemoClient {
 	
 	/**
@@ -53,17 +59,15 @@ public class DemoClient {
 	public static void main(String[] args) 
 			throws Exception {
 		
-		// instantiate the BOOST client
-		BOOSTClient client = new BOOSTClient();
-
 		/*
 		 * login
 		 */
 		Properties prop = loadUsernameAndPassword("login.properties");
 
-		client.login(
-				prop.getProperty("username").trim(), 
-				prop.getProperty("password").trim());
+		// instantiate the BOOST client
+		BOOSTClient client = new BOOSTClient(
+				prop.getProperty("username").trim(), prop.getProperty("password").trim());
+
 		
 		/*
 		 * reverse translate

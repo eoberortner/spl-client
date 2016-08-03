@@ -16,8 +16,12 @@ public class JSON2InputArgs {
 	public static final String CONSTRAINTS_INFORMATION = "constraints";
 	public static final String VENDOR_NAME = "vendor";
 	
+	public static final String MODIFIED_SEQUENCES_FILE = "modified-sequences-file";
+	public static final String MODIFIED_SEQUENCES_TEXT = "modified-sequences-text";
+	
+	// sequence information related keys
 	public static final String SEQUENCE_INFORMATION = "sequences";
-	public static final String SEQUENCE_TYPE = "sequences-types";
+	public static final String SEQUENCE_TYPE = "type";
 	public static final String AUTO_ANNOTATE = "auto-annotate";
 	
 	// pattern-related keys
@@ -29,6 +33,19 @@ public class JSON2InputArgs {
 	public static final String STRATEGY_CODON_USAGE_TABLE = "codon-usage-table";
 	public static final String STRATEGY_GENETIC_CODE = "genetic-code";
 
+	// partitioning-related keys
+	public static final String PARTITIONING_INFORMATION = "partitioning-parameters";
+	public static final String MIN_BB_LENGTH = "min-BB-length";
+	public static final String MAX_BB_LENGTH = "max-BB-length";
+	public static final String MIN_OVERLAP_GC = "min-overlap-GC";
+	public static final String OPT_OVERLAP_GC = "opt-overlap-GC";
+	public static final String MAX_OVERLAP_GC = "max-overlap-GC";
+	public static final String MIN_OVERLAP_LENGTH = "min-overlap-length";
+	public static final String OPT_OVERLAP_LENGTH = "opt-overlap-length";
+	public static final String MAX_OVERLAP_LENGTH = "max-overlap-length";
+	public static final String FIVE_PRIME_VECTOR_OVERLAP = "5-prime-vector-overlap";
+	public static final String THREE_PRIME_VECTOR_OVERLAP = "3-prime-vector-overlap";
+	
 	// output-related keys
 	public static final String OUTPUT_INFORMATION = "output";
 	public static final String OUTPUT_FORMAT = "format";
@@ -41,11 +58,10 @@ public class JSON2InputArgs {
 	public static final String SAVE_AS = "save-as";
 
 	// response
-	public static final String STATUS = "STATUS";
-	public static final String STATUS_ERROR = "ERROR";
-	public static final String STATUS_OK = "OK";
-	
-	
+	public static final String STATUS = "status";
+	public static final String STATUS_ERROR = "error";
+	public static final String STATUS_OK = "ok";
+
 	/*------------------------
 	 * KEY NAMES FOR RESPONSE
 	 *------------------------*/

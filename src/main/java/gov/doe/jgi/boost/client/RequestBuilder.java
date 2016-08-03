@@ -15,6 +15,51 @@ import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 public class RequestBuilder {
 
+	private static void verifyValue(final String value) 
+			throws BOOSTClientException {
+	
+		if(value == null) {
+			throw new BOOSTClientException("NULL");
+		}
+		if(value.isEmpty()) {
+			throw new BOOSTClientException("EMPTY");
+		}
+	}
+	
+	public static JSONObject buildLogin(final String username, final String password) 
+			throws BOOSTClientException {
+
+		verifyValue(username);
+		verifyValue(password);
+		
+		JSONObject loginData = new JSONObject();
+		
+		loginData.put("username", username);
+		loginData.put("password", password);
+		
+		return loginData;
+	}
+	
+	public static JSONObject buildReverseTranslate(
+			final String filenameSequences, Strategy strategy, final String filenameCodonUsageTable, final FileFormat outputFormat) 
+			throws BOOSTClientException, IOException {
+		
+		JSONObject reverseTranslateData = new JSONObject();
+		
+		// sequence information
+		reverseTranslateData.put(JSON2InputArgs.SEQUENCE_INFORMATION,  
+				RequestBuilder.buildSequenceData(filenameSequences, SequenceType.PROTEIN, true));
+		
+		// modification information
+		reverseTranslateData.put(JSON2InputArgs.MODIFICATION_INFORMATION,
+				RequestBuilder.buildModificationData(strategy, filenameCodonUsageTable));
+		
+		// output information
+		reverseTranslateData.put(JSON2InputArgs.OUTPUT_INFORMATION, 
+				RequestBuilder.buildOutputData(outputFormat));
+		
+		return reverseTranslateData;
+	}
 	/**
 	 * 
 	 * @param filename
