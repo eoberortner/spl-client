@@ -9,8 +9,7 @@ functionalities programmatically:
 - Partitioning of DNA sequences into synthesizable building blocks
 
 The data exchanged between a client and the BOOST REST API is represented in JavaScript Object Notation (JSON). 
-After a successful login, every request from a client to the BOOST REST API requires a JSON Web Token (JWT) in 
-the message header <a href="http://example.com/" target="_blank">example</a> [https://jwt.io/](https://jwt.io/){target="_blank"}).
+After a successful login, every request from a client to the BOOST REST API requires a <a href="https://jwt.io/" target="_blank">JSON Web Token (JWT)</a> in the message header.
 
 We have developed a simple Java client that abstracts JSON data representation and the JWT-based authentication mechanism 
 by providing a method for each functionality of the BOOST REST API.
