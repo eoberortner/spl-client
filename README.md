@@ -32,7 +32,7 @@ BOOSTClient client = new BOOSTClient("username", "password");
 
 ## Examples 
 
-An example of invoking every supported method is provided in the DemoClient 
+An example of invoking every supported method is provided in the [DemoClient](https://github.com/eoberortner/BOOST-REST-Client/blob/master/src/test/java/gov/doe/jgi/boost/client/DemoClient.java) 
 
 ## Questions, Feature Requests, or Bug-Report?
 
