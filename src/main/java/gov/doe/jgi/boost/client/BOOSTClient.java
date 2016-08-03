@@ -6,8 +6,10 @@ import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
-import gov.doe.jgi.boost.commons.FileFormat;
-import gov.doe.jgi.boost.commons.Strategy;
+import gov.doe.jgi.boost.client.constants.BOOSTResources;
+import gov.doe.jgi.boost.client.constants.JSONKeys;
+import gov.doe.jgi.boost.enums.FileFormat;
+import gov.doe.jgi.boost.enums.Strategy;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 /**
@@ -48,7 +50,7 @@ public class BOOSTClient {
 	}
 
 	/**
-	 * The login() method authenticates a SPL user with username and password.
+	 * The login() method authenticates a BOOST user with username and password.
 	 * 
 	 * @param username ... the username
 	 * @param password ... the password
@@ -90,8 +92,8 @@ public class BOOSTClient {
 	
 	private String parseToken(final String response) {
 		JSONObject jsonResponse = new JSONObject(response);
-		if(jsonResponse.has("token")) {
-			return jsonResponse.getString("token");
+		if(jsonResponse.has(JSONKeys.TOKEN)) {
+			return jsonResponse.getString(JSONKeys.TOKEN);
 		}
 		return null;
 	}
@@ -156,55 +158,7 @@ public class BOOSTClient {
 		System.out.println(response);
 	}
 	
-//	/**
-//	 * 
-//	 * @param filenameSequences
-//	 * @param strategy
-//	 * @param filenameCodonUsageTable
-//	 * @param outputFormat
-//	 * @throws BOOSTClientException
-//	 * @throws IOException
-//	 */
-//	public void codonJuggle(
-//			final String filenameSequences, boolean bAutoAnnotate, 
-//			Strategy strategy, final String filenameCodonUsageTable,
-//			final FileFormat outputFormat)
-//				throws BOOSTClientException, IOException {
-//
-//		Response response = 
-//				this.invokeJuggler(
-//						filenameSequences, SequenceType.DNA, bAutoAnnotate,
-//						strategy, filenameCodonUsageTable, 
-//						outputFormat);
-//		
-//		handleResponse(response);
-//	}
 
-//	/**
-//	 * 
-//	 * @param response
-//	 * @throws BOOSTClientException
-//	 */
-//	public void handleResponse(Response response) 
-//			throws BOOSTClientException {
-//		
-//		switch(response.getStatus()) {
-//		case 200:	// OK
-//			JSONObject jsonResponseData = new JSONObject(response.readEntity(String.class));
-//			
-//			if(jsonResponseData.has(JSON2InputArgs.TEXT)) {
-//				System.out.println(jsonResponseData.get(JSON2InputArgs.TEXT));
-//			} else if(jsonResponseData.has(JSON2InputArgs.FILE)) {
-//				System.out.println(jsonResponseData.get(JSON2InputArgs.TEXT));
-//			}
-//			
-//			break;
-//			
-//		default:
-//			throw new BOOSTClientException(response.getStatus() + ": " + response.getStatusInfo());
-//		}
-//	}
-//	
 //	/**
 //	 * The verify() method verifies the sequences of a given file with the 
 //	 * gene synthesis constraints of a given vendor.
@@ -332,35 +286,5 @@ public class BOOSTClient {
 //			throw new BOOSTClientException(e.getLocalizedMessage());
 //		}
 //	}
-//	
-////	/**
-////	 * 
-////	 * @param resource
-////	 * @param jsonRequestData
-////	 * @return
-////	 * @throws BOOSTClientException
-////	 */
-////	public Response invoke(final String resource, final JSONObject jsonRequestData) 
-////			throws BOOSTClientException {
-////		
-////		WebTarget webTarget = client.target(SPL_REST_URL).path(resource);
-////		
-////		Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
-////		invocationBuilder.header("authorization", this.token);
-////		
-////		try {
-////			Response response = invocationBuilder.post(
-////					Entity.entity(jsonRequestData.toString(), MediaType.APPLICATION_JSON));
-////
-////			switch(response.getStatus()) {
-////			case 200:	// OK
-////				return response;
-////			default:
-////				throw new BOOSTClientException(response.getEntity().toString());
-////			}
-////		} catch(Exception e) {
-////			e.printStackTrace();
-////			throw new BOOSTClientException(e.getLocalizedMessage());
-////		}
-////	}
+
 }

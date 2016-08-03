@@ -5,12 +5,14 @@ import java.io.IOException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import gov.doe.jgi.boost.client.constants.BOOSTConstants;
+import gov.doe.jgi.boost.client.constants.JSONKeys;
 import gov.doe.jgi.boost.client.utils.FileUtils;
-import gov.doe.jgi.boost.commons.FileFormat;
-import gov.doe.jgi.boost.commons.GeneticCode;
-import gov.doe.jgi.boost.commons.SequenceType;
-import gov.doe.jgi.boost.commons.Strategy;
-import gov.doe.jgi.boost.commons.Vendor;
+import gov.doe.jgi.boost.enums.FileFormat;
+import gov.doe.jgi.boost.enums.GeneticCode;
+import gov.doe.jgi.boost.enums.SequenceType;
+import gov.doe.jgi.boost.enums.Strategy;
+import gov.doe.jgi.boost.enums.Vendor;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 /**
@@ -75,15 +77,15 @@ public class RequestBuilder {
 		JSONObject reverseTranslateData = new JSONObject();
 		
 		// sequence information
-		reverseTranslateData.put(JSON2InputArgs.SEQUENCE_INFORMATION,  
+		reverseTranslateData.put(JSONKeys.SEQUENCE_INFORMATION,  
 				RequestBuilder.buildSequenceData(filenameSequences, SequenceType.PROTEIN, true));
 		
 		// modification information
-		reverseTranslateData.put(JSON2InputArgs.MODIFICATION_INFORMATION,
+		reverseTranslateData.put(JSONKeys.MODIFICATION_INFORMATION,
 				RequestBuilder.buildModificationData(strategy, filenameCodonUsageTable));
 		
 		// output information
-		reverseTranslateData.put(JSON2InputArgs.OUTPUT_INFORMATION, 
+		reverseTranslateData.put(JSONKeys.OUTPUT_INFORMATION, 
 				RequestBuilder.buildOutputData(outputFormat));
 		
 		return reverseTranslateData;
@@ -115,15 +117,15 @@ public class RequestBuilder {
 		JSONObject reverseTranslateData = new JSONObject();
 		
 		// sequence information
-		reverseTranslateData.put(JSON2InputArgs.SEQUENCE_INFORMATION,  
+		reverseTranslateData.put(JSONKeys.SEQUENCE_INFORMATION,  
 				RequestBuilder.buildSequenceData(filenameSequences, SequenceType.DNA, bAutoAnnotate));
 		
 		// modification information
-		reverseTranslateData.put(JSON2InputArgs.MODIFICATION_INFORMATION,
+		reverseTranslateData.put(JSONKeys.MODIFICATION_INFORMATION,
 				RequestBuilder.buildModificationData(strategy, filenameCodonUsageTable));
 		
 		// output information
-		reverseTranslateData.put(JSON2InputArgs.OUTPUT_INFORMATION, 
+		reverseTranslateData.put(JSONKeys.OUTPUT_INFORMATION, 
 				RequestBuilder.buildOutputData(outputFormat));
 		
 		return reverseTranslateData;
@@ -149,15 +151,15 @@ public class RequestBuilder {
 		} catch (IOException e1) {
 			throw new BOOSTClientException(e1.getLocalizedMessage());
 		}
-		sequenceData.put(JSON2InputArgs.TEXT, sequences);
+		sequenceData.put(JSONKeys.TEXT, sequences);
 		
 		// sequence type
 		JSONArray types = new JSONArray();
 		types.put(type);
-		sequenceData.put(JSON2InputArgs.SEQUENCE_TYPE, types);
+		sequenceData.put(JSONKeys.SEQUENCE_TYPE, types);
 		
 		// auto-annotate?
-		sequenceData.put(JSON2InputArgs.AUTO_ANNOTATE, bAutoAnnotate);
+		sequenceData.put(JSONKeys.AUTO_ANNOTATE, bAutoAnnotate);
 
 		return sequenceData;
 	}
@@ -173,22 +175,22 @@ public class RequestBuilder {
 		
 		JSONObject jsonData = new JSONObject();
 		
-		jsonData.put(JSON2InputArgs.STRATEGY_NAME, strategy);
+		jsonData.put(JSONKeys.STRATEGY_NAME, strategy);
 		
 		try {
-			jsonData.put(JSON2InputArgs.TEXT, FileUtils.readFile(filename));
+			jsonData.put(JSONKeys.TEXT, FileUtils.readFile(filename));
 		} catch(IOException ioe) {
 			throw new BOOSTClientException(ioe.getLocalizedMessage());
 		}
 		
-		jsonData.put(JSON2InputArgs.STRATEGY_GENETIC_CODE, GeneticCode.STANDARD);
+		jsonData.put(JSONKeys.STRATEGY_GENETIC_CODE, GeneticCode.STANDARD);
 		
 		return jsonData;
 	}
 	
 	public static JSONObject buildOutputData(final FileFormat format) {
 		JSONObject jsonData = new JSONObject();
-		jsonData.put(JSON2InputArgs.OUTPUT_FORMAT, format);
+		jsonData.put(JSONKeys.OUTPUT_FORMAT, format);
 		return jsonData;
 	}
 	

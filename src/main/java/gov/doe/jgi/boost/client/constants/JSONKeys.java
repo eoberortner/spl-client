@@ -1,4 +1,4 @@
-package gov.doe.jgi.boost.client;
+package gov.doe.jgi.boost.client.constants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,7 @@ import java.util.Map;
  * 
  * @author Ernst Oberortner
  */
-public class JSON2InputArgs {
+public class JSONKeys {
 
 	/*------------------------
 	 * KEY NAMES OF REQUESTS
@@ -61,6 +61,8 @@ public class JSON2InputArgs {
 	public static final String STATUS = "status";
 	public static final String STATUS_ERROR = "error";
 	public static final String STATUS_OK = "ok";
+	
+	public static final String TOKEN = "token";
 
 	/*------------------------
 	 * KEY NAMES FOR RESPONSE

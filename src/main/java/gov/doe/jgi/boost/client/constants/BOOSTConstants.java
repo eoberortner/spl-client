@@ -1,4 +1,4 @@
-package gov.doe.jgi.boost.client;
+package gov.doe.jgi.boost.client.constants;
 
 public class BOOSTConstants {
 

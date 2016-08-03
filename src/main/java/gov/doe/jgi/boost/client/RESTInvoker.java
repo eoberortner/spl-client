@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
+import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 /**

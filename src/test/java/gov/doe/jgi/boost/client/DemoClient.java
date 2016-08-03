@@ -5,8 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-import gov.doe.jgi.boost.commons.FileFormat;
-import gov.doe.jgi.boost.commons.Strategy;
+import gov.doe.jgi.boost.enums.FileFormat;
+import gov.doe.jgi.boost.enums.Strategy;
 
 /**
  * The DemoClient exemplifies how to invoke each functionality 
