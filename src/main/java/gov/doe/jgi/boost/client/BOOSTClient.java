@@ -129,7 +129,7 @@ public class BOOSTClient {
 	 * @throws BOOSTClientException 
 	 * @throws IOException
 	 */
-	public void codonJuggle(
+	public String codonJuggle(
 			final String filenameSequences, boolean bAutoAnnotate, 
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
@@ -143,8 +143,17 @@ public class BOOSTClient {
 		Response response = RESTInvoker.sendPost(
 				BOOSTResources.REVERSE_TRANSLATE_RESOURCE, requestData, this.token);
 
-		// process the response
-		System.out.println(response);
+		switch(response.getStatus()) {
+		case 200:
+			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
+			
+			if(jsonResponse.has(JSONKeys.TEXT)) {
+				return jsonResponse.getString(JSONKeys.TEXT);
+			}
+			
+		}
+		
+		return (String)null;
 	}
 	
 
