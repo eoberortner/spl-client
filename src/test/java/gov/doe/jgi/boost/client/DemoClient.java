@@ -1,10 +1,5 @@
 package gov.doe.jgi.boost.client;
 
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Properties;
-
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
 
@@ -16,43 +11,7 @@ import gov.doe.jgi.boost.enums.Strategy;
  */
 public class DemoClient {
 	
-	/**
-	 * The loadUsernameAndPassword() method loads the username 
-	 * and password from a local .properties file
-	 * 
-	 * @param filename ... the name of the .properties file
-	 * 
-	 * @return a Properties object containing all properties that 
-	 * are specified in the .properties file
-	 * 
-	 * @throws Exception ... if something went wrong while loading 
-	 * the properties, such as the file does not exist or the username 
-	 * and password keys don't exist
-	 */
-	public static Properties loadUsernameAndPassword(final String filename) 
-			throws Exception {
-		
-		// load the properties
-		Properties prop = new Properties();
-		try (
-			InputStream in = 
-				Files.newInputStream(Paths.get(filename));
-			) {
-			
-			prop.load(in);
-		}
-		
-		// check that username and password exist
-		if(!prop.containsKey("username")) {
-			throw new Exception("No username specified!");
-		}
-		if(!prop.containsKey("password")) {
-			throw new Exception("No password specified!");
-		}
-		
-		return prop;
-	}
-	
+
 	/*-------------
 	 * MAIN
 	 *-------------*/
@@ -62,11 +21,9 @@ public class DemoClient {
 		/*
 		 * login
 		 */
-		Properties prop = loadUsernameAndPassword("login.properties");
 
 		// instantiate the BOOST client
-		BOOSTClient client = new BOOSTClient(
-				prop.getProperty("username").trim(), prop.getProperty("password").trim());
+		BOOSTClient client = new BOOSTClient("<your-username>", "<your-password>");
 
 		
 		/*

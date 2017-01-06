@@ -62,7 +62,7 @@ public class JSONKeys {
 	public static final String STATUS_ERROR = "error";
 	public static final String STATUS_OK = "ok";
 	
-	public static final String TOKEN = "token";
+	public static final String TOKEN = "boost-jwt";
 
 	/*------------------------
 	 * KEY NAMES FOR RESPONSE

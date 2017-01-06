@@ -38,12 +38,12 @@ public class RequestBuilder {
 
 		ParameterValueVerifier.verifyValue(BOOSTConstants.USERNAME, username);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.PASSWORD, password);
-		
+
 		JSONObject loginData = new JSONObject();
 		
 		loginData.put("username", username);
 		loginData.put("password", password);
-		
+
 		return loginData;
 	}
 	

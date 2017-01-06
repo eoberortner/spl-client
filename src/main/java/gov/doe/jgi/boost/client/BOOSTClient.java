@@ -37,19 +37,6 @@ public class BOOSTClient {
 	}
 	
 	/**
-	 * Instantiation of the BOOST client using a JSON Web Token (JWT)
-	 * 
-	 * @param token ... the JWT
-	 * 
-	 * @throws BOOSTClientException ... in case the JWT is invalid
-	 */
-	public BOOSTClient(final String token)
-			throws BOOSTClientException {
-		
-		this.token = token;
-	}
-
-	/**
 	 * The login() method authenticates a BOOST user with username and password.
 	 * 
 	 * @param username ... the username
@@ -77,14 +64,16 @@ public class BOOSTClient {
 				
 				if(null == token) {
 					// the response does not have a token
-					throw new BOOSTClientException("Invalid username/password!");
+					throw new BOOSTClientException("Invalid username!");
 				} 
 				
 				return;
 			default:
 				// for every response code other then 200, 
 				// we throw an exception
-				throw new BOOSTClientException(response.getStatus() + ": " + response.getStatusInfo());
+				throw new BOOSTClientException(
+						response.getStatus() + ", " + response.getStatusInfo() + ": " + 
+						response.readEntity(String.class));
 			}
 		}
 

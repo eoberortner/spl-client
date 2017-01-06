@@ -10,7 +10,6 @@ import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
-import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 /**
@@ -23,9 +22,55 @@ import gov.doe.jgi.boost.exception.BOOSTClientException;
 public class RESTInvoker {
 
 	/**
+	 * 
+	 * @param resourceURL
+	 * @param jwt
+	 * @return
+	 * @throws BOOSTClientException
+	 */
+	public static Response sendGet(
+			final String resourceURL, final String jwt) 
+			throws BOOSTClientException {
+		
+		// build the URL of the BOOST REST authentication resource
+		Client client = ClientBuilder.newClient();
+		WebTarget webTarget = client.target(resourceURL);
+
+		// build up the message of the invocation
+		Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
+		if(null != jwt && !jwt.trim().isEmpty()) {
+			invocationBuilder.header("authorization", jwt.trim());
+		}
+
+		try {
+			// send the GET request
+			return invocationBuilder.get();
+		} catch(Exception e) {
+			throw new BOOSTClientException(e.getLocalizedMessage());
+		}
+	}
+
+	/**
 	 * The sendPost method sends a POST request to a given resource.
 	 * 
-	 * @param resource ... the resource
+	 * @param boostResource ... the BOOST resource that should be invoked
+	 * @param requestData ... the data of the request
+	 * 
+	 * @return the response of the resource
+	 * 
+	 * @throws BOOSTClientException ... if something went wrong during the 
+	 * API invocation
+	 */
+	public static Response sendPost(
+			final String boostResource, final JSONObject requestData) 
+			throws BOOSTClientException {
+		return sendPost(boostResource, requestData, null);
+	}
+	
+	/**
+	 * The sendPost method sends a POST request to a given resource.
+	 * 
+	 * @param boostResource ... the BOOST resource that should be invoked
 	 * @param requestData ... the data of the request
 	 * @param token ... the authorization token
 	 * 
@@ -35,16 +80,19 @@ public class RESTInvoker {
 	 * API invocation
 	 */
 	public static Response sendPost(
-			final String resource, final JSONObject requestData, final String token) 
+			final String resourceURL, final JSONObject requestData, final String token) 
 			throws BOOSTClientException {
 		
-		// build the URL of the SPL REST authentication resource
+		// build the URL of the BOOST REST authentication resource
 		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client.target(BOOSTResources.BOOST_REST_URL).path(resource);
+		WebTarget webTarget = client.target(resourceURL);
 
 		// build up the message of the invocation
 		Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
-		invocationBuilder.header("authorization", token);
+		if(null != token && !token.trim().isEmpty()) {
+			// set the cookie that contains the boost-jwt in the headers
+			invocationBuilder.cookie("boost-jwt", token.trim());
+		}
 
 		try {
 			// send the POST request
@@ -54,4 +102,6 @@ public class RESTInvoker {
 			throw new BOOSTClientException(e.getLocalizedMessage());
 		}
 	}
+	
+	
 }
