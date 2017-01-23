@@ -1,15 +1,18 @@
 package gov.doe.jgi.boost.client;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
+import gov.doe.jgi.boost.client.constants.BOOSTFunctions;
 import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.client.constants.JSONKeys;
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
+import gov.doe.jgi.boost.exception.BOOSTBackEndException;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 /**
@@ -19,10 +22,22 @@ import gov.doe.jgi.boost.exception.BOOSTClientException;
  */
 public class BOOSTClient {
 
+	// the JWT
 	private String token;
 
 	/**
-	 * Instantiation of the BOOST client using username and password.
+	 * Instantiation of the BOOST client using the user's JWT.
+	 *  
+	 * @param jwt ... the user's authentication token
+	 */
+	public BOOSTClient(final String jwt) {
+		this.token = jwt;
+	}
+	
+	/**
+	 * Instantiation of the BOOST client using username and password. The 
+	 * BOOST client automatically logs in to BOOST in order to receive 
+	 * the user's JWT.
 	 * 
 	 * @param username  ... the username
 	 * @param password  ... the password
@@ -33,7 +48,7 @@ public class BOOSTClient {
 			throws BOOSTClientException {
 		
 		// try to login the user
-		this.login(username, password);
+		this.token = login(username, password);
 	}
 	
 	/**
@@ -44,7 +59,7 @@ public class BOOSTClient {
 	 * 
 	 * @throws BOOSTClientException
 	 */
-	private void login(final String username, final String password) 
+	private static String login(final String username, final String password) 
 			throws BOOSTClientException {
 
 		// represent the username/password combo as JSON object
@@ -52,7 +67,9 @@ public class BOOSTClient {
 
 		// use POST to submit the request
 		Response response = RESTInvoker.sendPost(
-				BOOSTResources.LOGIN_RESOURCE, jsonRequest, this.token);
+				BOOSTResources.LOGIN_RESOURCE, jsonRequest);
+		
+		String token = null;
 		
 		// handle the response
 		if(null != response) {
@@ -60,14 +77,13 @@ public class BOOSTClient {
 			switch(response.getStatus()) {
 			case 200:	// OK
 				// the response must have a token (for an authenticated user)
-				this.token = this.parseToken(response.readEntity(String.class));
+				token = parseToken(response.readEntity(String.class));
 				
 				if(null == token) {
 					// the response does not have a token
 					throw new BOOSTClientException("Invalid username!");
-				} 
-				
-				return;
+				}
+				break;
 			default:
 				// for every response code other then 200, 
 				// we throw an exception
@@ -76,10 +92,11 @@ public class BOOSTClient {
 						response.readEntity(String.class));
 			}
 		}
-
+		
+		return token;
 	}
 	
-	private String parseToken(final String response) {
+	private static String parseToken(final String response) {
 		JSONObject jsonResponse = new JSONObject(response);
 		if(jsonResponse.has(JSONKeys.TOKEN)) {
 			return jsonResponse.getString(JSONKeys.TOKEN);
@@ -98,11 +115,11 @@ public class BOOSTClient {
 	 * @throws BOOSTClientException 
 	 * @throws IOException
 	 */
-	public void reverseTranslate(
+	public String reverseTranslate(
 			final String filenameSequences,
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
-				throws BOOSTClientException, IOException {
+					throws BOOSTClientException, BOOSTBackEndException, IOException {
 		
 		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildReverseTranslate(
@@ -113,11 +130,24 @@ public class BOOSTClient {
 				BOOSTResources.REVERSE_TRANSLATE_RESOURCE, requestData, this.token);
 
 		// process the response
-		System.out.println(response);
+		switch(response.getStatus()) {
+		case 200:
+			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
+			
+			if(jsonResponse.has(JSONKeys.TEXT)) {
+				return jsonResponse.getString(JSONKeys.TEXT);
+			}
+			
+			throw new BOOSTClientException("The server returned an unknown response!");
+		}
+		
+		throw new BOOSTBackEndException(
+				response.getStatus(),
+				response.readEntity(String.class));
 	}
 	
 	/**
-	 * The codonJuggle method invokes BOOT's codon-juggling functionality.
+	 * The codonJuggle method invokes BOOST's codon-juggling functionality.
 	 *  
 	 * @param filenameSequences  ... the name of the file that contains the input sequences
 	 * @param bAutoAnnotate ... true ... all sequences exclusively 5'-3' protein coding sequences (is only considered 
@@ -133,7 +163,7 @@ public class BOOSTClient {
 			final String filenameSequences, boolean bAutoAnnotate, 
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
-				throws BOOSTClientException {
+				throws BOOSTClientException, BOOSTBackEndException, IOException {
 		
 		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildCodonJuggle(
@@ -151,11 +181,98 @@ public class BOOSTClient {
 				return jsonResponse.getString(JSONKeys.TEXT);
 			}
 			
+			throw new BOOSTClientException("The server returned an unknown response!");
 		}
 		
-		return (String)null;
+		throw new BOOSTBackEndException(
+				response.getStatus(),
+				response.readEntity(String.class));
 	}
 	
+	/**
+	 * The verify method submits the provided data as 
+	 * @param filenameSequences
+	 * @param constraintsFilename
+	 * @param sequencePatternsFilename
+	 * @return
+	 * @throws BOOSTClientException
+	 */
+	public String verify(
+			final String filenameSequences, 
+			final String constraintsFilename, 
+			final String sequencePatternsFilename)
+				throws BOOSTClientException, BOOSTBackEndException, IOException {
+
+		// represent the request data in JSON and
+		// submit it to BOOST's Job Queue Management System (JQMS)
+		return submitJob(RequestBuilder.buildVerify(
+				filenameSequences, constraintsFilename, sequencePatternsFilename));
+	}
+
+	/**
+	 * The submitJob method submits a job to the BOOST back-end and returns 
+	 * the UUID (as String) of the submitted job. 
+	 * 
+	 * @param jsonRequest ... the JSON object to be sent to the BOOST back-end
+	 * 
+	 * @return the UUID of the submitted job
+	 * 
+	 * @throws BOOSTClientException
+	 */
+	public String submitJob(final JSONObject requestData) 
+			throws BOOSTClientException, BOOSTBackEndException {
+		
+		// send the request
+		Response response = RESTInvoker.sendPost(
+				BOOSTResources.SUBMIT_JOB_RESOURCE, requestData, this.token);
+
+		switch(response.getStatus()) {
+		case 200:
+			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
+			
+			if(jsonResponse.has(JSONKeys.JOB_UUID)) {
+				return jsonResponse.getString(JSONKeys.JOB_UUID);
+			}
+			
+			throw new BOOSTClientException("The server returned an unknown response!");
+		}
+		
+		throw new BOOSTBackEndException(
+				response.getStatus(),
+				response.readEntity(String.class));
+	}
+	
+	/**
+	 * 
+	 * @param jobUUID
+	 * @return
+	 * @throws BOOSTClientException
+	 * @throws BOOSTBackEndException
+	 */
+	public JSONObject getJobReport(final String jobUUID) 
+			throws BOOSTClientException, BOOSTBackEndException {
+	
+		// get the status of the job
+		Response response = RESTInvoker.sendGet(
+				BOOSTResources.GET_JOB_RESOURCE + "/" + jobUUID,  this.token);
+		
+		switch(response.getStatus()) {
+		case 200:
+			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
+
+			System.out.println(jsonResponse);
+			if(jsonResponse.has(JSONKeys.JOB_INFORMATION)) {
+				
+				JSONObject jsonJob = jsonResponse.getJSONObject(JSONKeys.JOB_INFORMATION);
+				
+				if(jsonJob.has(JSONKeys.JOB_REPORT)) {
+					return jsonJob.getJSONObject(JSONKeys.JOB_REPORT);
+				}
+			}
+		}
+		
+		return (JSONObject)null;
+	}
 
 //	/**
 //	 * The verify() method verifies the sequences of a given file with the 

@@ -1,0 +1,5 @@
+Length: 400-10000bp
+GlobalGC: 40-65%
+LocalGC: 15-80% 100bp
+Repeat: k=31
+Homopolymers: A<=9, G<=8, C<=8, T<=9

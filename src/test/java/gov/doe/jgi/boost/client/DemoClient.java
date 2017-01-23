@@ -1,5 +1,11 @@
 package gov.doe.jgi.boost.client;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import org.json.JSONObject;
+
+import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
 
@@ -18,13 +24,17 @@ public class DemoClient {
 	public static void main(String[] args) 
 			throws Exception {
 		
+		BOOSTResources.BOOST_REST_URL = "https://boost.jgi.doe.gov/rest";
+
 		/*
 		 * login
 		 */
 
 		// instantiate the BOOST client
-		BOOSTClient client = new BOOSTClient("<your-username>", "<your-password>");
-
+		// -- alternative 1: provide your BOOST JWT
+		BOOSTClient client = new BOOSTClient("<your-boost-jwt>");
+		// -- alternative 2: provider you BOOST username and password
+//		BOOSTClient client = new BOOSTClient("<your-username>", "<your-password>");
 		
 		/*
 		 * reverse translate
@@ -45,24 +55,39 @@ public class DemoClient {
 				"./data/Ecoli.cudb", 		// codon usage table
 				FileFormat.GENBANK);		// output format
 
-//		/*
-//		 * verify
-//		 */
-//		client.verify("./data/dna.fasta", SequenceType.DNA, Vendor.LIFE_TECHNOLOGIES);
-//		
-//		/*
-//		 * polish (verify + modify)
-//		 */
-//		client.polish(
-//				"./data/dna.fasta",	// sequences 
-//				SequenceType.DNA, 				// sequence type
-//				true,							// all 5'-3' coding sequences 
-//				Vendor.LIFE_TECHNOLOGIES, 		// vendor
-//				Strategy.BALANCED_TO_RANDOM,
-//				"./data/Ecoli.cudb");
-		
 		/*
-		 * partition
+		 * verification against DNA synthesis constraints 
+		 * and sequence patterns
 		 */
+
+		// we store all submitted jobs in a hash-set
+		Set<String> jobUUIDs = new HashSet<String>();
+		
+		// submit the verification job
+		jobUUIDs.add(
+			client.verify(
+				"./data/dna.fasta",			// input sequences 
+				"./data/constraints.scl", 	// synthesis constraints
+				"./data/patterns.fasta"));	// sequence patterns
+		
+		
+		// for all jobs, we check their status
+		for(String jobUUID : jobUUIDs) {
+			
+			JSONObject jobReport = null;
+			while(null == (jobReport = client.getJobReport(jobUUID))) {
+				
+				// if the job isn't finished, then we wet some seconds
+				// and check again
+				System.out.println("Job " + jobUUID + " is not finished yet.");
+				
+				try {
+					Thread.sleep(5000);
+				} catch(Exception e) {}
+			}
+			
+			// output of the job report (which is a JSON object)
+			System.out.println(jobReport);
+		}
 	}
 }

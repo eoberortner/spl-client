@@ -24,12 +24,12 @@ public class RESTInvoker {
 	/**
 	 * 
 	 * @param resourceURL
-	 * @param jwt
+	 * @param token
 	 * @return
 	 * @throws BOOSTClientException
 	 */
 	public static Response sendGet(
-			final String resourceURL, final String jwt) 
+			final String resourceURL, final String token) 
 			throws BOOSTClientException {
 		
 		// build the URL of the BOOST REST authentication resource
@@ -38,8 +38,8 @@ public class RESTInvoker {
 
 		// build up the message of the invocation
 		Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
-		if(null != jwt && !jwt.trim().isEmpty()) {
-			invocationBuilder.header("authorization", jwt.trim());
+		if(null != token && !token.trim().isEmpty()) {
+			invocationBuilder.cookie("boost-jwt", token.trim());
 		}
 
 		try {

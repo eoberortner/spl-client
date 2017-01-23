@@ -13,8 +13,12 @@ public class JSONKeys {
 	 * KEY NAMES OF REQUESTS
 	 *------------------------*/
 
+	//--------------------------------------------------
+	// SYNTHESIS CONSTRAINTS
 	public static final String CONSTRAINTS_INFORMATION = "constraints";
 	public static final String VENDOR_NAME = "vendor";
+	public static final String CONSTRAINTS_TEXT = "text";
+	//--------------------------------------------------
 	
 	public static final String MODIFIED_SEQUENCES_FILE = "modified-sequences-file";
 	public static final String MODIFIED_SEQUENCES_TEXT = "modified-sequences-text";
@@ -57,6 +61,16 @@ public class JSONKeys {
 	public static final String TEXT = "text";
 	public static final String SAVE_AS = "save-as";
 
+	public static final String JOB_INFORMATION = "job";
+	public static final String JOB_USERDEFINED_ID = "job-userdefined-id";
+	public static final String JOB_BOOST_FUNCTION = "job-BOOST-function";
+	public static final String JOB_UUID = "job-uuid";
+	public static final String JOB_REPORT = "job-report";
+	
+
+	public static final String SEQUENCE_PATTERNS = "patterns";
+	public static final String SEQUENCE_PATTERNS_TEXT = "text";
+
 	// response
 	public static final String STATUS = "status";
 	public static final String STATUS_ERROR = "error";
@@ -81,6 +95,5 @@ public class JSONKeys {
 		
 		// auto annotations
 		polisherArgs.put("auto-annotate", "--auto-annotate");
-		
 	}
 }

@@ -1,11 +1,16 @@
 package gov.doe.jgi.boost.client;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.UUID;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import gov.doe.jgi.boost.client.constants.BOOSTConstants;
+import gov.doe.jgi.boost.client.constants.BOOSTFunctions;
 import gov.doe.jgi.boost.client.constants.JSONKeys;
 import gov.doe.jgi.boost.client.utils.FileUtils;
 import gov.doe.jgi.boost.enums.FileFormat;
@@ -130,7 +135,93 @@ public class RequestBuilder {
 		
 		return reverseTranslateData;
 	}
+
+	/**
+	 * 
+	 * @param filenameSequences
+	 * @param constraintsFilename ... the 
+	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns (optionally)
+	 * @return
+	 * @throws BOOSTClientException
+	 * @throws IOException
+	 */
+	public static JSONObject buildVerify(
+			final String filenameSequences, 
+			final String constraintsFilename,
+			final String sequencePatternsFilename)
+				throws BOOSTClientException, IOException {
+		
+		//---------------------------------
+		// verify the given values
+		ParameterValueVerifier.verifyFilename(JSONKeys.SEQUENCE_INFORMATION, filenameSequences);
+		ParameterValueVerifier.verifyFilename(JSONKeys.CONSTRAINTS_INFORMATION, constraintsFilename);
+		// the sequence patterns filename is optional
+		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()) {
+			ParameterValueVerifier.verifyFilename(JSONKeys.PATTERN_INFORMATION, sequencePatternsFilename);
+		}
+		//---------------------------------
+
+		JSONObject requestData = new JSONObject();
+		
+		//---------------------------------
+		// JOB INFORMATION
+		requestData.put(JSONKeys.JOB_INFORMATION, 
+				RequestBuilder.buildJobInformation(BOOSTFunctions.VERIFY));
+		//---------------------------------
+		
+
+		//---------------------------------
+		// SEQUENCES
+		requestData.put(JSONKeys.SEQUENCE_INFORMATION,  
+				RequestBuilder.buildSequenceData(filenameSequences, SequenceType.DNA, false));
+		//---------------------------------
+
+		//---------------------------------
+		// SEQUENCE PATTERNS
+		requestData.put(JSONKeys.PATTERN_INFORMATION,
+				RequestBuilder.buildSequencePatterns(sequencePatternsFilename));
+		//---------------------------------
+
+		//---------------------------------
+		// CONSTRAINTS
+		requestData.put(JSONKeys.CONSTRAINTS_INFORMATION,
+				RequestBuilder.buildConstraints(constraintsFilename));
+		//---------------------------------
+
+		
+		return requestData;
+	}
 	
+	/**
+	 * 
+	 * @param function
+	 * @return
+	 * @throws BOOSTClientException
+	 */
+	public static JSONObject buildJobInformation(BOOSTFunctions function) 
+			throws BOOSTClientException {
+		
+		return RequestBuilder.buildJobInformation(
+				UUID.randomUUID().toString(), function);
+	}
+	
+	/**
+	 * 
+	 * @param userdefinedJobId
+	 * @param function
+	 * @return
+	 * @throws BOOSTClientException
+	 */
+	public static JSONObject buildJobInformation(
+			final String userdefinedJobId, BOOSTFunctions function) 
+			throws BOOSTClientException {
+		
+		JSONObject jobInformation = new JSONObject();
+		jobInformation.put(JSONKeys.JOB_BOOST_FUNCTION, function.toString());
+		
+		return jobInformation;
+	}
+
 	/**
 	 * 
 	 * @param filename
@@ -162,6 +253,72 @@ public class RequestBuilder {
 		sequenceData.put(JSONKeys.AUTO_ANNOTATE, bAutoAnnotate);
 
 		return sequenceData;
+	}
+	
+	/**
+	 * 
+	 * @param filename
+	 * @return
+	 * @throws BOOSTClientException
+	 * @throws IOException
+	 */
+	public static JSONObject buildConstraints(final String constraints)
+			throws BOOSTClientException, IOException {
+		
+		if(null == constraints || constraints.isEmpty()) {
+			throw new BOOSTClientException("Invalid filename.");
+		}
+
+		JSONObject jsonConstraints = new JSONObject();
+
+		// check if it's a file
+		Path file = Paths.get(constraints);
+		if(Files.isDirectory(file)) {
+			throw new BOOSTClientException(constraints + " is a directory.");
+		}
+		if(Files.exists(file)) {
+			
+			String sConstraints = FileUtils.readFile(constraints);
+			jsonConstraints.put(JSONKeys.CONSTRAINTS_TEXT, sConstraints);
+		} else {
+			// maybe it's a vendor?
+			jsonConstraints.put(JSONKeys.VENDOR_NAME, constraints);
+		}
+		
+		return jsonConstraints;
+	}
+	
+	/**
+	 * 
+	 * @param filename
+	 * @return
+	 * @throws BOOSTClientException
+	 * @throws IOException
+	 */
+	public static JSONObject buildSequencePatterns(final String filename)
+			throws BOOSTClientException, IOException {
+		
+		if(null == filename || filename.isEmpty()) {
+			throw new BOOSTClientException("Invalid filename.");
+		}
+		
+		// check that the file exists and that it is not a directory
+		Path file = Paths.get(filename);
+		if(!Files.exists(file)) {
+			throw new BOOSTClientException("The file " + filename + " does not exist.");
+		}
+		if(Files.isDirectory(file)) {
+			throw new BOOSTClientException(filename + " is a directory.");
+		}
+
+		// create the JSON object
+		JSONObject sequencePatterns = new JSONObject();
+		
+		// read the file content and store it in the JSON object
+		String fileContent = FileUtils.readFile(filename);
+		sequencePatterns.put(JSONKeys.SEQUENCE_PATTERNS_TEXT, fileContent);
+		
+		return sequencePatterns;
 	}
 	
 	/**
