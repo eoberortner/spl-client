@@ -1,13 +1,11 @@
 package gov.doe.jgi.boost.client;
 
 import java.io.IOException;
-import java.util.UUID;
 
 import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
-import gov.doe.jgi.boost.client.constants.BOOSTFunctions;
 import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.client.constants.JSONKeys;
 import gov.doe.jgi.boost.enums.FileFormat;
@@ -67,7 +65,8 @@ public class BOOSTClient {
 
 		// use POST to submit the request
 		Response response = RESTInvoker.sendPost(
-				BOOSTResources.LOGIN_RESOURCE, jsonRequest);
+				BOOSTResources.BOOST_REST_URL + BOOSTResources.LOGIN_RESOURCE, 
+				jsonRequest);
 		
 		String token = null;
 		
@@ -124,10 +123,12 @@ public class BOOSTClient {
 		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildReverseTranslate(
 				filenameSequences, strategy, filenameCodonUsageTable, outputFormat);
-		
+
 		// send the request
 		Response response = RESTInvoker.sendPost(
-				BOOSTResources.REVERSE_TRANSLATE_RESOURCE, requestData, this.token);
+				BOOSTResources.BOOST_REST_URL + BOOSTResources.REVERSE_TRANSLATE_RESOURCE, 
+				requestData, 
+				this.token);
 
 		// process the response
 		switch(response.getStatus()) {
@@ -171,7 +172,9 @@ public class BOOSTClient {
 		
 		// send the request
 		Response response = RESTInvoker.sendPost(
-				BOOSTResources.REVERSE_TRANSLATE_RESOURCE, requestData, this.token);
+				BOOSTResources.BOOST_REST_URL + BOOSTResources.REVERSE_TRANSLATE_RESOURCE, 
+				requestData, 
+				this.token);
 
 		switch(response.getStatus()) {
 		case 200:
@@ -224,7 +227,9 @@ public class BOOSTClient {
 		
 		// send the request
 		Response response = RESTInvoker.sendPost(
-				BOOSTResources.SUBMIT_JOB_RESOURCE, requestData, this.token);
+				BOOSTResources.BOOST_REST_URL + BOOSTResources.SUBMIT_JOB_RESOURCE, 
+				requestData, 
+				this.token);
 
 		switch(response.getStatus()) {
 		case 200:
@@ -254,7 +259,8 @@ public class BOOSTClient {
 	
 		// get the status of the job
 		Response response = RESTInvoker.sendGet(
-				BOOSTResources.GET_JOB_RESOURCE + "/" + jobUUID,  this.token);
+				BOOSTResources.BOOST_REST_URL + BOOSTResources.GET_JOB_RESOURCE + "/" + jobUUID,  
+				this.token);
 		
 		switch(response.getStatus()) {
 		case 200:
