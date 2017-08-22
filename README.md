@@ -19,10 +19,18 @@ by providing a method for each functionality of the BOOST REST API.
 
 ### Instantiating the BOOST Client
  
-As first step, you have to instantiate the BOOSTClient class providing your BOOST username and password.
+As a first step, you have to instantiate the BOOSTClient class using one of the following alternatives:
+
+* providing your BOOST username and password.
 
 ```
-BOOSTClient client = new BOOSTClient("username", "password");
+BOOSTClient client = new BOOSTClient("your-username", "your-password");
+```
+
+* providing your BOOST JSON Web Token (JWT)
+
+```
+BOOSTClient client = new BOOSTClient("your-BOOST-JWT");
 ```
 
 ### Supported methods of the BOOST Client
@@ -31,22 +39,23 @@ BOOSTClient client = new BOOSTClient("username", "password");
 
 ```
 client.reverseTranslate(
-	"./protein_sequences.fasta",	// a FASTA file containing the input sequences 
-	Strategy.MostlyUsed, 			// the codon selection strategy
-	"./data/Ecoli.cudb", 			// the codon usage table of the target host
-	FileFormat.GENBANK);			// the desired output format
+	"./protein_sequences.fasta",    // a FASTA file containing the input sequences 
+	Strategy.MostlyUsed,            // the codon selection strategy
+	"./data/Ecoli.cudb",            // the codon usage table of the target host
+	FileFormat.GENBANK);            // the desired output format
 ```
 
-* reverseTranslate
+* codonJuggle
 
 ```
 client.codonJuggle(
-	"./dna_sequence.fasta",			// a FASTA file containing the input sequences 
-	true,							// are all sequences 5'-3' protein coding sequencese xclusively  
-	Strategy.MostlyUsed,			// the codon replacement strategy
-	"./data/Ecoli.cudb", 			// the codon usage table of the target host
-	FileFormat.GENBANK);			// the desired output format
+	"./dna_sequence.fasta",        // a FASTA file containing the input sequences 
+	true,                          // are all sequences 5'-3' protein coding sequencese exclusively  
+	Strategy.MostlyUsed,           // the codon replacement strategy
+	"./data/Ecoli.cudb",           // the codon usage table of the target host
+	FileFormat.GENBANK);           // the desired output format
 ```
+
 ## Examples 
 
 An example of invoking every supported method is provided in the [DemoClient](https://github.com/eoberortner/BOOST-REST-Client/blob/master/src/test/java/gov/doe/jgi/boost/client/DemoClient.java) 
