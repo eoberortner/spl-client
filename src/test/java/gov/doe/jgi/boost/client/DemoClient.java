@@ -33,29 +33,10 @@ public class DemoClient {
 
 		// instantiate the BOOST client
 		// -- alternative 1: provide your BOOST JWT
-//		BOOSTClient client = new BOOSTClient("<your-BOOST-JWT>");
+		BOOSTClient client = new BOOSTClient("<your-BOOST-JWT>");
 		// -- alternative 2: provider you BOOST username and password
-		BOOSTClient client = new BOOSTClient("<your-username>", "<your-password>");
+//		BOOSTClient client = new BOOSTClient("<your-username>", "<your-password>");
 		
-		/*
-		 * reverse translate
-		 */
-		client.reverseTranslate(
-				"./data/protein.fasta",		// input sequences 
-				Strategy.MostlyUsed, 		// codon selection strategy
-				"./data/Ecoli.cudb", 		// codon usage table
-				FileFormat.GENBANK);		// output format
-		
-		/*
-		 * codon juggle
-		 */
-		client.codonJuggle(
-				"./data/dna.fasta",			// input sequences 
-				true,						// exclusively 5'-3' coding sequences 
-				Strategy.MostlyUsed,		// codon selection strategy
-				"./data/Ecoli.cudb", 		// codon usage table
-				FileFormat.GENBANK);		// output format
-
 		/*
 		 * verification against DNA synthesis constraints 
 		 * and sequence patterns
@@ -64,7 +45,24 @@ public class DemoClient {
 		// we store all submitted jobs in a hash-set
 		Set<String> jobUUIDs = new HashSet<String>();
 		
-		// submit the verification job
+		// reverse translate
+		client.reverseTranslate(
+				"./data/protein.fasta",		// input sequences 
+				Strategy.MostlyUsed, 		// codon selection strategy
+				"./data/Ecoli.cudb", 		// codon usage table
+				FileFormat.GENBANK);		// output format
+		
+
+		// codon juggle
+		client.codonJuggle(
+				"./data/dna.fasta",			// input sequences 
+				true,						// exclusively 5'-3' coding sequences 
+				Strategy.MostlyUsed,		// codon selection strategy
+				"./data/Ecoli.cudb", 		// codon usage table
+				FileFormat.GENBANK);		// output format
+
+
+		// verify
 		jobUUIDs.add(
 			client.verify(
 				"./data/dna.fasta",			// input sequences 

@@ -124,27 +124,29 @@ public class BOOSTClient {
 		JSONObject requestData = RequestBuilder.buildReverseTranslate(
 				filenameSequences, strategy, filenameCodonUsageTable, outputFormat);
 
-		// send the request
-		Response response = RESTInvoker.sendPost(
-				BOOSTResources.BOOST_REST_URL + BOOSTResources.REVERSE_TRANSLATE_RESOURCE, 
-				requestData, 
-				this.token);
-
-		// process the response
-		switch(response.getStatus()) {
-		case 200:
-			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
-			
-			if(jsonResponse.has(JSONKeys.TEXT)) {
-				return jsonResponse.getString(JSONKeys.TEXT);
-			}
-			
-			throw new BOOSTClientException("The server returned an unknown response!");
-		}
+		return this.submitJob(requestData);
 		
-		throw new BOOSTBackEndException(
-				response.getStatus(),
-				response.readEntity(String.class));
+//		// send the request
+//		Response response = RESTInvoker.sendPost(
+//				BOOSTResources.BOOST_REST_URL + BOOSTResources.REVERSE_TRANSLATE_RESOURCE, 
+//				requestData, 
+//				this.token);
+//
+//		// process the response
+//		switch(response.getStatus()) {
+//		case 200:
+//			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
+//			
+//			if(jsonResponse.has(JSONKeys.TEXT)) {
+//				return jsonResponse.getString(JSONKeys.TEXT);
+//			}
+//			
+//			throw new BOOSTClientException("The server returned an unknown response!");
+//		}
+//		
+//		throw new BOOSTBackEndException(
+//				response.getStatus(),
+//				response.readEntity(String.class));
 	}
 	
 	/**
@@ -170,34 +172,41 @@ public class BOOSTClient {
 		JSONObject requestData = RequestBuilder.buildCodonJuggle(
 				filenameSequences, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
 		
-		// send the request
-		Response response = RESTInvoker.sendPost(
-				BOOSTResources.BOOST_REST_URL + BOOSTResources.REVERSE_TRANSLATE_RESOURCE, 
-				requestData, 
-				this.token);
-
-		switch(response.getStatus()) {
-		case 200:
-			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
-			
-			if(jsonResponse.has(JSONKeys.TEXT)) {
-				return jsonResponse.getString(JSONKeys.TEXT);
-			}
-			
-			throw new BOOSTClientException("The server returned an unknown response!");
-		}
 		
-		throw new BOOSTBackEndException(
-				response.getStatus(),
-				response.readEntity(String.class));
+		return this.submitJob(requestData);
+		
+//		// send the request
+//		Response response = RESTInvoker.sendPost(
+//				BOOSTResources.BOOST_REST_URL + BOOSTResources.REVERSE_TRANSLATE_RESOURCE, 
+//				requestData, 
+//				this.token);
+//
+//		switch(response.getStatus()) {
+//		case 200:
+//			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
+//			
+//			if(jsonResponse.has(JSONKeys.TEXT)) {
+//				return jsonResponse.getString(JSONKeys.TEXT);
+//			}
+//			
+//			throw new BOOSTClientException("The server returned an unknown response!");
+//		}
+//		
+//		throw new BOOSTBackEndException(
+//				response.getStatus(),
+//				response.readEntity(String.class));
 	}
 	
 	/**
-	 * The verify method submits the provided data as 
-	 * @param filenameSequences
-	 * @param constraintsFilename
-	 * @param sequencePatternsFilename
-	 * @return
+	 * The verify method submits a job to BOOST that verifies 
+	 * sequences against DNA synthesis constraints.
+	 * 
+	 * @param filenameSequences ... the name of the file that contains the sequences
+	 * @param constraintsFilename ... the name of the file that contains the DNA synthesis constraints
+	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns
+	 * 
+	 * @return the UUID of the submitted job
+	 * 
 	 * @throws BOOSTClientException
 	 */
 	public String verify(

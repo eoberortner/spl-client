@@ -80,7 +80,14 @@ public class RequestBuilder {
 
 		// build the JSON representation of the input values
 		JSONObject reverseTranslateData = new JSONObject();
-		
+
+		//---------------------------------
+		// JOB INFORMATION
+		reverseTranslateData.put(JSONKeys.JOB_INFORMATION, 
+				RequestBuilder.buildJobInformation(BOOSTFunctions.REVERSE_TRANSLATE));
+		//---------------------------------
+
+
 		// sequence information
 		reverseTranslateData.put(JSONKeys.SEQUENCE_INFORMATION,  
 				RequestBuilder.buildSequenceData(filenameSequences, SequenceType.PROTEIN, true));
@@ -120,7 +127,11 @@ public class RequestBuilder {
 		
 		// build the JSON representation of the input values
 		JSONObject reverseTranslateData = new JSONObject();
-		
+
+		// JOB INFORMATION
+		reverseTranslateData.put(JSONKeys.JOB_INFORMATION, 
+				RequestBuilder.buildJobInformation(BOOSTFunctions.CODON_JUGGLE));
+
 		// sequence information
 		reverseTranslateData.put(JSONKeys.SEQUENCE_INFORMATION,  
 				RequestBuilder.buildSequenceData(filenameSequences, SequenceType.DNA, bAutoAnnotate));

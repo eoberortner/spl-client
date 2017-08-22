@@ -92,6 +92,8 @@ public class RESTInvoker {
 		if(null != token && !token.trim().isEmpty()) {
 			// set the cookie that contains the boost-jwt in the headers
 			invocationBuilder.cookie("boost-jwt", token.trim());
+		} else {
+			invocationBuilder.cookie("boost-jwt", "");
 		}
 
 		try {
