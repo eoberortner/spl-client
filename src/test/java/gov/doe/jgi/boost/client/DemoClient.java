@@ -25,7 +25,6 @@ public class DemoClient {
 			throws Exception {
 		
 		BOOSTResources.BOOST_REST_URL = "https://boost.jgi.doe.gov/rest";
-//		BOOSTResources.BOOST_REST_URL = "http://localhost:8080/BOOST/rest";
 
 		/*
 		 * login
@@ -33,9 +32,9 @@ public class DemoClient {
 
 		// instantiate the BOOST client
 		// -- alternative 1: provide your BOOST JWT
-		BOOSTClient client = new BOOSTClient("<your-BOOST-JWT>");
+//		BOOSTClient client = new BOOSTClient("boost-jwt");
 		// -- alternative 2: provider you BOOST username and password
-//		BOOSTClient client = new BOOSTClient("<your-username>", "<your-password>");
+		BOOSTClient client = new BOOSTClient("username", "password");
 		
 		/*
 		 * verification against DNA synthesis constraints 

@@ -10,12 +10,12 @@ public class LoginExample {
 
 //	// LOCAL BOOST 
 //	private static final String BOOST_REST_URL = "http://localhost:8080/BOOST/rest";
-
-	// LOCAL DOCKER BOOST 
-	private static final String BOOST_REST_URL = "http://localhost:9090/BOOST/rest";
+//
+//	// LOCAL DOCKER BOOST 
+//	private static final String BOOST_REST_URL = "http://localhost:9090/BOOST/rest";
 	
-//	// JGI/NERSC BOOST
-//	private static final String BOOST_REST_URL = "https://boost.jgi.doe.gov/rest";
+	// JGI/NERSC BOOST
+	private static final String BOOST_REST_URL = "https://boost.jgi.doe.gov/rest";
 	
 	public static void main(String[] args) 
 			throws Exception {
