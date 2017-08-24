@@ -58,7 +58,8 @@ public class RequestBuilder {
 	 * 
 	 * @param filenameSequences ... a filename that contains the protein sequences
 	 * @param strategy ... the desired strategy for codon selection
-	 * @param filenameCodonUsageTable ... a filename that contains the codon usage of the target host
+	 * @param codonUsageTable ... either the name of a predefined host or a 
+	 *                            filename that contains the codon usage of the target host
 	 * @param outputFormat ... the desired format of the reverse-translated sequences
 	 * 
 	 * @return a JSONObject that represents the input values
@@ -68,14 +69,18 @@ public class RequestBuilder {
 	 */
 	public static JSONObject buildReverseTranslate(
 			final String filenameSequences, 
-			Strategy strategy, final String filenameCodonUsageTable, 
+			Strategy strategy, final String codonUsageTable, 
 			final FileFormat outputFormat) 
 					throws BOOSTClientException {
 		
 		// verify the values
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, filenameSequences);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.CODON_STRATEGY, strategy);
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, filenameCodonUsageTable);
+		try {
+			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
+		} catch(Exception e) {
+//			e.printStackTrace();
+		}
 		ParameterValueVerifier.verifyNull(BOOSTConstants.OUTPUT_FORMAT, outputFormat);
 
 		// build the JSON representation of the input values
@@ -94,7 +99,7 @@ public class RequestBuilder {
 		
 		// modification information
 		reverseTranslateData.put(JSONKeys.MODIFICATION_INFORMATION,
-				RequestBuilder.buildModificationData(strategy, filenameCodonUsageTable));
+				RequestBuilder.buildModificationData(strategy, codonUsageTable));
 		
 		// output information
 		reverseTranslateData.put(JSONKeys.OUTPUT_INFORMATION, 
@@ -108,21 +113,23 @@ public class RequestBuilder {
 	 * 
 	 * @param filenameSequences
 	 * @param strategy
-	 * @param filenameCodonUsageTable
+	 * @param codonUsageTable ... either predefined-host or a filename
 	 * @param outputFormat
 	 * @return
 	 * @throws BOOSTClientException
 	 */
 	public static JSONObject buildCodonJuggle(
 			final String filenameSequences, boolean bAutoAnnotate, 
-			Strategy strategy, final String filenameCodonUsageTable, 
+			Strategy strategy, final String codonUsageTable, 
 			final FileFormat outputFormat) 
 					throws BOOSTClientException {
 		
 		// verify the values
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, filenameSequences);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.CODON_STRATEGY, strategy);
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, filenameCodonUsageTable);
+		try {
+			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
+		} catch(Exception e) {}
 		ParameterValueVerifier.verifyNull(BOOSTConstants.OUTPUT_FORMAT, outputFormat);
 		
 		// build the JSON representation of the input values
@@ -138,7 +145,7 @@ public class RequestBuilder {
 		
 		// modification information
 		reverseTranslateData.put(JSONKeys.MODIFICATION_INFORMATION,
-				RequestBuilder.buildModificationData(strategy, filenameCodonUsageTable));
+				RequestBuilder.buildModificationData(strategy, codonUsageTable));
 		
 		// output information
 		reverseTranslateData.put(JSONKeys.OUTPUT_INFORMATION, 
@@ -348,7 +355,8 @@ public class RequestBuilder {
 		try {
 			jsonData.put(JSONKeys.TEXT, FileUtils.readFile(filename));
 		} catch(IOException ioe) {
-			throw new BOOSTClientException(ioe.getLocalizedMessage());
+			jsonData.put("host-name", filename);
+//			throw new BOOSTClientException(ioe.getLocalizedMessage());
 		}
 		
 		jsonData.put(JSONKeys.STRATEGY_GENETIC_CODE, GeneticCode.STANDARD);

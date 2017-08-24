@@ -124,6 +124,8 @@ public class BOOSTClient {
 		JSONObject requestData = RequestBuilder.buildReverseTranslate(
 				filenameSequences, strategy, filenameCodonUsageTable, outputFormat);
 
+		System.out.println(requestData.toString(4));
+		
 		return this.submitJob(requestData);
 		
 //		// send the request
@@ -254,6 +256,30 @@ public class BOOSTClient {
 		throw new BOOSTBackEndException(
 				response.getStatus(),
 				response.readEntity(String.class));
+	}
+	
+	/**
+	 * sends a GET request to the BOOST REST API in order 
+	 * to retrieve all predefined hosts (i.e., codon usage tables)
+	 * 
+	 * @return
+	 * @throws BOOSTClientException 
+	 */
+	public JSONObject getPredefinedHosts() 
+			throws BOOSTClientException {
+		
+		// get the status of the job
+		Response response = RESTInvoker.sendGet(
+				BOOSTResources.BOOST_REST_URL + BOOSTResources.GET_PREDEFINED_HOSTS_RESOURCE,  
+				this.token);
+		
+		switch(response.getStatus()) {
+		case 200:
+			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
+			return jsonResponse;
+		}
+		
+		return (JSONObject)null;
 	}
 	
 	/**

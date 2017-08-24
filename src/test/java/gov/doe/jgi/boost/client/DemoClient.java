@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.json.JSONObject;
+import org.slf4j.LoggerFactory;
 
 import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.enums.FileFormat;
@@ -17,7 +18,6 @@ import gov.doe.jgi.boost.enums.Strategy;
  */
 public class DemoClient {
 	
-
 	/*-------------
 	 * MAIN
 	 *-------------*/
@@ -29,46 +29,48 @@ public class DemoClient {
 		/*
 		 * login
 		 */
-
 		// instantiate the BOOST client
 		// -- alternative 1: provide your BOOST JWT
 //		BOOSTClient client = new BOOSTClient("boost-jwt");
 		// -- alternative 2: provider you BOOST username and password
 		BOOSTClient client = new BOOSTClient("username", "password");
 		
-		/*
-		 * verification against DNA synthesis constraints 
-		 * and sequence patterns
-		 */
-
+		// get the predefined hosts
+		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
+		System.out.println(jsonPredefinedHosts.toString(4));
+		
 		// we store all submitted jobs in a hash-set
 		Set<String> jobUUIDs = new HashSet<String>();
 		
 		// reverse translate
-		client.reverseTranslate(
+		String reverseTranslateJobUUID = client.reverseTranslate(
 				"./data/protein.fasta",		// input sequences 
 				Strategy.MostlyUsed, 		// codon selection strategy
-				"./data/Ecoli.cudb", 		// codon usage table
+				"Bacillus subtilis",		// predefined host
 				FileFormat.GENBANK);		// output format
-		
+		if(null != reverseTranslateJobUUID) {
+			jobUUIDs.add(reverseTranslateJobUUID);
+		}
 
 		// codon juggle
-		client.codonJuggle(
+		String codonJuggleJobUUID = client.codonJuggle(
 				"./data/dna.fasta",			// input sequences 
 				true,						// exclusively 5'-3' coding sequences 
 				Strategy.MostlyUsed,		// codon selection strategy
-				"./data/Ecoli.cudb", 		// codon usage table
+				"Saccharomyces cerevisiae", // predefined host
 				FileFormat.GENBANK);		// output format
+		if(null != codonJuggleJobUUID) {
+			jobUUIDs.add(codonJuggleJobUUID);
+		}
 
-
-		// verify
-		jobUUIDs.add(
-			client.verify(
-				"./data/dna.fasta",			// input sequences 
-				"./data/constraints.scl", 	// synthesis constraints
-				"./data/patterns.fasta"));	// sequence patterns
-		
-		
+//		// verify against DNA synthesis constraints and sequence patterns
+//		jobUUIDs.add(
+//			client.verify(
+//				"./data/dna.fasta",			// input sequences 
+//				"./data/constraints.scl", 	// synthesis constraints
+//				"./data/patterns.fasta"));	// sequence patterns
+//		
+//		
 		// for all jobs, we check their status
 		for(String jobUUID : jobUUIDs) {
 			

@@ -1,0 +1,14 @@
+{
+    "modifications": {
+        "host-name": "Bacillus subtilis",
+        "strategy": "MostlyUsed",
+        "genetic-code": "STANDARD"
+    },
+    "sequences": {
+        "text": ">ernst\nERNST\n>rnste\nRNSTE\n>nster\nNSTER\n>stern\nSTERN\n>terns\nTERNS\n",
+        "type": ["PROTEIN"],
+        "auto-annotate": true
+    },
+    "job": {"job-BOOST-function": "REVERSE_TRANSLATE"},
+    "output": {"format": "GENBANK"}
+}
