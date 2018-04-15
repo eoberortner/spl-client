@@ -95,12 +95,25 @@ public class BOOSTClient {
 		return token;
 	}
 	
+	/**
+	 * 
+	 * @param response
+	 * 
+	 * @return
+	 */
 	private static String parseToken(final String response) {
 		JSONObject jsonResponse = new JSONObject(response);
 		if(jsonResponse.has(JSONKeys.TOKEN)) {
 			return jsonResponse.getString(JSONKeys.TOKEN);
 		}
 		return null;
+	}
+	
+	/**
+	 * @return the user's token
+	 */
+	public String getToken() {
+		return this.token;
 	}
 	
 	/**
