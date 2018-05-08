@@ -31,9 +31,9 @@ public class DemoClient {
 		 */
 		// instantiate the BOOST client
 		// -- alternative 1: provide your BOOST JWT
-		BOOSTClient client = new BOOSTClient("put-your-BOOST-JWT-here");
+		BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
 		// -- alternative 2: provider you BOOST username and password
-//		BOOSTClient client = new BOOSTClient("username", "password");
+  	    //BOOSTClient client = new BOOSTClient(LoginCredentials.mUserName, LoginCredentials.mPassword);
 		
 		// get the predefined hosts
 		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
