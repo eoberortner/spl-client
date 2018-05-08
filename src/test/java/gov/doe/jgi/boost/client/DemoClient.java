@@ -63,14 +63,14 @@ public class DemoClient {
 			jobUUIDs.add(codonJuggleJobUUID);
 		}
 
-//		// verify against DNA synthesis constraints and sequence patterns
-//		jobUUIDs.add(
-//			client.verify(
-//				"./data/dna.fasta",			// input sequences 
-//				"./data/constraints.scl", 	// synthesis constraints
-//				"./data/patterns.fasta"));	// sequence patterns
-//		
-//		
+    	// verify against DNA synthesis constraints and sequence patterns
+		String dnaVarificationJobUUID = client.verify("./data/dna.fasta", // input sequence
+				"./data/constraints.scl", // synthesis constraints
+				"./data/patterns.fasta"); // sequence patterns
+		if (null != dnaVarificationJobUUID) {
+			jobUUIDs.add(dnaVarificationJobUUID);
+		}
+
 		// for all jobs, we check their status
 		for(String jobUUID : jobUUIDs) {
 			
