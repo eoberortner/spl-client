@@ -21,16 +21,16 @@ by providing a method for each functionality of the BOOST REST API.
  
 As a first step, you have to instantiate the BOOSTClient class using one of the following alternatives:
 
-* providing your BOOST username and password.
+* providing your BOOST username and password.You can provide these in LoginCredentials class.
 
 ```
-BOOSTClient client = new BOOSTClient("your-username", "your-password");
+BOOSTClient client = new BOOSTClient(LoginCredentials.mUserName, LoginCredentials.mPassword);
 ```
 
-* providing your BOOST JSON Web Token (JWT)
+* providing your BOOST JSON Web Token (JWT). You can provide your BOOST-JWT token in LoginCredentials class.
 
 ```
-BOOSTClient client = new BOOSTClient("your-BOOST-JWT");
+BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
 ```
 
 ### Supported methods of the BOOST Client
