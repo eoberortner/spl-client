@@ -31,9 +31,9 @@ public class DemoClient {
 		 */
 		// instantiate the BOOST client
 		// -- alternative 1: provide your BOOST JWT
-		BOOSTClient client = new BOOSTClient("put-your-BOOST-JWT-here");
+		BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
 		// -- alternative 2: provider you BOOST username and password
-//		BOOSTClient client = new BOOSTClient("username", "password");
+  	    //BOOSTClient client = new BOOSTClient(LoginCredentials.mUserName, LoginCredentials.mPassword);
 		
 		// get the predefined hosts
 		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
@@ -63,14 +63,14 @@ public class DemoClient {
 			jobUUIDs.add(codonJuggleJobUUID);
 		}
 
-//		// verify against DNA synthesis constraints and sequence patterns
-//		jobUUIDs.add(
-//			client.verify(
-//				"./data/dna.fasta",			// input sequences 
-//				"./data/constraints.scl", 	// synthesis constraints
-//				"./data/patterns.fasta"));	// sequence patterns
-//		
-//		
+    	// verify against DNA synthesis constraints and sequence patterns
+		String dnaVarificationJobUUID = client.verify("./data/dna.fasta", // input sequence
+				"./data/constraints.scl", // synthesis constraints
+				"./data/patterns.fasta"); // sequence patterns
+		if (null != dnaVarificationJobUUID) {
+			jobUUIDs.add(dnaVarificationJobUUID);
+		}
+
 		// for all jobs, we check their status
 		for(String jobUUID : jobUUIDs) {
 			
