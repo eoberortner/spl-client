@@ -44,29 +44,30 @@ public class DemoClient {
 		
 		// reverse translate
 		String reverseTranslateJobUUID = client.reverseTranslate(
-				"./data/protein.fasta",		// input sequences 
-				Strategy.MostlyUsed, 		// codon selection strategy
-				"Bacillus subtilis",		// predefined host
-				FileFormat.GENBANK);		// output format
+				"./data/protein.fasta",		    // input sequences 
+				Strategy.MostlyUsed, 		    // codon selection strategy
+				"Bacillus subtilis",		    // predefined host
+				FileFormat.GENBANK);		    // output format
 		if(null != reverseTranslateJobUUID) {
 			jobUUIDs.add(reverseTranslateJobUUID);
 		}
 
 		// codon juggle
 		String codonJuggleJobUUID = client.codonJuggle(
-				"./data/dna.fasta",			// input sequences 
-				true,						// exclusively 5'-3' coding sequences 
-				Strategy.MostlyUsed,		// codon selection strategy
-				"Saccharomyces cerevisiae", // predefined host
-				FileFormat.GENBANK);		// output format
+				"./data/dna.fasta",			  // input sequences 
+				true,						  // exclusively 5'-3' coding sequences 
+				Strategy.MostlyUsed,		  // codon selection strategy
+				"Saccharomyces cerevisiae",   // predefined host
+				FileFormat.GENBANK);		  // output format
 		if(null != codonJuggleJobUUID) {
 			jobUUIDs.add(codonJuggleJobUUID);
 		}
 
     	// verify against DNA synthesis constraints and sequence patterns
-		String dnaVarificationJobUUID = client.verify("./data/dna.fasta", // input sequence
-				"./data/constraints.scl", // synthesis constraints
-				"./data/patterns.fasta"); // sequence patterns
+		String dnaVarificationJobUUID = client.dnaVarification(
+				"./data/dna.fasta",           // input sequence
+				"./data/constraints.scl",     // synthesis constraints
+				"./data/patterns.fasta");     // sequence patterns
 		if (null != dnaVarificationJobUUID) {
 			jobUUIDs.add(dnaVarificationJobUUID);
 		}

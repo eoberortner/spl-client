@@ -224,7 +224,7 @@ public class BOOSTClient {
 	 * 
 	 * @throws BOOSTClientException
 	 */
-	public String verify(
+	public String dnaVarification(
 			final String filenameSequences, 
 			final String constraintsFilename, 
 			final String sequencePatternsFilename)
