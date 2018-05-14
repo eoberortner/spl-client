@@ -210,6 +210,74 @@ public class RequestBuilder {
 		return requestData;
 	}
 	
+	
+	/**
+	 *  
+	 * @param sequencesFilename ... the name of the file that contains the sequences
+	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
+	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
+	 * support sequence feature annotations and if bCoding sequences is set to true, 
+	 * then are all sequences are treated as coding sequences. If the sequences are 
+	 * encoded in a format that does support sequence feature annotations, then the 
+	 * bCodingSequences flag is ignored. 
+	 * @param vendor ... the name of commercial synthesis provider
+	 * @param strategy ... the codon replacement strategy
+	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
+	 * usage table
+	 * 
+	 * @throws BOOSTClientException
+	 */
+	public static JSONObject buildPolish(
+			final String sequencesFilename, 
+			boolean bCodingSequences,
+			Vendor vendor, 
+			Strategy strategy, 
+			final FileFormat outputFormat,
+			final String codonUsageTable) 
+				throws BOOSTClientException {
+		
+		//-------------------------------------
+		// verify the given values
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
+		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
+		try {
+			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
+		} catch(Exception e) {}
+		ParameterValueVerifier.verifyNull(BOOSTConstants.OUTPUT_FORMAT, outputFormat);
+		ParameterValueVerifier.verifyNull(BOOSTConstants.STRATEGY, strategy);
+		//----------------------------------------
+		
+		JSONObject modifiedData = new JSONObject();
+		
+		//-----------------------------------------
+		//JOB INFORMATION
+		modifiedData.put(JSONKeys.JOB_INFORMATION,
+				RequestBuilder.buildJobInformation(BOOSTFunctions.POLISH));
+		//-----------------------------------------
+		
+		// sequence information
+		modifiedData.put(JSONKeys.SEQUENCE_INFORMATION,
+				RequestBuilder.buildSequenceData(sequencesFilename, SequenceType.DNA, bCodingSequences ));
+		//-----------------------------------------
+		
+		// constraints
+		modifiedData.put(JSONKeys.VENDOR_NAME, vendor);
+		//------------------------------------------
+		
+		// modification information
+		modifiedData.put(JSONKeys.MODIFICATION_INFORMATION,
+				RequestBuilder.buildModificationData(strategy, codonUsageTable));
+		//-------------------------------------------
+		
+		// output information
+		modifiedData.put(JSONKeys.OUTPUT_INFORMATION, 
+				RequestBuilder.buildOutputData(outputFormat));
+		//-------------------------------------------------
+		
+		
+		return modifiedData;
+	}
+	
 	/**
 	 * 
 	 * @param function
