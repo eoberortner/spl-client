@@ -56,6 +56,15 @@ client.codonJuggle(
 	FileFormat.GENBANK);           // the desired output format
 ```
 
+* dnaVerification
+
+```
+client.dnaVarification(
+	"./data/dna.fasta",           // input sequence
+	"./data/constraints.scl",     // synthesis constraints
+	"./data/patterns.fasta");     // sequence patterns
+```
+	
 ## Examples 
 
 An example of invoking every supported method is provided in the [DemoClient](https://github.com/eoberortner/BOOST-REST-Client/blob/master/src/test/java/gov/doe/jgi/boost/client/DemoClient.java) 

@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
+import gov.doe.jgi.boost.enums.Vendor;
 
 /**
  * The DemoClient exemplifies how to invoke each functionality 
@@ -72,6 +73,19 @@ public class DemoClient {
 			jobUUIDs.add(dnaVarificationJobUUID);
 		}
 
+		// polish the given DNA
+		String polishDNAJobUUID = client.polish(
+				"./data/dna.fasta",           // input sequence
+				true,                         // encoding sequences support sequence feature annotations
+				Vendor.JGI,                   // vendor
+				Strategy.Balanced2Random,     // codon selection strategy
+				FileFormat.SBOL,              // output format
+				"Saccharomyces cerevisiae");  // // predefined host
+		if (null != polishDNAJobUUID) {
+			jobUUIDs.add(polishDNAJobUUID);
+		}
+		
+				
 		// for all jobs, we check their status
 		for(String jobUUID : jobUUIDs) {
 			
