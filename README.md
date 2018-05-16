@@ -60,11 +60,23 @@ client.codonJuggle(
 
 ```
 client.dnaVarification(
-	"./data/dna.fasta",           // input sequence
-	"./data/constraints.scl",     // synthesis constraints
+	"./data/dna.fasta",           // a FASTA file containing the input sequence
+	Vendor.GEN9                   // vendor
 	"./data/patterns.fasta");     // sequence patterns
 ```
 	
+* polish
+
+```
+client.polish(
+        "./data/dna.fasta",           // a FASTA file containing input sequence
+        true,                         // encoding sequences support sequence feature annotations
+        Vendor.JGI,                   // vendor
+        Strategy.Balanced2Random,     // codon selection strategy
+        FileFormat.SBOL,              // the desired output format
+        "Saccharomyces cerevisiae");  // predefined host
+ ```      
+       
 ## Examples 
 
 An example of invoking every supported method is provided in the [DemoClient](https://github.com/eoberortner/BOOST-REST-Client/blob/master/src/test/java/gov/doe/jgi/boost/client/DemoClient.java) 
