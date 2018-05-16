@@ -165,14 +165,14 @@ public class RequestBuilder {
 	 */
 	public static JSONObject buildVerify(
 			final String filenameSequences, 
-			final String constraintsFilename,
+			Vendor vendor,
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, IOException {
 		
 		//---------------------------------
 		// verify the given values
 		ParameterValueVerifier.verifyFilename(JSONKeys.SEQUENCE_INFORMATION, filenameSequences);
-		ParameterValueVerifier.verifyFilename(JSONKeys.CONSTRAINTS_INFORMATION, constraintsFilename);
+		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
 		// the sequence patterns filename is optional
 		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()) {
 			ParameterValueVerifier.verifyFilename(JSONKeys.PATTERN_INFORMATION, sequencePatternsFilename);
@@ -202,8 +202,7 @@ public class RequestBuilder {
 
 		//---------------------------------
 		// CONSTRAINTS
-		requestData.put(JSONKeys.CONSTRAINTS_INFORMATION,
-				RequestBuilder.buildConstraints(constraintsFilename));
+		requestData.put(JSONKeys.VENDOR_NAME, vendor);
 		//---------------------------------
 
 		
