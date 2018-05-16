@@ -67,7 +67,7 @@ public class DemoClient {
     	// verify against DNA synthesis constraints and sequence patterns
 		String dnaVarificationJobUUID = client.dnaVarification(
 				"./data/dna.fasta",           // input sequence
-				"./data/constraints.scl",     // synthesis constraints
+				Vendor.GEN9,                  // vendor
 				"./data/patterns.fasta");     // sequence patterns
 		if (null != dnaVarificationJobUUID) {
 			jobUUIDs.add(dnaVarificationJobUUID);

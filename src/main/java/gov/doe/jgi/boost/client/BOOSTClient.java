@@ -228,14 +228,14 @@ public class BOOSTClient {
 	 */
 	public String dnaVarification(
 			final String filenameSequences, 
-			final String constraintsFilename, 
+			Vendor vendor, 
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, BOOSTBackEndException, IOException {
 
 		// represent the request data in JSON and
 		// submit it to BOOST's Job Queue Management System (JQMS)
 		return submitJob(RequestBuilder.buildVerify(
-				filenameSequences, constraintsFilename, sequencePatternsFilename));
+				filenameSequences, vendor, sequencePatternsFilename));
 	}
 
 	/**
