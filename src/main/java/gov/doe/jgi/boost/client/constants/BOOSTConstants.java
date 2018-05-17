@@ -12,5 +12,19 @@ public class BOOSTConstants {
 	public static final String SEQUENCE_TYPE = "sequence_type";
 	public static final String VENDOR = "vendor";
 	public static final String STRATEGY = "strategy";
+	
+	// partitioning-related keys
+			public static final String PARTITIONING_INFORMATION = "partitioning-parameters";
+			public static final String MIN_BB_LENGTH = "min-BB-length";
+			public static final String MAX_BB_LENGTH = "max-BB-length";
+			public static final String MIN_OVERLAP_GC = "min-overlap-GC";
+			public static final String OPT_OVERLAP_GC = "opt-overlap-GC";
+			public static final String MAX_OVERLAP_GC = "max-overlap-GC";
+			public static final String MIN_OVERLAP_LENGTH = "min-overlap-length";
+			public static final String OPT_OVERLAP_LENGTH = "opt-overlap-length";
+			public static final String MAX_OVERLAP_LENGTH = "max-overlap-length";
+			public static final String FIVE_PRIME_VECTOR_OVERLAP = "5-prime-vector-overlap";
+			public static final String THREE_PRIME_VECTOR_OVERLAP = "3-prime-vector-overlap";
+			public static final String BATCH = "batch";
 			
 }

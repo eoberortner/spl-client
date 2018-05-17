@@ -85,6 +85,24 @@ public class DemoClient {
 			jobUUIDs.add(polishDNAJobUUID);
 		}
 		
+		// partitioning of DNA
+		String partitiongDNAJobUUID = client.partition(
+				"./data/dna.fasta",           // input sequence
+				"aaacccgggttt",               // 5-prime-vector-overlap
+				"tttgggcccaaa",               // 3-prime-vector-overlap
+				Integer.toString(15),         // min-BB-length
+				Integer.toString(3000),       // max-BB-length
+				Double.toString(4.0),         // minimum overlap GC
+				Double.toString(40.0),        // optimum overlap GC
+				Double.toString(62.0),        // maximum overlap GC
+				Integer.toString(5),          // minimum overlap length
+				Integer.toString(25),         // optimum overlap length
+				Integer.toString(30)          // maximum overlap length
+				);
+		if (null != partitiongDNAJobUUID) {
+			jobUUIDs.add(polishDNAJobUUID);
+		}
+		
 				
 		// for all jobs, we check their status
 		for(String jobUUID : jobUUIDs) {
