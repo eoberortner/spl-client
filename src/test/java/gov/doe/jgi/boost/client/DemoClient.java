@@ -10,6 +10,7 @@ import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
 import gov.doe.jgi.boost.enums.Vendor;
+import gov.doe.jgi.boost.ui.UserAuthentication;
 
 /**
  * The DemoClient exemplifies how to invoke each functionality 
@@ -35,6 +36,7 @@ public class DemoClient {
 		BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
 		// -- alternative 2: provider you BOOST username and password
   	    //BOOSTClient client = new BOOSTClient(LoginCredentials.mUserName, LoginCredentials.mPassword);
+		new UserAuthentication();
 		
 		// get the predefined hosts
 		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
