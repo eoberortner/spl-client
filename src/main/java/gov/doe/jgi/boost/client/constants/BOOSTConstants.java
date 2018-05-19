@@ -12,5 +12,8 @@ public class BOOSTConstants {
 	public static final String SEQUENCE_TYPE = "sequence_type";
 	public static final String VENDOR = "vendor";
 	public static final String STRATEGY = "strategy";
+	
+	// uri for signup
+	public static final String SIGNUP_URI = "https://contacts.jgi.doe.gov/registration/new";
 			
 }

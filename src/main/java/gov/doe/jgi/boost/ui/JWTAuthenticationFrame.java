@@ -13,7 +13,7 @@ public class JWTAuthenticationFrame {
 	 public JWTAuthenticationFrame(){
 			JFrame frame = new JFrame("JWTAuthentication");
 			frame.setSize(300, 150);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			placeComponents(frame);
 	        frame.setVisible(true);	
 		}
