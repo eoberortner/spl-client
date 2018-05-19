@@ -1,5 +1,8 @@
 package gov.doe.jgi.boost.ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,7 +11,12 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class JWTAuthenticationFrame {
+public class JWTAuthenticationFrame implements ActionListener{
+	
+	private JLabel jWTTokenText;
+    private JTextField tokenText;
+	private JButton submitButton;
+	private JButton cancelButton;
 	
 	 public JWTAuthenticationFrame(){
 			JFrame frame = new JFrame("JWTAuthentication");
@@ -18,7 +26,7 @@ public class JWTAuthenticationFrame {
 	        frame.setVisible(true);	
 		}
 	 
-	 private static void placeComponents(JFrame jFrame) {
+	 private void placeComponents(JFrame jFrame) {
 
 			GroupLayout layout = new GroupLayout(jFrame.getContentPane());
 		    jFrame.getContentPane().setLayout(layout);
@@ -26,10 +34,13 @@ public class JWTAuthenticationFrame {
 		    layout.setAutoCreateGaps(true);
 		    layout.setAutoCreateContainerGaps(true);
 
-			JLabel jWTTokenText = new JLabel("Please peovide your JWT Token:");
-		    JTextField tokenText = new JTextField(25);
-			JButton submitButton = new JButton("Submit");
-			JButton cancelButton = new JButton("Cancel");
+			jWTTokenText = new JLabel("Please peovide your JWT Token:");
+		    tokenText = new JTextField(25);
+			submitButton = new JButton("Submit");
+			cancelButton = new JButton("Cancel");
+			
+			submitButton.addActionListener(this);
+			cancelButton.addActionListener(this);
 			
 			layout.setHorizontalGroup(layout.createSequentialGroup()
 					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -56,4 +67,14 @@ public class JWTAuthenticationFrame {
 	        jFrame.setLocationRelativeTo(null);
 	        jFrame.setResizable(true);			
 	 }
+
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		 Object source = event.getSource();
+			if (source == submitButton) {
+				System.out.println("Submit button was clicked");
+			} else if (source == cancelButton) {
+				System.out.println("Cancel button was clicked");
+			} 	
+	}
 }
