@@ -12,7 +12,7 @@ public class LoginFrame {
 	 public LoginFrame(){
 		JFrame frame = new JFrame("Login to BOOST");
 		frame.setSize(300, 150);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		placeComponents(frame);
         frame.setVisible(true);	
 	}
