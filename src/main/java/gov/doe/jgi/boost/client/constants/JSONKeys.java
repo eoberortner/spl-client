@@ -49,6 +49,7 @@ public class JSONKeys {
 	public static final String MAX_OVERLAP_LENGTH = "max-overlap-length";
 	public static final String FIVE_PRIME_VECTOR_OVERLAP = "5-prime-vector-overlap";
 	public static final String THREE_PRIME_VECTOR_OVERLAP = "3-prime-vector-overlap";
+	public static final String BATCH = "batch";
 	
 	// output-related keys
 	public static final String OUTPUT_INFORMATION = "output";

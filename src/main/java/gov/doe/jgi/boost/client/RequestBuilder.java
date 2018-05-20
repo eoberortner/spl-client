@@ -278,6 +278,97 @@ public class RequestBuilder {
 	}
 	
 	/**
+	 * The buildPartation wraps all required information for  
+	 * BOOST's dna partition functionality into a JSON representation  
+	 * 
+	 * @return a JSONObject that represents the input values
+	 * 
+	 * @throws BOOSTClientException ... if any given value is NULL or any given String value is empty
+	 * */
+	
+	public static JSONObject buildPartation(
+			final String sequenceFileName,
+			final String fivePrimeVectorOverlap,
+			final String threePrimeVectorOverlap,
+			String minLengthBB,
+			String maxLengthBB,
+			String minOverlapGC,
+			String optOverlapGC,
+			String maxOverlapGC,
+			String minOverlapLength,
+			String optOverlapLength,
+			String maxOverlapLength)
+					throws BOOSTClientException{
+					
+		//verify the values
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequenceFileName);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.FIVE_PRIME_VECTOR_OVERLAP, fivePrimeVectorOverlap);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_BB_LENGTH, minLengthBB);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_BB_LENGTH, maxLengthBB);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_OVERLAP_GC, minOverlapGC);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.OPT_OVERLAP_GC, optOverlapGC);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_OVERLAP_GC, maxOverlapGC);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_OVERLAP_LENGTH, minOverlapGC);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.OPT_OVERLAP_LENGTH, optOverlapGC);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_OVERLAP_LENGTH, maxOverlapLength);
+		
+		//----------------------------------------------
+		
+		// build the JSON representation of the input values
+		JSONObject partationData = new JSONObject();
+				
+		//----------------------------------------------
+		
+		
+		// JOB INFORMATION
+		partationData.put(JSONKeys.JOB_INFORMATION, 
+				RequestBuilder.buildJobInformation(BOOSTFunctions.PARTITION));
+		//----------------------------------------------
+		
+
+		// sequence information
+		partationData.put(JSONKeys.SEQUENCE_INFORMATION,  
+				RequestBuilder.buildSequenceData(sequenceFileName, SequenceType.DNA, false));
+		
+		// partition information
+		partationData.put(JSONKeys.PARTITIONING_INFORMATION, 
+				RequestBuilder.buildPartitionData(sequenceFileName, fivePrimeVectorOverlap,
+						threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, 
+						maxOverlapGC, minOverlapLength, optOverlapLength, maxOverlapLength));
+	    
+		
+		return partationData;	
+		
+	}
+
+	private static JSONObject buildPartitionData(final String sequenceFileName,
+			final String fivePrimeVectorOverlap, final String threePrimeVectorOverlap,
+			String minLengthBB, String maxLengthBB, String minOverlapGC, String optOverlapGC,
+			String maxOverlapGC, String minOverlapLength, String optOverlapLength, String maxOverlapLength){
+		
+		JSONObject partationData = new JSONObject();
+		//JSONObject subPartationData = new JSONObject();
+		partationData.put(JSONKeys.FIVE_PRIME_VECTOR_OVERLAP, fivePrimeVectorOverlap);
+		partationData.put(JSONKeys.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
+		partationData.put(JSONKeys.MAX_BB_LENGTH, maxLengthBB);
+		partationData.put(JSONKeys.MIN_BB_LENGTH, minLengthBB);
+		partationData.put(JSONKeys.MAX_OVERLAP_GC, maxOverlapGC);
+		partationData.put(JSONKeys.BATCH, "");
+		partationData.put(JSONKeys.MIN_OVERLAP_GC, minOverlapGC);
+		partationData.put(JSONKeys.MAX_OVERLAP_LENGTH, maxOverlapLength);
+		partationData.put(JSONKeys.OPT_OVERLAP_GC, optOverlapGC);
+		partationData.put(JSONKeys.OPT_OVERLAP_LENGTH, optOverlapLength);
+		partationData.put(JSONKeys.MIN_OVERLAP_LENGTH, minOverlapLength);
+		
+		JSONObject partationParameters = new JSONObject();
+		partationParameters.put(JSONKeys.PARTITIONING_INFORMATION, partationData);
+		
+		return partationData;
+	}
+	
+	
+	/**
 	 * 
 	 * @param function
 	 * @return

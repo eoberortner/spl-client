@@ -239,6 +239,37 @@ public class BOOSTClient {
 	}
 
 	/**
+	 * The partition() method Partitioning of large DNA sequences into synthesizable
+	 * building blocks with partial overlaps for an efficient assembly.
+	 *  
+	 * @throws BOOSTClientException
+	 * @throws BOOSTBackEndException 
+	 */
+
+	public String partition(
+			String sequenceFileName, 
+			String fivePrimeVectorOverlap, 
+			String threePrimeVectorOverlap,
+			String minLengthBB, 
+			String maxLengthBB, 
+			String minOverlapGC, 
+			String optOverlapGC, 
+			String maxOverlapGC, 
+			String minOverlapLength, 
+			String optOverlapLength,
+			String maxOverlapLength) 
+					throws BOOSTClientException, BOOSTBackEndException {
+		
+		// construct the request's JSON object
+		JSONObject requestData = RequestBuilder.buildPartation(sequenceFileName, fivePrimeVectorOverlap,
+				threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC,
+				minOverlapLength, optOverlapLength, maxOverlapLength);
+		
+		return submitJob(requestData);
+	}
+	
+	
+	/**
 	 * The submitJob method submits a job to the BOOST back-end and returns 
 	 * the UUID (as String) of the submitted job. 
 	 * 
