@@ -165,14 +165,14 @@ public class RequestBuilder {
 	 */
 	public static JSONObject buildVerify(
 			final String filenameSequences, 
-			Vendor vendor,
+			final String constraintsFilename,
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, IOException {
 		
 		//---------------------------------
 		// verify the given values
 		ParameterValueVerifier.verifyFilename(JSONKeys.SEQUENCE_INFORMATION, filenameSequences);
-		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
+		ParameterValueVerifier.verifyFilename(JSONKeys.CONSTRAINTS_INFORMATION, constraintsFilename);
 		// the sequence patterns filename is optional
 		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()) {
 			ParameterValueVerifier.verifyFilename(JSONKeys.PATTERN_INFORMATION, sequencePatternsFilename);
@@ -202,171 +202,13 @@ public class RequestBuilder {
 
 		//---------------------------------
 		// CONSTRAINTS
-		requestData.put(JSONKeys.VENDOR_NAME, vendor);
+		requestData.put(JSONKeys.CONSTRAINTS_INFORMATION,
+				RequestBuilder.buildConstraints(constraintsFilename));
 		//---------------------------------
 
 		
 		return requestData;
 	}
-	
-	
-	/**
-	 *  
-	 * @param sequencesFilename ... the name of the file that contains the sequences
-	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
-	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
-	 * support sequence feature annotations and if bCoding sequences is set to true, 
-	 * then are all sequences are treated as coding sequences. If the sequences are 
-	 * encoded in a format that does support sequence feature annotations, then the 
-	 * bCodingSequences flag is ignored. 
-	 * @param vendor ... the name of commercial synthesis provider
-	 * @param strategy ... the codon replacement strategy
-	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
-	 * usage table
-	 * 
-	 * @throws BOOSTClientException
-	 */
-	public static JSONObject buildPolish(
-			final String sequencesFilename, 
-			boolean bCodingSequences,
-			Vendor vendor, 
-			Strategy strategy, 
-			final FileFormat outputFormat,
-			final String codonUsageTable) 
-				throws BOOSTClientException {
-		
-		//-------------------------------------
-		// verify the given values
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
-		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
-		try {
-			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
-		} catch(Exception e) {}
-		ParameterValueVerifier.verifyNull(BOOSTConstants.OUTPUT_FORMAT, outputFormat);
-		ParameterValueVerifier.verifyNull(BOOSTConstants.STRATEGY, strategy);
-		//----------------------------------------
-		
-		JSONObject modifiedData = new JSONObject();
-		
-		//-----------------------------------------
-		//JOB INFORMATION
-		modifiedData.put(JSONKeys.JOB_INFORMATION,
-				RequestBuilder.buildJobInformation(BOOSTFunctions.POLISH));
-		//-----------------------------------------
-		
-		// sequence information
-		modifiedData.put(JSONKeys.SEQUENCE_INFORMATION,
-				RequestBuilder.buildSequenceData(sequencesFilename, SequenceType.DNA, bCodingSequences ));
-		//-----------------------------------------
-		
-		// constraints
-		modifiedData.put(JSONKeys.VENDOR_NAME, vendor);
-		//------------------------------------------
-		
-		// modification information
-		modifiedData.put(JSONKeys.MODIFICATION_INFORMATION,
-				RequestBuilder.buildModificationData(strategy, codonUsageTable));
-		//-------------------------------------------
-		
-		// output information
-		modifiedData.put(JSONKeys.OUTPUT_INFORMATION, 
-				RequestBuilder.buildOutputData(outputFormat));
-		//-------------------------------------------------
-		
-		
-		return modifiedData;
-	}
-	
-	/**
-	 * The buildPartation wraps all required information for  
-	 * BOOST's dna partition functionality into a JSON representation  
-	 * 
-	 * @return a JSONObject that represents the input values
-	 * 
-	 * @throws BOOSTClientException ... if any given value is NULL or any given String value is empty
-	 * */
-	
-	public static JSONObject buildPartation(
-			final String sequenceFileName,
-			final String fivePrimeVectorOverlap,
-			final String threePrimeVectorOverlap,
-			String minLengthBB,
-			String maxLengthBB,
-			String minOverlapGC,
-			String optOverlapGC,
-			String maxOverlapGC,
-			String minOverlapLength,
-			String optOverlapLength,
-			String maxOverlapLength)
-					throws BOOSTClientException{
-					
-		//verify the values
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequenceFileName);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.FIVE_PRIME_VECTOR_OVERLAP, fivePrimeVectorOverlap);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_BB_LENGTH, minLengthBB);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_BB_LENGTH, maxLengthBB);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_OVERLAP_GC, minOverlapGC);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.OPT_OVERLAP_GC, optOverlapGC);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_OVERLAP_GC, maxOverlapGC);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_OVERLAP_LENGTH, minOverlapGC);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.OPT_OVERLAP_LENGTH, optOverlapGC);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_OVERLAP_LENGTH, maxOverlapLength);
-		
-		//----------------------------------------------
-		
-		// build the JSON representation of the input values
-		JSONObject partationData = new JSONObject();
-				
-		//----------------------------------------------
-		
-		
-		// JOB INFORMATION
-		partationData.put(JSONKeys.JOB_INFORMATION, 
-				RequestBuilder.buildJobInformation(BOOSTFunctions.PARTITION));
-		//----------------------------------------------
-		
-
-		// sequence information
-		partationData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(sequenceFileName, SequenceType.DNA, false));
-		
-		// partition information
-		partationData.put(JSONKeys.PARTITIONING_INFORMATION, 
-				RequestBuilder.buildPartitionData(sequenceFileName, fivePrimeVectorOverlap,
-						threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, 
-						maxOverlapGC, minOverlapLength, optOverlapLength, maxOverlapLength));
-	    
-		
-		return partationData;	
-		
-	}
-
-	private static JSONObject buildPartitionData(final String sequenceFileName,
-			final String fivePrimeVectorOverlap, final String threePrimeVectorOverlap,
-			String minLengthBB, String maxLengthBB, String minOverlapGC, String optOverlapGC,
-			String maxOverlapGC, String minOverlapLength, String optOverlapLength, String maxOverlapLength){
-		
-		JSONObject partationData = new JSONObject();
-		//JSONObject subPartationData = new JSONObject();
-		partationData.put(JSONKeys.FIVE_PRIME_VECTOR_OVERLAP, fivePrimeVectorOverlap);
-		partationData.put(JSONKeys.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
-		partationData.put(JSONKeys.MAX_BB_LENGTH, maxLengthBB);
-		partationData.put(JSONKeys.MIN_BB_LENGTH, minLengthBB);
-		partationData.put(JSONKeys.MAX_OVERLAP_GC, maxOverlapGC);
-		partationData.put(JSONKeys.BATCH, "");
-		partationData.put(JSONKeys.MIN_OVERLAP_GC, minOverlapGC);
-		partationData.put(JSONKeys.MAX_OVERLAP_LENGTH, maxOverlapLength);
-		partationData.put(JSONKeys.OPT_OVERLAP_GC, optOverlapGC);
-		partationData.put(JSONKeys.OPT_OVERLAP_LENGTH, optOverlapLength);
-		partationData.put(JSONKeys.MIN_OVERLAP_LENGTH, minOverlapLength);
-		
-		JSONObject partationParameters = new JSONObject();
-		partationParameters.put(JSONKeys.PARTITIONING_INFORMATION, partationData);
-		
-		return partationData;
-	}
-	
 	
 	/**
 	 * 
