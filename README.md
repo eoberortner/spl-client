@@ -21,16 +21,16 @@ by providing a method for each functionality of the BOOST REST API.
  
 As a first step, you have to instantiate the BOOSTClient class using one of the following alternatives:
 
-* providing your BOOST username and password.
+* providing your BOOST username and password.You can provide these in LoginCredentials class.
 
 ```
-BOOSTClient client = new BOOSTClient("your-username", "your-password");
+BOOSTClient client = new BOOSTClient(LoginCredentials.mUserName, LoginCredentials.mPassword);
 ```
 
-* providing your BOOST JSON Web Token (JWT)
+* providing your BOOST JSON Web Token (JWT). You can provide your BOOST-JWT token in LoginCredentials class.
 
 ```
-BOOSTClient client = new BOOSTClient("your-BOOST-JWT");
+BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
 ```
 
 ### Supported methods of the BOOST Client
@@ -56,6 +56,27 @@ client.codonJuggle(
 	FileFormat.GENBANK);           // the desired output format
 ```
 
+* dnaVerification
+
+```
+client.dnaVarification(
+	"./data/dna.fasta",           // a FASTA file containing the input sequence
+	Vendor.GEN9                   // vendor
+	"./data/patterns.fasta");     // sequence patterns
+```
+	
+* polish
+
+```
+client.polish(
+        "./data/dna.fasta",           // a FASTA file containing input sequence
+        true,                         // encoding sequences support sequence feature annotations
+        Vendor.JGI,                   // vendor
+        Strategy.Balanced2Random,     // codon selection strategy
+        FileFormat.SBOL,              // the desired output format
+        "Saccharomyces cerevisiae");  // predefined host
+ ```      
+       
 ## Examples 
 
 An example of invoking every supported method is provided in the [DemoClient](https://github.com/eoberortner/BOOST-REST-Client/blob/master/src/test/java/gov/doe/jgi/boost/client/DemoClient.java) 
