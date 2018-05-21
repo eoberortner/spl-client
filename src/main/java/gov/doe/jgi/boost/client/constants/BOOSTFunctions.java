@@ -8,7 +8,7 @@ public enum BOOSTFunctions {
 	
 	VERIFY,
 	
-	MODIFY,
+	POLISH,
 	
 	PARTITION
 }

@@ -9,7 +9,9 @@ import org.json.JSONObject;
 import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.client.constants.JSONKeys;
 import gov.doe.jgi.boost.enums.FileFormat;
+import gov.doe.jgi.boost.enums.SequenceType;
 import gov.doe.jgi.boost.enums.Strategy;
+import gov.doe.jgi.boost.enums.Vendor;
 import gov.doe.jgi.boost.exception.BOOSTBackEndException;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
@@ -224,18 +226,49 @@ public class BOOSTClient {
 	 * 
 	 * @throws BOOSTClientException
 	 */
-	public String verify(
+	public String dnaVarification(
 			final String filenameSequences, 
-			final String constraintsFilename, 
+			Vendor vendor, 
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, BOOSTBackEndException, IOException {
 
 		// represent the request data in JSON and
 		// submit it to BOOST's Job Queue Management System (JQMS)
 		return submitJob(RequestBuilder.buildVerify(
-				filenameSequences, constraintsFilename, sequencePatternsFilename));
+				filenameSequences, vendor, sequencePatternsFilename));
 	}
 
+	/**
+	 * The partition() method Partitioning of large DNA sequences into synthesizable
+	 * building blocks with partial overlaps for an efficient assembly.
+	 *  
+	 * @throws BOOSTClientException
+	 * @throws BOOSTBackEndException 
+	 */
+
+	public String partition(
+			String sequenceFileName, 
+			String fivePrimeVectorOverlap, 
+			String threePrimeVectorOverlap,
+			String minLengthBB, 
+			String maxLengthBB, 
+			String minOverlapGC, 
+			String optOverlapGC, 
+			String maxOverlapGC, 
+			String minOverlapLength, 
+			String optOverlapLength,
+			String maxOverlapLength) 
+					throws BOOSTClientException, BOOSTBackEndException {
+		
+		// construct the request's JSON object
+		JSONObject requestData = RequestBuilder.buildPartation(sequenceFileName, fivePrimeVectorOverlap,
+				threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC,
+				minOverlapLength, optOverlapLength, maxOverlapLength);
+		
+		return submitJob(requestData);
+	}
+	
+	
 	/**
 	 * The submitJob method submits a job to the BOOST back-end and returns 
 	 * the UUID (as String) of the submitted job. 
@@ -383,33 +416,48 @@ public class BOOSTClient {
 //			throw new BOOSTClientException(e.getLocalizedMessage());
 //		}
 //	}
-//	
-//	
-//	/**
-//	 * The polish() method verifies the sequences in a given file against the 
-//	 * gene synthesis constraints of a commercial synthesis vendor. 
-//	 * In case of violations, the polish() method modifies the coding regions 
-//	 * of the sequence using the specified codon replacement strategy.
-//	 *  
-//	 * @param sequencesFilename ... the name of the file that contains the sequences
-//	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
-//	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
-//	 * support sequence feature annotations and if bCoding sequences is set to true, 
-//	 * then are all sequences are treated as coding sequences. If the sequences are 
-//	 * encoded in a format that does support sequence feature annotations, then the 
-//	 * bCodingSequences flag is ignored. 
-//	 * @param vendor ... the name of commercial synthesis provider
-//	 * @param strategy ... the codon replacement strategy
-//	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
-//	 * usage table
-//	 * 
-//	 * @throws BOOSTClientException
-//	 */
-//	public void polish(final String sequencesFilename, SequenceType type, boolean bCodingSequences,
-//			Vendor vendor, Strategy strategy, final String codonUsageTableFilename) 
-//				throws BOOSTClientException {
-//		
-//		// check if the user did a login previously
+	
+	
+	/**
+	 * The polish() method verifies the sequences in a given file against the 
+	 * gene synthesis constraints of a commercial synthesis vendor. 
+	 * In case of violations, the polish() method modifies the coding regions 
+	 * of the sequence using the specified codon replacement strategy.
+	 *  
+	 * @param sequencesFilename ... the name of the file that contains the sequences
+	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
+	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
+	 * support sequence feature annotations and if bCoding sequences is set to true, 
+	 * then are all sequences are treated as coding sequences. If the sequences are 
+	 * encoded in a format that does support sequence feature annotations, then the 
+	 * bCodingSequences flag is ignored. 
+	 * @param vendor ... the name of commercial synthesis provider
+	 * @param strategy ... the codon replacement strategy
+	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
+	 * usage table
+	 * 
+	 * @throws BOOSTClientException
+	 * @throws BOOSTBackEndException 
+	 */
+	public String polish(
+			final String sequencesFilename, 
+			boolean bCodingSequences,
+			Vendor vendor, 
+			Strategy strategy, 
+			final FileFormat outputFormat,
+			final String codonUsageTable) 
+				throws BOOSTClientException, BOOSTBackEndException {
+		
+		// construct the request's JSON object
+		JSONObject requestData = RequestBuilder.buildPolish( sequencesFilename, 
+			bCodingSequences, vendor, strategy, outputFormat, codonUsageTable);
+				
+		 return submitJob(requestData);
+		
+	}
+	
+		
+		// check if the user did a login previously
 //		if(null == token) {
 //			throw new BOOSTClientException("You must authenticate first!");
 //		}
