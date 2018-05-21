@@ -10,6 +10,7 @@ import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
 import gov.doe.jgi.boost.enums.Vendor;
+import gov.doe.jgi.boost.ui.UserAuthentication;
 
 /**
  * The DemoClient exemplifies how to invoke each functionality 
@@ -35,6 +36,7 @@ public class DemoClient {
 		BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
 		// -- alternative 2: provider you BOOST username and password
   	    //BOOSTClient client = new BOOSTClient(LoginCredentials.mUserName, LoginCredentials.mPassword);
+		new UserAuthentication();
 		
 		// get the predefined hosts
 		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
@@ -82,6 +84,24 @@ public class DemoClient {
 				FileFormat.SBOL,              // output format
 				"Saccharomyces cerevisiae");  // // predefined host
 		if (null != polishDNAJobUUID) {
+			jobUUIDs.add(polishDNAJobUUID);
+		}
+		
+		// partitioning of DNA
+		String partitiongDNAJobUUID = client.partition(
+				"./data/dna.fasta",           // input sequence
+				"aaacccgggttt",               // 5-prime-vector-overlap
+				"tttgggcccaaa",               // 3-prime-vector-overlap
+				Integer.toString(15),         // min-BB-length
+				Integer.toString(3000),       // max-BB-length
+				Double.toString(4.0),         // minimum overlap GC
+				Double.toString(40.0),        // optimum overlap GC
+				Double.toString(62.0),        // maximum overlap GC
+				Integer.toString(5),          // minimum overlap length
+				Integer.toString(25),         // optimum overlap length
+				Integer.toString(30)          // maximum overlap length
+				);
+		if (null != partitiongDNAJobUUID) {
 			jobUUIDs.add(polishDNAJobUUID);
 		}
 		
