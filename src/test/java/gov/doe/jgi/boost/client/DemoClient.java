@@ -26,7 +26,6 @@ public class DemoClient {
 	public static void main(String[] args) 
 			throws Exception {
 		
-		BOOSTResources.BOOST_REST_URL = "https://boost.jgi.doe.gov/rest";
 
 		/*
 		 * login
@@ -36,7 +35,6 @@ public class DemoClient {
 		BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
 		// -- alternative 2: provider you BOOST username and password
   	    //BOOSTClient client = new BOOSTClient(LoginCredentials.mUserName, LoginCredentials.mPassword);
-		new UserAuthentication();
 		
 		// get the predefined hosts
 		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
@@ -87,7 +85,7 @@ public class DemoClient {
 			jobUUIDs.add(polishDNAJobUUID);
 		}
 		
-		// partitioning of DNA
+		/** // partitioning of DNA
 		String partitiongDNAJobUUID = client.partition(
 				"./data/dna.fasta",           // input sequence
 				"aaacccgggttt",               // 5-prime-vector-overlap
@@ -104,6 +102,7 @@ public class DemoClient {
 		if (null != partitiongDNAJobUUID) {
 			jobUUIDs.add(polishDNAJobUUID);
 		}
+		**/
 		
 				
 		// for all jobs, we check their status
