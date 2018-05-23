@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
+import gov.doe.jgi.boost.exception.BOOSTAPIsException;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 /**
@@ -30,7 +31,7 @@ public class RESTInvoker {
 	 */
 	public static Response sendGet(
 			final String resourceURL, final String token) 
-			throws BOOSTClientException {
+			throws BOOSTClientException, BOOSTAPIsException {
 		
 		// build the URL of the BOOST REST authentication resource
 		Client client = ClientBuilder.newClient();
@@ -63,7 +64,7 @@ public class RESTInvoker {
 	 */
 	public static Response sendPost(
 			final String boostResource, final JSONObject requestData) 
-			throws BOOSTClientException {
+			throws BOOSTClientException, BOOSTAPIsException {
 		return sendPost(boostResource, requestData, null);
 	}
 	
@@ -81,7 +82,7 @@ public class RESTInvoker {
 	 */
 	public static Response sendPost(
 			final String resourceURL, final JSONObject requestData, final String token) 
-			throws BOOSTClientException {
+			throws BOOSTClientException, BOOSTAPIsException {
 		
 		// build the URL of the BOOST REST authentication resource
 		Client client = ClientBuilder.newClient();
