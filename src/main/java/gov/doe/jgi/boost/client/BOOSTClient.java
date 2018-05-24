@@ -20,8 +20,9 @@ import gov.doe.jgi.boost.exception.BOOSTClientException;
  */
 public class BOOSTClient {
 
-	// the JWT
 	private String token;
+	
+	public BOOSTClient() {}
 
 	/**
 	 * Instantiation of the BOOST client using the user's JWT.

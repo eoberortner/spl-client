@@ -51,7 +51,9 @@ public class DemoClient {
 				FileFormat.GENBANK);		    // output format
 		if(null != reverseTranslateJobUUID) {
 			jobUUIDs.add(reverseTranslateJobUUID);
+			System.out.println("Data for Reverse Translation:" + reverseTranslateJobUUID );
 		}
+		
 
 		// codon juggle
 		String codonJuggleJobUUID = client.codonJuggle(
@@ -62,6 +64,7 @@ public class DemoClient {
 				FileFormat.GENBANK);		  // output format
 		if(null != codonJuggleJobUUID) {
 			jobUUIDs.add(codonJuggleJobUUID);
+			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID );
 		}
 
     	// verify against DNA synthesis constraints and sequence patterns
@@ -71,6 +74,7 @@ public class DemoClient {
 				"./data/patterns.fasta");     // sequence patterns
 		if (null != dnaVarificationJobUUID) {
 			jobUUIDs.add(dnaVarificationJobUUID);
+			System.out.println("Data for DNA Verification :" + dnaVarificationJobUUID);
 		}
 
 		// polish the given DNA
@@ -83,6 +87,7 @@ public class DemoClient {
 				"Saccharomyces cerevisiae");  // // predefined host
 		if (null != polishDNAJobUUID) {
 			jobUUIDs.add(polishDNAJobUUID);
+			System.out.println("Data for DNA Polish :" + polishDNAJobUUID);
 		}
 		
 		/** // partitioning of DNA
