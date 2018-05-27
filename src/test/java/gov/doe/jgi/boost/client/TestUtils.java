@@ -14,5 +14,4 @@ public class TestUtils {
 		final JsonNode actualNode = mapper.readTree(actualObject.toString());
 		assertEquals(expectedNode, actualNode);
 	}
-
 }
