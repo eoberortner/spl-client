@@ -149,28 +149,7 @@ public class BOOSTClient {
 		System.out.println(requestData.toString(4));
 		
 		return this.submitJob(requestData);
-		
-//		// send the request
-//		Response response = RESTInvoker.sendPost(
-//				BOOSTResources.BOOST_REST_URL + BOOSTResources.REVERSE_TRANSLATE_RESOURCE, 
-//				requestData, 
-//				this.token);
-//
-//		// process the response
-//		switch(response.getStatus()) {
-//		case 200:
-//			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
-//			
-//			if(jsonResponse.has(JSONKeys.TEXT)) {
-//				return jsonResponse.getString(JSONKeys.TEXT);
-//			}
-//			
-//			throw new BOOSTClientException("The server returned an unknown response!");
-//		}
-//		
-//		throw new BOOSTBackEndException(
-//				response.getStatus(),
-//				response.readEntity(String.class));
+
 	}
 	
 	/**
@@ -197,29 +176,7 @@ public class BOOSTClient {
 		JSONObject requestData = RequestBuilder.buildCodonJuggle(
 				filenameSequences, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
 		
-		
 		return this.submitJob(requestData);
-		
-//		// send the request
-//		Response response = RESTInvoker.sendPost(
-//				BOOSTResources.BOOST_REST_URL + BOOSTResources.REVERSE_TRANSLATE_RESOURCE, 
-//				requestData, 
-//				this.token);
-//
-//		switch(response.getStatus()) {
-//		case 200:
-//			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
-//			
-//			if(jsonResponse.has(JSONKeys.TEXT)) {
-//				return jsonResponse.getString(JSONKeys.TEXT);
-//			}
-//			
-//			throw new BOOSTClientException("The server returned an unknown response!");
-//		}
-//		
-//		throw new BOOSTBackEndException(
-//				response.getStatus(),
-//				response.readEntity(String.class));
 	}
 	
 	/**
@@ -384,62 +341,6 @@ public class BOOSTClient {
 
 		return (JSONObject) null;
 	}
-
-//	/**
-//	 * The verify() method verifies the sequences of a given file with the 
-//	 * gene synthesis constraints of a given vendor.
-//	 * 
-//	 * @param sequencesFilename ... the name of the file that contains the sequences
-//	 * @param type ... the type of sequences, i.e. DNA, RNA, Protein
-//	 * @param vendor ... the vendor
-//	 * 
-//	 * @return a map, where each key represents a file and its corresponding 
-//	 * value is a map, where each key represents a sequence id and its corresponding
-//	 * value is a list of violations represented as String objects
-//	 * 
-//	 * @throws BOOSTClientException
-//	 */
-//	public Map<String, Map<String, List<String>>> verify(
-//			final String sequencesFilename, SequenceType type, final Vendor vendor) 
-//			throws BOOSTClientException {
-//		
-//		// check if the user did a login previously
-//		if(null == token) {
-//			throw new BOOSTClientException("You must authenticate first!");
-//		}
-//		
-//		/*
-//		 * build the request
-//		 */
-//		JSONObject jsonRequestData = new JSONObject();
-//
-//		// sequence information
-//		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION, 
-//				RequestBuilder.buildSequenceData(sequencesFilename, type, false));
-//		
-//		// constraints information
-//		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
-//				RequestBuilder.buildConstraintsData(vendor));
-//		
-//		try {
-//			/*
-//			 * invoke the verify resource
-//			 */
-//			Response response = this.invoke("polisher/verify", jsonRequestData);
-//		
-//			switch(response.getStatus()) {
-//			case 200:	// OK
-//				/*
-//				 *  TODO: parse the response
-//				 */  
-//				return new HashMap<String, Map<String, List<String>>>();
-//			default:
-//				throw new BOOSTClientException(response.getEntity().toString());
-//			}
-//		} catch(Exception e) {
-//			throw new BOOSTClientException(e.getLocalizedMessage());
-//		}
-//	}
 	
 	
 	/**
@@ -477,56 +378,6 @@ public class BOOSTClient {
 		JSONObject requestData = RequestBuilder.buildPolish( sequencesFilename, 
 			bCodingSequences, vendor, strategy, outputFormat, codonUsageTable);
 				
-		 return submitJob(requestData);
-		
+		 return submitJob(requestData);	
 	}
-	
-		
-		// check if the user did a login previously
-//		if(null == token) {
-//			throw new BOOSTClientException("You must authenticate first!");
-//		}
-//		
-//		/*
-//		 * build the request
-//		 */
-//		JSONObject jsonRequestData = new JSONObject();
-//
-//		// sequence information
-//		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION, 
-//				RequestBuilder.buildSequenceData(sequencesFilename, type, bCodingSequences));
-//		
-//		// constraints information
-//		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
-//				RequestBuilder.buildConstraintsData(vendor));
-//
-//		/*
-//		 * TODO: -- modification information
-//		 */ 
-////		jsonRequest.put(JSON2InputArgs.MODIFICATION_INFORMATION, 
-////				RequestBuilder.buildModificationData(strategy, codonUsageTableFilename);
-//		
-//		/*
-//		 * invoke the resource
-//		 */
-//		try {
-//			/*
-//			 * invoke the verify resource
-//			 */
-//			Response response = this.invoke("polisher/verify", jsonRequestData);
-//		
-//			switch(response.getStatus()) {
-//			case 200:	// OK
-//				/*
-//				 *  TODO: parse the response
-//				 */  
-//				return;
-//			default:
-//				throw new BOOSTClientException(response.getEntity().toString());
-//			}
-//		} catch(Exception e) {
-//			throw new BOOSTClientException(e.getLocalizedMessage());
-//		}
-//	}
-
 }
