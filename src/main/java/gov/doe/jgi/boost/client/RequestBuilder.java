@@ -460,7 +460,6 @@ public class RequestBuilder {
 			// maybe it's a vendor?
 			jsonConstraints.put(JSONKeys.VENDOR_NAME, constraints);
 		}
-		
 		return jsonConstraints;
 	}
 	
