@@ -27,8 +27,7 @@ public class ParameterValueVerifier {
 		// is the given String value NULL?
 		if(value == null) {
 			throw new BOOSTClientException(name + " cannot be null.");
-		}
-		
+		}	
 	}
 	
 	/**
@@ -85,6 +84,68 @@ public class ParameterValueVerifier {
 		} else if(!Files.isReadable(path)) {
 			throw new BOOSTClientException("The " + name + " " + filename + " is not readable.");
 		}
-
+	}
+	
+	/**
+	 * The verifyLengths method checks for minimum length should be less than 
+	 * or equal to maximum length
+	 * 
+	 * @param minLengthBB... minimum length of sequences that can be synthesized.
+	 * @param maxLengthBB... maximum length of sequences that can be synthesized.
+	 * 
+	 * @throws BOOSTClientException ... if the given minimum length is grater than maximum length
+	 */
+	public static void verifyLengths(String minLengthBB, String maxLengthBB) throws BOOSTClientException {
+		int minlen = Integer.parseInt(minLengthBB);
+		int maxlen = Integer.parseInt(maxLengthBB);
+		
+		if(minlen > maxlen) {
+			throw new BOOSTClientException("The minimum length can't be grater than maximum length");
+		}
+	}
+	/**
+	 * The partationOverlapLen method checks constraint on different overlap length
+	 * 
+	 * @param minOverlapLength ... minimum length of overlap sequences
+	 * @param optOverlapLength ... optimum length of overlap sequences
+	 * @param optOverlapLength ... maximum length of overlap sequences
+	 * 
+	 * @throws BOOSTClientException 
+	 */
+	public static void partationOverlapLen(String minOverlapLength, String optOverlapLength, String maxOverlapLength) 
+			throws BOOSTClientException {
+		int minOverlapLen = Integer.parseInt(minOverlapLength);
+		int optOverlapLen = Integer.parseInt(optOverlapLength);
+		int maxOverlapLen = Integer.parseInt(maxOverlapLength);
+		
+		if((minOverlapLen > maxOverlapLen) || (optOverlapLen > maxOverlapLen || optOverlapLen < minOverlapLen)) {
+			throw new BOOSTClientException("The minimum overlap length can't be grater than maximum "
+					+ "overlap length and optimum overlap should be between them ");
+		}
+	}
+	
+	/**
+	 * The partationGCOverlap method the constraints between min, opt and max %GC content
+	 * - all entered percentage should be lies [0, 100]
+	 * 
+	 * @param minGCOverlap ... minimum %GC content of overlap sequence
+	 * @param optGCOverlap ... optimum %GC content of overlap sequence
+	 * @param optGCOverlap ... maximum %GC content of overlap sequence
+	 * 
+	 * @throws BOOSTClientException 
+	 */
+	public static void partationGCOverlap(String minOverlapGC, String optOverlapGC, String maxOverlapGC) 
+			throws BOOSTClientException {
+		double minGCOverlap = Double.parseDouble(minOverlapGC);
+		double optGCOverlap = Double.parseDouble(optOverlapGC);
+		double maxGCOverlap = Double.parseDouble(maxOverlapGC);
+		
+		if(0 <= minGCOverlap && (minGCOverlap <= optGCOverlap) && (optGCOverlap <= maxGCOverlap) && maxGCOverlap <= 100) {
+		if((minGCOverlap >maxGCOverlap) || (optGCOverlap > maxGCOverlap || optGCOverlap < minGCOverlap)) {
+			throw new BOOSTClientException("The minimum %GC overlap can't be grater than maximum "
+					+ " %GC overlap and optimum %GC overlap should be between them ");
+		   }
+		   throw new BOOSTClientException("All of the specified %GC content should be in 0 to 100");
+		}
 	}
 }
