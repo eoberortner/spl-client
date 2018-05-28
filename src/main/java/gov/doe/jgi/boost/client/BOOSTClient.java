@@ -65,7 +65,7 @@ public class BOOSTClient {
 	 * 
 	 * @throws BOOSTClientException
 	 */
-	private static String login(final String username, final String password) 
+	private String login(final String username, final String password) 
 			throws BOOSTClientException, BOOSTAPIsException, BOOSTAPIsException{
 
 		// represent the username/password combo as JSON object
