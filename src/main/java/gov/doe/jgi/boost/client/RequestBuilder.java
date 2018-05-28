@@ -306,12 +306,17 @@ public class RequestBuilder {
 		ParameterValueVerifier.verifyValue(BOOSTConstants.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_BB_LENGTH, minLengthBB);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_BB_LENGTH, maxLengthBB);
+		ParameterValueVerifier.verifyLengths(minLengthBB, maxLengthBB);
+		
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_OVERLAP_GC, minOverlapGC);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.OPT_OVERLAP_GC, optOverlapGC);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_OVERLAP_GC, maxOverlapGC);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_OVERLAP_LENGTH, minOverlapGC);
-		ParameterValueVerifier.verifyValue(BOOSTConstants.OPT_OVERLAP_LENGTH, optOverlapGC);
+		ParameterValueVerifier.partationGCOverlap(minOverlapGC, optOverlapGC, maxOverlapGC);
+		
+		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_OVERLAP_LENGTH, minOverlapLength);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.OPT_OVERLAP_LENGTH, optOverlapLength);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_OVERLAP_LENGTH, maxOverlapLength);
+		ParameterValueVerifier.partationOverlapLen(minOverlapLength, optOverlapLength, maxOverlapLength);
 		
 		//----------------------------------------------
 		

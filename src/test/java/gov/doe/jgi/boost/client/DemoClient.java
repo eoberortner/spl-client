@@ -4,13 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.json.JSONObject;
-import org.slf4j.LoggerFactory;
-
-import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
 import gov.doe.jgi.boost.enums.Vendor;
-import gov.doe.jgi.boost.ui.UserAuthentication;
 
 /**
  * The DemoClient exemplifies how to invoke each functionality 
@@ -38,7 +34,11 @@ public class DemoClient {
 		
 		// get the predefined hosts
 		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
+		try {
 		System.out.println(jsonPredefinedHosts.toString(4));
+		}catch(NullPointerException e) {
+			System.out.println(e.getMessage() + " Error in josnPeredeefinedHosts");
+		}
 		
 		// we store all submitted jobs in a hash-set
 		Set<String> jobUUIDs = new HashSet<String>();
@@ -106,8 +106,10 @@ public class DemoClient {
 				);
 		if (null != partitiongDNAJobUUID) {
 			jobUUIDs.add(polishDNAJobUUID);
+			System.out.println("Data for Partation :" + partitiongDNAJobUUID);
 		}
 		**/
+		
 		
 				
 		// for all jobs, we check their status
