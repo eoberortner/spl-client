@@ -32,9 +32,9 @@ public class DemoClient {
 		// -- alternative 2: provider you BOOST username and password
   	    //BOOSTClient client = new BOOSTClient(LoginCredentials.mUserName, LoginCredentials.mPassword);
 		
+		try {
 		// get the predefined hosts
 		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
-		try {
 		System.out.println(jsonPredefinedHosts.toString(4));
 		}catch(NullPointerException e) {
 			System.out.println(e.getMessage() + " Error in josnPeredeefinedHosts");
