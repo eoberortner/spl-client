@@ -35,6 +35,7 @@ public class DemoClient {
 		try {
 		// get the predefined hosts
 		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
+		try {
 		System.out.println(jsonPredefinedHosts.toString(4));
 		}catch(NullPointerException e) {
 			System.out.println(e.getMessage() + " Error in josnPeredeefinedHosts");

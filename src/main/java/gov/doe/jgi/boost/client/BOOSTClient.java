@@ -62,7 +62,8 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 */
 	private String login(final String username, final String password) 
-			throws BOOSTClientException, BOOSTAPIsException {
+			throws BOOSTClientException, BOOSTAPIsException, BOOSTAPIsException{
+
 
 		// represent the username/password combo as JSON object
 		JSONObject jsonRequest = RequestBuilder.buildLogin(username, password);
