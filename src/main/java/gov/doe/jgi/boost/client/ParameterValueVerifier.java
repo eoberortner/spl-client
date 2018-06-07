@@ -143,8 +143,9 @@ public class ParameterValueVerifier {
 	 * @throws BOOSTClientException
 	 */
 
-	public static void partationGCOverlap(String minOverlapGC, String optOverlapGC, String maxOverlapGC)
+	public static void partitionGCOverlap(final String minOverlapGC, final String optOverlapGC, final String maxOverlapGC)
 			throws BOOSTClientException {
+		
 		double minGCOverlap = Double.parseDouble(minOverlapGC);
 		double optGCOverlap = Double.parseDouble(optOverlapGC);
 		double maxGCOverlap = Double.parseDouble(maxOverlapGC);
@@ -157,6 +158,27 @@ public class ParameterValueVerifier {
 			}
 		} else {
 			throw new BOOSTClientException("All of the specified %GC content should be in 0 to 100");
+		}
+	}
+
+	/**
+	 * 
+	 * @param minPrimerLength
+	 * @param maxPrimerLength
+	 * @throws BOOSTClientException
+	 */
+	public static void verifyPartitionPrimerLength(final String strMinPrimerLength, final String strMaxPrimerLength)
+			throws BOOSTClientException {
+
+		int minPrimerLength = Integer.parseInt(strMinPrimerLength);
+		int maxPrimerLength = Integer.parseInt(strMaxPrimerLength);
+
+		if (minPrimerLength <= 0) {
+			throw new BOOSTClientException("The min. primer length should be >0.");
+		} else if (maxPrimerLength <= 0) {
+			throw new BOOSTClientException("The max. primer length should be >0.");
+		} else if (minPrimerLength > maxPrimerLength) {
+			throw new BOOSTClientException("The min. primer length can't be grater than max. primer length ");
 		}
 	}
 }

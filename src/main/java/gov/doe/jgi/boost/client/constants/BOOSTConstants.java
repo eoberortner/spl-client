@@ -29,5 +29,10 @@ public class BOOSTConstants {
 	public static final String FIVE_PRIME_VECTOR_OVERLAP = "5-prime-vector-overlap";
 	public static final String THREE_PRIME_VECTOR_OVERLAP = "3-prime-vector-overlap";
 	public static final String BATCH = "batch";
+	
+	// primers
+	public static final String MIN_PRIMER_LENGTH = "min-primer-length";
+	public static final String MAX_PRIMER_LENGTH = "max-primer-length";
+	public static final String MAX_PRIMER_TM = "max-primer-tm";
 
 }

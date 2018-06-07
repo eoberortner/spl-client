@@ -286,18 +286,14 @@ public class RequestBuilder {
 	 * @throws BOOSTClientException ... if any given value is NULL or any given String value is empty
 	 * */
 	
-	public static JSONObject buildPartation(
+	public static JSONObject buildPartition(
 			final String sequenceFileName,
 			final String fivePrimeVectorOverlap,
 			final String threePrimeVectorOverlap,
-			String minLengthBB,
-			String maxLengthBB,
-			String minOverlapGC,
-			String optOverlapGC,
-			String maxOverlapGC,
-			String minOverlapLength,
-			String optOverlapLength,
-			String maxOverlapLength)
+			final String minLengthBB, final String maxLengthBB,
+			final String minOverlapGC, final String optOverlapGC, final String maxOverlapGC,
+			final String minOverlapLength, final String optOverlapLength, final String maxOverlapLength,
+			final String minPrimerLength, final String maxPrimerLength, final String maxPrimerTm)
 					throws BOOSTClientException{
 					
 		//verify the values
@@ -311,13 +307,19 @@ public class RequestBuilder {
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_OVERLAP_GC, minOverlapGC);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.OPT_OVERLAP_GC, optOverlapGC);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_OVERLAP_GC, maxOverlapGC);
-		ParameterValueVerifier.partationGCOverlap(minOverlapGC, optOverlapGC, maxOverlapGC);
+		ParameterValueVerifier.partitionGCOverlap(minOverlapGC, optOverlapGC, maxOverlapGC);
 		
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_OVERLAP_LENGTH, minOverlapLength);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.OPT_OVERLAP_LENGTH, optOverlapLength);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_OVERLAP_LENGTH, maxOverlapLength);
 		ParameterValueVerifier.partationOverlapLen(minOverlapLength, optOverlapLength, maxOverlapLength);
 		
+		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_PRIMER_LENGTH, minPrimerLength);
+		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_PRIMER_LENGTH, maxPrimerLength);
+		ParameterValueVerifier.verifyPartitionPrimerLength(minPrimerLength, maxPrimerLength);
+
+		ParameterValueVerifier.verifyValue(BOOSTConstants.MAX_PRIMER_TM, maxPrimerTm);
+
 		//----------------------------------------------
 		
 		// build the JSON representation of the input values
@@ -337,39 +339,66 @@ public class RequestBuilder {
 				RequestBuilder.buildSequenceData(sequenceFileName, SequenceType.DNA, false));
 		
 		// partition information
-		partationData.put(JSONKeys.PARTITIONING_INFORMATION, 
-				RequestBuilder.buildPartitionData(sequenceFileName, fivePrimeVectorOverlap,
+		JSONObject textParameters = new JSONObject();
+		textParameters.put(JSONKeys.TEXT, RequestBuilder.buildPartitionData(sequenceFileName, fivePrimeVectorOverlap,
 						threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, 
-						maxOverlapGC, minOverlapLength, optOverlapLength, maxOverlapLength));
+						maxOverlapGC, minOverlapLength, optOverlapLength, maxOverlapLength, 
+						minPrimerLength, maxPrimerLength, maxPrimerTm));
+		partationData.put(JSONKeys.PARTITIONING_INFORMATION, textParameters);
 	    
 		
 		return partationData;	
 		
 	}
 
+	/**
+	 * 
+	 * @param sequenceFileName
+	 * @param fivePrimeVectorOverlap
+	 * @param threePrimeVectorOverlap
+	 * @param minLengthBB
+	 * @param maxLengthBB
+	 * @param minOverlapGC
+	 * @param optOverlapGC
+	 * @param maxOverlapGC
+	 * @param minOverlapLength
+	 * @param optOverlapLength
+	 * @param maxOverlapLength
+	 * @param minPrimerLength
+	 * @param maxPrimerLength
+	 * @param maxPrimerTm
+	 * @return
+	 */
 	private static JSONObject buildPartitionData(final String sequenceFileName,
 			final String fivePrimeVectorOverlap, final String threePrimeVectorOverlap,
-			String minLengthBB, String maxLengthBB, String minOverlapGC, String optOverlapGC,
-			String maxOverlapGC, String minOverlapLength, String optOverlapLength, String maxOverlapLength){
+			final String minLengthBB, final String maxLengthBB, 
+			final String minOverlapGC, final String optOverlapGC, final String maxOverlapGC, 
+			final String minOverlapLength, final String optOverlapLength, final String maxOverlapLength,
+			final String minPrimerLength, final String maxPrimerLength, final String maxPrimerTm) {
 		
-		JSONObject partationData = new JSONObject();
+		JSONObject partitionData = new JSONObject();
+		
 		//JSONObject subPartationData = new JSONObject();
-		partationData.put(JSONKeys.FIVE_PRIME_VECTOR_OVERLAP, fivePrimeVectorOverlap);
-		partationData.put(JSONKeys.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
-		partationData.put(JSONKeys.MAX_BB_LENGTH, maxLengthBB);
-		partationData.put(JSONKeys.MIN_BB_LENGTH, minLengthBB);
-		partationData.put(JSONKeys.MAX_OVERLAP_GC, maxOverlapGC);
-		partationData.put(JSONKeys.BATCH, "");
-		partationData.put(JSONKeys.MIN_OVERLAP_GC, minOverlapGC);
-		partationData.put(JSONKeys.MAX_OVERLAP_LENGTH, maxOverlapLength);
-		partationData.put(JSONKeys.OPT_OVERLAP_GC, optOverlapGC);
-		partationData.put(JSONKeys.OPT_OVERLAP_LENGTH, optOverlapLength);
-		partationData.put(JSONKeys.MIN_OVERLAP_LENGTH, minOverlapLength);
-		
+		partitionData.put(JSONKeys.FIVE_PRIME_VECTOR_OVERLAP, fivePrimeVectorOverlap);
+		partitionData.put(JSONKeys.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
+		partitionData.put(JSONKeys.MAX_BB_LENGTH, maxLengthBB);
+		partitionData.put(JSONKeys.MIN_BB_LENGTH, minLengthBB);
+		partitionData.put(JSONKeys.MAX_OVERLAP_GC, maxOverlapGC);
+		partitionData.put(JSONKeys.BATCH, "");
+		partitionData.put(JSONKeys.MIN_OVERLAP_GC, minOverlapGC);
+		partitionData.put(JSONKeys.MAX_OVERLAP_LENGTH, maxOverlapLength);
+		partitionData.put(JSONKeys.OPT_OVERLAP_GC, optOverlapGC);
+		partitionData.put(JSONKeys.OPT_OVERLAP_LENGTH, optOverlapLength);
+		partitionData.put(JSONKeys.MIN_OVERLAP_LENGTH, minOverlapLength);
+
+		partitionData.put(JSONKeys.MIN_PRIMER_LENGTH, minPrimerLength);
+		partitionData.put(JSONKeys.MAX_PRIMER_LENGTH, maxPrimerLength);
+		partitionData.put(JSONKeys.MAX_PRIMER_TM, maxPrimerTm);
+
 		JSONObject partationParameters = new JSONObject();
-		partationParameters.put(JSONKeys.PARTITIONING_INFORMATION, partationData);
+		partationParameters.put(JSONKeys.PARTITIONING_INFORMATION, partitionData);
 		
-		return partationData;
+		return partitionData;
 	}
 	
 	

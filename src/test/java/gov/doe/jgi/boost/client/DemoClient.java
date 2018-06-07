@@ -30,7 +30,7 @@ public class DemoClient {
 		// -- alternative 1: provide your BOOST JWT
 		//BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
 		// -- alternative 2: provider you BOOST username and password
-  	    BOOSTClient client = new BOOSTClient(LoginCredentials.mUserName, LoginCredentials.mPassword);
+  	    BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
     
 	
 		// get the predefined hosts
@@ -44,54 +44,54 @@ public class DemoClient {
 		// we store all submitted jobs in a hash-set
 		Set<String> jobUUIDs = new HashSet<String>();
 		
-		// reverse translate
-		String reverseTranslateJobUUID = client.reverseTranslate(
-				"./data/protein.fasta",		    // input sequences 
-				Strategy.MostlyUsed, 		    // codon selection strategy
-				"Bacillus subtilis",		    // predefined host
-				FileFormat.GENBANK);		    // output format
-		if(null != reverseTranslateJobUUID) {
-			jobUUIDs.add(reverseTranslateJobUUID);
-			System.out.println("Data for Reverse Translation:" + reverseTranslateJobUUID );
-		}
+//		// reverse translate
+//		String reverseTranslateJobUUID = client.reverseTranslate(
+//				"./data/protein.fasta",		    // input sequences 
+//				Strategy.MostlyUsed, 		    // codon selection strategy
+//				"Bacillus subtilis",		    // predefined host
+//				FileFormat.GENBANK);		    // output format
+//		if(null != reverseTranslateJobUUID) {
+//			jobUUIDs.add(reverseTranslateJobUUID);
+//			System.out.println("Data for Reverse Translation:" + reverseTranslateJobUUID );
+//		}
+//		
+//
+//		// codon juggle
+//		String codonJuggleJobUUID = client.codonJuggle(
+//				"./data/dna.fasta",			  // input sequences 
+//				true,						  // exclusively 5'-3' coding sequences 
+//				Strategy.MostlyUsed,		  // codon selection strategy
+//				"Saccharomyces cerevisiae",   // predefined host
+//				FileFormat.GENBANK);		  // output format
+//		if(null != codonJuggleJobUUID) {
+//			jobUUIDs.add(codonJuggleJobUUID);
+//			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID );
+//		}
+//
+//    	// verify against DNA synthesis constraints and sequence patterns
+//		String dnaVarificationJobUUID = client.dnaVarification(
+//				"./data/dna.fasta",           // input sequence
+//				Vendor.GEN9,                  // vendor
+//				"./data/patterns.fasta");     // sequence patterns
+//		if (null != dnaVarificationJobUUID) {
+//			jobUUIDs.add(dnaVarificationJobUUID);
+//			System.out.println("Data for DNA Verification :" + dnaVarificationJobUUID);
+//		}
+//
+//		// polish the given DNA
+//		String polishDNAJobUUID = client.polish(
+//				"./data/dna.fasta",           // input sequence
+//				true,                         // encoding sequences support sequence feature annotations
+//				Vendor.JGI,                   // vendor
+//				Strategy.Balanced2Random,     // codon selection strategy
+//				FileFormat.SBOL,              // output format
+//				"Saccharomyces cerevisiae");  // // predefined host
+//		if (null != polishDNAJobUUID) {
+//			jobUUIDs.add(polishDNAJobUUID);
+//			System.out.println("Data for DNA Polish :" + polishDNAJobUUID);
+//		}
 		
-
-		// codon juggle
-		String codonJuggleJobUUID = client.codonJuggle(
-				"./data/dna.fasta",			  // input sequences 
-				true,						  // exclusively 5'-3' coding sequences 
-				Strategy.MostlyUsed,		  // codon selection strategy
-				"Saccharomyces cerevisiae",   // predefined host
-				FileFormat.GENBANK);		  // output format
-		if(null != codonJuggleJobUUID) {
-			jobUUIDs.add(codonJuggleJobUUID);
-			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID );
-		}
-
-    	// verify against DNA synthesis constraints and sequence patterns
-		String dnaVarificationJobUUID = client.dnaVarification(
-				"./data/dna.fasta",           // input sequence
-				Vendor.GEN9,                  // vendor
-				"./data/patterns.fasta");     // sequence patterns
-		if (null != dnaVarificationJobUUID) {
-			jobUUIDs.add(dnaVarificationJobUUID);
-			System.out.println("Data for DNA Verification :" + dnaVarificationJobUUID);
-		}
-
-		// polish the given DNA
-		String polishDNAJobUUID = client.polish(
-				"./data/dna.fasta",           // input sequence
-				true,                         // encoding sequences support sequence feature annotations
-				Vendor.JGI,                   // vendor
-				Strategy.Balanced2Random,     // codon selection strategy
-				FileFormat.SBOL,              // output format
-				"Saccharomyces cerevisiae");  // // predefined host
-		if (null != polishDNAJobUUID) {
-			jobUUIDs.add(polishDNAJobUUID);
-			System.out.println("Data for DNA Polish :" + polishDNAJobUUID);
-		}
-		
-		/** // partitioning of DNA
+		// partitioning of DNA
 		String partitiongDNAJobUUID = client.partition(
 				"./data/dna.fasta",           // input sequence
 				"aaacccgggttt",               // 5-prime-vector-overlap
@@ -103,13 +103,14 @@ public class DemoClient {
 				Double.toString(62.0),        // maximum overlap GC
 				Integer.toString(5),          // minimum overlap length
 				Integer.toString(25),         // optimum overlap length
-				Integer.toString(30)          // maximum overlap length
-				);
+				Integer.toString(30),         // maximum overlap length
+				Integer.toString(20),		  // min. primer length
+				Integer.toString(40),         // max. primer length
+				Integer.toString(60));        // max. primer Tm
 		if (null != partitiongDNAJobUUID) {
-			jobUUIDs.add(polishDNAJobUUID);
+			jobUUIDs.add(partitiongDNAJobUUID);
 			System.out.println("Data for Partation :" + partitiongDNAJobUUID);
 		}
-		**/
 		
 		
 				

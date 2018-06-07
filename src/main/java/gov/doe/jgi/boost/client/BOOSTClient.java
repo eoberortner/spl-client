@@ -226,13 +226,19 @@ public class BOOSTClient {
 			String maxOverlapGC, 
 			String minOverlapLength, 
 			String optOverlapLength,
-			String maxOverlapLength) 
+			String maxOverlapLength,
+			String minPrimerLength,
+			String maxPrimerLength, 
+			String maxPrimerTm) 
 					throws BOOSTClientException, BOOSTBackEndException {
 		
 		// construct the request's JSON object
-		JSONObject requestData = RequestBuilder.buildPartation(sequenceFileName, fivePrimeVectorOverlap,
+		JSONObject requestData = RequestBuilder.buildPartition(sequenceFileName, fivePrimeVectorOverlap,
 				threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC,
-				minOverlapLength, optOverlapLength, maxOverlapLength);
+				minOverlapLength, optOverlapLength, maxOverlapLength, 
+				minPrimerLength, maxPrimerLength, maxPrimerTm);
+		
+		System.out.println(requestData.toString(4));
 		
 		return submitJob(requestData);
 	}
