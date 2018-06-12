@@ -3,9 +3,8 @@ package gov.doe.jgi.boost.enums;
 public enum Strategy {
 
 	Random,
-	MostlyUsed,
 	Balanced,
-	
+	MostlyUsed,
 	LeastDifference,
 	
 	Balanced2Random,
