@@ -320,7 +320,6 @@ public class BOOSTClient {
 			case 200:
 				JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
 
-				System.out.println(jsonResponse);
 				if (jsonResponse.has(JSONKeys.JOB_INFORMATION)) {
 
 					JSONObject jsonJob = jsonResponse.getJSONObject(JSONKeys.JOB_INFORMATION);
