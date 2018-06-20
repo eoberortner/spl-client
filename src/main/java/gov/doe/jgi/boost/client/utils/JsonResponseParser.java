@@ -3,7 +3,7 @@ package gov.doe.jgi.boost.client.utils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class ParseJsonResponse {
+public class JsonResponseParser {
 
 	public static String parseCodonJuggleResponse(JSONObject jobResponse){
 		JSONObject responseObject = jobResponse;
