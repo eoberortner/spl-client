@@ -1,8 +1,11 @@
 package gov.doe.jgi.boost.client;
 
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
@@ -36,7 +39,7 @@ public class DemoClient {
 		// get the predefined hosts
 		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
 		try {
-		System.out.println(jsonPredefinedHosts.toString(4));
+			System.out.println(jsonPredefinedHosts.toString(4));
 		}catch(NullPointerException e) {
 			System.out.println(e.getMessage() + " Error in josnPeredeefinedHosts");
 		}
@@ -56,18 +59,18 @@ public class DemoClient {
 //		}
 //		
 //
-//		// codon juggle
-//		String codonJuggleJobUUID = client.codonJuggle(
-//				"./data/dna.fasta",			  // input sequences 
-//				true,						  // exclusively 5'-3' coding sequences 
-//				Strategy.MostlyUsed,		  // codon selection strategy
-//				"Saccharomyces cerevisiae",   // predefined host
-//				FileFormat.GENBANK);		  // output format
-//		if(null != codonJuggleJobUUID) {
-//			jobUUIDs.add(codonJuggleJobUUID);
-//			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID );
-//		}
-//
+		// codon juggle
+		String codonJuggleJobUUID = client.codonJuggle(
+				"./data/codon_juggle.sbol.xml",		// input sequences 
+				false,					 			// exclusively 5'-3' coding sequences 
+				Strategy.MostlyUsed,		  			// codon selection strategy
+				"Saccharomyces cerevisiae",   		// predefined host
+				FileFormat.SBOL);		  			// output format
+		if(null != codonJuggleJobUUID) {
+			jobUUIDs.add(codonJuggleJobUUID);
+			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID );
+		}
+
 //    	// verify against DNA synthesis constraints and sequence patterns
 //		String dnaVarificationJobUUID = client.dnaVarification(
 //				"./data/dna.fasta",           // input sequence
@@ -91,29 +94,27 @@ public class DemoClient {
 //			System.out.println("Data for DNA Polish :" + polishDNAJobUUID);
 //		}
 		
-		// partitioning of DNA
-		String partitiongDNAJobUUID = client.partition(
-				"./data/dna.fasta",           // input sequence
-				"aaacccgggttt",               // 5-prime-vector-overlap
-				"tttgggcccaaa",               // 3-prime-vector-overlap
-				Integer.toString(15),         // min-BB-length
-				Integer.toString(3000),       // max-BB-length
-				Double.toString(4.0),         // minimum overlap GC
-				Double.toString(40.0),        // optimum overlap GC
-				Double.toString(62.0),        // maximum overlap GC
-				Integer.toString(5),          // minimum overlap length
-				Integer.toString(25),         // optimum overlap length
-				Integer.toString(30),         // maximum overlap length
-				Integer.toString(20),		  // min. primer length
-				Integer.toString(40),         // max. primer length
-				Integer.toString(60));        // max. primer Tm
-		if (null != partitiongDNAJobUUID) {
-			jobUUIDs.add(partitiongDNAJobUUID);
-			System.out.println("Data for Partation :" + partitiongDNAJobUUID);
-		}
+//		// partitioning of DNA
+//		String partitiongDNAJobUUID = client.partition(
+//				"./data/dna.fasta",           // input sequence
+//				"aaacccgggttt",               // 5-prime-vector-overlap
+//				"tttgggcccaaa",               // 3-prime-vector-overlap
+//				Integer.toString(15),         // min-BB-length
+//				Integer.toString(3000),       // max-BB-length
+//				Double.toString(4.0),         // minimum overlap GC
+//				Double.toString(40.0),        // optimum overlap GC
+//				Double.toString(62.0),        // maximum overlap GC
+//				Integer.toString(5),          // minimum overlap length
+//				Integer.toString(25),         // optimum overlap length
+//				Integer.toString(30),         // maximum overlap length
+//				Integer.toString(20),		  // min. primer length
+//				Integer.toString(40),         // max. primer length
+//				Integer.toString(60));        // max. primer Tm
+//		if (null != partitiongDNAJobUUID) {
+//			jobUUIDs.add(partitiongDNAJobUUID);
+//			System.out.println("Data for Partation :" + partitiongDNAJobUUID);
+//		}
 		
-		
-				
 		// for all jobs, we check their status
 		for(String jobUUID : jobUUIDs) {
 			
@@ -129,8 +130,11 @@ public class DemoClient {
 				} catch(Exception e) {}
 			}
 			
+			
 			// output of the job report (which is a JSON object)
-			System.out.println(jobReport);
+			System.out.println(jobReport.toString(4));
+
+			FileUtils.writeStringToFile(Paths.get("./response-" + jobUUID + ".json").toFile(), jobReport.toString(4));
 		}
 	}
 }
