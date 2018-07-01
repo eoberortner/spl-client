@@ -124,8 +124,6 @@ public class RequestBuilder {
 			final FileFormat outputFormat) 
 					throws BOOSTClientException {
 		
-		// verify the values
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, filenameSequences);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.CODON_STRATEGY, strategy);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
@@ -440,19 +438,14 @@ public class RequestBuilder {
 	 * @return
 	 * @throws BOOSTClientException
 	 */
-	public static JSONObject buildSequenceData(final String filename, SequenceType type, boolean bAutoAnnotate) 
+	public static JSONObject buildSequenceData(final String content, SequenceType type, boolean bAutoAnnotate) 
 			throws BOOSTClientException {
 
 		// sequence information
 		JSONObject sequenceData = new JSONObject();
-
-		String sequences;
-		try {
-			sequences = FileUtils.readFile(filename);
-		} catch (IOException e1) {
-			throw new BOOSTClientException(e1.getLocalizedMessage());
-		}
-		sequenceData.put(JSONKeys.TEXT, sequences);
+		
+		if(content != null && !content.isEmpty())
+		sequenceData.put(JSONKeys.TEXT, content);
 		
 		// sequence type
 		JSONArray types = new JSONArray();
