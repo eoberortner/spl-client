@@ -184,7 +184,7 @@ public class BOOSTClient {
 	 * The verify method submits a job to BOOST that verifies 
 	 * sequences against DNA synthesis constraints.
 	 * 
-	 * @param filenameSequences ... the name of the file that contains the sequences
+	 * @param codingSequence ... the name of the file that contains the sequences
 	 * @param constraintsFilename ... the name of the file that contains the DNA synthesis constraints
 	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns
 	 * 
@@ -195,7 +195,7 @@ public class BOOSTClient {
 	 * 
 	 */
 	public String dnaVarification(
-			final String filenameSequences, 
+			final String codingSequence, 
 			Vendor vendor, 
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, BOOSTBackEndException, IOException {
@@ -203,7 +203,7 @@ public class BOOSTClient {
 		// represent the request data in JSON and
 		// submit it to BOOST's Job Queue Management System (JQMS)
 		return submitJob(RequestBuilder.buildVerify(
-				filenameSequences, vendor, sequencePatternsFilename));
+				codingSequence, vendor, sequencePatternsFilename));
 	}
 
 	/**
@@ -216,7 +216,7 @@ public class BOOSTClient {
 	 */
 
 	public String partition(
-			String sequenceFileName, 
+			String codingSequence, 
 			String fivePrimeVectorOverlap, 
 			String threePrimeVectorOverlap,
 			String minLengthBB, 
@@ -233,7 +233,7 @@ public class BOOSTClient {
 					throws BOOSTClientException, BOOSTBackEndException {
 		
 		// construct the request's JSON object
-		JSONObject requestData = RequestBuilder.buildPartition(sequenceFileName, fivePrimeVectorOverlap,
+		JSONObject requestData = RequestBuilder.buildPartition(codingSequence, fivePrimeVectorOverlap,
 				threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC,
 				minOverlapLength, optOverlapLength, maxOverlapLength, 
 				minPrimerLength, maxPrimerLength, maxPrimerTm);
@@ -339,7 +339,7 @@ public class BOOSTClient {
 	 * In case of violations, the polish() method modifies the coding regions 
 	 * of the sequence using the specified codon replacement strategy.
 	 *  
-	 * @param sequencesFilename ... the name of the file that contains the sequences
+	 * @param codingSequence ... the name of the file that contains the sequences
 	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
 	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
 	 * support sequence feature annotations and if bCoding sequences is set to true, 
@@ -356,7 +356,7 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 */
 	public String polish(
-			final String sequencesFilename, 
+			final String codingSequence, 
 			boolean bCodingSequences,
 			Vendor vendor, 
 			Strategy strategy, 
@@ -365,7 +365,7 @@ public class BOOSTClient {
 				throws BOOSTClientException, BOOSTBackEndException {
 		
 		// construct the request's JSON object
-		JSONObject requestData = RequestBuilder.buildPolish( sequencesFilename, 
+		JSONObject requestData = RequestBuilder.buildPolish( codingSequence, 
 			bCodingSequences, vendor, strategy, outputFormat, codonUsageTable);
 				
 		 return submitJob(requestData);	
