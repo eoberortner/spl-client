@@ -111,7 +111,7 @@ public class RequestBuilder {
 	
 	/**
 	 * 
-	 * @param filenameSequences
+	 * @param sequencesFilename
 	 * @param strategy
 	 * @param codonUsageTable ... either predefined-host or a filename
 	 * @param outputFormat
@@ -119,7 +119,7 @@ public class RequestBuilder {
 	 * @throws BOOSTClientException
 	 */
 	public static JSONObject buildCodonJuggle(
-			final String filenameSequences, boolean bAutoAnnotate, 
+			final String sequencesFilename, boolean bAutoAnnotate, 
 			Strategy strategy, final String codonUsageTable, 
 			final FileFormat outputFormat) 
 					throws BOOSTClientException {
@@ -139,7 +139,7 @@ public class RequestBuilder {
 
 		// sequence information
 		reverseTranslateData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(filenameSequences, SequenceType.DNA, bAutoAnnotate));
+				RequestBuilder.buildSequenceData(sequencesFilename, SequenceType.DNA, bAutoAnnotate));
 		
 		// modification information
 		reverseTranslateData.put(JSONKeys.MODIFICATION_INFORMATION,
@@ -154,7 +154,7 @@ public class RequestBuilder {
 
 	/**
 	 * 
-	 * @param filenameSequences
+	 * @param sequencesFilename
 	 * @param constraintsFilename ... the 
 	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns (optionally)
 	 * @return
@@ -162,14 +162,14 @@ public class RequestBuilder {
 	 * @throws IOException
 	 */
 	public static JSONObject buildVerify(
-			final String filenameSequences, 
+			final String sequencesFilename, 
 			Vendor vendor,
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, IOException {
 		
 		//---------------------------------
 		// verify the given values
-		ParameterValueVerifier.verifyFilename(JSONKeys.SEQUENCE_INFORMATION, filenameSequences);
+		ParameterValueVerifier.verifyFilename(JSONKeys.SEQUENCE_INFORMATION, sequencesFilename);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
 		// the sequence patterns filename is optional
 		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()) {
@@ -189,7 +189,7 @@ public class RequestBuilder {
 		//---------------------------------
 		// SEQUENCES
 		requestData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(filenameSequences, SequenceType.DNA, false));
+				RequestBuilder.buildSequenceData(sequencesFilename, SequenceType.DNA, false));
 		//---------------------------------
 
 		//---------------------------------
@@ -285,7 +285,7 @@ public class RequestBuilder {
 	 * */
 	
 	public static JSONObject buildPartition(
-			final String sequenceFileName,
+			final String sequencesFilename,
 			final String fivePrimeVectorOverlap,
 			final String threePrimeVectorOverlap,
 			final String minLengthBB, final String maxLengthBB,
@@ -295,7 +295,7 @@ public class RequestBuilder {
 					throws BOOSTClientException{
 					
 		//verify the values
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequenceFileName);
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.FIVE_PRIME_VECTOR_OVERLAP, fivePrimeVectorOverlap);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_BB_LENGTH, minLengthBB);
@@ -334,11 +334,11 @@ public class RequestBuilder {
 
 		// sequence information
 		partationData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(sequenceFileName, SequenceType.DNA, false));
+				RequestBuilder.buildSequenceData(sequencesFilename, SequenceType.DNA, false));
 		
 		// partition information
 		JSONObject textParameters = new JSONObject();
-		textParameters.put(JSONKeys.TEXT, RequestBuilder.buildPartitionData(sequenceFileName, fivePrimeVectorOverlap,
+		textParameters.put(JSONKeys.TEXT, RequestBuilder.buildPartitionData(sequencesFilename, fivePrimeVectorOverlap,
 						threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, 
 						maxOverlapGC, minOverlapLength, optOverlapLength, maxOverlapLength, 
 						minPrimerLength, maxPrimerLength, maxPrimerTm));
@@ -437,15 +437,26 @@ public class RequestBuilder {
 	 * @param bAutoAnnotate
 	 * @return
 	 * @throws BOOSTClientException
+	 * @throws IOException 
 	 */
-	public static JSONObject buildSequenceData(final String content, SequenceType type, boolean bAutoAnnotate) 
+	public static JSONObject buildSequenceData(final String sequencesFilename, SequenceType type, boolean bAutoAnnotate) 
 			throws BOOSTClientException {
 
 		// sequence information
 		JSONObject sequenceData = new JSONObject();
 		
-		if(content != null && !content.isEmpty())
-		sequenceData.put(JSONKeys.TEXT, content);
+		if(null == sequencesFilename || sequencesFilename.trim().isEmpty()) {
+			throw new BOOSTClientException("Invalid sequences filename!");
+		}
+		
+		try {
+			// read the file
+			String sequencesFileContent = FileUtils.readFile(sequencesFilename);
+			// and put its content into the JSON object
+			sequenceData.put(JSONKeys.TEXT, sequencesFileContent);
+		} catch(IOException ioe) {
+			throw new BOOSTClientException(ioe.getMessage());
+		}
 		
 		// sequence type
 		JSONArray types = new JSONArray();

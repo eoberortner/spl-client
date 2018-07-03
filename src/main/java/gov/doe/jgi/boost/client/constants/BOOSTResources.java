@@ -6,7 +6,7 @@ public class BOOSTResources {
 //    public static String BOOST_REST_URL = "https://boost.jgi.doe.gov/rest";
     
 	// BOOST dev
-    public static String BOOST_REST_URL = "https://boost.jgi.doe.gov/dev/rest";
+    public static String BOOST_REST_URL = "https://boost.jgi.doe.gov/Dev/rest";
 
     // local
 //	public static String BOOST_REST_URL = "http://localhost:8080/BOOST/rest";
