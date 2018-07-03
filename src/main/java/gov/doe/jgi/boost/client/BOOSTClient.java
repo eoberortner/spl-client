@@ -19,9 +19,12 @@ import gov.doe.jgi.boost.exception.BOOSTClientException;
  * @author Ernst Oberortner
  */
 public class BOOSTClient {
-
+	
 	private String token;
 	
+	/**
+	 * 
+	 */
 	public BOOSTClient() {}
 
 	/**
@@ -176,7 +179,7 @@ public class BOOSTClient {
 		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildCodonJuggle(
 				filenameSequences, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
-		
+
 		return this.submitJob(requestData);
 	}
 	

@@ -9,6 +9,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import gov.doe.jgi.boost.client.constants.BOOSTClientConfigs;
 import gov.doe.jgi.boost.client.constants.BOOSTConstants;
 import gov.doe.jgi.boost.client.constants.BOOSTFunctions;
 import gov.doe.jgi.boost.client.constants.JSONKeys;
@@ -465,6 +466,12 @@ public class RequestBuilder {
 		
 		// auto-annotate?
 		sequenceData.put(JSONKeys.AUTO_ANNOTATE, bAutoAnnotate);
+		
+		// target namespace
+		if(null != BOOSTClientConfigs.SBOL_TARGET_NAMESPACE && 
+				!BOOSTClientConfigs.SBOL_TARGET_NAMESPACE.trim().isEmpty()) {
+			sequenceData.put(JSONKeys.TARGET_NAMESPACE, BOOSTClientConfigs.SBOL_TARGET_NAMESPACE);
+		}
 
 		return sequenceData;
 	}

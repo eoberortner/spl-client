@@ -27,6 +27,7 @@ public class JSONKeys {
 	public static final String SEQUENCE_INFORMATION = "sequences";
 	public static final String SEQUENCE_TYPE = "type";
 	public static final String AUTO_ANNOTATE = "auto-annotate";
+	public static final String TARGET_NAMESPACE = "target-namespace";
 	
 	// pattern-related keys
 	public static final String PATTERN_INFORMATION = "patterns";

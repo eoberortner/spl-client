@@ -5,11 +5,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
-import org.json.JSONArray;
 import org.json.JSONObject;
+
+import gov.doe.jgi.boost.client.constants.BOOSTClientConfigs;
+import gov.doe.jgi.boost.client.constants.LoginCredentials;
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
-import gov.doe.jgi.boost.enums.Vendor;
 
 /**
  * The DemoClient exemplifies how to invoke each functionality 
@@ -35,7 +36,6 @@ public class DemoClient {
 		// -- alternative 2: provider you BOOST username and password
   	    BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
     
-	
 		// get the predefined hosts
 		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
 		try {
@@ -43,6 +43,9 @@ public class DemoClient {
 		}catch(NullPointerException e) {
 			System.out.println(e.getMessage() + " Error in josnPeredeefinedHosts");
 		}
+
+		// set the target namespace
+		BOOSTClientConfigs.SBOL_TARGET_NAMESPACE = "https://boost.jgi.doe.gov/";
 		
 		// we store all submitted jobs in a hash-set
 		Set<String> jobUUIDs = new HashSet<String>();

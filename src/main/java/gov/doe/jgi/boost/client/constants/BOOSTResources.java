@@ -1,5 +1,9 @@
 package gov.doe.jgi.boost.client.constants;
 
+/**
+ * 
+ * @author Ernst Oberortner
+ */
 public class BOOSTResources {
 
 //	// BOOST prod
