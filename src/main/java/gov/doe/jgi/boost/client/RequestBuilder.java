@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.UUID;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.sbolstandard.core2.SBOLConversionException;
 import org.sbolstandard.core2.SBOLDocument;
@@ -71,16 +72,18 @@ public class RequestBuilder {
 	 * @return a JSONObject that represents the input values
 	 * 
 	 * @throws BOOSTClientException ... if any given value is NULL or any given String value is empty
+	 * @throws SBOLConversionException 
+	 * @throws UnsupportedEncodingException 
+	 * @throws JSONException 
 	 * @throws IOException ... if an given filename points to a non-existing file
 	 */
 	public static JSONObject buildReverseTranslate(
 			final SBOLDocument designSequences, 
 			Strategy strategy, final String codonUsageTable, 
 			final FileFormat outputFormat) 
-					throws BOOSTClientException {
+					throws BOOSTClientException, JSONException, UnsupportedEncodingException, SBOLConversionException {
 		
 		// verify the values
-		//ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, designSequences);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.CODON_STRATEGY, strategy);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
@@ -123,12 +126,15 @@ public class RequestBuilder {
 	 * @param outputFormat
 	 * @return
 	 * @throws BOOSTClientException
+	 * @throws SBOLConversionException 
+	 * @throws UnsupportedEncodingException 
+	 * @throws JSONException 
 	 */
 	public static JSONObject buildCodonJuggle(
 			final SBOLDocument designSequences, boolean bAutoAnnotate, 
 			Strategy strategy, final String codonUsageTable, 
 			final FileFormat outputFormat) 
-					throws BOOSTClientException {
+					throws BOOSTClientException, JSONException, UnsupportedEncodingException, SBOLConversionException {
 		
 		ParameterValueVerifier.verifyNull(BOOSTConstants.CODON_STRATEGY, strategy);
 		try {
@@ -166,16 +172,17 @@ public class RequestBuilder {
 	 * @return
 	 * @throws BOOSTClientException
 	 * @throws IOException
+	 * @throws SBOLConversionException 
+	 * @throws JSONException 
 	 */
 	public static JSONObject buildVerify(
 			final SBOLDocument designSequences, 
 			Vendor vendor,
 			final String sequencePatternsFilename)
-				throws BOOSTClientException, IOException {
+				throws BOOSTClientException, IOException, JSONException, SBOLConversionException {
 		
 		//---------------------------------
 		// verify the given values
-		//ParameterValueVerifier.verifyFilename(JSONKeys.SEQUENCE_INFORMATION, designSequences);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
 		// the sequence patterns filename is optional
 		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()) {
@@ -229,6 +236,9 @@ public class RequestBuilder {
 	 * usage table
 	 * 
 	 * @throws BOOSTClientException
+	 * @throws SBOLConversionException 
+	 * @throws UnsupportedEncodingException 
+	 * @throws JSONException 
 	 */
 	public static JSONObject buildPolish(
 			final SBOLDocument designSequences, 
@@ -237,11 +247,10 @@ public class RequestBuilder {
 			Strategy strategy, 
 			final FileFormat outputFormat,
 			final String codonUsageTable) 
-				throws BOOSTClientException {
+				throws BOOSTClientException, JSONException, UnsupportedEncodingException, SBOLConversionException {
 		
 		//-------------------------------------
 		// verify the given values
-		//ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, designSequences);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
@@ -288,6 +297,9 @@ public class RequestBuilder {
 	 * @return a JSONObject that represents the input values
 	 * 
 	 * @throws BOOSTClientException ... if any given value is NULL or any given String value is empty
+	 * @throws SBOLConversionException 
+	 * @throws UnsupportedEncodingException 
+	 * @throws JSONException 
 	 * */
 	
 	public static JSONObject buildPartition(
@@ -298,7 +310,7 @@ public class RequestBuilder {
 			final String minOverlapGC, final String optOverlapGC, final String maxOverlapGC,
 			final String minOverlapLength, final String optOverlapLength, final String maxOverlapLength,
 			final String minPrimerLength, final String maxPrimerLength, final String maxPrimerTm)
-					throws BOOSTClientException{
+					throws BOOSTClientException, JSONException, UnsupportedEncodingException, SBOLConversionException{
 					
 		//verify the values
 		//ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, designSequences);
@@ -356,7 +368,6 @@ public class RequestBuilder {
 	}
 
 	/**
-	 * 
 	 * @param designSequences
 	 * @param fivePrimeVectorOverlap
 	 * @param threePrimeVectorOverlap
@@ -443,30 +454,20 @@ public class RequestBuilder {
 	 * @param bAutoAnnotate
 	 * @return
 	 * @throws BOOSTClientException
+	 * @throws SBOLConversionException 
+	 * @throws UnsupportedEncodingException 
 	 * @throws IOException 
 	 */
 	public static JSONObject buildSequenceData(final SBOLDocument designSequences, SequenceType type, boolean bAutoAnnotate) 
-			throws BOOSTClientException {
+			throws BOOSTClientException, SBOLConversionException, UnsupportedEncodingException {
 
 		// sequence information
 		JSONObject sequenceData = new JSONObject();
 		
-		String designDoc = null;
-		
 		// reading from SBOL document
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		try {
-			SBOLWriter.write(designSequences,  outputStream);
-			try {
-				designDoc = outputStream.toString("UTF-8");
-			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (SBOLConversionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		SBOLWriter.write(designSequences,  outputStream);
+		String designDoc = outputStream.toString("UTF-8");
 		
 		// put its content into the JSON object
 		if(designDoc != null && !designDoc.isEmpty()) {
@@ -598,5 +599,4 @@ public class RequestBuilder {
 		
 		return constraintsData;
 	}
-
 }
