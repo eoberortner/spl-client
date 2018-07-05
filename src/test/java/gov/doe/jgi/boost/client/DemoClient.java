@@ -41,7 +41,7 @@ public class DemoClient {
 		try {
 			System.out.println(jsonPredefinedHosts.toString(4));
 		}catch(NullPointerException e) {
-			System.out.println(e.getMessage() + " Error in josnPeredeefinedHosts");
+			System.out.println(e.getMessage() + " Error in jsonPredefinedHosts");
 		}
 
 		// set the target namespace

@@ -7,8 +7,9 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import org.json.JSONObject;
-import gov.doe.jgi.boost.exception.BOOSTAPIsException;
+
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
 /**
