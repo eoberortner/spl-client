@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.ws.rs.core.Response;
 import org.json.JSONObject;
+import org.sbolstandard.core2.SBOLDocument;
+
 import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.client.constants.JSONKeys;
 import gov.doe.jgi.boost.enums.FileFormat;
@@ -131,7 +133,7 @@ public class BOOSTClient {
 	/**
 	 * The reverseTranslate method invokes BOOT's reverse-translate functionality.
 	 *  
-	 * @param filenameSequences  ... the name of the file that contains the input sequences
+	 * @param designSequences  ... the name of the file that contains the input sequences
 	 * @param strategy ... the codon selection strategy 
 	 * @param filenameCodonUsageTable ... the name of the file that contains the codon usage table
 	 * @param outputFormat ... the desired output format
@@ -141,14 +143,14 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 */
 	public String reverseTranslate(
-			final String filenameSequences,
+			final SBOLDocument designSequences,
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
 					throws BOOSTClientException, BOOSTBackEndException, IOException {
 		
 		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildReverseTranslate(
-				filenameSequences, strategy, filenameCodonUsageTable, outputFormat);
+				designSequences, strategy, filenameCodonUsageTable, outputFormat);
 
 		System.out.println(requestData.toString(4));
 		
@@ -171,7 +173,7 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 */
 	public String codonJuggle(
-			final String filenameSequences, boolean bAutoAnnotate, 
+			final SBOLDocument filenameSequences, boolean bAutoAnnotate, 
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
 				throws BOOSTClientException, BOOSTBackEndException, IOException {
@@ -198,7 +200,7 @@ public class BOOSTClient {
 	 * 
 	 */
 	public String dnaVarification(
-			final String codingSequence, 
+			final SBOLDocument codingSequence, 
 			Vendor vendor, 
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, BOOSTBackEndException, IOException {
@@ -219,7 +221,7 @@ public class BOOSTClient {
 	 */
 
 	public String partition(
-			String codingSequence, 
+			SBOLDocument codingSequence, 
 			String fivePrimeVectorOverlap, 
 			String threePrimeVectorOverlap,
 			String minLengthBB, 
@@ -359,7 +361,7 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 */
 	public String polish(
-			final String codingSequence, 
+			final SBOLDocument codingSequence, 
 			boolean bCodingSequences,
 			Vendor vendor, 
 			Strategy strategy, 

@@ -1,6 +1,8 @@
 package gov.doe.jgi.boost.client;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -8,6 +10,9 @@ import java.util.UUID;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.sbolstandard.core2.SBOLConversionException;
+import org.sbolstandard.core2.SBOLDocument;
+import org.sbolstandard.core2.SBOLWriter;
 
 import gov.doe.jgi.boost.client.constants.BOOSTClientConfigs;
 import gov.doe.jgi.boost.client.constants.BOOSTConstants;
@@ -57,7 +62,7 @@ public class RequestBuilder {
 	 * The buildReverseTranslate wraps all required information for  
 	 * BOOST's reverse-translate functionality into a JSON representation  
 	 * 
-	 * @param filenameSequences ... a filename that contains the protein sequences
+	 * @param designSequences ... a SBOLDocument that contains the protein sequences
 	 * @param strategy ... the desired strategy for codon selection
 	 * @param codonUsageTable ... either the name of a predefined host or a 
 	 *                            filename that contains the codon usage of the target host
@@ -69,13 +74,13 @@ public class RequestBuilder {
 	 * @throws IOException ... if an given filename points to a non-existing file
 	 */
 	public static JSONObject buildReverseTranslate(
-			final String filenameSequences, 
+			final SBOLDocument designSequences, 
 			Strategy strategy, final String codonUsageTable, 
 			final FileFormat outputFormat) 
 					throws BOOSTClientException {
 		
 		// verify the values
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, filenameSequences);
+		//ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, designSequences);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.CODON_STRATEGY, strategy);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
@@ -96,7 +101,7 @@ public class RequestBuilder {
 
 		// sequence information
 		reverseTranslateData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(filenameSequences, SequenceType.PROTEIN, true));
+				RequestBuilder.buildSequenceData(designSequences, SequenceType.PROTEIN, true));
 		
 		// modification information
 		reverseTranslateData.put(JSONKeys.MODIFICATION_INFORMATION,
@@ -112,7 +117,7 @@ public class RequestBuilder {
 	
 	/**
 	 * 
-	 * @param sequencesFilename
+	 * @param designSequences
 	 * @param strategy
 	 * @param codonUsageTable ... either predefined-host or a filename
 	 * @param outputFormat
@@ -120,7 +125,7 @@ public class RequestBuilder {
 	 * @throws BOOSTClientException
 	 */
 	public static JSONObject buildCodonJuggle(
-			final String sequencesFilename, boolean bAutoAnnotate, 
+			final SBOLDocument designSequences, boolean bAutoAnnotate, 
 			Strategy strategy, final String codonUsageTable, 
 			final FileFormat outputFormat) 
 					throws BOOSTClientException {
@@ -140,7 +145,7 @@ public class RequestBuilder {
 
 		// sequence information
 		reverseTranslateData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(sequencesFilename, SequenceType.DNA, bAutoAnnotate));
+				RequestBuilder.buildSequenceData(designSequences, SequenceType.DNA, bAutoAnnotate));
 		
 		// modification information
 		reverseTranslateData.put(JSONKeys.MODIFICATION_INFORMATION,
@@ -155,7 +160,7 @@ public class RequestBuilder {
 
 	/**
 	 * 
-	 * @param sequencesFilename
+	 * @param designSequences
 	 * @param constraintsFilename ... the 
 	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns (optionally)
 	 * @return
@@ -163,14 +168,14 @@ public class RequestBuilder {
 	 * @throws IOException
 	 */
 	public static JSONObject buildVerify(
-			final String sequencesFilename, 
+			final SBOLDocument designSequences, 
 			Vendor vendor,
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, IOException {
 		
 		//---------------------------------
 		// verify the given values
-		ParameterValueVerifier.verifyFilename(JSONKeys.SEQUENCE_INFORMATION, sequencesFilename);
+		//ParameterValueVerifier.verifyFilename(JSONKeys.SEQUENCE_INFORMATION, designSequences);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
 		// the sequence patterns filename is optional
 		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()) {
@@ -190,7 +195,7 @@ public class RequestBuilder {
 		//---------------------------------
 		// SEQUENCES
 		requestData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(sequencesFilename, SequenceType.DNA, false));
+				RequestBuilder.buildSequenceData(designSequences, SequenceType.DNA, false));
 		//---------------------------------
 
 		//---------------------------------
@@ -211,7 +216,7 @@ public class RequestBuilder {
 	
 	/**
 	 *  
-	 * @param sequencesFilename ... the name of the file that contains the sequences
+	 * @param designSequences ... a SBOLDocument that contains the sequences
 	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
 	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
 	 * support sequence feature annotations and if bCoding sequences is set to true, 
@@ -226,7 +231,7 @@ public class RequestBuilder {
 	 * @throws BOOSTClientException
 	 */
 	public static JSONObject buildPolish(
-			final String sequencesFilename, 
+			final SBOLDocument designSequences, 
 			boolean bCodingSequences,
 			Vendor vendor, 
 			Strategy strategy, 
@@ -236,7 +241,7 @@ public class RequestBuilder {
 		
 		//-------------------------------------
 		// verify the given values
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
+		//ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, designSequences);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
@@ -255,7 +260,7 @@ public class RequestBuilder {
 		
 		// sequence information
 		modifiedData.put(JSONKeys.SEQUENCE_INFORMATION,
-				RequestBuilder.buildSequenceData(sequencesFilename, SequenceType.DNA, bCodingSequences ));
+				RequestBuilder.buildSequenceData(designSequences, SequenceType.DNA, bCodingSequences ));
 		//-----------------------------------------
 		
 		// constraints
@@ -286,7 +291,7 @@ public class RequestBuilder {
 	 * */
 	
 	public static JSONObject buildPartition(
-			final String sequencesFilename,
+			final SBOLDocument designSequences,
 			final String fivePrimeVectorOverlap,
 			final String threePrimeVectorOverlap,
 			final String minLengthBB, final String maxLengthBB,
@@ -296,7 +301,7 @@ public class RequestBuilder {
 					throws BOOSTClientException{
 					
 		//verify the values
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
+		//ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, designSequences);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.FIVE_PRIME_VECTOR_OVERLAP, fivePrimeVectorOverlap);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_BB_LENGTH, minLengthBB);
@@ -335,11 +340,11 @@ public class RequestBuilder {
 
 		// sequence information
 		partationData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(sequencesFilename, SequenceType.DNA, false));
+				RequestBuilder.buildSequenceData(designSequences, SequenceType.DNA, false));
 		
 		// partition information
 		JSONObject textParameters = new JSONObject();
-		textParameters.put(JSONKeys.TEXT, RequestBuilder.buildPartitionData(sequencesFilename, fivePrimeVectorOverlap,
+		textParameters.put(JSONKeys.TEXT, RequestBuilder.buildPartitionData(designSequences, fivePrimeVectorOverlap,
 						threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, 
 						maxOverlapGC, minOverlapLength, optOverlapLength, maxOverlapLength, 
 						minPrimerLength, maxPrimerLength, maxPrimerTm));
@@ -352,7 +357,7 @@ public class RequestBuilder {
 
 	/**
 	 * 
-	 * @param sequenceFileName
+	 * @param designSequences
 	 * @param fivePrimeVectorOverlap
 	 * @param threePrimeVectorOverlap
 	 * @param minLengthBB
@@ -368,7 +373,7 @@ public class RequestBuilder {
 	 * @param maxPrimerTm
 	 * @return
 	 */
-	private static JSONObject buildPartitionData(final String sequenceFileName,
+	private static JSONObject buildPartitionData(final SBOLDocument designSequences,
 			final String fivePrimeVectorOverlap, final String threePrimeVectorOverlap,
 			final String minLengthBB, final String maxLengthBB, 
 			final String minOverlapGC, final String optOverlapGC, final String maxOverlapGC, 
@@ -440,24 +445,34 @@ public class RequestBuilder {
 	 * @throws BOOSTClientException
 	 * @throws IOException 
 	 */
-	public static JSONObject buildSequenceData(final String sequencesFilename, SequenceType type, boolean bAutoAnnotate) 
+	public static JSONObject buildSequenceData(final SBOLDocument designSequences, SequenceType type, boolean bAutoAnnotate) 
 			throws BOOSTClientException {
 
 		// sequence information
 		JSONObject sequenceData = new JSONObject();
 		
-		if(null == sequencesFilename || sequencesFilename.trim().isEmpty()) {
-			throw new BOOSTClientException("Invalid sequences filename!");
+		String designDoc = null;
+		
+		// reading from SBOL document
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		try {
+			SBOLWriter.write(designSequences,  outputStream);
+			try {
+				designDoc = outputStream.toString("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (SBOLConversionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		try {
-			// read the file
-			String sequencesFileContent = FileUtils.readFile(sequencesFilename);
-			// and put its content into the JSON object
-			sequenceData.put(JSONKeys.TEXT, sequencesFileContent);
-		} catch(IOException ioe) {
-			throw new BOOSTClientException(ioe.getMessage());
+		// put its content into the JSON object
+		if(designDoc != null && !designDoc.isEmpty()) {
+			sequenceData.put(JSONKeys.TEXT, designSequences);
 		}
+		
 		
 		// sequence type
 		JSONArray types = new JSONArray();
