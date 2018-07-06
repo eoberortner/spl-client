@@ -140,7 +140,7 @@ public class BOOSTClient {
 	/**
 	 * The reverseTranslate method invokes BOOST's reverse-translate functionality.
 	 *  
-	 * @param filenameSequences  ... the name of the file that contains the input sequences
+	 * @param sequencesFilename  ... the name of the file that contains the input sequences
 	 * @param strategy ... the codon selection strategy 
 	 * @param filenameCodonUsageTable ... the name of the file that contains the codon usage table
 	 * @param outputFormat ... the desired output format
@@ -152,17 +152,17 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 */
 	public String reverseTranslate(
-			final String filenameSequences,
+			final String sequencesFilename,
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
 					throws BOOSTClientException, BOOSTBackEndException, IOException, 
 					SBOLValidationException, SBOLConversionException {
 		
 		// verify for filename 
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, filenameSequences);
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
-		SBOLDocument document = SBOLReader.read(filenameSequences);
+		SBOLDocument document = SBOLReader.read(sequencesFilename);
 		return this.reverseTranslate(document, strategy, filenameCodonUsageTable, outputFormat);
 	}
 	
@@ -197,7 +197,7 @@ public class BOOSTClient {
 	/**
 	 * The codonJuggle method invokes BOOST's codon-juggling functionality.
 	 *  
-	 * @param filenameSequences  ... the name of the file that contains the input sequences
+	 * @param sequencesFilename  ... the name of the file that contains the input sequences
 	 * @param bAutoAnnotate ... true ... all sequences exclusively 5'-3' protein coding sequences (is only considered 
 	 * when the sequences don't have feature annotations, e.g. FASTA or CSV)
 	 * @param strategy ... the codon replacement strategy 
@@ -211,17 +211,17 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 */
 	public String codonJuggle(
-			final String filenameSequences, boolean bAutoAnnotate, 
+			final String sequencesFilename, boolean bAutoAnnotate, 
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
 				throws BOOSTClientException, BOOSTBackEndException, IOException, 
 				SBOLValidationException, SBOLConversionException {
 		
 		// verify for filename 
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, filenameSequences);
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
-		SBOLDocument document = SBOLReader.read(filenameSequences);
+		SBOLDocument document = SBOLReader.read(sequencesFilename);
 		return this.codonJuggle(document, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
 	}
 	
@@ -260,7 +260,7 @@ public class BOOSTClient {
 	 * The verify method submits a job to BOOST that verifies 
 	 * sequences against DNA synthesis constraints.
 	 * 
-	 * @param codingSequenceFile ... the name of the file that contains the sequences
+	 * @param sequencesFileName ... the name of the file that contains the sequences
 	 * @param constraintsFilename ... the name of the file that contains the DNA synthesis constraints
 	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns
 	 * 
@@ -273,17 +273,17 @@ public class BOOSTClient {
 	 * 
 	 */
 	public String dnaVarification(
-			final String codingSequenceFile, 
+			final String sequencesFileName, 
 			Vendor vendor, 
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, BOOSTBackEndException, 
 				IOException, SBOLValidationException, SBOLConversionException {
 
 		// verify for filename 
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, codingSequenceFile);
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFileName);
 
 		// read the file as SBOLDocument
-		SBOLDocument document = SBOLReader.read(codingSequenceFile);
+		SBOLDocument document = SBOLReader.read(sequencesFileName);
 		return this.dnaVarification(document, vendor, sequencePatternsFilename);
 		
 	}
@@ -330,7 +330,7 @@ public class BOOSTClient {
 	 */
 
 	public String partition(
-			final String filenameSequences, 
+			final String sequencesFilename, 
 			String fivePrimeVectorOverlap, 
 			String threePrimeVectorOverlap,
 			String minLengthBB, 
@@ -348,10 +348,10 @@ public class BOOSTClient {
 					SBOLValidationException, IOException, SBOLConversionException {
 		
 		// verify for filename 
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, filenameSequences);
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
-		SBOLDocument document = SBOLReader.read(filenameSequences);
+		SBOLDocument document = SBOLReader.read(sequencesFilename);
 		return this.partition(document, fivePrimeVectorOverlap, threePrimeVectorOverlap, 
 				minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC, minOverlapLength, 
 				optOverlapLength, maxOverlapLength, minPrimerLength, maxPrimerLength, maxPrimerTm);		
@@ -503,7 +503,7 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 */
 	public String polish(
-			final String filenameSequences, 
+			final String sequencesFilename, 
 			boolean bCodingSequences,
 			Vendor vendor, 
 			Strategy strategy, 
@@ -513,10 +513,10 @@ public class BOOSTClient {
 				SBOLValidationException, IOException, SBOLConversionException {
 	
 		// verify for filename 
-		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, filenameSequences);
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
-		SBOLDocument document = SBOLReader.read(filenameSequences);
+		SBOLDocument document = SBOLReader.read(sequencesFilename);
 		return this.polish(document, bCodingSequences, vendor, strategy, 
 				outputFormat, codonUsageTable);
 	}
