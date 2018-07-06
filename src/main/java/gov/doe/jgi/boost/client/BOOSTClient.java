@@ -155,7 +155,8 @@ public class BOOSTClient {
 			final String filenameSequences,
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
-					throws BOOSTClientException, BOOSTBackEndException, IOException, SBOLValidationException, SBOLConversionException {
+					throws BOOSTClientException, BOOSTBackEndException, IOException, 
+					SBOLValidationException, SBOLConversionException {
 		
 		// verify for filename 
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, filenameSequences);
@@ -183,7 +184,8 @@ public class BOOSTClient {
 			final SBOLDocument designSequences,
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
-					throws BOOSTClientException, BOOSTBackEndException, IOException, JSONException, SBOLConversionException {
+					throws BOOSTClientException, BOOSTBackEndException, IOException, 
+					JSONException, SBOLConversionException {
 		
 		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildReverseTranslate(
@@ -244,7 +246,8 @@ public class BOOSTClient {
 			final SBOLDocument designSequences, boolean bAutoAnnotate, 
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
-				throws BOOSTClientException, BOOSTBackEndException, IOException, JSONException, SBOLConversionException {
+				throws BOOSTClientException, BOOSTBackEndException, IOException, 
+				JSONException, SBOLConversionException {
 		
 		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildCodonJuggle(
@@ -305,7 +308,8 @@ public class BOOSTClient {
 			final SBOLDocument codingSequence, 
 			Vendor vendor, 
 			final String sequencePatternsFilename)
-				throws BOOSTClientException, BOOSTBackEndException, IOException, JSONException, SBOLConversionException {
+				throws BOOSTClientException, BOOSTBackEndException, IOException, 
+				JSONException, SBOLConversionException {
 
 		// represent the request data in JSON and
 		// submit it to BOOST's Job Queue Management System (JQMS)
@@ -369,7 +373,8 @@ public class BOOSTClient {
 			String minPrimerLength,
 			String maxPrimerLength, 
 			String maxPrimerTm) 
-					throws BOOSTClientException, BOOSTBackEndException, JSONException, UnsupportedEncodingException, SBOLConversionException {
+					throws BOOSTClientException, BOOSTBackEndException, JSONException, 
+					UnsupportedEncodingException, SBOLConversionException {
 		
 		// construct the request's JSON object
 		JSONObject requestData = RequestBuilder.buildPartition(codingSequence, fivePrimeVectorOverlap,
