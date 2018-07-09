@@ -464,16 +464,24 @@ public class RequestBuilder {
 		// sequence information
 		JSONObject sequenceData = new JSONObject();
 		
-		// reading from SBOL document
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		SBOLWriter.write(designSequences,  outputStream);
-		String designDoc = outputStream.toString("UTF-8");
+		// write the SBOLDocument to a String
+		try (
+				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+			) {
 		
-		// put its content into the JSON object
-		if(designDoc != null && !designDoc.isEmpty()) {
-			sequenceData.put(JSONKeys.TEXT, designSequences);
+			SBOLWriter.write(designSequences,  outputStream);
+			String designDoc = outputStream.toString("UTF-8");
+			
+			System.out.println(designDoc);
+			
+			// put its content into the JSON object
+			if(designDoc != null && !designDoc.isEmpty()) {
+				sequenceData.put(JSONKeys.TEXT, designDoc);
+			}
+			
+		} catch(Exception e) {
+			throw new BOOSTClientException(e.getMessage());
 		}
-		
 		
 		// sequence type
 		JSONArray types = new JSONArray();
