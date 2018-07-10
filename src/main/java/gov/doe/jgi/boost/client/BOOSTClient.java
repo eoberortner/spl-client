@@ -162,6 +162,7 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
+		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFilename);
 		return this.reverseTranslate(document, strategy, filenameCodonUsageTable, outputFormat);
 	}
@@ -221,7 +222,9 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
+		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFilename);
+		
 		return this.codonJuggle(document, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
 	}
 	
@@ -283,8 +286,10 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFileName);
 
 		// read the file as SBOLDocument
+		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFileName);
-		return this.dnaVarification(document, vendor, sequencePatternsFilename);
+		
+		return this.dnaVerification(document, vendor, sequencePatternsFilename);
 		
 	}
 	
@@ -304,7 +309,7 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 * 
 	 */
-	public String dnaVarification(
+	public String dnaVerification(
 			final SBOLDocument codingSequence, 
 			Vendor vendor, 
 			final String sequencePatternsFilename)
@@ -351,13 +356,40 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
+		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFilename);
+		
 		return this.partition(document, fivePrimeVectorOverlap, threePrimeVectorOverlap, 
 				minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC, minOverlapLength, 
 				optOverlapLength, maxOverlapLength, minPrimerLength, maxPrimerLength, maxPrimerTm);		
 	}
 	
 	
+	/**
+	 * 
+	 * @param codingSequence
+	 * @param fivePrimeVectorOverlap
+	 * @param threePrimeVectorOverlap
+	 * @param minLengthBB
+	 * @param maxLengthBB
+	 * @param minOverlapGC
+	 * @param optOverlapGC
+	 * @param maxOverlapGC
+	 * @param minOverlapLength
+	 * @param optOverlapLength
+	 * @param maxOverlapLength
+	 * @param minPrimerLength
+	 * @param maxPrimerLength
+	 * @param maxPrimerTm
+	 * 
+	 * @return
+	 * 
+	 * @throws BOOSTClientException
+	 * @throws BOOSTBackEndException
+	 * @throws JSONException
+	 * @throws UnsupportedEncodingException
+	 * @throws SBOLConversionException
+	 */
 	public String partition(
 			SBOLDocument codingSequence, 
 			String fivePrimeVectorOverlap, 
@@ -381,10 +413,8 @@ public class BOOSTClient {
 				threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC,
 				minOverlapLength, optOverlapLength, maxOverlapLength, 
 				minPrimerLength, maxPrimerLength, maxPrimerTm);
-		
-		System.out.println(requestData.toString(4));
-		
-		return submitJob(requestData);
+
+		return this.submitJob(requestData);
 	}
 	
 	
@@ -516,7 +546,9 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
+		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFilename);
+		
 		return this.polish(document, bCodingSequences, vendor, strategy, 
 				outputFormat, codonUsageTable);
 	}

@@ -6,14 +6,14 @@ package gov.doe.jgi.boost.client.constants;
  */
 public class BOOSTResources {
 
-//	// BOOST prod
+	// BOOST prod
 //    public static String BOOST_REST_URL = "https://boost.jgi.doe.gov/rest";
     
-//	// BOOST dev
-    public static String BOOST_REST_URL = "https://boost.jgi.doe.gov/Dev/rest";
+	// BOOST dev
+//    public static String BOOST_REST_URL = "https://boost.jgi.doe.gov/Dev/rest";
 
     // local
-//	public static String BOOST_REST_URL = "http://localhost:8080/BOOST/rest";
+	public static String BOOST_REST_URL = "http://localhost:8080/BOOST/rest";
 
 	// the BOOST resources
 	// (depending on the URL of the BOOST REST API)

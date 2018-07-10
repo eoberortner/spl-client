@@ -60,18 +60,29 @@ public class DemoClient {
 //			jobUUIDs.add(reverseTranslateJobUUID);
 //			System.out.println("Data for Reverse Translation:" + reverseTranslateJobUUID );
 //		}
-//		
-//
-		// codon juggle
-		String codonJuggleJobUUID = client.codonJuggle(
+
+		// codon juggle (using a SBOL file)
+		String codonJuggleJobUUID1 = client.codonJuggle(
 				"./data/codon_juggle.sbol.xml",		// input sequences 
 				false,					 			// exclusively 5'-3' coding sequences 
 				Strategy.Balanced,		  			// codon selection strategy
 				"Saccharomyces cerevisiae",   		// predefined host
 				FileFormat.SBOL);		  			// output format
-		if(null != codonJuggleJobUUID) {
-			jobUUIDs.add(codonJuggleJobUUID);
-			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID );
+		if(null != codonJuggleJobUUID1) {
+			jobUUIDs.add(codonJuggleJobUUID1);
+			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID1);
+		}
+
+		// codon juggle (using a FASTA file)
+		String codonJuggleJobUUID2 = client.codonJuggle(
+				"./data/dna.fasta",		// input sequences 
+				false,					 			// exclusively 5'-3' coding sequences 
+				Strategy.Balanced,		  			// codon selection strategy
+				"Saccharomyces cerevisiae",   		// predefined host
+				FileFormat.SBOL);		  			// output format
+		if(null != codonJuggleJobUUID2) {
+			jobUUIDs.add(codonJuggleJobUUID2);
+			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID2);
 		}
 
 //    	// verify against DNA synthesis constraints and sequence patterns
@@ -132,8 +143,7 @@ public class DemoClient {
 					Thread.sleep(5000);
 				} catch(Exception e) {}
 			}
-			
-			
+
 			// output of the job report (which is a JSON object)
 			System.out.println(jobReport.toString(4));
 

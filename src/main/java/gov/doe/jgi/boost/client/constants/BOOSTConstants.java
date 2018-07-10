@@ -13,6 +13,8 @@ public class BOOSTConstants {
 	public static final String VENDOR = "vendor";
 	public static final String STRATEGY = "strategy";
 	
+	public static final String DEFAULT_URI_PREFIX = "https://boost.jgi.doe.gov/";
+	
 	// uri for signup
 	public static final String SIGNUP_URI = "https://contacts.jgi.doe.gov/registration/new";
 
