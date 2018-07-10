@@ -12,7 +12,7 @@ public class BOOSTConstants {
 	public static final String SEQUENCE_TYPE = "sequence_type";
 	public static final String VENDOR = "vendor";
 	public static final String STRATEGY = "strategy";
-	public static String TARGET_NAME_SPACE = "target namespace";
+	public static String TARGET_NAMESPACE = "target namespace";
 
 	
 	// uri for signup

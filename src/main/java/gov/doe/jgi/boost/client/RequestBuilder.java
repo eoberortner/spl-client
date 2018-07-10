@@ -87,7 +87,7 @@ public class RequestBuilder {
 		
 		// verify the values
 		ParameterValueVerifier.verifyNull(BOOSTConstants.CODON_STRATEGY, strategy);
-		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAME_SPACE, targetNamespace);
+		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAMESPACE, targetNamespace);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
 		} catch(Exception e) {
@@ -140,7 +140,7 @@ public class RequestBuilder {
 					throws BOOSTClientException, JSONException, UnsupportedEncodingException, SBOLConversionException {
 		
 		ParameterValueVerifier.verifyNull(BOOSTConstants.CODON_STRATEGY, strategy);
-		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAME_SPACE, targetNamespace);
+		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAMESPACE, targetNamespace);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
 		} catch(Exception e) {}
@@ -190,7 +190,7 @@ public class RequestBuilder {
 		//---------------------------------
 		// verify the given values
 		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
-		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAME_SPACE, targetNamespace);
+		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAMESPACE, targetNamespace);
 		
 		// the sequence patterns filename is optional
 		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()) {
@@ -261,7 +261,7 @@ public class RequestBuilder {
 		
 		//-------------------------------------
 		// verify the given values
-		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAME_SPACE, targetNamespace);
+		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAMESPACE, targetNamespace);
 		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
@@ -326,7 +326,7 @@ public class RequestBuilder {
 					
 		//verify the values
 		//ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, designSequences);
-		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAME_SPACE, targetNamespace);
+		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAMESPACE, targetNamespace);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.FIVE_PRIME_VECTOR_OVERLAP, fivePrimeVectorOverlap);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_BB_LENGTH, minLengthBB);
