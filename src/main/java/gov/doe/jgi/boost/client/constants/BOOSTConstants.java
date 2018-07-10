@@ -12,6 +12,8 @@ public class BOOSTConstants {
 	public static final String SEQUENCE_TYPE = "sequence_type";
 	public static final String VENDOR = "vendor";
 	public static final String STRATEGY = "strategy";
+	public static String TARGET_NAMESPACE = "target namespace";
+
 	
 	// uri for signup
 	public static final String SIGNUP_URI = "https://contacts.jgi.doe.gov/registration/new";
@@ -36,3 +38,4 @@ public class BOOSTConstants {
 	public static final String MAX_PRIMER_TM = "max-primer-tm";
 
 }
+
