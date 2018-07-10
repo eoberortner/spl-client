@@ -46,7 +46,7 @@ public class RESTInvoker {
 			// send the GET request
 			return invocationBuilder.get();
 		} catch(Exception e) {
-			throw new BOOSTClientException(e.getLocalizedMessage());
+			throw new BOOSTClientException(e.getLocalizedMessage() + " In sendGet");
 		}
 	}
 
@@ -81,7 +81,7 @@ public class RESTInvoker {
 	 */
 	public static Response sendPost(
 			final String resourceURL, final JSONObject requestData, final String token) 
-			throws BOOSTClientException {
+					throws BOOSTClientException{
 		
 		// build the URL of the BOOST REST authentication resource
 		Client client = ClientBuilder.newClient();
@@ -99,11 +99,10 @@ public class RESTInvoker {
 		try {
 			// send the POST request
 			return invocationBuilder.post(
-					Entity.entity(requestData.toString(), MediaType.APPLICATION_JSON));
+			Entity.entity(requestData.toString(), MediaType.APPLICATION_JSON));
 		} catch(Exception e) {
-			throw new BOOSTClientException(e.getLocalizedMessage());
+			throw new BOOSTClientException(e.getLocalizedMessage() + " In sendPost");
 		}
 	}
-	
-	
 }
+

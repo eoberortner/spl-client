@@ -1,15 +1,24 @@
 package gov.doe.jgi.boost.client;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import javax.ws.rs.core.Response;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.sbolstandard.core2.SBOLConversionException;
+import org.sbolstandard.core2.SBOLDocument;
+import org.sbolstandard.core2.SBOLReader;
+import org.sbolstandard.core2.SBOLValidationException;
 
+import gov.doe.jgi.boost.client.constants.BOOSTConstants;
 import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.client.constants.JSONKeys;
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
+import gov.doe.jgi.boost.enums.Vendor;
+import gov.doe.jgi.boost.exception.BOOSTAPIsException;
 import gov.doe.jgi.boost.exception.BOOSTBackEndException;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
@@ -19,9 +28,13 @@ import gov.doe.jgi.boost.exception.BOOSTClientException;
  * @author Ernst Oberortner
  */
 public class BOOSTClient {
-
-	// the JWT
+	
 	private String token;
+	
+	/**
+	 * 
+	 */
+	public BOOSTClient() {}
 
 	/**
 	 * Instantiation of the BOOST client using the user's JWT.
@@ -32,6 +45,7 @@ public class BOOSTClient {
 		this.token = jwt;
 	}
 	
+	
 	/**
 	 * Instantiation of the BOOST client using username and password. The 
 	 * BOOST client automatically logs in to BOOST in order to receive 
@@ -41,12 +55,13 @@ public class BOOSTClient {
 	 * @param password  ... the password
 	 * 
 	 * @throws BOOSTClientException ... in case the username or password is invalid
+	 * @throws BOOSTAPIsException  ... in case of BOOST resources are not valid
 	 */
 	public BOOSTClient(final String username, final String password) 
-			throws BOOSTClientException {
+			throws BOOSTClientException, BOOSTAPIsException{
 		
 		// try to login the user
-		this.token = login(username, password);
+			this.token = login(username, password);
 	}
 	
 	/**
@@ -56,9 +71,11 @@ public class BOOSTClient {
 	 * @param password ... the password
 	 * 
 	 * @throws BOOSTClientException
+	 * @throws BOOSTAPIsException 
 	 */
-	private static String login(final String username, final String password) 
-			throws BOOSTClientException {
+	private String login(final String username, final String password) 
+			throws BOOSTClientException, BOOSTAPIsException, BOOSTAPIsException{
+
 
 		// represent the username/password combo as JSON object
 		JSONObject jsonRequest = RequestBuilder.buildLogin(username, password);
@@ -90,6 +107,10 @@ public class BOOSTClient {
 						response.getStatus() + ", " + response.getStatusInfo() + ": " + 
 						response.readEntity(String.class));
 			}
+		}else {
+			// URL might be invalid
+			throw new BOOSTAPIsException("The resource: " + BOOSTResources.BOOST_REST_URL + 
+					BOOSTResources.LOGIN_RESOURCE + " is Invalid");
 		}
 		
 		return token;
@@ -117,57 +138,66 @@ public class BOOSTClient {
 	}
 	
 	/**
-	 * The reverseTranslate method invokes BOOT's reverse-translate functionality.
+	 * The reverseTranslate method invokes BOOST's reverse-translate functionality.
 	 *  
-	 * @param filenameSequences  ... the name of the file that contains the input sequences
+	 * @param sequencesFilename  ... the name of the file that contains the input sequences
 	 * @param strategy ... the codon selection strategy 
 	 * @param filenameCodonUsageTable ... the name of the file that contains the codon usage table
 	 * @param outputFormat ... the desired output format
 	 * 
 	 * @throws BOOSTClientException 
 	 * @throws IOException
+	 * @throws SBOLConversionException 
+	 * @throws SBOLValidationException 
+	 * @throws BOOSTAPIsException 
 	 */
 	public String reverseTranslate(
-			final String filenameSequences,
+			final String sequencesFilename,
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
-					throws BOOSTClientException, BOOSTBackEndException, IOException {
+					throws BOOSTClientException, BOOSTBackEndException, IOException, 
+					SBOLValidationException, SBOLConversionException {
+		
+		// verify for filename 
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
+
+		// read the file as SBOLDocument
+		SBOLDocument document = SBOLReader.read(sequencesFilename);
+		return this.reverseTranslate(document, strategy, filenameCodonUsageTable, outputFormat);
+	}
+	
+	/**
+	 * The reverseTranslate method invokes BOOST's reverse-translate functionality.
+	 *  
+	 * @param designSequences  ... sbol document that contains the input sequences
+	 * @param strategy ... the codon selection strategy 
+	 * @param filenameCodonUsageTable ... the name of the file that contains the codon usage table
+	 * @param outputFormat ... the desired output format
+	 * 
+	 * @throws BOOSTClientException 
+	 * @throws IOException
+	 * @throws JSONException 
+	 * @throws SBOLConversionException 
+	 * @throws BOOSTAPIsException 
+	 */
+	public String reverseTranslate(
+			final SBOLDocument designSequences,
+			Strategy strategy, final String filenameCodonUsageTable,
+			final FileFormat outputFormat)
+					throws BOOSTClientException, BOOSTBackEndException, IOException, 
+					JSONException, SBOLConversionException {
 		
 		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildReverseTranslate(
-				filenameSequences, strategy, filenameCodonUsageTable, outputFormat);
-
-		System.out.println(requestData.toString(4));
+				designSequences, strategy, filenameCodonUsageTable, outputFormat);
 		
 		return this.submitJob(requestData);
-		
-//		// send the request
-//		Response response = RESTInvoker.sendPost(
-//				BOOSTResources.BOOST_REST_URL + BOOSTResources.REVERSE_TRANSLATE_RESOURCE, 
-//				requestData, 
-//				this.token);
-//
-//		// process the response
-//		switch(response.getStatus()) {
-//		case 200:
-//			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
-//			
-//			if(jsonResponse.has(JSONKeys.TEXT)) {
-//				return jsonResponse.getString(JSONKeys.TEXT);
-//			}
-//			
-//			throw new BOOSTClientException("The server returned an unknown response!");
-//		}
-//		
-//		throw new BOOSTBackEndException(
-//				response.getStatus(),
-//				response.readEntity(String.class));
 	}
 	
 	/**
 	 * The codonJuggle method invokes BOOST's codon-juggling functionality.
 	 *  
-	 * @param filenameSequences  ... the name of the file that contains the input sequences
+	 * @param sequencesFilename  ... the name of the file that contains the input sequences
 	 * @param bAutoAnnotate ... true ... all sequences exclusively 5'-3' protein coding sequences (is only considered 
 	 * when the sequences don't have feature annotations, e.g. FASTA or CSV)
 	 * @param strategy ... the codon replacement strategy 
@@ -176,66 +206,188 @@ public class BOOSTClient {
 	 * 
 	 * @throws BOOSTClientException 
 	 * @throws IOException
+	 * @throws SBOLConversionException 
+	 * @throws SBOLValidationException 
+	 * @throws BOOSTAPIsException 
 	 */
 	public String codonJuggle(
-			final String filenameSequences, boolean bAutoAnnotate, 
+			final String sequencesFilename, boolean bAutoAnnotate, 
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
-				throws BOOSTClientException, BOOSTBackEndException, IOException {
+				throws BOOSTClientException, BOOSTBackEndException, IOException, 
+				SBOLValidationException, SBOLConversionException {
+		
+		// verify for filename 
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
+
+		// read the file as SBOLDocument
+		SBOLDocument document = SBOLReader.read(sequencesFilename);
+		return this.codonJuggle(document, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
+	}
+	
+	
+	/**
+	 * The codonJuggle method invokes BOOST's codon-juggling functionality.
+	 *  
+	 * @param designSequences  ... the sbol document that contains the input sequences
+	 * @param bAutoAnnotate ... true ... all sequences exclusively 5'-3' protein coding sequences (is only considered 
+	 * when the sequences don't have feature annotations, e.g. FASTA or CSV)
+	 * @param strategy ... the codon replacement strategy 
+	 * @param filenameCodonUsageTable ... the name of the file that contains the codon usage table
+	 * @param outputFormat ... the desired output format
+	 * 
+	 * @throws BOOSTClientException 
+	 * @throws IOException
+	 * @throws SBOLConversionException 
+	 * @throws JSONException 
+	 * @throws BOOSTAPIsException 
+	 */
+	public String codonJuggle(
+			final SBOLDocument designSequences, boolean bAutoAnnotate, 
+			Strategy strategy, final String filenameCodonUsageTable,
+			final FileFormat outputFormat)
+				throws BOOSTClientException, BOOSTBackEndException, IOException, 
+				JSONException, SBOLConversionException {
 		
 		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildCodonJuggle(
-				filenameSequences, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
-		
-		
+				designSequences, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
+
 		return this.submitJob(requestData);
-		
-//		// send the request
-//		Response response = RESTInvoker.sendPost(
-//				BOOSTResources.BOOST_REST_URL + BOOSTResources.REVERSE_TRANSLATE_RESOURCE, 
-//				requestData, 
-//				this.token);
-//
-//		switch(response.getStatus()) {
-//		case 200:
-//			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
-//			
-//			if(jsonResponse.has(JSONKeys.TEXT)) {
-//				return jsonResponse.getString(JSONKeys.TEXT);
-//			}
-//			
-//			throw new BOOSTClientException("The server returned an unknown response!");
-//		}
-//		
-//		throw new BOOSTBackEndException(
-//				response.getStatus(),
-//				response.readEntity(String.class));
 	}
 	
 	/**
 	 * The verify method submits a job to BOOST that verifies 
 	 * sequences against DNA synthesis constraints.
 	 * 
-	 * @param filenameSequences ... the name of the file that contains the sequences
+	 * @param sequencesFileName ... the name of the file that contains the sequences
 	 * @param constraintsFilename ... the name of the file that contains the DNA synthesis constraints
 	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns
 	 * 
 	 * @return the UUID of the submitted job
 	 * 
 	 * @throws BOOSTClientException
+	 * @throws SBOLConversionException 
+	 * @throws SBOLValidationException 
+	 * @throws BOOSTAPIsException 
+	 * 
 	 */
-	public String verify(
-			final String filenameSequences, 
-			final String constraintsFilename, 
+	public String dnaVarification(
+			final String sequencesFileName, 
+			Vendor vendor, 
 			final String sequencePatternsFilename)
-				throws BOOSTClientException, BOOSTBackEndException, IOException {
+				throws BOOSTClientException, BOOSTBackEndException, 
+				IOException, SBOLValidationException, SBOLConversionException {
+
+		// verify for filename 
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFileName);
+
+		// read the file as SBOLDocument
+		SBOLDocument document = SBOLReader.read(sequencesFileName);
+		return this.dnaVarification(document, vendor, sequencePatternsFilename);
+		
+	}
+	
+	/**
+	 * The verify method submits a job to BOOST that verifies 
+	 * sequences against DNA synthesis constraints.
+	 * 
+	 * @param codingSequence ... the sbol document that contains the sequences
+	 * @param constraintsFilename ... the name of the file that contains the DNA synthesis constraints
+	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns
+	 * 
+	 * @return the UUID of the submitted job
+	 * 
+	 * @throws BOOSTClientException
+	 * @throws SBOLConversionException 
+	 * @throws JSONException 
+	 * @throws BOOSTAPIsException 
+	 * 
+	 */
+	public String dnaVarification(
+			final SBOLDocument codingSequence, 
+			Vendor vendor, 
+			final String sequencePatternsFilename)
+				throws BOOSTClientException, BOOSTBackEndException, IOException, 
+				JSONException, SBOLConversionException {
 
 		// represent the request data in JSON and
 		// submit it to BOOST's Job Queue Management System (JQMS)
 		return submitJob(RequestBuilder.buildVerify(
-				filenameSequences, constraintsFilename, sequencePatternsFilename));
+				codingSequence, vendor, sequencePatternsFilename));
 	}
 
+	/**
+	 * The partition() method Partitioning of large DNA sequences into synthesizable
+	 * building blocks with partial overlaps for an efficient assembly.
+	 *  
+	 * @throws BOOSTClientException
+	 * @throws BOOSTBackEndException 
+	 * @throws SBOLConversionException 
+	 * @throws IOException 
+	 * @throws SBOLValidationException 
+	 * @throws BOOSTAPIsException 
+	 */
+
+	public String partition(
+			final String sequencesFilename, 
+			String fivePrimeVectorOverlap, 
+			String threePrimeVectorOverlap,
+			String minLengthBB, 
+			String maxLengthBB, 
+			String minOverlapGC, 
+			String optOverlapGC, 
+			String maxOverlapGC, 
+			String minOverlapLength, 
+			String optOverlapLength,
+			String maxOverlapLength,
+			String minPrimerLength,
+			String maxPrimerLength, 
+			String maxPrimerTm) 
+					throws BOOSTClientException, BOOSTBackEndException, 
+					SBOLValidationException, IOException, SBOLConversionException {
+		
+		// verify for filename 
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
+
+		// read the file as SBOLDocument
+		SBOLDocument document = SBOLReader.read(sequencesFilename);
+		return this.partition(document, fivePrimeVectorOverlap, threePrimeVectorOverlap, 
+				minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC, minOverlapLength, 
+				optOverlapLength, maxOverlapLength, minPrimerLength, maxPrimerLength, maxPrimerTm);		
+	}
+	
+	
+	public String partition(
+			SBOLDocument codingSequence, 
+			String fivePrimeVectorOverlap, 
+			String threePrimeVectorOverlap,
+			String minLengthBB, 
+			String maxLengthBB, 
+			String minOverlapGC, 
+			String optOverlapGC, 
+			String maxOverlapGC, 
+			String minOverlapLength, 
+			String optOverlapLength,
+			String maxOverlapLength,
+			String minPrimerLength,
+			String maxPrimerLength, 
+			String maxPrimerTm) 
+					throws BOOSTClientException, BOOSTBackEndException, JSONException, 
+					UnsupportedEncodingException, SBOLConversionException {
+		
+		// construct the request's JSON object
+		JSONObject requestData = RequestBuilder.buildPartition(codingSequence, fivePrimeVectorOverlap,
+				threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC,
+				minOverlapLength, optOverlapLength, maxOverlapLength, 
+				minPrimerLength, maxPrimerLength, maxPrimerTm);
+		
+		System.out.println(requestData.toString(4));
+		
+		return submitJob(requestData);
+	}
+	
+	
 	/**
 	 * The submitJob method submits a job to the BOOST back-end and returns 
 	 * the UUID (as String) of the submitted job. 
@@ -245,6 +397,7 @@ public class BOOSTClient {
 	 * @return the UUID of the submitted job
 	 * 
 	 * @throws BOOSTClientException
+	 * @throws BOOSTAPIsException 
 	 */
 	public String submitJob(final JSONObject requestData) 
 			throws BOOSTClientException, BOOSTBackEndException {
@@ -265,11 +418,10 @@ public class BOOSTClient {
 			
 			throw new BOOSTClientException("The server returned an unknown response!");
 		}
-		
 		throw new BOOSTBackEndException(
 				response.getStatus(),
-				response.readEntity(String.class));
-	}
+				response.readEntity(String.class));	
+}
 	
 	/**
 	 * sends a GET request to the BOOST REST API in order 
@@ -277,22 +429,20 @@ public class BOOSTClient {
 	 * 
 	 * @return
 	 * @throws BOOSTClientException 
+	 * @throws BOOSTAPIsException 
 	 */
-	public JSONObject getPredefinedHosts() 
-			throws BOOSTClientException {
-		
-		// get the status of the job
-		Response response = RESTInvoker.sendGet(
-				BOOSTResources.BOOST_REST_URL + BOOSTResources.GET_PREDEFINED_HOSTS_RESOURCE,  
-				this.token);
-		
-		switch(response.getStatus()) {
-		case 200:
-			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
-			return jsonResponse;
-		}
-		
-		return (JSONObject)null;
+	public JSONObject getPredefinedHosts() throws BOOSTClientException {
+
+			// get the status of the job
+			Response response = RESTInvoker
+					.sendGet(BOOSTResources.BOOST_REST_URL + BOOSTResources.GET_PREDEFINED_HOSTS_RESOURCE, this.token);
+
+			switch (response.getStatus()) {
+			case 200:
+				JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
+				return jsonResponse;
+			}
+		return (JSONObject) null;
 	}
 	
 	/**
@@ -301,159 +451,115 @@ public class BOOSTClient {
 	 * @return
 	 * @throws BOOSTClientException
 	 * @throws BOOSTBackEndException
+	 * @throws BOOSTAPIsException 
 	 */
-	public JSONObject getJobReport(final String jobUUID) 
+	public JSONObject getJobReport(final String jobUUID)
 			throws BOOSTClientException, BOOSTBackEndException {
-	
-		// get the status of the job
-		Response response = RESTInvoker.sendGet(
-				BOOSTResources.BOOST_REST_URL + BOOSTResources.GET_JOB_RESOURCE + "/" + jobUUID,  
-				this.token);
-		
-		switch(response.getStatus()) {
-		case 200:
-			JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
 
-			System.out.println(jsonResponse);
-			if(jsonResponse.has(JSONKeys.JOB_INFORMATION)) {
-				
-				JSONObject jsonJob = jsonResponse.getJSONObject(JSONKeys.JOB_INFORMATION);
-				
-				if(jsonJob.has(JSONKeys.JOB_REPORT)) {
-					return jsonJob.getJSONObject(JSONKeys.JOB_REPORT);
+			// get the status of the job
+			Response response = RESTInvoker.sendGet(
+					BOOSTResources.BOOST_REST_URL + BOOSTResources.GET_JOB_RESOURCE + "/" + jobUUID, this.token);
+
+			switch (response.getStatus()) {
+			case 200:
+				JSONObject jsonResponse = new JSONObject(response.readEntity(String.class));
+
+				if (jsonResponse.has(JSONKeys.JOB_INFORMATION)) {
+
+					JSONObject jsonJob = jsonResponse.getJSONObject(JSONKeys.JOB_INFORMATION);
+
+					if (jsonJob.has(JSONKeys.JOB_REPORT)) {
+						return jsonJob.getJSONObject(JSONKeys.JOB_REPORT);
+					}
 				}
 			}
-		}
-		
-		return (JSONObject)null;
+		return (JSONObject) null;
 	}
+	
+	
+	/**
+	 * The polish() method verifies the sequences in a given file against the 
+	 * gene synthesis constraints of a commercial synthesis vendor. 
+	 * In case of violations, the polish() method modifies the coding regions 
+	 * of the sequence using the specified codon replacement strategy.
+	 *  
+	 * @param codingSequence ... the name of the file that contains the sequences
+	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
+	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
+	 * support sequence feature annotations and if bCoding sequences is set to true, 
+	 * then are all sequences are treated as coding sequences. If the sequences are 
+	 * encoded in a format that does support sequence feature annotations, then the 
+	 * bCodingSequences flag is ignored. 
+	 * @param vendor ... the name of commercial synthesis provider
+	 * @param strategy ... the codon replacement strategy
+	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
+	 * usage table
+	 * 
+	 * @throws BOOSTClientException
+	 * @throws BOOSTBackEndException 
+	 * @throws SBOLConversionException 
+	 * @throws IOException 
+	 * @throws SBOLValidationException 
+	 * @throws BOOSTAPIsException 
+	 */
+	public String polish(
+			final String sequencesFilename, 
+			boolean bCodingSequences,
+			Vendor vendor, 
+			Strategy strategy, 
+			final FileFormat outputFormat,
+			final String codonUsageTable) 
+				throws BOOSTClientException, BOOSTBackEndException, 
+				SBOLValidationException, IOException, SBOLConversionException {
+	
+		// verify for filename 
+		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
-//	/**
-//	 * The verify() method verifies the sequences of a given file with the 
-//	 * gene synthesis constraints of a given vendor.
-//	 * 
-//	 * @param sequencesFilename ... the name of the file that contains the sequences
-//	 * @param type ... the type of sequences, i.e. DNA, RNA, Protein
-//	 * @param vendor ... the vendor
-//	 * 
-//	 * @return a map, where each key represents a file and its corresponding 
-//	 * value is a map, where each key represents a sequence id and its corresponding
-//	 * value is a list of violations represented as String objects
-//	 * 
-//	 * @throws BOOSTClientException
-//	 */
-//	public Map<String, Map<String, List<String>>> verify(
-//			final String sequencesFilename, SequenceType type, final Vendor vendor) 
-//			throws BOOSTClientException {
-//		
-//		// check if the user did a login previously
-//		if(null == token) {
-//			throw new BOOSTClientException("You must authenticate first!");
-//		}
-//		
-//		/*
-//		 * build the request
-//		 */
-//		JSONObject jsonRequestData = new JSONObject();
-//
-//		// sequence information
-//		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION, 
-//				RequestBuilder.buildSequenceData(sequencesFilename, type, false));
-//		
-//		// constraints information
-//		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
-//				RequestBuilder.buildConstraintsData(vendor));
-//		
-//		try {
-//			/*
-//			 * invoke the verify resource
-//			 */
-//			Response response = this.invoke("polisher/verify", jsonRequestData);
-//		
-//			switch(response.getStatus()) {
-//			case 200:	// OK
-//				/*
-//				 *  TODO: parse the response
-//				 */  
-//				return new HashMap<String, Map<String, List<String>>>();
-//			default:
-//				throw new BOOSTClientException(response.getEntity().toString());
-//			}
-//		} catch(Exception e) {
-//			throw new BOOSTClientException(e.getLocalizedMessage());
-//		}
-//	}
-//	
-//	
-//	/**
-//	 * The polish() method verifies the sequences in a given file against the 
-//	 * gene synthesis constraints of a commercial synthesis vendor. 
-//	 * In case of violations, the polish() method modifies the coding regions 
-//	 * of the sequence using the specified codon replacement strategy.
-//	 *  
-//	 * @param sequencesFilename ... the name of the file that contains the sequences
-//	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
-//	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
-//	 * support sequence feature annotations and if bCoding sequences is set to true, 
-//	 * then are all sequences are treated as coding sequences. If the sequences are 
-//	 * encoded in a format that does support sequence feature annotations, then the 
-//	 * bCodingSequences flag is ignored. 
-//	 * @param vendor ... the name of commercial synthesis provider
-//	 * @param strategy ... the codon replacement strategy
-//	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
-//	 * usage table
-//	 * 
-//	 * @throws BOOSTClientException
-//	 */
-//	public void polish(final String sequencesFilename, SequenceType type, boolean bCodingSequences,
-//			Vendor vendor, Strategy strategy, final String codonUsageTableFilename) 
-//				throws BOOSTClientException {
-//		
-//		// check if the user did a login previously
-//		if(null == token) {
-//			throw new BOOSTClientException("You must authenticate first!");
-//		}
-//		
-//		/*
-//		 * build the request
-//		 */
-//		JSONObject jsonRequestData = new JSONObject();
-//
-//		// sequence information
-//		jsonRequestData.put(JSON2InputArgs.SEQUENCE_INFORMATION, 
-//				RequestBuilder.buildSequenceData(sequencesFilename, type, bCodingSequences));
-//		
-//		// constraints information
-//		jsonRequestData.put(JSON2InputArgs.CONSTRAINTS_INFORMATION, 
-//				RequestBuilder.buildConstraintsData(vendor));
-//
-//		/*
-//		 * TODO: -- modification information
-//		 */ 
-////		jsonRequest.put(JSON2InputArgs.MODIFICATION_INFORMATION, 
-////				RequestBuilder.buildModificationData(strategy, codonUsageTableFilename);
-//		
-//		/*
-//		 * invoke the resource
-//		 */
-//		try {
-//			/*
-//			 * invoke the verify resource
-//			 */
-//			Response response = this.invoke("polisher/verify", jsonRequestData);
-//		
-//			switch(response.getStatus()) {
-//			case 200:	// OK
-//				/*
-//				 *  TODO: parse the response
-//				 */  
-//				return;
-//			default:
-//				throw new BOOSTClientException(response.getEntity().toString());
-//			}
-//		} catch(Exception e) {
-//			throw new BOOSTClientException(e.getLocalizedMessage());
-//		}
-//	}
-
+		// read the file as SBOLDocument
+		SBOLDocument document = SBOLReader.read(sequencesFilename);
+		return this.polish(document, bCodingSequences, vendor, strategy, 
+				outputFormat, codonUsageTable);
+	}
+	
+	
+	/**
+	 * The polish() method verifies the sequences in a given file against the 
+	 * gene synthesis constraints of a commercial synthesis vendor. 
+	 * In case of violations, the polish() method modifies the coding regions 
+	 * of the sequence using the specified codon replacement strategy.
+	 *  
+	 * @param codingSequence ... the sbol file that contains the sequences
+	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
+	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
+	 * support sequence feature annotations and if bCoding sequences is set to true, 
+	 * then are all sequences are treated as coding sequences. If the sequences are 
+	 * encoded in a format that does support sequence feature annotations, then the 
+	 * bCodingSequences flag is ignored. 
+	 * @param vendor ... the name of commercial synthesis provider
+	 * @param strategy ... the codon replacement strategy
+	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
+	 * usage table
+	 * 
+	 * @throws BOOSTClientException
+	 * @throws BOOSTBackEndException 
+	 * @throws SBOLConversionException 
+	 * @throws UnsupportedEncodingException 
+	 * @throws JSONException 
+	 * @throws BOOSTAPIsException 
+	 */
+	public String polish(
+			final SBOLDocument codingSequence, 
+			boolean bCodingSequences,
+			Vendor vendor, 
+			Strategy strategy, 
+			final FileFormat outputFormat,
+			final String codonUsageTable) 
+				throws BOOSTClientException, BOOSTBackEndException, JSONException, UnsupportedEncodingException, SBOLConversionException {
+		
+		// construct the request's JSON object
+		JSONObject requestData = RequestBuilder.buildPolish( codingSequence, 
+			bCodingSequences, vendor, strategy, outputFormat, codonUsageTable);
+				
+		 return submitJob(requestData);	
+	}
 }
