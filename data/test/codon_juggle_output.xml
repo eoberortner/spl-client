@@ -1,0 +1,1091 @@
+<sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_37/sequence_difference_37/modification_37"/>
+            <sbol:displayId>modification_37</sbol:displayId>
+            <sbol:start>544</sbol:start>
+            <sbol:end>555</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_6">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_6"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_6</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_6/sequence_difference_6">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_6/sequence_difference_6"/>
+        <sbol:displayId>sequence_difference_6</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_6/sequence_difference_6/modification_6">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_6/sequence_difference_6/modification_6"/>
+            <sbol:displayId>modification_6</sbol:displayId>
+            <sbol:start>85</sbol:start>
+            <sbol:end>105</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_62">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_62"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_62</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_62/sequence_difference_62">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_62/sequence_difference_62"/>
+        <sbol:displayId>sequence_difference_62</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_62/sequence_difference_62/modification_62">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_62/sequence_difference_62/modification_62"/>
+            <sbol:displayId>modification_62</sbol:displayId>
+            <sbol:start>856</sbol:start>
+            <sbol:end>864</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_7">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_7"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_7</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_7/sequence_difference_7">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_7/sequence_difference_7"/>
+        <sbol:displayId>sequence_difference_7</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_7/sequence_difference_7/modification_7">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_7/sequence_difference_7/modification_7"/>
+            <sbol:displayId>modification_7</sbol:displayId>
+            <sbol:start>109</sbol:start>
+            <sbol:end>123</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_51">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_51"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_51</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_51/sequence_difference_51">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_51/sequence_difference_51"/>
+        <sbol:displayId>sequence_difference_51</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_51/sequence_difference_51/modification_51">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_51/sequence_difference_51/modification_51"/>
+            <sbol:displayId>modification_51</sbol:displayId>
+            <sbol:start>703</sbol:start>
+            <sbol:end>705</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_63">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_63"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_63</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_63/sequence_difference_63">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_63/sequence_difference_63"/>
+        <sbol:displayId>sequence_difference_63</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_63/sequence_difference_63/modification_63">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_63/sequence_difference_63/modification_63"/>
+            <sbol:displayId>modification_63</sbol:displayId>
+            <sbol:start>868</sbol:start>
+            <sbol:end>888</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_53">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_53"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_53</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_53/sequence_difference_53">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_53/sequence_difference_53"/>
+        <sbol:displayId>sequence_difference_53</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_53/sequence_difference_53/modification_53">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_53/sequence_difference_53/modification_53"/>
+            <sbol:displayId>modification_53</sbol:displayId>
+            <sbol:start>739</sbol:start>
+            <sbol:end>753</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_4">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_4"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_4</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_4/sequence_difference_4">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_4/sequence_difference_4"/>
+        <sbol:displayId>sequence_difference_4</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_4/sequence_difference_4/modification_4">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_4/sequence_difference_4/modification_4"/>
+            <sbol:displayId>modification_4</sbol:displayId>
+            <sbol:start>40</sbol:start>
+            <sbol:end>72</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_43">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_43"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_43</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_43/sequence_difference_43">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_43/sequence_difference_43"/>
+        <sbol:displayId>sequence_difference_43</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_43/sequence_difference_43/modification_43">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_43/sequence_difference_43/modification_43"/>
+            <sbol:displayId>modification_43</sbol:displayId>
+            <sbol:start>613</sbol:start>
+            <sbol:end>615</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_78">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_78"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_78</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_78/sequence_difference_78">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_78/sequence_difference_78"/>
+        <sbol:displayId>sequence_difference_78</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_78/sequence_difference_78/modification_78">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_78/sequence_difference_78/modification_78"/>
+            <sbol:displayId>modification_78</sbol:displayId>
+            <sbol:start>1102</sbol:start>
+            <sbol:end>1104</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_77">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_77"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_77</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_77/sequence_difference_77">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_77/sequence_difference_77"/>
+        <sbol:displayId>sequence_difference_77</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_77/sequence_difference_77/modification_77">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_77/sequence_difference_77/modification_77"/>
+            <sbol:displayId>modification_77</sbol:displayId>
+            <sbol:start>1090</sbol:start>
+            <sbol:end>1098</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_64">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_64"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_64</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_64/sequence_difference_64">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_64/sequence_difference_64"/>
+        <sbol:displayId>sequence_difference_64</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_64/sequence_difference_64/modification_64">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_64/sequence_difference_64/modification_64"/>
+            <sbol:displayId>modification_64</sbol:displayId>
+            <sbol:start>895</sbol:start>
+            <sbol:end>897</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_20">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_20"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_20</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_20/sequence_difference_20">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_20/sequence_difference_20"/>
+        <sbol:displayId>sequence_difference_20</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_20/sequence_difference_20/modification_20">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_20/sequence_difference_20/modification_20"/>
+            <sbol:displayId>modification_20</sbol:displayId>
+            <sbol:start>334</sbol:start>
+            <sbol:end>336</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_32">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_32"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_32</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_32/sequence_difference_32">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_32/sequence_difference_32"/>
+        <sbol:displayId>sequence_difference_32</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_32/sequence_difference_32/modification_32">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_32/sequence_difference_32/modification_32"/>
+            <sbol:displayId>modification_32</sbol:displayId>
+            <sbol:start>472</sbol:start>
+            <sbol:end>486</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_17">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_17"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_17</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_17/sequence_difference_17">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_17/sequence_difference_17"/>
+        <sbol:displayId>sequence_difference_17</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_17/sequence_difference_17/modification_17">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_17/sequence_difference_17/modification_17"/>
+            <sbol:displayId>modification_17</sbol:displayId>
+            <sbol:start>313</sbol:start>
+            <sbol:end>318</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_52">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_52"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_52</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_52/sequence_difference_52">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_52/sequence_difference_52"/>
+        <sbol:displayId>sequence_difference_52</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_52/sequence_difference_52/modification_52">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_52/sequence_difference_52/modification_52"/>
+            <sbol:displayId>modification_52</sbol:displayId>
+            <sbol:start>715</sbol:start>
+            <sbol:end>735</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_73">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_73"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_73</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_73/sequence_difference_73">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_73/sequence_difference_73"/>
+        <sbol:displayId>sequence_difference_73</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_73/sequence_difference_73/modification_73">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_73/sequence_difference_73/modification_73"/>
+            <sbol:displayId>modification_73</sbol:displayId>
+            <sbol:start>1021</sbol:start>
+            <sbol:end>1023</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_CDS_1">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_CDS_1"/>
+    <sbol:displayId>TetR_InverterSequence_CDS_1</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_CDS_1/CDS_1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_CDS_1/CDS_1"/>
+        <sbol:displayId>CDS_1</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_CDS_1/CDS_1/feature_1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_CDS_1/CDS_1/feature_1"/>
+            <sbol:displayId>feature_1</sbol:displayId>
+            <sbol:start>1</sbol:start>
+            <sbol:end>1122</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequence rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence/1.0"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_3">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_3"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_3</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_3/sequence_difference_3">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_3/sequence_difference_3"/>
+        <sbol:displayId>sequence_difference_3</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_3/sequence_difference_3/modification_3">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_3/sequence_difference_3/modification_3"/>
+            <sbol:displayId>modification_3</sbol:displayId>
+            <sbol:start>34</sbol:start>
+            <sbol:end>36</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_60">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_60"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_60</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_60/sequence_difference_60">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_60/sequence_difference_60"/>
+        <sbol:displayId>sequence_difference_60</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_60/sequence_difference_60/modification_60">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_60/sequence_difference_60/modification_60"/>
+            <sbol:displayId>modification_60</sbol:displayId>
+            <sbol:start>841</sbol:start>
+            <sbol:end>843</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_27">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_27"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_27</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_27/sequence_difference_27">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_27/sequence_difference_27"/>
+        <sbol:displayId>sequence_difference_27</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_27/sequence_difference_27/modification_27">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_27/sequence_difference_27/modification_27"/>
+            <sbol:displayId>modification_27</sbol:displayId>
+            <sbol:start>424</sbol:start>
+            <sbol:end>426</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_58">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_58"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_58</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_58/sequence_difference_58">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_58/sequence_difference_58"/>
+        <sbol:displayId>sequence_difference_58</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_58/sequence_difference_58/modification_58">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_58/sequence_difference_58/modification_58"/>
+            <sbol:displayId>modification_58</sbol:displayId>
+            <sbol:start>808</sbol:start>
+            <sbol:end>810</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_42">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_42"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_42</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_42/sequence_difference_42">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_42/sequence_difference_42"/>
+        <sbol:displayId>sequence_difference_42</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_42/sequence_difference_42/modification_42">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_42/sequence_difference_42/modification_42"/>
+            <sbol:displayId>modification_42</sbol:displayId>
+            <sbol:start>595</sbol:start>
+            <sbol:end>609</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_57">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_57"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_57</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_57/sequence_difference_57">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_57/sequence_difference_57"/>
+        <sbol:displayId>sequence_difference_57</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_57/sequence_difference_57/modification_57">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_57/sequence_difference_57/modification_57"/>
+            <sbol:displayId>modification_57</sbol:displayId>
+            <sbol:start>793</sbol:start>
+            <sbol:end>795</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_76">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_76"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_76</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_76/sequence_difference_76">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_76/sequence_difference_76"/>
+        <sbol:displayId>sequence_difference_76</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_76/sequence_difference_76/modification_76">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_76/sequence_difference_76/modification_76"/>
+            <sbol:displayId>modification_76</sbol:displayId>
+            <sbol:start>1069</sbol:start>
+            <sbol:end>1080</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_13">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_13"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_13</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_13/sequence_difference_13">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_13/sequence_difference_13"/>
+        <sbol:displayId>sequence_difference_13</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_13/sequence_difference_13/modification_13">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_13/sequence_difference_13/modification_13"/>
+            <sbol:displayId>modification_13</sbol:displayId>
+            <sbol:start>214</sbol:start>
+            <sbol:end>234</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_5">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_5"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_5</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_5/sequence_difference_5">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_5/sequence_difference_5"/>
+        <sbol:displayId>sequence_difference_5</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_5/sequence_difference_5/modification_5">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_5/sequence_difference_5/modification_5"/>
+            <sbol:displayId>modification_5</sbol:displayId>
+            <sbol:start>79</sbol:start>
+            <sbol:end>81</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_47">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_47"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_47</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_47/sequence_difference_47">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_47/sequence_difference_47"/>
+        <sbol:displayId>sequence_difference_47</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_47/sequence_difference_47/modification_47">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_47/sequence_difference_47/modification_47"/>
+            <sbol:displayId>modification_47</sbol:displayId>
+            <sbol:start>661</sbol:start>
+            <sbol:end>669</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_59">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_59"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_59</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_59/sequence_difference_59">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_59/sequence_difference_59"/>
+        <sbol:displayId>sequence_difference_59</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_59/sequence_difference_59/modification_59">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_59/sequence_difference_59/modification_59"/>
+            <sbol:displayId>modification_59</sbol:displayId>
+            <sbol:start>829</sbol:start>
+            <sbol:end>831</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_67">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_67"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_67</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_67/sequence_difference_67">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_67/sequence_difference_67"/>
+        <sbol:displayId>sequence_difference_67</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_67/sequence_difference_67/modification_67">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_67/sequence_difference_67/modification_67"/>
+            <sbol:displayId>modification_67</sbol:displayId>
+            <sbol:start>937</sbol:start>
+            <sbol:end>942</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_1">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_1"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_1</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_1/sequence_difference_1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_1/sequence_difference_1"/>
+        <sbol:displayId>sequence_difference_1</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_1/sequence_difference_1/modification_1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_1/sequence_difference_1/modification_1"/>
+            <sbol:displayId>modification_1</sbol:displayId>
+            <sbol:start>4</sbol:start>
+            <sbol:end>15</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_26">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_26"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_26</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_26/sequence_difference_26">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_26/sequence_difference_26"/>
+        <sbol:displayId>sequence_difference_26</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_26/sequence_difference_26/modification_26">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_26/sequence_difference_26/modification_26"/>
+            <sbol:displayId>modification_26</sbol:displayId>
+            <sbol:start>412</sbol:start>
+            <sbol:end>417</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_8">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_8"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_8</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_8/sequence_difference_8">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_8/sequence_difference_8"/>
+        <sbol:displayId>sequence_difference_8</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_8/sequence_difference_8/modification_8">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_8/sequence_difference_8/modification_8"/>
+            <sbol:displayId>modification_8</sbol:displayId>
+            <sbol:start>133</sbol:start>
+            <sbol:end>135</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_40">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_40"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_40</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_40/sequence_difference_40">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_40/sequence_difference_40"/>
+        <sbol:displayId>sequence_difference_40</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_40/sequence_difference_40/modification_40">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_40/sequence_difference_40/modification_40"/>
+            <sbol:displayId>modification_40</sbol:displayId>
+            <sbol:start>574</sbol:start>
+            <sbol:end>579</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_55">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_55"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_55</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_55/sequence_difference_55">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_55/sequence_difference_55"/>
+        <sbol:displayId>sequence_difference_55</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_55/sequence_difference_55/modification_55">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_55/sequence_difference_55/modification_55"/>
+            <sbol:displayId>modification_55</sbol:displayId>
+            <sbol:start>763</sbol:start>
+            <sbol:end>777</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_49">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_49"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_49</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_49/sequence_difference_49">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_49/sequence_difference_49"/>
+        <sbol:displayId>sequence_difference_49</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_49/sequence_difference_49/modification_49">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_49/sequence_difference_49/modification_49"/>
+            <sbol:displayId>modification_49</sbol:displayId>
+            <sbol:start>688</sbol:start>
+            <sbol:end>690</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_2">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_2"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_2</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_2/sequence_difference_2">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_2/sequence_difference_2"/>
+        <sbol:displayId>sequence_difference_2</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_2/sequence_difference_2/modification_2">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_2/sequence_difference_2/modification_2"/>
+            <sbol:displayId>modification_2</sbol:displayId>
+            <sbol:start>19</sbol:start>
+            <sbol:end>27</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_44">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_44"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_44</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_44/sequence_difference_44">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_44/sequence_difference_44"/>
+        <sbol:displayId>sequence_difference_44</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_44/sequence_difference_44/modification_44">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_44/sequence_difference_44/modification_44"/>
+            <sbol:displayId>modification_44</sbol:displayId>
+            <sbol:start>619</sbol:start>
+            <sbol:end>624</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_30">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_30"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_30</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_30/sequence_difference_30">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_30/sequence_difference_30"/>
+        <sbol:displayId>sequence_difference_30</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_30/sequence_difference_30/modification_30">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_30/sequence_difference_30/modification_30"/>
+            <sbol:displayId>modification_30</sbol:displayId>
+            <sbol:start>445</sbol:start>
+            <sbol:end>447</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_38">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_38"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_38</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_38/sequence_difference_38">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_38/sequence_difference_38"/>
+        <sbol:displayId>sequence_difference_38</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_38/sequence_difference_38/modification_38">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_38/sequence_difference_38/modification_38"/>
+            <sbol:displayId>modification_38</sbol:displayId>
+            <sbol:start>562</sbol:start>
+            <sbol:end>564</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_29">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_29"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_29</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_29/sequence_difference_29">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_29/sequence_difference_29"/>
+        <sbol:displayId>sequence_difference_29</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_29/sequence_difference_29/modification_29">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_29/sequence_difference_29/modification_29"/>
+            <sbol:displayId>modification_29</sbol:displayId>
+            <sbol:start>436</sbol:start>
+            <sbol:end>441</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_41">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_41"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_41</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_41/sequence_difference_41">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_41/sequence_difference_41"/>
+        <sbol:displayId>sequence_difference_41</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_41/sequence_difference_41/modification_41">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_41/sequence_difference_41/modification_41"/>
+            <sbol:displayId>modification_41</sbol:displayId>
+            <sbol:start>583</sbol:start>
+            <sbol:end>591</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_39">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_39"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_39</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_39/sequence_difference_39">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_39/sequence_difference_39"/>
+        <sbol:displayId>sequence_difference_39</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_39/sequence_difference_39/modification_39">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_39/sequence_difference_39/modification_39"/>
+            <sbol:displayId>modification_39</sbol:displayId>
+            <sbol:start>568</sbol:start>
+            <sbol:end>570</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_22">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_22"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_22</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_22/sequence_difference_22">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_22/sequence_difference_22"/>
+        <sbol:displayId>sequence_difference_22</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_22/sequence_difference_22/modification_22">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_22/sequence_difference_22/modification_22"/>
+            <sbol:displayId>modification_22</sbol:displayId>
+            <sbol:start>346</sbol:start>
+            <sbol:end>354</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_61">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_61"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_61</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_61/sequence_difference_61">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_61/sequence_difference_61"/>
+        <sbol:displayId>sequence_difference_61</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_61/sequence_difference_61/modification_61">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_61/sequence_difference_61/modification_61"/>
+            <sbol:displayId>modification_61</sbol:displayId>
+            <sbol:start>847</sbol:start>
+            <sbol:end>852</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_25">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_25"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_25</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_25/sequence_difference_25">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_25/sequence_difference_25"/>
+        <sbol:displayId>sequence_difference_25</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_25/sequence_difference_25/modification_25">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_25/sequence_difference_25/modification_25"/>
+            <sbol:displayId>modification_25</sbol:displayId>
+            <sbol:start>394</sbol:start>
+            <sbol:end>408</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_56">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_56"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_56</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_56/sequence_difference_56">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_56/sequence_difference_56"/>
+        <sbol:displayId>sequence_difference_56</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_56/sequence_difference_56/modification_56">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_56/sequence_difference_56/modification_56"/>
+            <sbol:displayId>modification_56</sbol:displayId>
+            <sbol:start>781</sbol:start>
+            <sbol:end>783</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_54">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_54"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_54</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_54/sequence_difference_54">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_54/sequence_difference_54"/>
+        <sbol:displayId>sequence_difference_54</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_54/sequence_difference_54/modification_54">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_54/sequence_difference_54/modification_54"/>
+            <sbol:displayId>modification_54</sbol:displayId>
+            <sbol:start>757</sbol:start>
+            <sbol:end>759</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_16">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_16"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_16</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_16/sequence_difference_16">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_16/sequence_difference_16"/>
+        <sbol:displayId>sequence_difference_16</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_16/sequence_difference_16/modification_16">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_16/sequence_difference_16/modification_16"/>
+            <sbol:displayId>modification_16</sbol:displayId>
+            <sbol:start>298</sbol:start>
+            <sbol:end>306</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_14">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_14"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_14</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_14/sequence_difference_14">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_14/sequence_difference_14"/>
+        <sbol:displayId>sequence_difference_14</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_14/sequence_difference_14/modification_14">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_14/sequence_difference_14/modification_14"/>
+            <sbol:displayId>modification_14</sbol:displayId>
+            <sbol:start>238</sbol:start>
+            <sbol:end>264</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_28">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_28"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_28</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_28/sequence_difference_28">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_28/sequence_difference_28"/>
+        <sbol:displayId>sequence_difference_28</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_28/sequence_difference_28/modification_28">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_28/sequence_difference_28/modification_28"/>
+            <sbol:displayId>modification_28</sbol:displayId>
+            <sbol:start>430</sbol:start>
+            <sbol:end>432</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_66">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_66"/>
+    <sbol:displayId>TetR_InverterSequence_sequence_difference_66</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_66/sequence_difference_66">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_66/sequence_difference_66"/>
+        <sbol:displayId>sequence_difference_66</sbol:displayId>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_66/sequence_difference_66/modification_66">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence_sequence_difference_66/sequence_difference_66/modification_66"/>
+            <sbol:displayId>modification_66</sbol:displayId>
+            <sbol:start>928</sbol:start>
+            <sbol:end>930</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+  </sbol:ComponentDefinition>
+  <sbol:Sequence rdf:about="https://boost.jgi.doe.gov/TetR_InverterSequence/1.0">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_InverterSequence"/>
+    <sbol:displayId>TetR_InverterSequence</sbol:displayId>
+    <sbol:version>1.0</sbol:version>
+    <sbol:elements>ATGATTGCTCTTCACTTCGGAGCCGGGAATATCGGCAGAGGTTTCATAGGAGCCCTATTACATCATTCGGGGTATGATGTAGTGTTCGCAGACGTTAATGAGACCATGGTATCGCTGTTGAACGAAAAAAAAGAGTACACGGTGGAACTCGCTGAAGAAGGGCGGTCCTCCGAAATTATAGGACCGGTTAGTGCGATAAATTCGGGGAGTCAGACTGAAGAATTGTATAGATTGATGAACGAAGCAGCCCTGATTACCACTGCCGTCGGTCCAAACGTCTTAAAATTGATCGCGCCGTCAATTGCTGAAGGTTTGCGCCGACGAAATACGGCAAATACACTCAATATAATCGCATGCGAGAATATGATAGGAGGTTCGTCCTTTCTCAAGAAAGAGATCTATTCACACTTAACAGAGGCAGAGCAAAAATCTGTCTCCGAGACGGTTGGTTTTCCAAACTCCGCTGTGGACAGAATTGTTCCCATACAGCATCATGAGGACCCGCTGAAAGTGTCCGTTGAACCGTTCTTTGAGTGGGTGATTGACGAGAGCGGGTTTAAAGGAAAAACTCCAGTAATTAACGGTGCGCTATTTGTGGACGACTTGACCCCGTATATCGAGCGAAAGTTATTTACAGTGAACACGGGTCATGCAGTGACAGCTTACGTAGGCTATCAACGGGGTCTCAAGACGGTTAAGGAAGCCATTGATCATCCAGAGATTCGTCGCGTCGTACATAGTGCCTTATTAGAGACTGGCGACTACCTGGTGAAGAGCTATGGGTTTAAGCAAACGGAACACGAACAATACATCAAAAAAATCATCGGTAGATTTGAAAATCCATTCATATCAGACGACGTTACACGCGTTGCACGGAGTCCATTGAGGAAACTGGGTGAAAACGACCGGTTAGTTGGGCCCGCGAAGAAGATAAAAGAGCCCAATGCTCTTGCAGAAGGCATCGCTGCTGCACTTCGTTTCGATTTTACGGGAGATCCCGAGGCAGTAGAATTGCAGGCGTTGATCGAAGAGAAGGGATATTCTGGTGTGTTACAGGAGGTGTGCGGCATACAATCTCACGAACCGTTGCATGCTATTATTCTCAAGAAGCTTAATCAATAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+</rdf:RDF>
+
