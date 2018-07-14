@@ -215,8 +215,9 @@ public class RequestBuilder {
 		//---------------------------------
 		// SEQUENCE PATTERNS
 		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()){
+			String sequencePatternsFileContent = FileUtils.readFile(sequencePatternsFilename);
 			requestData.put(JSONKeys.PATTERN_INFORMATION,
-					RequestBuilder.buildSequencePatterns(sequencePatternsFilename));
+					RequestBuilder.buildSequencePatterns(sequencePatternsFileContent));
 		}
 		//---------------------------------
 

@@ -22,7 +22,7 @@ public class JSONKeys {
 	
 	public static final String MODIFIED_SEQUENCES_FILE = "modified-sequences-file";
 	public static final String MODIFIED_SEQUENCES_TEXT = "modified-sequences-text";
-	public static final String TARGET_NAMESPACE = "target namespace";
+	public static final String TARGET_NAMESPACE = "target-namespace";
 	
 	// sequence information related keys
 	public static final String SEQUENCE_INFORMATION = "sequences";
