@@ -341,21 +341,21 @@ public class BOOSTClient {
 	 * The partition() method Partitioning of large DNA sequences into synthesizable
 	 * building blocks with partial overlaps for an efficient assembly.
 	 * 
-	 * @param codingSequence
+	 * @param codingSequence ... the name of the file that contains input sequences 
 	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
 	 *        Sequence etc) should be placed into
-	 * @param fivePrimeVectorOverlap
-	 * @param threePrimeVectorOverlap
-	 * @param minLengthBB
-	 * @param maxLengthBB
-	 * @param minOverlapGC
-	 * @param optOverlapGC
-	 * @param maxOverlapGC
-	 * @param minOverlapLength
-	 * @param optOverlapLength
-	 * @param maxOverlapLength
-	 * @param minPrimerLength
-	 * @param maxPrimerLength
+	 * @param fivePrimeVectorOverlap ... 5-prime-vector overlap
+	 * @param threePrimeVectorOverlap ... 3-prime-vector overlap
+	 * @param minLengthBB ... min length of sequence
+	 * @param maxLengthBB ... max length of sequence
+	 * @param minOverlapGC ... minimum %GC content of overlap sequence
+	 * @param optOverlapGC ... optimum %GC content of overlap sequence
+	 * @param maxOverlapGC ... maximum %GC content of overlap sequence
+	 * @param minOverlapLength ... minimum length of overlap sequences
+	 * @param optOverlapLength ... optimum length of overlap sequences
+	 * @param maxOverlapLength ... maximum length of overlap sequences
+	 * @param minPrimerLength ... minimum length of primer
+	 * @param maxPrimerLength ... maximum length of primer
 	 * @param maxPrimerTm
 	 *  
 	 * @throws BOOSTClientException
@@ -401,21 +401,21 @@ public class BOOSTClient {
 	 * The partition() method Partitioning of large DNA sequences into synthesizable
 	 * building blocks with partial overlaps for an efficient assembly.
 	 * 
-	 * @param codingSequence
+	 * @param codingSequence ... the sbol document that contains the input sequences
 	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
 	 *        Sequence etc) should be placed into
-	 * @param fivePrimeVectorOverlap
-	 * @param threePrimeVectorOverlap
-	 * @param minLengthBB
-	 * @param maxLengthBB
-	 * @param minOverlapGC
-	 * @param optOverlapGC
-	 * @param maxOverlapGC
-	 * @param minOverlapLength
-	 * @param optOverlapLength
-	 * @param maxOverlapLength
-	 * @param minPrimerLength
-	 * @param maxPrimerLength
+     * @param fivePrimeVectorOverlap ... 5-prime-vector overlap
+	 * @param threePrimeVectorOverlap ... 3-prime-vector overlap
+	 * @param minLengthBB ... min length of sequence
+	 * @param maxLengthBB ... max length of sequence
+	 * @param minOverlapGC ... minimum %GC content of overlap sequence
+	 * @param optOverlapGC ... optimum %GC content of overlap sequence
+	 * @param maxOverlapGC ... maximum %GC content of overlap sequence
+	 * @param minOverlapLength ... minimum length of overlap sequences
+	 * @param optOverlapLength ... optimum length of overlap sequences
+	 * @param maxOverlapLength ... maximum length of overlap sequences
+	 * @param minPrimerLength ... minimum length of primer
+	 * @param maxPrimerLength ... maximum length of primer
 	 * @param maxPrimerTm
 	 * 
 	 * @return
