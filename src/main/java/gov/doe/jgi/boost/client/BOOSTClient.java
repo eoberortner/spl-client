@@ -301,8 +301,7 @@ public class BOOSTClient {
 		// read the file as SBOLDocument
 		SBOLDocument document = SBOLReader.read(sequencesFileName);
 		
-		return this.dnaVerification(document, targetNamespace, vendor, sequencePatternsFilename);
-		
+		return this.dnaVerification(document, targetNamespace, vendor, sequencePatternsFilename);	
 	}
 	
 	/**
