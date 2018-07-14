@@ -214,8 +214,10 @@ public class RequestBuilder {
 
 		//---------------------------------
 		// SEQUENCE PATTERNS
-		requestData.put(JSONKeys.PATTERN_INFORMATION,
-				RequestBuilder.buildSequencePatterns(sequencePatternsFilename));
+		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()){
+			requestData.put(JSONKeys.PATTERN_INFORMATION,
+					RequestBuilder.buildSequencePatterns(sequencePatternsFilename));
+		}
 		//---------------------------------
 
 		//---------------------------------
