@@ -218,7 +218,6 @@ public class RequestBuilder {
 			String sequencePatternsFileContent = FileUtils.readFile(sequencePatternsFilename);
 			requestData.put(JSONKeys.PATTERN_INFORMATION,
 					RequestBuilder.buildSequencePatterns(sequencePatternsFileContent));
-		}
 		//---------------------------------
 
 		//---------------------------------
