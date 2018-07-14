@@ -355,6 +355,7 @@ public class BOOSTClient {
 	 * @param maxOverlapLength ... maximum length of overlap sequences
 	 * @param minPrimerLength ... minimum length of primer
 	 * @param maxPrimerLength ... maximum length of primer
+
 	 * @param maxPrimerTm
 	 *  
 	 * @throws BOOSTClientException
@@ -403,7 +404,7 @@ public class BOOSTClient {
 	 * @param codingSequence ... the sbol document that contains the input sequences
 	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
 	 *        Sequence etc) should be placed into
-     * @param fivePrimeVectorOverlap ... 5-prime-vector overlap
+   * @param fivePrimeVectorOverlap ... 5-prime-vector overlap
 	 * @param threePrimeVectorOverlap ... 3-prime-vector overlap
 	 * @param minLengthBB ... min length of sequence
 	 * @param maxLengthBB ... max length of sequence
