@@ -87,16 +87,16 @@ public class DemoClient {
 
 
 		// codon juggle
-		String codonJuggleJobUUID2 = client.codonJuggle(
-				"./data/test/codon_juggle_input.xml",	// input sequences 
-				false,					 				// exclusively 5'-3' coding sequences 
-				Strategy.Balanced,		  				// codon selection strategy
-				"Saccharomyces cerevisiae",   			// predefined host
-				FileFormat.SBOL);		  				// output format
-		if(null != codonJuggleJobUUID2) {
-			jobUUIDs.add(codonJuggleJobUUID2);
-			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID2);
-		}
+//		String codonJuggleJobUUID2 = client.codonJuggle(
+//				"./data/test/codon_juggle_input.xml",	// input sequences 
+//				false,					 				// exclusively 5'-3' coding sequences 
+//				Strategy.Balanced,		  				// codon selection strategy
+//				"Saccharomyces cerevisiae",   			// predefined host
+//				FileFormat.SBOL);		  				// output format
+//		if(null != codonJuggleJobUUID2) {
+//			jobUUIDs.add(codonJuggleJobUUID2);
+//			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID2);
+//		}
 
 
 //    	// verify against DNA synthesis constraints and sequence patterns

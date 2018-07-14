@@ -141,6 +141,8 @@ public class BOOSTClient {
 	 * The reverseTranslate method invokes BOOST's reverse-translate functionality.
 	 *  
 	 * @param sequencesFilename  ... the name of the file that contains the input sequences
+	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
+	 *        Sequence etc) should be placed into
 	 * @param strategy ... the codon selection strategy 
 	 * @param filenameCodonUsageTable ... the name of the file that contains the codon usage table
 	 * @param outputFormat ... the desired output format
@@ -153,6 +155,7 @@ public class BOOSTClient {
 	 */
 	public String reverseTranslate(
 			final String sequencesFilename,
+			final String targetNamespace,
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
 					throws BOOSTClientException, BOOSTBackEndException, IOException, 
@@ -162,15 +165,16 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
-		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFilename);
-		return this.reverseTranslate(document, strategy, filenameCodonUsageTable, outputFormat);
+		return this.reverseTranslate(document, targetNamespace, strategy, filenameCodonUsageTable, outputFormat);
 	}
 	
 	/**
 	 * The reverseTranslate method invokes BOOST's reverse-translate functionality.
 	 *  
 	 * @param designSequences  ... sbol document that contains the input sequences
+	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
+	 *        Sequence etc) should be placed into
 	 * @param strategy ... the codon selection strategy 
 	 * @param filenameCodonUsageTable ... the name of the file that contains the codon usage table
 	 * @param outputFormat ... the desired output format
@@ -183,14 +187,15 @@ public class BOOSTClient {
 	 */
 	public String reverseTranslate(
 			final SBOLDocument designSequences,
+			final String targetNamespace,
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
 					throws BOOSTClientException, BOOSTBackEndException, IOException, 
 					JSONException, SBOLConversionException {
 		
 		// construct the request's JSON object 
-		JSONObject requestData = RequestBuilder.buildReverseTranslate(
-				designSequences, strategy, filenameCodonUsageTable, outputFormat);
+		JSONObject requestData = RequestBuilder.buildReverseTranslate(designSequences, 
+				targetNamespace, strategy, filenameCodonUsageTable, outputFormat);
 		
 		return this.submitJob(requestData);
 	}
@@ -199,6 +204,8 @@ public class BOOSTClient {
 	 * The codonJuggle method invokes BOOST's codon-juggling functionality.
 	 *  
 	 * @param sequencesFilename  ... the name of the file that contains the input sequences
+	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
+	 *        Sequence etc) should be placed into
 	 * @param bAutoAnnotate ... true ... all sequences exclusively 5'-3' protein coding sequences (is only considered 
 	 * when the sequences don't have feature annotations, e.g. FASTA or CSV)
 	 * @param strategy ... the codon replacement strategy 
@@ -212,7 +219,8 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 */
 	public String codonJuggle(
-			final String sequencesFilename, boolean bAutoAnnotate, 
+			final String sequencesFilename, 
+			final String targetNamespace, boolean bAutoAnnotate, 
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
 				throws BOOSTClientException, BOOSTBackEndException, IOException, 
@@ -222,10 +230,9 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
-		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFilename);
 		
-		return this.codonJuggle(document, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
+		return this.codonJuggle(document, targetNamespace, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
 	}
 	
 	
@@ -233,6 +240,8 @@ public class BOOSTClient {
 	 * The codonJuggle method invokes BOOST's codon-juggling functionality.
 	 *  
 	 * @param designSequences  ... the sbol document that contains the input sequences
+	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
+	 *        Sequence etc) should be placed into
 	 * @param bAutoAnnotate ... true ... all sequences exclusively 5'-3' protein coding sequences (is only considered 
 	 * when the sequences don't have feature annotations, e.g. FASTA or CSV)
 	 * @param strategy ... the codon replacement strategy 
@@ -246,15 +255,16 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 */
 	public String codonJuggle(
-			final SBOLDocument designSequences, boolean bAutoAnnotate, 
+			final SBOLDocument designSequences, 
+			final String targetNamespace, boolean bAutoAnnotate, 
 			Strategy strategy, final String filenameCodonUsageTable,
 			final FileFormat outputFormat)
 				throws BOOSTClientException, BOOSTBackEndException, IOException, 
 				JSONException, SBOLConversionException {
 		
 		// construct the request's JSON object 
-		JSONObject requestData = RequestBuilder.buildCodonJuggle(
-				designSequences, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
+		JSONObject requestData = RequestBuilder.buildCodonJuggle(designSequences, 
+				targetNamespace,  bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
 
 		return this.submitJob(requestData);
 	}
@@ -264,6 +274,8 @@ public class BOOSTClient {
 	 * sequences against DNA synthesis constraints.
 	 * 
 	 * @param sequencesFileName ... the name of the file that contains the sequences
+	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
+	 *        Sequence etc) should be placed into
 	 * @param constraintsFilename ... the name of the file that contains the DNA synthesis constraints
 	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns
 	 * 
@@ -277,6 +289,7 @@ public class BOOSTClient {
 	 */
 	public String dnaVarification(
 			final String sequencesFileName, 
+			final String targetNamespace,
 			Vendor vendor, 
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, BOOSTBackEndException, 
@@ -286,10 +299,9 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFileName);
 
 		// read the file as SBOLDocument
-		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFileName);
 		
-		return this.dnaVerification(document, vendor, sequencePatternsFilename);
+		return this.dnaVerification(document, targetNamespace, vendor, sequencePatternsFilename);
 		
 	}
 	
@@ -298,6 +310,8 @@ public class BOOSTClient {
 	 * sequences against DNA synthesis constraints.
 	 * 
 	 * @param codingSequence ... the sbol document that contains the sequences
+	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
+	 *        Sequence etc) should be placed into
 	 * @param constraintsFilename ... the name of the file that contains the DNA synthesis constraints
 	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns
 	 * 
@@ -311,6 +325,7 @@ public class BOOSTClient {
 	 */
 	public String dnaVerification(
 			final SBOLDocument codingSequence, 
+			final String targetNamespace,
 			Vendor vendor, 
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, BOOSTBackEndException, IOException, 
@@ -319,12 +334,29 @@ public class BOOSTClient {
 		// represent the request data in JSON and
 		// submit it to BOOST's Job Queue Management System (JQMS)
 		return submitJob(RequestBuilder.buildVerify(
-				codingSequence, vendor, sequencePatternsFilename));
+				codingSequence, targetNamespace, vendor, sequencePatternsFilename));
 	}
 
 	/**
 	 * The partition() method Partitioning of large DNA sequences into synthesizable
 	 * building blocks with partial overlaps for an efficient assembly.
+	 * 
+	 * @param codingSequence
+	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
+	 *        Sequence etc) should be placed into
+	 * @param fivePrimeVectorOverlap
+	 * @param threePrimeVectorOverlap
+	 * @param minLengthBB
+	 * @param maxLengthBB
+	 * @param minOverlapGC
+	 * @param optOverlapGC
+	 * @param maxOverlapGC
+	 * @param minOverlapLength
+	 * @param optOverlapLength
+	 * @param maxOverlapLength
+	 * @param minPrimerLength
+	 * @param maxPrimerLength
+	 * @param maxPrimerTm
 	 *  
 	 * @throws BOOSTClientException
 	 * @throws BOOSTBackEndException 
@@ -336,6 +368,7 @@ public class BOOSTClient {
 
 	public String partition(
 			final String sequencesFilename, 
+			final String targetNamespace,
 			String fivePrimeVectorOverlap, 
 			String threePrimeVectorOverlap,
 			String minLengthBB, 
@@ -356,18 +389,21 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
-		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFilename);
 		
-		return this.partition(document, fivePrimeVectorOverlap, threePrimeVectorOverlap, 
+		return this.partition(document, targetNamespace, fivePrimeVectorOverlap, threePrimeVectorOverlap, 
 				minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC, minOverlapLength, 
 				optOverlapLength, maxOverlapLength, minPrimerLength, maxPrimerLength, maxPrimerTm);		
 	}
 	
 	
 	/**
+	 * The partition() method Partitioning of large DNA sequences into synthesizable
+	 * building blocks with partial overlaps for an efficient assembly.
 	 * 
 	 * @param codingSequence
+	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
+	 *        Sequence etc) should be placed into
 	 * @param fivePrimeVectorOverlap
 	 * @param threePrimeVectorOverlap
 	 * @param minLengthBB
@@ -391,7 +427,8 @@ public class BOOSTClient {
 	 * @throws SBOLConversionException
 	 */
 	public String partition(
-			SBOLDocument codingSequence, 
+			SBOLDocument codingSequence,
+			final String targetNamespace,
 			String fivePrimeVectorOverlap, 
 			String threePrimeVectorOverlap,
 			String minLengthBB, 
@@ -409,9 +446,9 @@ public class BOOSTClient {
 					UnsupportedEncodingException, SBOLConversionException {
 		
 		// construct the request's JSON object
-		JSONObject requestData = RequestBuilder.buildPartition(codingSequence, fivePrimeVectorOverlap,
-				threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, maxOverlapGC,
-				minOverlapLength, optOverlapLength, maxOverlapLength, 
+		JSONObject requestData = RequestBuilder.buildPartition(codingSequence, targetNamespace,
+				fivePrimeVectorOverlap, threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC,
+				optOverlapGC, maxOverlapGC, minOverlapLength, optOverlapLength, maxOverlapLength, 
 				minPrimerLength, maxPrimerLength, maxPrimerTm);
 
 		return this.submitJob(requestData);
@@ -514,16 +551,18 @@ public class BOOSTClient {
 	 * of the sequence using the specified codon replacement strategy.
 	 *  
 	 * @param codingSequence ... the name of the file that contains the sequences
+	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
+	 *        Sequence etc) should be placed into
 	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
 	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
-	 * support sequence feature annotations and if bCoding sequences is set to true, 
-	 * then are all sequences are treated as coding sequences. If the sequences are 
-	 * encoded in a format that does support sequence feature annotations, then the 
-	 * bCodingSequences flag is ignored. 
+	 *        support sequence feature annotations and if bCoding sequences is set to true, 
+	 *        then are all sequences are treated as coding sequences. If the sequences are 
+	 *        encoded in a format that does support sequence feature annotations, then the 
+	 *        bCodingSequences flag is ignored. 
 	 * @param vendor ... the name of commercial synthesis provider
 	 * @param strategy ... the codon replacement strategy
 	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
-	 * usage table
+	 *        usage table
 	 * 
 	 * @throws BOOSTClientException
 	 * @throws BOOSTBackEndException 
@@ -534,6 +573,7 @@ public class BOOSTClient {
 	 */
 	public String polish(
 			final String sequencesFilename, 
+			final String targetNamespace,
 			boolean bCodingSequences,
 			Vendor vendor, 
 			Strategy strategy, 
@@ -546,10 +586,9 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
-		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFilename);
 		
-		return this.polish(document, bCodingSequences, vendor, strategy, 
+		return this.polish(document, targetNamespace, bCodingSequences, vendor, strategy, 
 				outputFormat, codonUsageTable);
 	}
 	
@@ -561,12 +600,14 @@ public class BOOSTClient {
 	 * of the sequence using the specified codon replacement strategy.
 	 *  
 	 * @param codingSequence ... the sbol file that contains the sequences
+	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
+	 *        Sequence etc) should be placed into
 	 * @param type ... the type of the sequences, i.e. DNA, RNA, Protein
 	 * @param bCodingSequences ... if the sequences are encoded in a format that does not 
-	 * support sequence feature annotations and if bCoding sequences is set to true, 
-	 * then are all sequences are treated as coding sequences. If the sequences are 
-	 * encoded in a format that does support sequence feature annotations, then the 
-	 * bCodingSequences flag is ignored. 
+	 *        support sequence feature annotations and if bCoding sequences is set to true, 
+	 *        then are all sequences are treated as coding sequences. If the sequences are 
+	 *        encoded in a format that does support sequence feature annotations, then the 
+	 *        bCodingSequences flag is ignored. 
 	 * @param vendor ... the name of commercial synthesis provider
 	 * @param strategy ... the codon replacement strategy
 	 * @param codonUsageTableFilename ... the name of the file that contains the codon 
@@ -581,6 +622,7 @@ public class BOOSTClient {
 	 */
 	public String polish(
 			final SBOLDocument codingSequence, 
+			final String targetNamespace,
 			boolean bCodingSequences,
 			Vendor vendor, 
 			Strategy strategy, 
@@ -589,7 +631,7 @@ public class BOOSTClient {
 				throws BOOSTClientException, BOOSTBackEndException, JSONException, UnsupportedEncodingException, SBOLConversionException {
 		
 		// construct the request's JSON object
-		JSONObject requestData = RequestBuilder.buildPolish( codingSequence, 
+		JSONObject requestData = RequestBuilder.buildPolish( codingSequence, targetNamespace, 
 			bCodingSequences, vendor, strategy, outputFormat, codonUsageTable);
 				
 		 return submitJob(requestData);	

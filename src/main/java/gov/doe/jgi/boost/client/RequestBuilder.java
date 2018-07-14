@@ -78,13 +78,15 @@ public class RequestBuilder {
 	 * @throws IOException ... if an given filename points to a non-existing file
 	 */
 	public static JSONObject buildReverseTranslate(
-			final SBOLDocument designSequences, 
+			final SBOLDocument designSequences,
+			final String targetNamespace,
 			Strategy strategy, final String codonUsageTable, 
 			final FileFormat outputFormat) 
 					throws BOOSTClientException, JSONException, UnsupportedEncodingException, SBOLConversionException {
 		
 		// verify the values
 		ParameterValueVerifier.verifyNull(BOOSTConstants.CODON_STRATEGY, strategy);
+		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAMESPACE, targetNamespace);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
 		} catch(Exception e) {
@@ -104,7 +106,7 @@ public class RequestBuilder {
 
 		// sequence information
 		reverseTranslateData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(designSequences, SequenceType.PROTEIN, true));
+				RequestBuilder.buildSequenceData(designSequences, targetNamespace, SequenceType.PROTEIN, true));
 		
 		// modification information
 		reverseTranslateData.put(JSONKeys.MODIFICATION_INFORMATION,
@@ -131,12 +133,14 @@ public class RequestBuilder {
 	 * @throws JSONException 
 	 */
 	public static JSONObject buildCodonJuggle(
-			final SBOLDocument designSequences, boolean bAutoAnnotate, 
+			final SBOLDocument designSequences, 
+			final String targetNamespace, boolean bAutoAnnotate, 
 			Strategy strategy, final String codonUsageTable, 
 			final FileFormat outputFormat) 
 					throws BOOSTClientException, JSONException, UnsupportedEncodingException, SBOLConversionException {
 		
 		ParameterValueVerifier.verifyNull(BOOSTConstants.CODON_STRATEGY, strategy);
+		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAMESPACE, targetNamespace);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
 		} catch(Exception e) {}
@@ -151,7 +155,7 @@ public class RequestBuilder {
 
 		// sequence information
 		reverseTranslateData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(designSequences, SequenceType.DNA, bAutoAnnotate));
+				RequestBuilder.buildSequenceData(designSequences, targetNamespace, SequenceType.DNA, bAutoAnnotate));
 		
 		// modification information
 		reverseTranslateData.put(JSONKeys.MODIFICATION_INFORMATION,
@@ -177,6 +181,7 @@ public class RequestBuilder {
 	 */
 	public static JSONObject buildVerify(
 			final SBOLDocument designSequences, 
+			final String targetNamespace,
 			Vendor vendor,
 			final String sequencePatternsFilename)
 				throws BOOSTClientException, IOException, JSONException, SBOLConversionException {
@@ -184,6 +189,8 @@ public class RequestBuilder {
 		//---------------------------------
 		// verify the given values
 		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
+		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAMESPACE, targetNamespace);
+		
 		// the sequence patterns filename is optional
 		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()) {
 			ParameterValueVerifier.verifyFilename(JSONKeys.PATTERN_INFORMATION, sequencePatternsFilename);
@@ -202,7 +209,7 @@ public class RequestBuilder {
 		//---------------------------------
 		// SEQUENCES
 		requestData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(designSequences, SequenceType.DNA, false));
+				RequestBuilder.buildSequenceData(designSequences, targetNamespace, SequenceType.DNA, false));
 		//---------------------------------
 
 		//---------------------------------
@@ -241,7 +248,8 @@ public class RequestBuilder {
 	 * @throws JSONException 
 	 */
 	public static JSONObject buildPolish(
-			final SBOLDocument designSequences, 
+			final SBOLDocument designSequences,
+			final String targetNamespace,
 			boolean bCodingSequences,
 			Vendor vendor, 
 			Strategy strategy, 
@@ -252,6 +260,7 @@ public class RequestBuilder {
 		//-------------------------------------
 		// verify the given values
 		ParameterValueVerifier.verifyNull(BOOSTConstants.VENDOR, vendor);
+		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAMESPACE, targetNamespace);
 		try {
 			ParameterValueVerifier.verifyFilename(BOOSTConstants.CODON_USAGE_TABLE, codonUsageTable);
 		} catch(Exception e) {}
@@ -269,7 +278,7 @@ public class RequestBuilder {
 		
 		// sequence information
 		modifiedData.put(JSONKeys.SEQUENCE_INFORMATION,
-				RequestBuilder.buildSequenceData(designSequences, SequenceType.DNA, bCodingSequences ));
+				RequestBuilder.buildSequenceData(designSequences, targetNamespace, SequenceType.DNA, bCodingSequences ));
 		//-----------------------------------------
 		
 		// constraints
@@ -304,6 +313,7 @@ public class RequestBuilder {
 	
 	public static JSONObject buildPartition(
 			final SBOLDocument designSequences,
+			final String targetNamespace,
 			final String fivePrimeVectorOverlap,
 			final String threePrimeVectorOverlap,
 			final String minLengthBB, final String maxLengthBB,
@@ -314,6 +324,7 @@ public class RequestBuilder {
 					
 		//verify the values
 		//ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, designSequences);
+		ParameterValueVerifier.verifyEmpty(BOOSTConstants.TARGET_NAMESPACE, targetNamespace);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.FIVE_PRIME_VECTOR_OVERLAP, fivePrimeVectorOverlap);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.THREE_PRIME_VECTOR_OVERLAP, threePrimeVectorOverlap);
 		ParameterValueVerifier.verifyValue(BOOSTConstants.MIN_BB_LENGTH, minLengthBB);
@@ -352,14 +363,14 @@ public class RequestBuilder {
 
 		// sequence information
 		partationData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(designSequences, SequenceType.DNA, false));
+				RequestBuilder.buildSequenceData(designSequences, targetNamespace, SequenceType.DNA, false));
 		
 		// partition information
 		JSONObject textParameters = new JSONObject();
-		textParameters.put(JSONKeys.TEXT, RequestBuilder.buildPartitionData(designSequences, fivePrimeVectorOverlap,
-						threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, optOverlapGC, 
-						maxOverlapGC, minOverlapLength, optOverlapLength, maxOverlapLength, 
-						minPrimerLength, maxPrimerLength, maxPrimerTm));
+		textParameters.put(JSONKeys.TEXT, RequestBuilder.buildPartitionData(designSequences, 
+				fivePrimeVectorOverlap, threePrimeVectorOverlap, minLengthBB, maxLengthBB, minOverlapGC, 
+				optOverlapGC, maxOverlapGC, minOverlapLength, optOverlapLength, maxOverlapLength, 
+				minPrimerLength, maxPrimerLength, maxPrimerTm));
 		partationData.put(JSONKeys.PARTITIONING_INFORMATION, textParameters);
 	    
 		
@@ -385,11 +396,11 @@ public class RequestBuilder {
 	 * @return
 	 */
 	private static JSONObject buildPartitionData(final SBOLDocument designSequences,
-			final String fivePrimeVectorOverlap, final String threePrimeVectorOverlap,
-			final String minLengthBB, final String maxLengthBB, 
-			final String minOverlapGC, final String optOverlapGC, final String maxOverlapGC, 
-			final String minOverlapLength, final String optOverlapLength, final String maxOverlapLength,
-			final String minPrimerLength, final String maxPrimerLength, final String maxPrimerTm) {
+			final String fivePrimeVectorOverlap, final String threePrimeVectorOverlap, 
+			final String minLengthBB, final String maxLengthBB, final String minOverlapGC,
+			final String optOverlapGC, final String maxOverlapGC, final String minOverlapLength, 
+			final String optOverlapLength, final String maxOverlapLength,final String minPrimerLength, 
+			final String maxPrimerLength, final String maxPrimerTm) {
 		
 		JSONObject partitionData = new JSONObject();
 		
@@ -458,7 +469,8 @@ public class RequestBuilder {
 	 * @throws UnsupportedEncodingException 
 	 * @throws IOException 
 	 */
-	public static JSONObject buildSequenceData(final SBOLDocument designSequences, SequenceType type, boolean bAutoAnnotate) 
+	public static JSONObject buildSequenceData(final SBOLDocument designSequences, final String targetNamespace,
+			SequenceType type, boolean bAutoAnnotate) 
 			throws BOOSTClientException, SBOLConversionException, UnsupportedEncodingException {
 
 		// sequence information
@@ -492,10 +504,7 @@ public class RequestBuilder {
 		sequenceData.put(JSONKeys.AUTO_ANNOTATE, bAutoAnnotate);
 		
 		// target namespace
-		if(null != BOOSTClientConfigs.SBOL_TARGET_NAMESPACE && 
-				!BOOSTClientConfigs.SBOL_TARGET_NAMESPACE.trim().isEmpty()) {
-			sequenceData.put(JSONKeys.TARGET_NAMESPACE, BOOSTClientConfigs.SBOL_TARGET_NAMESPACE);
-		}
+		sequenceData.put(JSONKeys.TARGET_NAMESPACE, targetNamespace);
 
 		return sequenceData;
 	}

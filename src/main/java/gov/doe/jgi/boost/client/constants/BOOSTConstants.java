@@ -12,6 +12,7 @@ public class BOOSTConstants {
 	public static final String SEQUENCE_TYPE = "sequence_type";
 	public static final String VENDOR = "vendor";
 	public static final String STRATEGY = "strategy";
+	public static final String TARGET_NAMESPACE = "target namespace";
 	
 	public static final String DEFAULT_URI_PREFIX = "https://boost.jgi.doe.gov/";
 	
