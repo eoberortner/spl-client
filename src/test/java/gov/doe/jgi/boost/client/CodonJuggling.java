@@ -39,16 +39,17 @@ public class CodonJuggling {
 		Set<String> jobUUIDs = new HashSet<String>();
 
 		// codon juggle (using a SBOL file)
-//		String codonJuggleJobUUID1 = client.codonJuggle(
-//				"./data/test/codon_juggle_input.xml",	// input sequences 
-//				false,					 				// exclusively 5'-3' coding sequences 
-//				Strategy.Balanced,		  				// codon selection strategy
-//				"Saccharomyces cerevisiae",   			// predefined host
-//				FileFormat.SBOL);		  				// output format
-//		if(null != codonJuggleJobUUID1) {
-//			jobUUIDs.add(codonJuggleJobUUID1);
-//			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID1);
-//		}
+		String codonJuggleJobUUID1 = client.codonJuggle(
+				"./data/test/codon_juggle_input.xml",	// input sequences
+				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE,	// the target namespace
+				false,					 				// exclusively 5'-3' coding sequences 
+				Strategy.Balanced,		  				// codon selection strategy
+				"Saccharomyces cerevisiae",   			// predefined host
+				FileFormat.SBOL);		  				// output format
+		if(null != codonJuggleJobUUID1) {
+			jobUUIDs.add(codonJuggleJobUUID1);
+			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID1);
+		}
 
 //		// codon juggle (using a FASTA file)
 //		String codonJuggleJobUUID2 = client.codonJuggle(
@@ -63,8 +64,6 @@ public class CodonJuggling {
 //		}
 //
 
-		
-		
 		// for all jobs, we check their status
 		for(String jobUUID : jobUUIDs) {
 			

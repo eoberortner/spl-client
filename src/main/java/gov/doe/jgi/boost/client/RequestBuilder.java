@@ -214,10 +214,11 @@ public class RequestBuilder {
 
 		//---------------------------------
 		// SEQUENCE PATTERNS
-		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()){
-			String sequencePatternsFileContent = FileUtils.readFile(sequencePatternsFilename);
+		if(null != sequencePatternsFilename && !sequencePatternsFilename.trim().isEmpty()) {
+			//String sequencePatternsFileContent = FileUtils.readFile(sequencePatternsFilename);
 			requestData.put(JSONKeys.PATTERN_INFORMATION,
-					RequestBuilder.buildSequencePatterns(sequencePatternsFileContent));
+					RequestBuilder.buildSequencePatterns(sequencePatternsFilename));
+		}
 		//---------------------------------
 
 		//---------------------------------
@@ -225,7 +226,6 @@ public class RequestBuilder {
 		requestData.put(JSONKeys.VENDOR_NAME, vendor);
 		//---------------------------------
 
-		
 		return requestData;
 	}
 	

@@ -9,8 +9,7 @@ import org.json.JSONObject;
 
 import gov.doe.jgi.boost.client.constants.BOOSTClientConfigs;
 import gov.doe.jgi.boost.client.constants.LoginCredentials;
-import gov.doe.jgi.boost.enums.FileFormat;
-import gov.doe.jgi.boost.enums.Strategy;
+import gov.doe.jgi.boost.enums.Vendor;
 
 /**
  * The DemoClient exemplifies how to invoke each functionality 
@@ -99,15 +98,16 @@ public class DemoClient {
 //		}
 
 
-//    	// verify against DNA synthesis constraints and sequence patterns
-//		String dnaVarificationJobUUID = client.dnaVarification(
-//				"./data/dna.fasta",           // input sequence
-//				Vendor.GEN9,                  // vendor
-//				"./data/patterns.fasta");     // sequence patterns
-//		if (null != dnaVarificationJobUUID) {
-//			jobUUIDs.add(dnaVarificationJobUUID);
-//			System.out.println("Data for DNA Verification :" + dnaVarificationJobUUID);
-//		}
+    	// verify against DNA synthesis constraints and sequence patterns
+		String dnaVarificationJobUUID = client.dnaVerification(
+				"./data/test/codon_juggle_input.xml",       // input sequence
+				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE, 	// target namespace
+				Vendor.GEN9,                  				// vendor
+				"./data/patterns.fasta");     				// sequence patterns
+		if (null != dnaVarificationJobUUID) {
+			jobUUIDs.add(dnaVarificationJobUUID);
+			System.out.println("Data for DNA Verification :" + dnaVarificationJobUUID);
+		}
 //
 //		// polish the given DNA
 //		String polishDNAJobUUID = client.polish(

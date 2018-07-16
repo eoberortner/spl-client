@@ -287,7 +287,7 @@ public class BOOSTClient {
 	 * @throws BOOSTAPIsException 
 	 * 
 	 */
-	public String dnaVarification(
+	public String dnaVerification(
 			final String sequencesFileName, 
 			final String targetNamespace,
 			Vendor vendor, 
