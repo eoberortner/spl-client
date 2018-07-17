@@ -486,8 +486,7 @@ public class BOOSTClient {
 			throw new BOOSTClientException("The server returned an unknown response!");
 		}
 		throw new BOOSTBackEndException(
-				response.getStatus(),
-				response.readEntity(String.class));	
+				response.getStatus(), response.readEntity(String.class));	
 }
 	
 	/**
