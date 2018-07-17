@@ -1,0 +1,14 @@
+{
+   "output":{"format":"GENBANK"},
+   "job":{"job-BOOST-function":"CODON_JUGGLE"},
+   "sequences":{
+          "auto-annotate":false,
+"text":">RBSsod_FDC1_COCg\nacaatttgctagcgaaaggattttttacatatgcggaaacttaatccggcactggagttccgcgattttattcaagtattgaaggacgaggatgacttgatcgaaatcactgaggagattgacccaaaccttgaagtgggcgcgatcatgcgcaaagcctacgaaagccatctccctgctcccctgtttaaaaatttgaaaggtgcatcgaaagatctcttctcaatcctgggctgtccggccggattgcgctcaaaggagaaaggagaccacggccgtatcgcccaccaccttggactcgatccgaaaactacgattaaagagattatcgattatttgcttgagtgcaaggagaaagaaccactgccgccaattacggtaccagtctcttcggctccatgcaagacgcacatcctgtccgaggaaaaaattcacctccagtcgctcccgaccccttatctccacgtctcggacggaggcaaatacctgcagacctacggtatgtggattttgcaaactccggacaaaaagtggacgaactggtccattgcccgcggtatggttgtagacgataaacatatcactggcttggttattaagccccaacacattcggcagattgctgactcttgggctgcgattggtaaagcgaatgaaattccgtttgcgctttgtttcggcgtccctccggcggccattctcgtctcatcaatgccgattccggaaggagtctcagagtcagactatgttggtgctatcctcggtgaatcggtaccggttgtgaaatgtgaaactaatgacctcatggtacccgccacgtcagaaatggtattcgagggcactctctcacttaccgacacccaccttgaaggacccttcggcgaaatgcacggatacgtgttcaagagccaaggacatccttgccctctgtacactgtaaaagcaatgtcgtaccgcgacaacgcaattctgccagtatctaatcctggcctctgcaccgacgagactcatacccttatcggctcgttggttgcaaccgaagcgaaggagttggccattgaatcaggcctccctatcctggatgcgttcatgccgtatgaagcacaagccttgtggttgattcttaaagtcgatctgaagggacttcaagccctcaaaacgacgccagaggagttttgtaaaaaggtcggtgacatctactttcggacgaaggtaggctttattgttcacgagatcatcctcgtcgcggatgacattgacatcttcaattttaaagaagtgatctgggcttatgttacgcggcacacgccggtggccgatcaaatggctttcgatgacgtgacttctttccctctggcgccttttgtgtcccagtcatcacggagcaagactatgaagggtggtaaatgcgtcacgaattgtattttccgccaacaatacgaacgttcgtttgattatattacttgcaactttgaaaagggataccctaaaggattggtggataaagttaatgagaactggaagcgttacggctacaagtaa",
+         "type":["DNA"]
+   },
+   "modifications":{
+             "genetic-code":"STANDARD",
+             "host-name":"Arabidopsis thaliana",
+             "strategy":"Balanced"
+   }
+}

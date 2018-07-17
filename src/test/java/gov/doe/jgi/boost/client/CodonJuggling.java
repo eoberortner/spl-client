@@ -132,6 +132,8 @@ public class CodonJuggling {
 					FileUtils.writeStringToFile(
 							Paths.get(jobOutputDir.toString(), jobUUID + "-output-document.sbol.xml").toFile(), 
 							boostProvOutputDocument);
+					
+					System.out.println(Paths.get(jobOutputDir.toString(), jobUUID + "-output-document.sbol.xml").toFile());
 				}
 			
 			}

@@ -1,0 +1,1840 @@
+<?xml version="1.0" ?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:obo="http://purl.obolibrary.org/obo/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:ns0="http://identifiers.org/edam/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:boost="https://boost.jgi.doe.gov/" xmlns:dummy="http://www.dummy.org/" xmlns:sbh="http://wiki.synbiohub.org/wiki/Terms/synbiohub#" xmlns:sbol="http://sbols.org/v2#" xmlns:dcterms="http://purl.org/dc/terms/">
+  <sbol:ComponentDefinition rdf:about="http://www.dummy.org/TetR_Inverter/1">
+    <sbol:persistentIdentity rdf:resource="http://www.dummy.org/TetR_Inverter"/>
+    <sbol:displayId>TetR_Inverter</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity/1"/>
+    <dcterms:description></dcterms:description>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000804"/>
+    <sbol:component>
+      <sbol:Component rdf:about="http://www.dummy.org/TetR_Inverter/CDS3_Component/1">
+        <sbol:persistentIdentity rdf:resource="http://www.dummy.org/TetR_Inverter/CDS3_Component"/>
+        <sbol:displayId>CDS3_Component</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="https://synbiohub.org/public/bsu/BO_28570/1"/>
+      </sbol:Component>
+    </sbol:component>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="http://www.dummy.org/TetR_Inverter/TetR_Inverter_SequenceAnnotation/1">
+        <sbol:persistentIdentity rdf:resource="http://www.dummy.org/TetR_Inverter/TetR_Inverter_SequenceAnnotation"/>
+        <sbol:displayId>TetR_Inverter_SequenceAnnotation</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:location>
+          <sbol:Range rdf:about="http://www.dummy.org/TetR_Inverter/TetR_Inverter_SequenceAnnotation/TetR_Inverter_SequenceAnnotation_Range/1">
+            <sbol:persistentIdentity rdf:resource="http://www.dummy.org/TetR_Inverter/TetR_Inverter_SequenceAnnotation/TetR_Inverter_SequenceAnnotation_Range"/>
+            <sbol:displayId>TetR_Inverter_SequenceAnnotation_Range</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1</sbol:start>
+            <sbol:end>1122</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+        <sbol:component rdf:resource="http://www.dummy.org/TetR_Inverter/CDS3_Component/1"/>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequence rdf:resource="http://www.dummy.org/TetR_InverterSequence/1"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://synbiohub.org/public/bsu/BO_28570/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.org/public/bsu/BO_28570"/>
+    <sbol:displayId>BO_28570</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1"/>
+    <dcterms:title>mtlD</dcterms:title>
+    <rdfs:label>mtlD</rdfs:label>
+    <rdfs:label>BSU03990</rdfs:label>
+    <rdfs:label>mtlB</rdfs:label>
+    <ns0:data_1179 rdf:resource="http://identifiers.org/taxonomy/1423"/>
+    <ns0:data_1179 rdf:resource="http://identifiers.org/taxonomy/224308"/>
+    <obo:OBI_0002110>10.1145/2631921</obo:OBI_0002110>
+    <sbh:topLevel rdf:resource="https://synbiohub.org/public/bsu/BO_28570/1"/>
+    <sbh:ownedBy rdf:resource="https://synbiohub.org/user/myers"/>
+    <obo:OBI_0001617>23571273</obo:OBI_0001617>
+    <obo:OBI_0001617>27110921</obo:OBI_0001617>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+    <sbol:sequence rdf:resource="https://synbiohub.org/public/bsu/BO_28570_seq/1"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/1">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG"/>
+    <sbol:displayId>TetR_Inverter_JUG</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasDerivedFrom rdf:resource="http://www.dummy.org/TetR_Inverter/1"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_21/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_21"/>
+        <sbol:displayId>sequence_difference_21</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_21/location_21/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_21/location_21"/>
+            <sbol:displayId>location_21</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>247</sbol:start>
+            <sbol:end>249</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_43/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_43"/>
+        <sbol:displayId>sequence_difference_43</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_43/location_43/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_43/location_43"/>
+            <sbol:displayId>location_43</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>496</sbol:start>
+            <sbol:end>498</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_13/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_13"/>
+        <sbol:displayId>sequence_difference_13</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_13/location_13/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_13/location_13"/>
+            <sbol:displayId>location_13</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>148</sbol:start>
+            <sbol:end>153</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_24/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_24"/>
+        <sbol:displayId>sequence_difference_24</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_24/location_24/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_24/location_24"/>
+            <sbol:displayId>location_24</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>277</sbol:start>
+            <sbol:end>306</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_92/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_92"/>
+        <sbol:displayId>sequence_difference_92</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_92/location_92/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_92/location_92"/>
+            <sbol:displayId>location_92</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1084</sbol:start>
+            <sbol:end>1098</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_84/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_84"/>
+        <sbol:displayId>sequence_difference_84</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_84/location_84/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_84/location_84"/>
+            <sbol:displayId>location_84</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1003</sbol:start>
+            <sbol:end>1008</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_38/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_38"/>
+        <sbol:displayId>sequence_difference_38</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_38/location_38/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_38/location_38"/>
+            <sbol:displayId>location_38</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>457</sbol:start>
+            <sbol:end>462</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_5/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_5"/>
+        <sbol:displayId>sequence_difference_5</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_5/location_5/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_5/location_5"/>
+            <sbol:displayId>location_5</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>40</sbol:start>
+            <sbol:end>60</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_83/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_83"/>
+        <sbol:displayId>sequence_difference_83</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_83/location_83/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_83/location_83"/>
+            <sbol:displayId>location_83</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>991</sbol:start>
+            <sbol:end>999</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_40/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_40"/>
+        <sbol:displayId>sequence_difference_40</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_40/location_40/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_40/location_40"/>
+            <sbol:displayId>location_40</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>472</sbol:start>
+            <sbol:end>474</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_71/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_71"/>
+        <sbol:displayId>sequence_difference_71</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_71/location_71/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_71/location_71"/>
+            <sbol:displayId>location_71</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>820</sbol:start>
+            <sbol:end>834</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_27/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_27"/>
+        <sbol:displayId>sequence_difference_27</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_27/location_27/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_27/location_27"/>
+            <sbol:displayId>location_27</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>325</sbol:start>
+            <sbol:end>342</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_64/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_64"/>
+        <sbol:displayId>sequence_difference_64</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_64/location_64/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_64/location_64"/>
+            <sbol:displayId>location_64</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>739</sbol:start>
+            <sbol:end>750</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_81/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_81"/>
+        <sbol:displayId>sequence_difference_81</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_81/location_81/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_81/location_81"/>
+            <sbol:displayId>location_81</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>958</sbol:start>
+            <sbol:end>978</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_1/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_1"/>
+        <sbol:displayId>sequence_difference_1</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_1/location_1/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_1/location_1"/>
+            <sbol:displayId>location_1</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>4</sbol:start>
+            <sbol:end>6</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_86/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_86"/>
+        <sbol:displayId>sequence_difference_86</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_86/location_86/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_86/location_86"/>
+            <sbol:displayId>location_86</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1021</sbol:start>
+            <sbol:end>1026</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_29/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_29"/>
+        <sbol:displayId>sequence_difference_29</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_29/location_29/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_29/location_29"/>
+            <sbol:displayId>location_29</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>352</sbol:start>
+            <sbol:end>354</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_62/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_62"/>
+        <sbol:displayId>sequence_difference_62</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_62/location_62/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_62/location_62"/>
+            <sbol:displayId>location_62</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>715</sbol:start>
+            <sbol:end>717</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_37/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_37"/>
+        <sbol:displayId>sequence_difference_37</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_37/location_37/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_37/location_37"/>
+            <sbol:displayId>location_37</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>448</sbol:start>
+            <sbol:end>450</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_88/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_88"/>
+        <sbol:displayId>sequence_difference_88</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_88/location_88/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_88/location_88"/>
+            <sbol:displayId>location_88</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1042</sbol:start>
+            <sbol:end>1047</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_18/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_18"/>
+        <sbol:displayId>sequence_difference_18</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_18/location_18/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_18/location_18"/>
+            <sbol:displayId>location_18</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>199</sbol:start>
+            <sbol:end>207</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_89/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_89"/>
+        <sbol:displayId>sequence_difference_89</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_89/location_89/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_89/location_89"/>
+            <sbol:displayId>location_89</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1051</sbol:start>
+            <sbol:end>1056</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_26/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_26"/>
+        <sbol:displayId>sequence_difference_26</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_26/location_26/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_26/location_26"/>
+            <sbol:displayId>location_26</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>319</sbol:start>
+            <sbol:end>321</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_50/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_50"/>
+        <sbol:displayId>sequence_difference_50</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_50/location_50/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_50/location_50"/>
+            <sbol:displayId>location_50</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>571</sbol:start>
+            <sbol:end>573</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_39/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_39"/>
+        <sbol:displayId>sequence_difference_39</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_39/location_39/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_39/location_39"/>
+            <sbol:displayId>location_39</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>466</sbol:start>
+            <sbol:end>468</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_68/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_68"/>
+        <sbol:displayId>sequence_difference_68</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_68/location_68/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_68/location_68"/>
+            <sbol:displayId>location_68</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>796</sbol:start>
+            <sbol:end>801</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_69/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_69"/>
+        <sbol:displayId>sequence_difference_69</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_69/location_69/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_69/location_69"/>
+            <sbol:displayId>location_69</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>805</sbol:start>
+            <sbol:end>807</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_19/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_19"/>
+        <sbol:displayId>sequence_difference_19</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_19/location_19/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_19/location_19"/>
+            <sbol:displayId>location_19</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>211</sbol:start>
+            <sbol:end>234</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_12/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_12"/>
+        <sbol:displayId>sequence_difference_12</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_12/location_12/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_12/location_12"/>
+            <sbol:displayId>location_12</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>133</sbol:start>
+            <sbol:end>144</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_56/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_56"/>
+        <sbol:displayId>sequence_difference_56</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_56/location_56/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_56/location_56"/>
+            <sbol:displayId>location_56</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>634</sbol:start>
+            <sbol:end>639</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_44/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_44"/>
+        <sbol:displayId>sequence_difference_44</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_44/location_44/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_44/location_44"/>
+            <sbol:displayId>location_44</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>505</sbol:start>
+            <sbol:end>507</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_73/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_73"/>
+        <sbol:displayId>sequence_difference_73</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_73/location_73/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_73/location_73"/>
+            <sbol:displayId>location_73</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>847</sbol:start>
+            <sbol:end>855</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_28/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_28"/>
+        <sbol:displayId>sequence_difference_28</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_28/location_28/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_28/location_28"/>
+            <sbol:displayId>location_28</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>346</sbol:start>
+            <sbol:end>348</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_9/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_9"/>
+        <sbol:displayId>sequence_difference_9</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_9/location_9/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_9/location_9"/>
+            <sbol:displayId>location_9</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>103</sbol:start>
+            <sbol:end>105</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_48/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_48"/>
+        <sbol:displayId>sequence_difference_48</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_48/location_48/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_48/location_48"/>
+            <sbol:displayId>location_48</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>547</sbol:start>
+            <sbol:end>558</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_74/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_74"/>
+        <sbol:displayId>sequence_difference_74</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_74/location_74/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_74/location_74"/>
+            <sbol:displayId>location_74</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>859</sbol:start>
+            <sbol:end>876</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_36/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_36"/>
+        <sbol:displayId>sequence_difference_36</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_36/location_36/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_36/location_36"/>
+            <sbol:displayId>location_36</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>439</sbol:start>
+            <sbol:end>441</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_65/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_65"/>
+        <sbol:displayId>sequence_difference_65</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_65/location_65/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_65/location_65"/>
+            <sbol:displayId>location_65</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>754</sbol:start>
+            <sbol:end>762</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_75/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_75"/>
+        <sbol:displayId>sequence_difference_75</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_75/location_75/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_75/location_75"/>
+            <sbol:displayId>location_75</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>880</sbol:start>
+            <sbol:end>885</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_57/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_57"/>
+        <sbol:displayId>sequence_difference_57</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_57/location_57/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_57/location_57"/>
+            <sbol:displayId>location_57</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>643</sbol:start>
+            <sbol:end>648</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_80/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_80"/>
+        <sbol:displayId>sequence_difference_80</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_80/location_80/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_80/location_80"/>
+            <sbol:displayId>location_80</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>946</sbol:start>
+            <sbol:end>951</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_7/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_7"/>
+        <sbol:displayId>sequence_difference_7</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_7/location_7/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_7/location_7"/>
+            <sbol:displayId>location_7</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>79</sbol:start>
+            <sbol:end>93</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_15/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_15"/>
+        <sbol:displayId>sequence_difference_15</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_15/location_15/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_15/location_15"/>
+            <sbol:displayId>location_15</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>172</sbol:start>
+            <sbol:end>177</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_17/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_17"/>
+        <sbol:displayId>sequence_difference_17</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_17/location_17/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_17/location_17"/>
+            <sbol:displayId>location_17</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>187</sbol:start>
+            <sbol:end>192</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_63/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_63"/>
+        <sbol:displayId>sequence_difference_63</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_63/location_63/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_63/location_63"/>
+            <sbol:displayId>location_63</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>721</sbol:start>
+            <sbol:end>735</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_32/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_32"/>
+        <sbol:displayId>sequence_difference_32</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_32/location_32/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_32/location_32"/>
+            <sbol:displayId>location_32</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>397</sbol:start>
+            <sbol:end>399</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_54/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_54"/>
+        <sbol:displayId>sequence_difference_54</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_54/location_54/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_54/location_54"/>
+            <sbol:displayId>location_54</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>622</sbol:start>
+            <sbol:end>624</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_58/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_58"/>
+        <sbol:displayId>sequence_difference_58</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_58/location_58/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_58/location_58"/>
+            <sbol:displayId>location_58</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>652</sbol:start>
+            <sbol:end>672</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_23/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_23"/>
+        <sbol:displayId>sequence_difference_23</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_23/location_23/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_23/location_23"/>
+            <sbol:displayId>location_23</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>259</sbol:start>
+            <sbol:end>273</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_45/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_45"/>
+        <sbol:displayId>sequence_difference_45</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_45/location_45/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_45/location_45"/>
+            <sbol:displayId>location_45</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>514</sbol:start>
+            <sbol:end>525</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_14/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_14"/>
+        <sbol:displayId>sequence_difference_14</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_14/location_14/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_14/location_14"/>
+            <sbol:displayId>location_14</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>157</sbol:start>
+            <sbol:end>168</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_78/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_78"/>
+        <sbol:displayId>sequence_difference_78</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_78/location_78/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_78/location_78"/>
+            <sbol:displayId>location_78</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>931</sbol:start>
+            <sbol:end>933</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_3/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_3"/>
+        <sbol:displayId>sequence_difference_3</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_3/location_3/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_3/location_3"/>
+            <sbol:displayId>location_3</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>19</sbol:start>
+            <sbol:end>27</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_52/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_52"/>
+        <sbol:displayId>sequence_difference_52</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_52/location_52/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_52/location_52"/>
+            <sbol:displayId>location_52</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>601</sbol:start>
+            <sbol:end>612</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_33/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_33"/>
+        <sbol:displayId>sequence_difference_33</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_33/location_33/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_33/location_33"/>
+            <sbol:displayId>location_33</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>403</sbol:start>
+            <sbol:end>405</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_61/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_61"/>
+        <sbol:displayId>sequence_difference_61</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_61/location_61/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_61/location_61"/>
+            <sbol:displayId>location_61</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>703</sbol:start>
+            <sbol:end>705</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_22/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_22"/>
+        <sbol:displayId>sequence_difference_22</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_22/location_22/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_22/location_22"/>
+            <sbol:displayId>location_22</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>253</sbol:start>
+            <sbol:end>255</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_87/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_87"/>
+        <sbol:displayId>sequence_difference_87</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_87/location_87/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_87/location_87"/>
+            <sbol:displayId>location_87</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1030</sbol:start>
+            <sbol:end>1032</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_6/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_6"/>
+        <sbol:displayId>sequence_difference_6</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_6/location_6/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_6/location_6"/>
+            <sbol:displayId>location_6</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>64</sbol:start>
+            <sbol:end>75</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_10/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_10"/>
+        <sbol:displayId>sequence_difference_10</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_10/location_10/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_10/location_10"/>
+            <sbol:displayId>location_10</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>109</sbol:start>
+            <sbol:end>111</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_91/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_91"/>
+        <sbol:displayId>sequence_difference_91</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_91/location_91/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_91/location_91"/>
+            <sbol:displayId>location_91</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1078</sbol:start>
+            <sbol:end>1080</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_53/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_53"/>
+        <sbol:displayId>sequence_difference_53</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_53/location_53/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_53/location_53"/>
+            <sbol:displayId>location_53</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>616</sbol:start>
+            <sbol:end>618</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_76/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_76"/>
+        <sbol:displayId>sequence_difference_76</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_76/location_76/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_76/location_76"/>
+            <sbol:displayId>location_76</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>892</sbol:start>
+            <sbol:end>900</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_67/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_67"/>
+        <sbol:displayId>sequence_difference_67</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_67/location_67/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_67/location_67"/>
+            <sbol:displayId>location_67</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>775</sbol:start>
+            <sbol:end>792</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_70/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_70"/>
+        <sbol:displayId>sequence_difference_70</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_70/location_70/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_70/location_70"/>
+            <sbol:displayId>location_70</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>814</sbol:start>
+            <sbol:end>816</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_60/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_60"/>
+        <sbol:displayId>sequence_difference_60</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_60/location_60/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_60/location_60"/>
+            <sbol:displayId>location_60</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>694</sbol:start>
+            <sbol:end>696</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_31/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_31"/>
+        <sbol:displayId>sequence_difference_31</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_31/location_31/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_31/location_31"/>
+            <sbol:displayId>location_31</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>370</sbol:start>
+            <sbol:end>384</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_30/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_30"/>
+        <sbol:displayId>sequence_difference_30</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_30/location_30/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_30/location_30"/>
+            <sbol:displayId>location_30</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>358</sbol:start>
+            <sbol:end>360</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_8/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_8"/>
+        <sbol:displayId>sequence_difference_8</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_8/location_8/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_8/location_8"/>
+            <sbol:displayId>location_8</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>97</sbol:start>
+            <sbol:end>99</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_55/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_55"/>
+        <sbol:displayId>sequence_difference_55</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_55/location_55/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_55/location_55"/>
+            <sbol:displayId>location_55</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>628</sbol:start>
+            <sbol:end>630</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_42/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_42"/>
+        <sbol:displayId>sequence_difference_42</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_42/location_42/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_42/location_42"/>
+            <sbol:displayId>location_42</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>487</sbol:start>
+            <sbol:end>492</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_79/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_79"/>
+        <sbol:displayId>sequence_difference_79</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_79/location_79/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_79/location_79"/>
+            <sbol:displayId>location_79</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>937</sbol:start>
+            <sbol:end>942</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_46/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_46"/>
+        <sbol:displayId>sequence_difference_46</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_46/location_46/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_46/location_46"/>
+            <sbol:displayId>location_46</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>529</sbol:start>
+            <sbol:end>534</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_90/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_90"/>
+        <sbol:displayId>sequence_difference_90</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_90/location_90/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_90/location_90"/>
+            <sbol:displayId>location_90</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1063</sbol:start>
+            <sbol:end>1068</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_51/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_51"/>
+        <sbol:displayId>sequence_difference_51</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_51/location_51/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_51/location_51"/>
+            <sbol:displayId>location_51</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>583</sbol:start>
+            <sbol:end>597</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_66/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_66"/>
+        <sbol:displayId>sequence_difference_66</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_66/location_66/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_66/location_66"/>
+            <sbol:displayId>location_66</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>766</sbol:start>
+            <sbol:end>771</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_93/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_93"/>
+        <sbol:displayId>sequence_difference_93</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_93/location_93/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_93/location_93"/>
+            <sbol:displayId>location_93</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1102</sbol:start>
+            <sbol:end>1113</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_16/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_16"/>
+        <sbol:displayId>sequence_difference_16</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_16/location_16/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_16/location_16"/>
+            <sbol:displayId>location_16</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>181</sbol:start>
+            <sbol:end>183</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_35/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_35"/>
+        <sbol:displayId>sequence_difference_35</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_35/location_35/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_35/location_35"/>
+            <sbol:displayId>location_35</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>418</sbol:start>
+            <sbol:end>435</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_77/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_77"/>
+        <sbol:displayId>sequence_difference_77</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_77/location_77/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_77/location_77"/>
+            <sbol:displayId>location_77</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>907</sbol:start>
+            <sbol:end>927</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_85/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_85"/>
+        <sbol:displayId>sequence_difference_85</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_85/location_85/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_85/location_85"/>
+            <sbol:displayId>location_85</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1012</sbol:start>
+            <sbol:end>1014</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_72/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_72"/>
+        <sbol:displayId>sequence_difference_72</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_72/location_72/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_72/location_72"/>
+            <sbol:displayId>location_72</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>841</sbol:start>
+            <sbol:end>843</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_59/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_59"/>
+        <sbol:displayId>sequence_difference_59</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_59/location_59/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_59/location_59"/>
+            <sbol:displayId>location_59</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>676</sbol:start>
+            <sbol:end>687</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_49/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_49"/>
+        <sbol:displayId>sequence_difference_49</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_49/location_49/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_49/location_49"/>
+            <sbol:displayId>location_49</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>562</sbol:start>
+            <sbol:end>564</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_20/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_20"/>
+        <sbol:displayId>sequence_difference_20</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_20/location_20/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_20/location_20"/>
+            <sbol:displayId>location_20</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>241</sbol:start>
+            <sbol:end>243</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_94/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_94"/>
+        <sbol:displayId>sequence_difference_94</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_94/location_94/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_94/location_94"/>
+            <sbol:displayId>location_94</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1120</sbol:start>
+            <sbol:end>1122</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_41/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_41"/>
+        <sbol:displayId>sequence_difference_41</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_41/location_41/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_41/location_41"/>
+            <sbol:displayId>location_41</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>478</sbol:start>
+            <sbol:end>483</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_25/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_25"/>
+        <sbol:displayId>sequence_difference_25</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_25/location_25/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_25/location_25"/>
+            <sbol:displayId>location_25</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>310</sbol:start>
+            <sbol:end>312</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_47/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_47"/>
+        <sbol:displayId>sequence_difference_47</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_47/location_47/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_47/location_47"/>
+            <sbol:displayId>location_47</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>538</sbol:start>
+            <sbol:end>540</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/CDS_1/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/CDS_1"/>
+        <sbol:displayId>CDS_1</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/CDS_1/feature_1/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/CDS_1/feature_1"/>
+            <sbol:displayId>feature_1</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1</sbol:start>
+            <sbol:end>1122</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_82/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_82"/>
+        <sbol:displayId>sequence_difference_82</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_82/location_82/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_82/location_82"/>
+            <sbol:displayId>location_82</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>985</sbol:start>
+            <sbol:end>987</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_11/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_11"/>
+        <sbol:displayId>sequence_difference_11</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_11/location_11/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_11/location_11"/>
+            <sbol:displayId>location_11</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>115</sbol:start>
+            <sbol:end>123</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_34/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_34"/>
+        <sbol:displayId>sequence_difference_34</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_34/location_34/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_34/location_34"/>
+            <sbol:displayId>location_34</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>409</sbol:start>
+            <sbol:end>414</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_2/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_2"/>
+        <sbol:displayId>sequence_difference_2</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_2/location_2/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_2/location_2"/>
+            <sbol:displayId>location_2</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>10</sbol:start>
+            <sbol:end>15</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_4/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_4"/>
+        <sbol:displayId>sequence_difference_4</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000413"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_4/location_4/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG/sequence_difference_4/location_4"/>
+            <sbol:displayId>location_4</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>31</sbol:start>
+            <sbol:end>33</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequence rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG_sequence/1"/>
+  </sbol:ComponentDefinition>
+  <sbol:Sequence rdf:about="https://synbiohub.org/public/bsu/BO_28570_seq/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.org/public/bsu/BO_28570_seq"/>
+    <sbol:displayId>BO_28570_seq</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1"/>
+    <obo:OBI_0002110>10.1145/2631921</obo:OBI_0002110>
+    <sbh:topLevel rdf:resource="https://synbiohub.org/public/bsu/BO_28570_seq/1"/>
+    <sbh:ownedBy rdf:resource="https://synbiohub.org/user/myers"/>
+    <obo:OBI_0001617>23571273</obo:OBI_0001617>
+    <obo:OBI_0001617>27110921</obo:OBI_0001617>
+    <sbol:elements>ATGATCGCCTTACATTTCGGTGCGGGAAATATCGGGAGAGGATTTATCGGCGCGCTGCTTCACCACTCCGGCTATGATGTGGTGTTTGCGGATGTGAACGAAACGATGGTCAGCCTCCTCAATGAAAAAAAAGAATACACAGTGGAACTGGCGGAAGAGGGACGTTCATCGGAGATCATTGGCCCGGTGAGCGCTATTAACAGCGGCAGTCAGACCGAGGAGCTGTACCGGCTGATGAATGAGGCGGCGCTCATCACAACAGCTGTCGGCCCGAATGTGCTGAAGCTGATTGCCCCGTCTATCGCAGAAGGTTTAAGACGAAGAAATACTGCAAACACACTGAATATCATTGCCTGCGAAAATATGATTGGCGGAAGCAGCTTCTTAAAGAAAGAAATATACAGCCATTTAACGGAAGCAGAGCAGAAATCCGTCAGTGAAACGGTAGGTTTTCCGAATTCTGCCGTTGACCGGATCGTCCCGATTCAGCATCATGAAGACCCGCTGAAAGTATCGGTTGAACCATTTTTCGAATGGGTCATTGATGAATCAGGCTTTAAAGGGAAAACACCAGTCATAAACGGCGCACTGTTTGTTGATGATTTAACGCCGTACATCGAACGGAAGCTGTTTACGGTCAATACCGGACACGCGGTCACAGCGTATGTCGGCTATCAGCGCGGACTCAAAACGGTCAAAGAAGCAATTGATCATCCGGAAATCCGCCGTGTTGTTCATTCGGCGCTGCTTGAAACTGGTGACTATCTCGTCAAATCGTATGGCTTTAAGCAAACTGAACACGAACAATATATCAAAAAAATCATCGGTCGCTTTGAAAATCCTTTCATTTCGGACGATGTGACCCGCGTAGCGAGGTCACCTCTCAGAAAACTGGGAGAAAATGATAGACTTGTAGGCCCGGCAAAGAAAATAAAAGAACCGAATGCACTGGCTGAAGGAATTGCCGCAGCACTGCGCTTCGATTTCACCGGTGACCCTGAAGCGGTTGAACTGCAAGCGCTGATCGAAGAAAAAGGATACAGCGGCGTACTTCAAGAGGTGTGCGGCATTCAGTCCCATGAACCGTTGCACGCCATCATTTTAAAGAAACTTAATCAATAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="https://boost.jgi.doe.gov/TetR_Inverter_JUG_sequence/1">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/TetR_Inverter_JUG_sequence"/>
+    <sbol:displayId>TetR_Inverter_JUG_sequence</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:elements>ATGATAGCCTTGCACTTCGGCGCCGGTAATATTGGGAGAGGTTTCATAGGAGCTTTGTTGCACCATAGCGGATACGATGTCGTTTTCGCTGACGTGAATGAAACTATGGTTAGCCTTCTAAACGAAAAAAAAGAGTATACTGTCGAATTAGCTGAAGAAGGGAGATCTTCGGAAATTATTGGACCGGTCTCGGCTATTAATTCAGGTAGTCAAACAGAAGAATTATATAGATTAATGAATGAAGCGGCACTCATAACAACGGCCGTTGGACCAAATGTACTAAAATTAATCGCACCTTCCATTGCGGAAGGGTTAAGAAGAAGAAACACGGCTAATACTCTAAATATTATTGCTTGCGAGAATATGATTGGTGGGTCATCCTTTTTAAAGAAAGAAATTTACAGTCATTTGACTGAAGCTGAACAAAAGTCAGTTAGTGAGACGGTAGGCTTTCCGAACTCGGCCGTGGACAGAATCGTTCCAATTCAACACCATGAGGACCCGCTAAAAGTATCTGTCGAGCCCTTTTTTGAGTGGGTTATTGATGAGTCCGGTTTCAAAGGAAAAACACCGGTCATAAACGGTGCGTTATTCGTGGATGACTTGACTCCCTACATAGAAAGGAAGTTGTTTACAGTGAATACAGGGCACGCCGTAACCGCATACGTTGGGTATCAACGTGGTCTAAAAACGGTTAAAGAAGCCATTGATCATCCAGAAATTAGAAGAGTAGTACATTCTGCTTTACTAGAAACAGGCGATTATTTGGTTAAATCTTACGGATTCAAACAGACTGAGCATGAACAGTATATCAAGAAAATAATTGGAAGATTCGAAAATCCATTCATATCAGATGATGTTACGAGAGTTGCACGGTCACCATTAAGAAAACTCGGGGAGAATGATCGCTTAGTCGGTCCTGCGAAAAAAATTAAAGAGCCTAATGCTTTAGCTGAAGGTATCGCTGCCGCTCTAAGATTCGATTTTACCGGCGATCCAGAAGCTGTAGAATTACAAGCGCTCATAGAAGAGAAAGGATACAGTGGTGTATTACAGGAGGTGTGTGGGATTCAGTCCCACGAACCTCTTCATGCTATTATTTTGAAAAAGTTAAATCAATAG</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://www.dummy.org/TetR_InverterSequence/1">
+    <sbol:persistentIdentity rdf:resource="http://www.dummy.org/TetR_InverterSequence"/>
+    <sbol:displayId>TetR_InverterSequence</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity/1"/>
+    <sbol:elements>ATGATCGCCTTACATTTCGGTGCGGGAAATATCGGGAGAGGATTTATCGGCGCGCTGCTTCACCACTCCGGCTATGATGTGGTGTTTGCGGATGTGAACGAAACGATGGTCAGCCTCCTCAATGAAAAAAAAGAATACACAGTGGAACTGGCGGAAGAGGGACGTTCATCGGAGATCATTGGCCCGGTGAGCGCTATTAACAGCGGCAGTCAGACCGAGGAGCTGTACCGGCTGATGAATGAGGCGGCGCTCATCACAACAGCTGTCGGCCCGAATGTGCTGAAGCTGATTGCCCCGTCTATCGCAGAAGGTTTAAGACGAAGAAATACTGCAAACACACTGAATATCATTGCCTGCGAAAATATGATTGGCGGAAGCAGCTTCTTAAAGAAAGAAATATACAGCCATTTAACGGAAGCAGAGCAGAAATCCGTCAGTGAAACGGTAGGTTTTCCGAATTCTGCCGTTGACCGGATCGTCCCGATTCAGCATCATGAAGACCCGCTGAAAGTATCGGTTGAACCATTTTTCGAATGGGTCATTGATGAATCAGGCTTTAAAGGGAAAACACCAGTCATAAACGGCGCACTGTTTGTTGATGATTTAACGCCGTACATCGAACGGAAGCTGTTTACGGTCAATACCGGACACGCGGTCACAGCGTATGTCGGCTATCAGCGCGGACTCAAAACGGTCAAAGAAGCAATTGATCATCCGGAAATCCGCCGTGTTGTTCATTCGGCGCTGCTTGAAACTGGTGACTATCTCGTCAAATCGTATGGCTTTAAGCAAACTGAACACGAACAATATATCAAAAAAATCATCGGTCGCTTTGAAAATCCTTTCATTTCGGACGATGTGACCCGCGTAGCGAGGTCACCTCTCAGAAAACTGGGAGAAAATGATAGACTTGTAGGCCCGGCAAAGAAAATAAAAGAACCGAATGCACTGGCTGAAGGAATTGCCGCAGCACTGCGCTTCGATTTCACCGGTGACCCTGAAGCGGTTGAACTGCAAGCGCTGATCGAAGAAAAAGGATACAGCGGCGTACTTCAAGAGGTGTGCGGCATTCAGTCCCATGAACCGTTGCACGCCATCATTTTAAAGAAACTTAATCAATAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <prov:Activity rdf:about="http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity/1">
+    <sbol:persistentIdentity rdf:resource="http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity"/>
+    <sbol:displayId>TetR_Inverter_SBOLDesignerActivity</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <dc:creator>Prem Singh</dc:creator>
+    <prov:endedAtTime>2018-07-04T19:42:37.326-07:00</prov:endedAtTime>
+    <prov:qualifiedAssociation>
+      <prov:Association rdf:about="http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity/Association/1">
+        <sbol:persistentIdentity rdf:resource="http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity/Association"/>
+        <sbol:displayId>Association</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <prov:hadRole rdf:resource="http://sbols.org/v2#sequenceEditor"/>
+        <prov:agent rdf:resource="https://synbiohub.org/public/SBOL_Software/SBOLDesigner/3.0"/>
+      </prov:Association>
+    </prov:qualifiedAssociation>
+  </prov:Activity>
+  <prov:Activity rdf:about="https://boost.jgi.doe.gov/CODON_JUGGLE/1">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/CODON_JUGGLE"/>
+    <sbol:displayId>CODON_JUGGLE</sbol:displayId>
+    <sbol:version>1</sbol:version>
+  </prov:Activity>
+  <prov:Activity rdf:about="https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.org/public/bsu/SyBiOntKB2sbol"/>
+    <sbol:displayId>SyBiOntKB2sbol</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <dcterms:title>SyBiOntKB to SBOL conversion</dcterms:title>
+    <dcterms:description>Conversion of the Synthetic Biology Ontology knowledge base to SBOL 2.1</dcterms:description>
+    <dcterms:creator>Goksel Misirli</dcterms:creator>
+    <sbh:topLevel rdf:resource="https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1"/>
+    <sbh:ownedBy rdf:resource="https://synbiohub.org/user/myers"/>
+    <obo:OBI_0001617>23571273</obo:OBI_0001617>
+    <obo:OBI_0001617>27110921</obo:OBI_0001617>
+    <prov:endedAtTime>2017-04-03T08:58:46.354-07:00</prov:endedAtTime>
+  </prov:Activity>
+</rdf:RDF>
