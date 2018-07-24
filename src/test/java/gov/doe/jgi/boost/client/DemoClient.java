@@ -99,14 +99,24 @@ public class DemoClient {
 
 
     	// verify against DNA synthesis constraints and sequence patterns
-		String dnaVarificationJobUUID = client.dnaVerification(
+		String dnaVerificationJobUUID = client.dnaVerification(
 				"./data/test/codon_juggle_input.xml",       // input sequence
 				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE, 	// target namespace
 				Vendor.GEN9,                  				// vendor
 				"./data/patterns.fasta");     				// sequence patterns
-		if (null != dnaVarificationJobUUID) {
-			jobUUIDs.add(dnaVarificationJobUUID);
-			System.out.println("Data for DNA Verification :" + dnaVarificationJobUUID);
+		if (null != dnaVerificationJobUUID) {
+			jobUUIDs.add(dnaVerificationJobUUID);
+			System.out.println("Data for DNA Verification w/ patterns :" + dnaVerificationJobUUID);
+		}
+		
+		String dnaVerificationNoPatternsJobUUID = client.dnaVerification(
+				"./data/test/codon_juggle_input.xml",       // input sequence
+				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE, 	// target namespace
+				Vendor.GEN9,                  				// vendor
+				(String)null);			     				// sequence patterns
+		if (null != dnaVerificationNoPatternsJobUUID) {
+			jobUUIDs.add(dnaVerificationNoPatternsJobUUID);
+			System.out.println("Data for DNA Verification w/o patterns :" + dnaVerificationNoPatternsJobUUID);
 		}
 //
 //		// polish the given DNA

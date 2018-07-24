@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<rdf:RDF xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sbol="http://sbols.org/v2#" xmlns:dcterms="http://purl.org/dc/terms/">
+  <sbol:ComponentDefinition rdf:about="http://www.dummy.org/transcriptional_unit/1">
+    <sbol:persistentIdentity rdf:resource="http://www.dummy.org/transcriptional_unit"/>
+    <sbol:displayId>transcriptional_unit</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="http://www.dummy.org/transcriptional_unit_SBOLDesignerActivity/1"/>
+    <dcterms:description></dcterms:description>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000804"/>
+    <sbol:component>
+      <sbol:Component rdf:about="http://www.dummy.org/transcriptional_unit/Gen_Component/1">
+        <sbol:persistentIdentity rdf:resource="http://www.dummy.org/transcriptional_unit/Gen_Component"/>
+        <sbol:displayId>Gen_Component</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://www.dummy.org/transriptional_unit_region/1"/>
+      </sbol:Component>
+    </sbol:component>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="http://www.dummy.org/transcriptional_unit/transcriptional_unit_SequenceAnnotation/1">
+        <sbol:persistentIdentity rdf:resource="http://www.dummy.org/transcriptional_unit/transcriptional_unit_SequenceAnnotation"/>
+        <sbol:displayId>transcriptional_unit_SequenceAnnotation</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:location>
+          <sbol:Range rdf:about="http://www.dummy.org/transcriptional_unit/transcriptional_unit_SequenceAnnotation/transcriptional_unit_SequenceAnnotation_Range/1">
+            <sbol:persistentIdentity rdf:resource="http://www.dummy.org/transcriptional_unit/transcriptional_unit_SequenceAnnotation/transcriptional_unit_SequenceAnnotation_Range"/>
+            <sbol:displayId>transcriptional_unit_SequenceAnnotation_Range</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1</sbol:start>
+            <sbol:end>4092</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+        <sbol:component rdf:resource="http://www.dummy.org/transcriptional_unit/Gen_Component/1"/>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequence rdf:resource="http://www.dummy.org/transcriptional_unitSequence/1"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://boost.jgi.doe.gov/transcriptional_unit_JUG/1">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/transcriptional_unit_JUG"/>
+    <sbol:displayId>transcriptional_unit_JUG</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasDerivedFrom rdf:resource="http://www.dummy.org/transcriptional_unit/1"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="https://boost.jgi.doe.gov/transcriptional_unit_JUG/engineered_region_1/1">
+        <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/transcriptional_unit_JUG/engineered_region_1"/>
+        <sbol:displayId>engineered_region_1</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000804"/>
+        <sbol:location>
+          <sbol:Range rdf:about="https://boost.jgi.doe.gov/transcriptional_unit_JUG/engineered_region_1/feature_1/1">
+            <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/transcriptional_unit_JUG/engineered_region_1/feature_1"/>
+            <sbol:displayId>feature_1</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1</sbol:start>
+            <sbol:end>4092</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequence rdf:resource="https://boost.jgi.doe.gov/transcriptional_unit_JUG_sequence/1"/>
+  </sbol:ComponentDefinition>
+  <sbol:Sequence rdf:about="https://boost.jgi.doe.gov/transcriptional_unit_JUG_sequence/1">
+    <sbol:persistentIdentity rdf:resource="https://boost.jgi.doe.gov/transcriptional_unit_JUG_sequence"/>
+    <sbol:displayId>transcriptional_unit_JUG_sequence</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:elements>AAAAAAAAAAAAAAAAAAAACCCCCCCCCCATGGCAAGCCCGAATGGAGCTCTGGCCCTTTGTCCCCTTTACAGTGAGCGCTCCACCCAGGGCCTTGAACGTTTGTTGAACTTTAAAAATCGAGTGTTGTTCGACGGCGATTCCGCCCTGTGGGGTCTCGTAGCGCGGAAACAAGTGCGATGTGGTCCACTATCTTTGACGTTGCATTGTGCTATAAGCTCCCTCAACCACAAGCACCACGAGATCCTCAAGGTCCAGCCTGCTCGTTTCAATGCGTGCGCAACGTTTAGGACACCATCCGGACTACCCATACGACCGGAGTCCAGCTGGCTACGGTTGTTACATCATACTCTGATCCCTCGCTCCGTATTAGCGGGTCGGTATTTGGTATATCGTGAGTCTTTGAGCTCTGACTCAGTTAAGCAGTTGAAGGGTTTTGCACATGCACCGCGCCCCTATACAGGACTGCCGATTTCGCATCTTAGCTCGCGCGGGTTATGGTGGAATGGTGACCTTATTCCTCAGTCGGTCGTTGAGAACGGGCCTATAAAAGTGCTGCCCGGATCGCTGTTAGGATCATACTGGTTTCGGTCATCCATTAAGTACACGCTAAGGGAGTGGGTATGGTTCGCGAGTTACTTGACAAATATAGCACCCTTGATACTTTCTTACTTGTGTCTAGACTGCTCTCAGAAGTTCTCGGGTCAAAGCTGCGCAGAATATAATGCCCTCGCATACCCAACCTTATCAGATGAACTGGCGCAGCTAGAGAATTTGGTATGGCGTCGCTCTAGGAAAGCTAAAGCCCTAGCAACGCGACTTAACAACAGCAACTCTGCGGTTTGCCATCGGTGGCCCTCCTACCCCGGCCCCTTCGTGTCCCAACTAGAAGCCTTCTATGTTCTGACATTACAGCTCTCGCCAAAGACCTCTATCTTGCCGTCTAAGCGACACCAAGGTCCGATTTGTGCTATTCAACATGTTTGCAGAGATCATCTAGACCGTGTAGCTCATCCTCCGGGTTTACCTACTCGCCGTTCGAATGCTGAACTGACTATTGGTGAGGTAGTGTACCAGCTGAATGAACGGAGTGAAGATCAGTCTGGAACGCAGCATCACTCCGGTCACCTACGTCATGTGCATGAAACTAAAATACATAGTAGTGTTCTAGCCCAACGCACGAGCAACGCCGCGTTAACTACCCTTCGATGGGAATTCCCGCAGGCAGGCCCGTGCCCGACTACCGTTGGGCGCGGGACATTAGCTATCTTACGCCCGTTATATAGCATAACTTGTATCACATCCATCATAAAGCGGCGGGCCGAACGGTCGCTGGGACTACAGAAGGGACCGCTAACCCGTTCCGCAAAAGCGACTAGTATATTAGGGGGTGCTTCCTCGTGGATCAGATCACCTGCGTTTTTTTCTACCGATCGAGTCAAAGTGTTCTCACATTCGATCCTCACGGCACATCCTGAGTCTCATCTTACCTCATTGCCGCGACGGTCGCGGCGACGTTGCGTGCCGGGCGGTAGTACTCAGATTGACGTTGAGAGCATTTTACGATTATCGTCGGCACTATTGCCACATCACTCTCTGCCAAAGTATGAATGGCTTTCCGCCGGGAGCGAACAAGAGTATCGCTGCGGATATAGGCTGCAGATCGTTTCACGATCAATTTCTGGGATCTTCGTGTGGTCCCTGTCTGGTTTGTTAACGGCTGGTAAAAGCTGGCTCGTGGGATTTGCACGATCGCGCCCTTTAGCTCCAGTGCAAGGTCAATGCGCACTTCACAGAGGACAGACCCGTACACGTCGTGAAGGATGTCAAGTTGTGAAGTATGTGGTGTTTATTAGTCAATCTATTCGACCTCGACTCTCTCAACGGCCCCCCAGATCGCGCTATCCACACTCCACTCGAGGAGAAGAAGGCCCCCCCGAAGCCCTCGTCATATACCGTCAGCGCGCGTTGAGTCGGAGTGCCTTTTATAGGGCCCGGGTATTTTGGGCAACCACCCTCGTTTACGCATTCGGCTGTACTGCTGAATTCCCACGACAAGTAAGAGATATCTCGCGCGAGGGACATATCAGGCCAGGTAAGGCAGGATTTGTGCATAGAGCATTGGAGGCGTCATTCCCAAGTGCTAGTAATTTGTCCAGAAATTATTCATCACTGCGTAATGTTAATGTGTACGGAATTAGGCTAAGCGCCTGGCTCTCCAGCGGTATTCGATCTTCTACCACGCTCCCTCCGTCATTGGGGACCAAAGGGGTGCCCAACTACCTTTATACCGATAATCCAATAGAGATATCTTATCCGTGGATACGGCGGAGCATTTATGAGATATCCCCCGTTTATCCTGTCGCAGTTCTAATCGAAAAATGGATACGATTTGGCAGCCACTGTCGACCGGCGAGCTCTACACCAGAAGACAGCACACATGGTTGCACGATAACCTCTCCTATCCGCAATTGTGTGTATAATTGGAAGAGGCAGTCGTATCGTTCGTGTGTCGCGAGGTGGGATAGACTTCAATACCTCCCAGTCAAAGAAGAGATTTGTGATTGCGCTTACCTTTACACAAAATGGGTCGTCCACCGGCCTGAAACAAAATGGACCCAGTGTCCCCGTTACCACAATATCTATTCGGCGCTTGCCAGGTCTCGGACATGTCGAACGCTACTCTATGAGTCTGAACATAGTCTCGGGCTGAAGTCATATGAATTGGCGGACTGGATTCACCACGTTACAATCGATCTCCTGGGAATTGAGGAGTCCTGTGGTGCGGGTGGAGCGCCATCGTTGTATCAACAGTTCATCATACGCGAGCAAACGGGCTCAAAAGGTAGCAATCATCCAACACCGCGTCCGGTACTCGAAAAGTCTTGGGTTGTGAATGAGAGTACTATACCAGGATCGCGCTTCACCAAGAGACATGTCCCAGTCTACGAGTTCCGTGGAACGTGCACTTCAGCTAGCAACGCGTCATCGTACTTTCCCTACGAATCTACGGGAAACGTCTGGCACAAAACTTCGGCACCTCTCGGGGGGCATGGAGCGGGGCCTCATGCAATTAACACCTACTGGTCTGTCTCCAAAGGTTTGGTGGCGCCAAGGGTCCCTAGGCTGCCAATTGTACATGCAGCAGCTATCCTTCACCCATTTGAAGCAGACAAAGATGTATGCACTAATCACAACTGTCCCAGATTTAACACATCAACAATAATAGATTGGAGGCCTTCCCAAGTAGCTAAAGCTTGTGATGCTTGGTGCAAACTTAGCCAGATTTTGACGAGTGAGCCTCAAGCATCCGGCCCCTGTCATGGGGTGCATGGCACCCGCAGTAAATCTTTCACTCATGATCTACCCATCTTCGCCGAAGCCGCACTAGTGTCCCGAGGGCAGGTACGCCGAGGGCGGTACGCGGAGCCGTCTAGTGGTACTGATAAAGGCAGCCGTGAGTTGGTCTGCCATACTGTCGTACTTCCCAGGGCGGTGGGGCTGTTAGGAATTAACGGCACACGACTTGCCTCATGTTCATGTCTCTTCGTGGTAGTCAGAACTATAGCGACACTCCGGGACTTACATCGAGAGTTAAGTAGTGCTACGGCTTGTAATAACAGTCGTCAATTTAAGACGAGAGAGACGTATTGCACCCATCGTGGGGAATTGGGCCTGCGAATATTATCGTGGAGCCCGGATAAGATAGCAAATCGACTAGGGGAGCGCGCACCTCGAGGCTCCCGGAGCTTCAGCCATTGTAAGAAAACCGGTGTACCCGTATGCGTCAGAAGCTTACTGGGCCGCAAATGCCTATTGGCGCTCGACACTTGGGTCCCGTATAACAGAAAGCTCCGTCTCTGCGCAGCTTTGACAAGTAGTACCACTGCGCACAGTCGTAAATCGAGAACATCCCTAGTAAGACCCCCCAATGTATTATGCGACGGTGCCGGTTGGGACGTTGCTCCCCGTTGCACATTTCGTTCCATTGATCGCACAGGCATCTGCGACTCCCACGCCGCAAGCCGGCAACGGTCTAGGTTGAGACGGGATCTCACTCTATTAGAACAATGATTTTTTTTTTTTTTTTTT</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+</rdf:RDF>

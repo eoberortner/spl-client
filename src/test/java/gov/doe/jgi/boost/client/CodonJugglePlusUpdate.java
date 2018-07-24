@@ -21,7 +21,7 @@ import gov.doe.jgi.boost.enums.Strategy;
  *  
  * @author Ernst Oberortner
  */
-public class CodonJuggling {
+public class CodonJugglePlusUpdate {
 	
 	/*-------------
 	 * MAIN

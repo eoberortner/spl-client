@@ -1,0 +1,80 @@
+{
+    "response": [{
+        "violations": [{
+            "sequence-violations": {"Sequence Pattern": [
+                ["Sequence Pattern from position 125 to 130 (Features: CDS[1..1122])"],
+                ["Sequence Pattern from position 814 to 819 (Features: CDS[1..1122])"]
+            ]},
+            "sequence-length": 1122,
+            "sequence-id": "TetR_InverterSequence"
+        }],
+        "original-sequences-text": "<?xml version=\"1.0\" ?>\n<rdf:RDF xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:obo=\"http://purl.obolibrary.org/obo/\" xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\" xmlns:prov=\"http://www.w3.org/ns/prov#\" xmlns:ns0=\"http://identifiers.org/edam/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:dummy=\"http://www.dummy.org/\" xmlns:sbh=\"http://wiki.synbiohub.org/wiki/Terms/synbiohub#\" xmlns:sbol=\"http://sbols.org/v2#\" xmlns:dcterms=\"http://purl.org/dc/terms/\">\n  <sbol:ComponentDefinition rdf:about=\"https://synbiohub.org/public/bsu/BO_28570/1\">\n    <sbol:persistentIdentity rdf:resource=\"https://synbiohub.org/public/bsu/BO_28570\"/>\n    <sbol:displayId>BO_28570<\/sbol:displayId>\n    <sbol:version>1<\/sbol:version>\n    <prov:wasGeneratedBy rdf:resource=\"https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1\"/>\n    <dcterms:title>mtlD<\/dcterms:title>\n    <rdfs:label>mtlD<\/rdfs:label>\n    <rdfs:label>BSU03990<\/rdfs:label>\n    <rdfs:label>mtlB<\/rdfs:label>\n    <ns0:data_1179 rdf:resource=\"http://identifiers.org/taxonomy/1423\"/>\n    <ns0:data_1179 rdf:resource=\"http://identifiers.org/taxonomy/224308\"/>\n    <obo:OBI_0002110>10.1145/2631921<\/obo:OBI_0002110>\n    <sbh:topLevel rdf:resource=\"https://synbiohub.org/public/bsu/BO_28570/1\"/>\n    <sbh:ownedBy rdf:resource=\"https://synbiohub.org/user/myers\"/>\n    <obo:OBI_0001617>23571273<\/obo:OBI_0001617>\n    <obo:OBI_0001617>27110921<\/obo:OBI_0001617>\n    <sbol:type rdf:resource=\"http://www.biopax.org/release/biopax-level3.owl#DnaRegion\"/>\n    <sbol:role rdf:resource=\"http://identifiers.org/so/SO:0000316\"/>\n    <sbol:sequence rdf:resource=\"https://synbiohub.org/public/bsu/BO_28570_seq/1\"/>\n  <\/sbol:ComponentDefinition>\n  <sbol:ComponentDefinition rdf:about=\"http://www.dummy.org/TetR_Inverter/1\">\n    <sbol:persistentIdentity rdf:resource=\"http://www.dummy.org/TetR_Inverter\"/>\n    <sbol:displayId>TetR_Inverter<\/sbol:displayId>\n    <sbol:version>1<\/sbol:version>\n    <prov:wasGeneratedBy rdf:resource=\"http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity/1\"/>\n    <dcterms:description><\/dcterms:description>\n    <sbol:type rdf:resource=\"http://www.biopax.org/release/biopax-level3.owl#DnaRegion\"/>\n    <sbol:role rdf:resource=\"http://identifiers.org/so/SO:0000804\"/>\n    <sbol:component>\n      <sbol:Component rdf:about=\"http://www.dummy.org/TetR_Inverter/CDS3_Component/1\">\n        <sbol:persistentIdentity rdf:resource=\"http://www.dummy.org/TetR_Inverter/CDS3_Component\"/>\n        <sbol:displayId>CDS3_Component<\/sbol:displayId>\n        <sbol:version>1<\/sbol:version>\n        <sbol:access rdf:resource=\"http://sbols.org/v2#public\"/>\n        <sbol:definition rdf:resource=\"https://synbiohub.org/public/bsu/BO_28570/1\"/>\n      <\/sbol:Component>\n    <\/sbol:component>\n    <sbol:sequenceAnnotation>\n      <sbol:SequenceAnnotation rdf:about=\"http://www.dummy.org/TetR_Inverter/TetR_Inverter_SequenceAnnotation/1\">\n        <sbol:persistentIdentity rdf:resource=\"http://www.dummy.org/TetR_Inverter/TetR_Inverter_SequenceAnnotation\"/>\n        <sbol:displayId>TetR_Inverter_SequenceAnnotation<\/sbol:displayId>\n        <sbol:version>1<\/sbol:version>\n        <sbol:location>\n          <sbol:Range rdf:about=\"http://www.dummy.org/TetR_Inverter/TetR_Inverter_SequenceAnnotation/TetR_Inverter_SequenceAnnotation_Range/1\">\n            <sbol:persistentIdentity rdf:resource=\"http://www.dummy.org/TetR_Inverter/TetR_Inverter_SequenceAnnotation/TetR_Inverter_SequenceAnnotation_Range\"/>\n            <sbol:displayId>TetR_Inverter_SequenceAnnotation_Range<\/sbol:displayId>\n            <sbol:version>1<\/sbol:version>\n            <sbol:start>1<\/sbol:start>\n            <sbol:end>1122<\/sbol:end>\n            <sbol:orientation rdf:resource=\"http://sbols.org/v2#inline\"/>\n          <\/sbol:Range>\n        <\/sbol:location>\n        <sbol:component rdf:resource=\"http://www.dummy.org/TetR_Inverter/CDS3_Component/1\"/>\n      <\/sbol:SequenceAnnotation>\n    <\/sbol:sequenceAnnotation>\n    <sbol:sequence rdf:resource=\"http://www.dummy.org/TetR_InverterSequence/1\"/>\n  <\/sbol:ComponentDefinition>\n  <sbol:Sequence rdf:about=\"https://synbiohub.org/public/bsu/BO_28570_seq/1\">\n    <sbol:persistentIdentity rdf:resource=\"https://synbiohub.org/public/bsu/BO_28570_seq\"/>\n    <sbol:displayId>BO_28570_seq<\/sbol:displayId>\n    <sbol:version>1<\/sbol:version>\n    <prov:wasGeneratedBy rdf:resource=\"https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1\"/>\n    <obo:OBI_0002110>10.1145/2631921<\/obo:OBI_0002110>\n    <sbh:topLevel rdf:resource=\"https://synbiohub.org/public/bsu/BO_28570_seq/1\"/>\n    <sbh:ownedBy rdf:resource=\"https://synbiohub.org/user/myers\"/>\n    <obo:OBI_0001617>23571273<\/obo:OBI_0001617>\n    <obo:OBI_0001617>27110921<\/obo:OBI_0001617>\n    <sbol:elements>ATGATCGCCTTACATTTCGGTGCGGGAAATATCGGGAGAGGATTTATCGGCGCGCTGCTTCACCACTCCGGCTATGATGTGGTGTTTGCGGATGTGAACGAAACGATGGTCAGCCTCCTCAATGAAAAAAAAGAATACACAGTGGAACTGGCGGAAGAGGGACGTTCATCGGAGATCATTGGCCCGGTGAGCGCTATTAACAGCGGCAGTCAGACCGAGGAGCTGTACCGGCTGATGAATGAGGCGGCGCTCATCACAACAGCTGTCGGCCCGAATGTGCTGAAGCTGATTGCCCCGTCTATCGCAGAAGGTTTAAGACGAAGAAATACTGCAAACACACTGAATATCATTGCCTGCGAAAATATGATTGGCGGAAGCAGCTTCTTAAAGAAAGAAATATACAGCCATTTAACGGAAGCAGAGCAGAAATCCGTCAGTGAAACGGTAGGTTTTCCGAATTCTGCCGTTGACCGGATCGTCCCGATTCAGCATCATGAAGACCCGCTGAAAGTATCGGTTGAACCATTTTTCGAATGGGTCATTGATGAATCAGGCTTTAAAGGGAAAACACCAGTCATAAACGGCGCACTGTTTGTTGATGATTTAACGCCGTACATCGAACGGAAGCTGTTTACGGTCAATACCGGACACGCGGTCACAGCGTATGTCGGCTATCAGCGCGGACTCAAAACGGTCAAAGAAGCAATTGATCATCCGGAAATCCGCCGTGTTGTTCATTCGGCGCTGCTTGAAACTGGTGACTATCTCGTCAAATCGTATGGCTTTAAGCAAACTGAACACGAACAATATATCAAAAAAATCATCGGTCGCTTTGAAAATCCTTTCATTTCGGACGATGTGACCCGCGTAGCGAGGTCACCTCTCAGAAAACTGGGAGAAAATGATAGACTTGTAGGCCCGGCAAAGAAAATAAAAGAACCGAATGCACTGGCTGAAGGAATTGCCGCAGCACTGCGCTTCGATTTCACCGGTGACCCTGAAGCGGTTGAACTGCAAGCGCTGATCGAAGAAAAAGGATACAGCGGCGTACTTCAAGAGGTGTGCGGCATTCAGTCCCATGAACCGTTGCACGCCATCATTTTAAAGAAACTTAATCAATAA<\/sbol:elements>\n    <sbol:encoding rdf:resource=\"http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html\"/>\n  <\/sbol:Sequence>\n  <sbol:Sequence rdf:about=\"http://www.dummy.org/TetR_InverterSequence/1\">\n    <sbol:persistentIdentity rdf:resource=\"http://www.dummy.org/TetR_InverterSequence\"/>\n    <sbol:displayId>TetR_InverterSequence<\/sbol:displayId>\n    <sbol:version>1<\/sbol:version>\n    <prov:wasGeneratedBy rdf:resource=\"http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity/1\"/>\n    <sbol:elements>ATGATCGCCTTACATTTCGGTGCGGGAAATATCGGGAGAGGATTTATCGGCGCGCTGCTTCACCACTCCGGCTATGATGTGGTGTTTGCGGATGTGAACGAAACGATGGTCAGCCTCCTCAATGAAAAAAAAGAATACACAGTGGAACTGGCGGAAGAGGGACGTTCATCGGAGATCATTGGCCCGGTGAGCGCTATTAACAGCGGCAGTCAGACCGAGGAGCTGTACCGGCTGATGAATGAGGCGGCGCTCATCACAACAGCTGTCGGCCCGAATGTGCTGAAGCTGATTGCCCCGTCTATCGCAGAAGGTTTAAGACGAAGAAATACTGCAAACACACTGAATATCATTGCCTGCGAAAATATGATTGGCGGAAGCAGCTTCTTAAAGAAAGAAATATACAGCCATTTAACGGAAGCAGAGCAGAAATCCGTCAGTGAAACGGTAGGTTTTCCGAATTCTGCCGTTGACCGGATCGTCCCGATTCAGCATCATGAAGACCCGCTGAAAGTATCGGTTGAACCATTTTTCGAATGGGTCATTGATGAATCAGGCTTTAAAGGGAAAACACCAGTCATAAACGGCGCACTGTTTGTTGATGATTTAACGCCGTACATCGAACGGAAGCTGTTTACGGTCAATACCGGACACGCGGTCACAGCGTATGTCGGCTATCAGCGCGGACTCAAAACGGTCAAAGAAGCAATTGATCATCCGGAAATCCGCCGTGTTGTTCATTCGGCGCTGCTTGAAACTGGTGACTATCTCGTCAAATCGTATGGCTTTAAGCAAACTGAACACGAACAATATATCAAAAAAATCATCGGTCGCTTTGAAAATCCTTTCATTTCGGACGATGTGACCCGCGTAGCGAGGTCACCTCTCAGAAAACTGGGAGAAAATGATAGACTTGTAGGCCCGGCAAAGAAAATAAAAGAACCGAATGCACTGGCTGAAGGAATTGCCGCAGCACTGCGCTTCGATTTCACCGGTGACCCTGAAGCGGTTGAACTGCAAGCGCTGATCGAAGAAAAAGGATACAGCGGCGTACTTCAAGAGGTGTGCGGCATTCAGTCCCATGAACCGTTGCACGCCATCATTTTAAAGAAACTTAATCAATAA<\/sbol:elements>\n    <sbol:encoding rdf:resource=\"http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html\"/>\n  <\/sbol:Sequence>\n  <prov:Activity rdf:about=\"http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity/1\">\n    <sbol:persistentIdentity rdf:resource=\"http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity\"/>\n    <sbol:displayId>TetR_Inverter_SBOLDesignerActivity<\/sbol:displayId>\n    <sbol:version>1<\/sbol:version>\n    <dc:creator>Prem Singh<\/dc:creator>\n    <prov:endedAtTime>2018-07-04T19:42:37.326-07:00<\/prov:endedAtTime>\n    <prov:qualifiedAssociation>\n      <prov:Association rdf:about=\"http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity/Association/1\">\n        <sbol:persistentIdentity rdf:resource=\"http://www.dummy.org/TetR_Inverter_SBOLDesignerActivity/Association\"/>\n        <sbol:displayId>Association<\/sbol:displayId>\n        <sbol:version>1<\/sbol:version>\n        <prov:hadRole rdf:resource=\"http://sbols.org/v2#sequenceEditor\"/>\n        <prov:agent rdf:resource=\"https://synbiohub.org/public/SBOL_Software/SBOLDesigner/3.0\"/>\n      <\/prov:Association>\n    <\/prov:qualifiedAssociation>\n  <\/prov:Activity>\n  <prov:Activity rdf:about=\"https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1\">\n    <sbol:persistentIdentity rdf:resource=\"https://synbiohub.org/public/bsu/SyBiOntKB2sbol\"/>\n    <sbol:displayId>SyBiOntKB2sbol<\/sbol:displayId>\n    <sbol:version>1<\/sbol:version>\n    <dcterms:title>SyBiOntKB to SBOL conversion<\/dcterms:title>\n    <dcterms:description>Conversion of the Synthetic Biology Ontology knowledge base to SBOL 2.1<\/dcterms:description>\n    <dcterms:creator>Goksel Misirli<\/dcterms:creator>\n    <sbh:topLevel rdf:resource=\"https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1\"/>\n    <sbh:ownedBy rdf:resource=\"https://synbiohub.org/user/myers\"/>\n    <obo:OBI_0001617>23571273<\/obo:OBI_0001617>\n    <obo:OBI_0001617>27110921<\/obo:OBI_0001617>\n    <prov:endedAtTime>2017-04-03T08:58:46.354-07:00<\/prov:endedAtTime>\n  <\/prov:Activity>\n<\/rdf:RDF>\n",
+        "exception": [],
+        "original-sequences-file": "73a9e543-f0a3-42c9-85c1-e5091049bf82"
+    }],
+    "provenance": {},
+    "input-arguments": [
+        {
+            "input-argument-value": "73a9e543-f0a3-42c9-85c1-e5091049bf82",
+            "input-argument-display": "input-file",
+            "input-argument-type": "file"
+        },
+        {
+            "input-argument-value": "--patterns",
+            "input-argument-display": "--patterns",
+            "input-argument-type": "option"
+        },
+        {
+            "input-argument-value": "69658c03-7d64-4ee8-abcc-4dc51fefea0f",
+            "input-argument-display": "input-file",
+            "input-argument-type": "file"
+        }
+    ],
+    "status": "ok",
+    "statistics": [
+        {
+            "measurement-name": "Sequence Import Time [sec]",
+            "measurement-value": "0.010  "
+        },
+        {
+            "measurement-name": "# of Sequence Patterns",
+            "measurement-value": "2          "
+        },
+        {
+            "measurement-name": "Sequence Verification Time [sec]",
+            "measurement-value": "0.042  "
+        },
+        {
+            "measurement-name": "# of Input Files",
+            "measurement-value": "1          "
+        },
+        {
+            "measurement-name": "# of Input Sequences",
+            "measurement-value": "1          "
+        },
+        {
+            "measurement-name": "# of Sequences w/ Violations",
+            "measurement-value": "1          "
+        },
+        {
+            "measurement-name": "# of Sequences w/o Violations",
+            "measurement-value": "0          "
+        },
+        {
+            "measurement-name": "# of Violations",
+            "measurement-value": "2          "
+        },
+        {
+            "measurement-name": "# of Errors",
+            "measurement-value": "0          "
+        },
+        {
+            "measurement-name": "# of Processed Sequences",
+            "measurement-value": "1          "
+        },
+        {
+            "measurement-name": "Processing Time [sec]",
+            "measurement-value": "0.059  "
+        }
+    ]
+}
