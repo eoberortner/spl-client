@@ -98,7 +98,7 @@ public class DemoClient {
 //		}
 
 
-    	// verify against DNA synthesis constraints and sequence patterns
+		// verify against DNA synthesis constraints and sequence patterns
 		String dnaVerificationJobUUID = client.dnaVerification(
 				"./data/test/codon_juggle_input.xml",       // input sequence
 				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE, 	// target namespace

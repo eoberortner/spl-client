@@ -170,7 +170,7 @@ public class RequestBuilder {
 
 	/**
 	 * 
-	 * @param designSequences
+	 * @param sbolDocument
 	 * @param constraintsFilename ... the 
 	 * @param sequencePatternsFilename ... the name of the file that contains sequence patterns (optionally)
 	 * @return
@@ -180,10 +180,8 @@ public class RequestBuilder {
 	 * @throws JSONException 
 	 */
 	public static JSONObject buildVerify(
-			final SBOLDocument designSequences, 
-			final String targetNamespace,
-			Vendor vendor,
-			final String sequencePatternsFilename)
+			final SBOLDocument sbolDocument, final String targetNamespace,
+			Vendor vendor, final String sequencePatternsFilename)
 				throws BOOSTClientException, IOException, JSONException, SBOLConversionException {
 		
 		//---------------------------------
@@ -209,7 +207,7 @@ public class RequestBuilder {
 		//---------------------------------
 		// SEQUENCES
 		requestData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(designSequences, targetNamespace, SequenceType.DNA, false));
+				RequestBuilder.buildSequenceData(sbolDocument, targetNamespace, SequenceType.DNA, false));
 		//---------------------------------
 
 		//---------------------------------
@@ -223,7 +221,10 @@ public class RequestBuilder {
 
 		//---------------------------------
 		// CONSTRAINTS
-		requestData.put(JSONKeys.VENDOR_NAME, vendor);
+		if(null != vendor) {
+			requestData.put(JSONKeys.CONSTRAINTS_INFORMATION, 
+					RequestBuilder.buildConstraintsData(vendor));
+		}
 		//---------------------------------
 
 		return requestData;
