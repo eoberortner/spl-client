@@ -1,9 +1,13 @@
 package gov.doe.jgi.boost.client;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
@@ -38,31 +42,27 @@ public class CodonJugglePlusUpdate {
 		// we store all submitted jobs in a hash-set
 		Set<String> jobUUIDs = new HashSet<String>();
 
-		// codon juggle (using a SBOL file)
-		String codonJuggleJobUUID1 = client.codonJuggle(
-				"./data/test/codon_juggle_input.xml",	// input sequences
-				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE,	// the target namespace
-				false,					 				// exclusively 5'-3' coding sequences 
-				Strategy.Balanced,		  				// codon selection strategy
-				"Saccharomyces cerevisiae",   			// predefined host
-				FileFormat.SBOL);		  				// output format
-		if(null != codonJuggleJobUUID1) {
-			jobUUIDs.add(codonJuggleJobUUID1);
-			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID1);
+		
+		// get all files from the "./data/example-designs" folder
+		List<File> files = Arrays.asList(new java.io.File("./data/example-designs/").listFiles());
+		for(File file : files) {
+			
+			if(!file.toString().contains("07-")) { continue; }
+			System.out.println("file: " + file);
+			
+			// codon juggle the content's of the SBOL file
+			String codonJuggleJobUUID1 = client.codonJuggle(
+					file.toString(),								// input sequences
+					BOOSTClientConfigs.SBOL_TARGET_NAMESPACE,	// the target namespace
+					false,					 					// exclusively 5'-3' coding sequences 
+					Strategy.Balanced,		  					// codon selection strategy
+					"Saccharomyces cerevisiae",   				// predefined host
+					FileFormat.SBOL);		  					// output format
+			if(null != codonJuggleJobUUID1) {
+				jobUUIDs.add(codonJuggleJobUUID1);
+				System.out.println("Data for codon Juggling :" + codonJuggleJobUUID1);
+			}
 		}
-
-//		// codon juggle (using a FASTA file)
-//		String codonJuggleJobUUID2 = client.codonJuggle(
-//				"./data/dna.fasta",		// input sequences 
-//				false,					 			// exclusively 5'-3' coding sequences 
-//				Strategy.Balanced,		  			// codon selection strategy
-//				"Saccharomyces cerevisiae",   		// predefined host
-//				FileFormat.SBOL);		  			// output format
-//		if(null != codonJuggleJobUUID2) {
-//			jobUUIDs.add(codonJuggleJobUUID2);
-//			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID2);
-//		}
-//
 
 		// for all jobs, we check their status
 		for(String jobUUID : jobUUIDs) {
@@ -80,7 +80,7 @@ public class CodonJugglePlusUpdate {
 			}
 
 			// output of the job report (which is a JSON object)
-			System.out.println(jobReport.toString(4));
+//			System.out.println(jobReport.toString(4));
 
 			java.nio.file.Path jobOutputDir = Paths.get(".", "data", "out", jobUUID);
 			if(!Files.exists(jobOutputDir)) {

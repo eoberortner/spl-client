@@ -308,7 +308,7 @@ public class BOOSTClient {
 	 * The verify method submits a job to BOOST that verifies 
 	 * sequences against DNA synthesis constraints.
 	 * 
-	 * @param codingSequence ... the sbol document that contains the sequences
+	 * @param sbolDocument ... the sbol document that contains the sequences
 	 * @param targetNamespace ... namespace in that the new elements (ComponentDefinition, 
 	 *        Sequence etc) should be placed into
 	 * @param constraintsFilename ... the name of the file that contains the DNA synthesis constraints
@@ -323,17 +323,15 @@ public class BOOSTClient {
 	 * 
 	 */
 	public String dnaVerification(
-			final SBOLDocument codingSequence, 
-			final String targetNamespace,
-			Vendor vendor, 
-			final String sequencePatternsFilename)
+			final SBOLDocument sbolDocument, final String targetNamespace,
+			Vendor vendor, final String sequencePatternsFilename)
 				throws BOOSTClientException, BOOSTBackEndException, IOException, 
 				JSONException, SBOLConversionException {
 
 		// represent the request data in JSON and
 		// submit it to BOOST's Job Queue Management System (JQMS)
 		return submitJob(RequestBuilder.buildVerify(
-				codingSequence, targetNamespace, vendor, sequencePatternsFilename));
+				sbolDocument, targetNamespace, vendor, sequencePatternsFilename));
 	}
 
 	/**
@@ -469,11 +467,12 @@ public class BOOSTClient {
 	public String submitJob(final JSONObject requestData) 
 			throws BOOSTClientException, BOOSTBackEndException {
 		
+		System.out.println("requestData: " + requestData.toString(4));
+		
 		// send the request
 		Response response = RESTInvoker.sendPost(
 				BOOSTResources.BOOST_REST_URL + BOOSTResources.SUBMIT_JOB_RESOURCE, 
-				requestData, 
-				this.token);
+				requestData, this.token);
 
 		switch(response.getStatus()) {
 		case 200:
