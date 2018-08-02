@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sbh="http://wiki.synbiohub.org/wiki/Terms/synbiohub#" xmlns:sbol="http://sbols.org/v2#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:ns0="http://identifiers.org/edam/" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:obo="http://purl.obolibrary.org/obo/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sbol:ComponentDefinition rdf:about="http://www.prem_singh.org/sequence/1">
+    <sbol:persistentIdentity rdf:resource="http://www.prem_singh.org/sequence"/>
+    <sbol:displayId>sequence</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="http://www.prem_singh.org/sequence_SBOLDesignerActivity/1"/>
+    <dcterms:description></dcterms:description>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000804"/>
+    <sbol:component>
+      <sbol:Component rdf:about="http://www.prem_singh.org/sequence/CDS1_Component/1">
+        <sbol:persistentIdentity rdf:resource="http://www.prem_singh.org/sequence/CDS1_Component"/>
+        <sbol:displayId>CDS1_Component</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="https://synbiohub.org/public/bsu/BO_28572/1"/>
+      </sbol:Component>
+    </sbol:component>
+    <sbol:sequenceAnnotation>
+      <sbol:SequenceAnnotation rdf:about="http://www.prem_singh.org/sequence/sequence_SequenceAnnotation/1">
+        <sbol:persistentIdentity rdf:resource="http://www.prem_singh.org/sequence/sequence_SequenceAnnotation"/>
+        <sbol:displayId>sequence_SequenceAnnotation</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:location>
+          <sbol:Range rdf:about="http://www.prem_singh.org/sequence/sequence_SequenceAnnotation/sequence_SequenceAnnotation_Range/1">
+            <sbol:persistentIdentity rdf:resource="http://www.prem_singh.org/sequence/sequence_SequenceAnnotation/sequence_SequenceAnnotation_Range"/>
+            <sbol:displayId>sequence_SequenceAnnotation_Range</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1</sbol:start>
+            <sbol:end>1170</sbol:end>
+            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
+          </sbol:Range>
+        </sbol:location>
+        <sbol:component rdf:resource="http://www.prem_singh.org/sequence/CDS1_Component/1"/>
+      </sbol:SequenceAnnotation>
+    </sbol:sequenceAnnotation>
+    <sbol:sequence rdf:resource="http://www.prem_singh.org/sequenceSequence/1"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://synbiohub.org/public/bsu/BO_28572/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.org/public/bsu/BO_28572"/>
+    <sbol:displayId>BO_28572</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1"/>
+    <dcterms:title>ydiP</dcterms:title>
+    <rdfs:label>ydiP</rdfs:label>
+    <rdfs:label>BSU06070</rdfs:label>
+    <ns0:data_1179 rdf:resource="http://identifiers.org/taxonomy/1423"/>
+    <ns0:data_1179 rdf:resource="http://identifiers.org/taxonomy/224308"/>
+    <obo:OBI_0002110>10.1145/2631921</obo:OBI_0002110>
+    <sbh:topLevel rdf:resource="https://synbiohub.org/public/bsu/BO_28572/1"/>
+    <sbh:ownedBy rdf:resource="https://synbiohub.org/user/myers"/>
+    <obo:OBI_0001617>23571273</obo:OBI_0001617>
+    <obo:OBI_0001617>27110921</obo:OBI_0001617>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+    <sbol:sequence rdf:resource="https://synbiohub.org/public/bsu/BO_28572_seq/1"/>
+  </sbol:ComponentDefinition>
+  <sbol:Sequence rdf:about="https://synbiohub.org/public/bsu/BO_28572_seq/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.org/public/bsu/BO_28572_seq"/>
+    <sbol:displayId>BO_28572_seq</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1"/>
+    <obo:OBI_0002110>10.1145/2631921</obo:OBI_0002110>
+    <sbh:topLevel rdf:resource="https://synbiohub.org/public/bsu/BO_28572_seq/1"/>
+    <sbh:ownedBy rdf:resource="https://synbiohub.org/user/myers"/>
+    <obo:OBI_0001617>23571273</obo:OBI_0001617>
+    <obo:OBI_0001617>27110921</obo:OBI_0001617>
+    <sbol:elements>TTGAAAGTTGTTAGTTTATTCTCCGGCATAGGCGGAATAGAGCTTGGCCTTCATCAGTCAGGACATACAACAGAAATATTTTGTGAGGTTGATCCTTTGGCAAAAGCTGTTTTATCAAAAAACTTCCCTGGCGTTAAGATAGAAGATGATATTAATGAAATTAGAGAGTTACCAAGCTGTGATTTAGTTGCGGCAGGGTTTCCATGCCAAGATTTAAGTCAAGCTGGAGGTAAAGAAGGGATTGACGGATCACGCTCCGGTTTAGTTAAGAAACTATTTGAACTTATAGAAAAGAAAGAACATGCAAATCGCCCTCCATGGATACTAATTGAAAATGTCCCATATATGTTAAGGTTAAACCGTGGTAAAGCTATGTCATATTTAACATCTGTCCTTTCTGAATTAGGTTATACTTGGGCATATCGAACTGTTGATGCTCGTTGTTTTGGTTTACCGCAACGAAGACATAGAGTTATTTTGTTAGCCTCTTTATTTGAAGATCCAAAAGATGTGATTTTTTCACAGGATCATTCAGAACCAGATTTAGATGGAAAGCCTTCTGTTGTGGATCATTCCAACTATTATGGTTTTTATTGGACGGAAGGGTTAAGAGGTGTCGGCTGGGCACGTGAAGCAGTTCCACCTATAAAATGCGGATCGTCTGTAGGTATAGCCTCTCCACCTGCAGTTTGGTCTCCTTACGAGGATATAGTAGGGACCATTAATATAAGGGATGCTGAGCGCCTACAAGGATTCCCGGAAGATTGGACAAATATCACTACTGAAACAGGTAAGGATATAAAAGAAGGTGCCAGATGGAGATTGGTGGGAAATGCTGTTTCGGTAAGGGTTTCTAAATGGATTGGTGAAAACTTAAGTCAGCCAAAAGGGTCGATATCAGATTTTGAAGGTGAATTAGTGACCAAGACTTGGCCAAGTGCAGCATGGGGGTACGGAGATAAAAAGTATAAAGTTCCCGTATCAAAATGGGTTGCAAACACAGAACAAATAGCTATTTCAGAGTTTTTAAATCATCCATTAAAACCTTTATCTGCTAGGGCATTAAACGGTTTTTTAGGTAGAGCAGCCAGGTGTACAAATGTAAATTATTCGGATGAATTTATTAACTCGTTAGAACGTTGTAAGGATAGGCAACTTCAAAAGGTTTAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://www.prem_singh.org/sequenceSequence/1">
+    <sbol:persistentIdentity rdf:resource="http://www.prem_singh.org/sequenceSequence"/>
+    <sbol:displayId>sequenceSequence</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="http://www.prem_singh.org/sequence_SBOLDesignerActivity/1"/>
+    <sbol:elements>TTGAAAGTTGTTAGTTTATTCTCCGGCATAGGCGGAATAGAGCTTGGCCTTCATCAGTCAGGACATACAACAGAAATATTTTGTGAGGTTGATCCTTTGGCAAAAGCTGTTTTATCAAAAAACTTCCCTGGCGTTAAGATAGAAGATGATATTAATGAAATTAGAGAGTTACCAAGCTGTGATTTAGTTGCGGCAGGGTTTCCATGCCAAGATTTAAGTCAAGCTGGAGGTAAAGAAGGGATTGACGGATCACGCTCCGGTTTAGTTAAGAAACTATTTGAACTTATAGAAAAGAAAGAACATGCAAATCGCCCTCCATGGATACTAATTGAAAATGTCCCATATATGTTAAGGTTAAACCGTGGTAAAGCTATGTCATATTTAACATCTGTCCTTTCTGAATTAGGTTATACTTGGGCATATCGAACTGTTGATGCTCGTTGTTTTGGTTTACCGCAACGAAGACATAGAGTTATTTTGTTAGCCTCTTTATTTGAAGATCCAAAAGATGTGATTTTTTCACAGGATCATTCAGAACCAGATTTAGATGGAAAGCCTTCTGTTGTGGATCATTCCAACTATTATGGTTTTTATTGGACGGAAGGGTTAAGAGGTGTCGGCTGGGCACGTGAAGCAGTTCCACCTATAAAATGCGGATCGTCTGTAGGTATAGCCTCTCCACCTGCAGTTTGGTCTCCTTACGAGGATATAGTAGGGACCATTAATATAAGGGATGCTGAGCGCCTACAAGGATTCCCGGAAGATTGGACAAATATCACTACTGAAACAGGTAAGGATATAAAAGAAGGTGCCAGATGGAGATTGGTGGGAAATGCTGTTTCGGTAAGGGTTTCTAAATGGATTGGTGAAAACTTAAGTCAGCCAAAAGGGTCGATATCAGATTTTGAAGGTGAATTAGTGACCAAGACTTGGCCAAGTGCAGCATGGGGGTACGGAGATAAAAAGTATAAAGTTCCCGTATCAAAATGGGTTGCAAACACAGAACAAATAGCTATTTCAGAGTTTTTAAATCATCCATTAAAACCTTTATCTGCTAGGGCATTAAACGGTTTTTTAGGTAGAGCAGCCAGGTGTACAAATGTAAATTATTCGGATGAATTTATTAACTCGTTAGAACGTTGTAAGGATAGGCAACTTCAAAAGGTTTAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <prov:Activity rdf:about="http://www.prem_singh.org/sequence_SBOLDesignerActivity/1">
+    <sbol:persistentIdentity rdf:resource="http://www.prem_singh.org/sequence_SBOLDesignerActivity"/>
+    <sbol:displayId>sequence_SBOLDesignerActivity</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <dc:creator>Prem Singh</dc:creator>
+    <prov:endedAtTime>2018-07-14T21:37:01.716+05:30</prov:endedAtTime>
+    <prov:qualifiedAssociation>
+      <prov:Association rdf:about="http://www.prem_singh.org/sequence_SBOLDesignerActivity/Association/1">
+        <sbol:persistentIdentity rdf:resource="http://www.prem_singh.org/sequence_SBOLDesignerActivity/Association"/>
+        <sbol:displayId>Association</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <prov:hadRole rdf:resource="http://sbols.org/v2#sequenceEditor"/>
+        <prov:agent rdf:resource="https://synbiohub.org/public/SBOL_Software/SBOLDesigner/3.0"/>
+      </prov:Association>
+    </prov:qualifiedAssociation>
+  </prov:Activity>
+  <prov:Activity rdf:about="https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.org/public/bsu/SyBiOntKB2sbol"/>
+    <sbol:displayId>SyBiOntKB2sbol</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <dcterms:title>SyBiOntKB to SBOL conversion</dcterms:title>
+    <dcterms:description>Conversion of the Synthetic Biology Ontology knowledge base to SBOL 2.1</dcterms:description>
+    <dcterms:creator>Goksel Misirli</dcterms:creator>
+    <sbh:topLevel rdf:resource="https://synbiohub.org/public/bsu/SyBiOntKB2sbol/1"/>
+    <sbh:ownedBy rdf:resource="https://synbiohub.org/user/myers"/>
+    <obo:OBI_0001617>23571273</obo:OBI_0001617>
+    <obo:OBI_0001617>27110921</obo:OBI_0001617>
+    <prov:endedAtTime>2017-04-03T21:28:46.354+05:30</prov:endedAtTime>
+  </prov:Activity>
+</rdf:RDF>
