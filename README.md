@@ -17,7 +17,7 @@ by providing a method for each functionality of the BOOST REST API.
 
 ## Utilization of the BOOST Client
 
-### Using Maven
+### Setting the Maven dependency
 
 Add the following dependency to the pom.xml of your Maven project.
 
@@ -59,7 +59,6 @@ gov.doe.jgi.boost.client.constants.LoginCredentials.mPassword = "my_password";
 gov.doe.jgi.boost.client.constants.LoginCredentials.mJWT = "my_JWT";
 ```
 
-
 ### Instantiating the BOOST Client
  
 As a first step, you have to instantiate the BOOSTClient class using one of the following alternatives:
@@ -76,7 +75,9 @@ BOOSTClient client = new BOOSTClient(LoginCredentials.mUserName, LoginCredential
 BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
 ```
 
-### Supported methods of the BOOST Client
+### Calling the methods of the BOOST Client
+
+The BOOSTClient class provides the following methods:
 
 * reverseTranslate
 
