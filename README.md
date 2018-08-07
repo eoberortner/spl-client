@@ -17,6 +17,31 @@ by providing a method for each functionality of the BOOST REST API.
 
 ## Utilization of the BOOST Client
 
+### Using Maven
+
+Add the following dependency to the pom.xml of your Maven project.
+
+```
+<dependencies>
+    ...
+    <dependency>
+	    <groupId>gov.doe.jgi</groupId>
+	    <artifactId>boost-client</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	...
+</dependencies>
+```
+
+
+### Configuring the BOOST Client
+
+Set the URL of the BOOST API endpoints, for example:
+
+```
+gov.doe.jgi.boost.client.constants.BOOSTResources.BOOST_REST_URL = "https://boost.jgi.doe.gov/rest";
+```
+
 ### Instantiating the BOOST Client
  
 As a first step, you have to instantiate the BOOSTClient class using one of the following alternatives:
