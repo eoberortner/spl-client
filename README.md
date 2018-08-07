@@ -25,22 +25,38 @@ Add the following dependency to the pom.xml of your Maven project.
 <dependencies>
     ...
     <dependency>
-	    <groupId>gov.doe.jgi</groupId>
-	    <artifactId>boost-client</artifactId>
-	    <version>0.0.1-SNAPSHOT</version>
-	</dependency>
-	...
+        <groupId>gov.doe.jgi</groupId>
+        <artifactId>boost-client</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    ...
 </dependencies>
 ```
 
 
 ### Configuring the BOOST Client
 
-Set the URL of the BOOST API endpoints, for example:
+* set the URL of the BOOST API endpoints, for example:
 
 ```
 gov.doe.jgi.boost.client.constants.BOOSTResources.BOOST_REST_URL = "https://boost.jgi.doe.gov/rest";
 ```
+
+* set your account information, which can be done either through username/password our your BOOST JWT.
+
+** username and password
+
+```
+gov.doe.jgi.boost.client.constants.LoginCredentials.mUserName = "my_username";
+gov.doe.jgi.boost.client.constants.LoginCredentials.mPassword = "my_password";
+```
+
+** JWT
+
+```
+gov.doe.jgi.boost.client.constants.LoginCredentials.mJWT = "my_JWT";
+```
+
 
 ### Instantiating the BOOST Client
  
