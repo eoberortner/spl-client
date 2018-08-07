@@ -42,7 +42,7 @@ Add the following dependency to the pom.xml of your Maven project.
 gov.doe.jgi.boost.client.constants.BOOSTResources.BOOST_REST_URL = "https://boost.jgi.doe.gov/rest";
 ```
 
-The default-value is: ```https://boost.jgi.doe.gov/rest```
+    The default-value is: ```https://boost.jgi.doe.gov/rest```
 
 2. set your account information, which can be done either through username/password our your BOOST JWT.
 
