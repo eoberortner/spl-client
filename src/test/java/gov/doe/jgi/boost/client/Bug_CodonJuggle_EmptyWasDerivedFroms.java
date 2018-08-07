@@ -30,7 +30,7 @@ import gov.doe.jgi.boost.enums.Strategy;
 import gov.doe.jgi.boost.exception.BOOSTBackEndException;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
-public class UpdateSBOLDocument {
+public class Bug_CodonJuggle_EmptyWasDerivedFroms {
 
 	public static final String boostNamespace = "https://boost.jgi.doe.gov/";
 
@@ -167,33 +167,35 @@ public class UpdateSBOLDocument {
 		// read the SBOLDocument that is being returned by BOOST
 		SBOLDocument document = SBOLReader.read(outputFilename);
 
-		// ------------------------------------------------------------------------------- 
-		// UPDATE THE DOCUMENT
-		// -- wasDerivedFrom
-		// -- sequences
-		Map<URI, URI> updatedURIs = UpdateDocumentUtils.getMapOfUpdatedURIs(document);
-		UpdateDocumentUtils.updateDocument(document, updatedURIs, boostNamespace);
-		// ------------------------------------------------------------------------------- 
+		//------------------------------------------------------------------------------------
+		// BUG!!!
+		Set<URI> rootUri = null;
+        for (org.sbolstandard.core2.ComponentDefinition componentDefinition : 
+        			document.getRootComponentDefinitions()) {
+        		System.out.println(componentDefinition);
+        		rootUri = componentDefinition.getWasDerivedFroms();
+        		System.out.println(rootUri);
+        }
+		//------------------------------------------------------------------------------------
 
-		// the final document that the BOOST-Client should return
-		
-		// serialize the updated document to a file
-		SBOLWriter.write(document, Paths.get(directory, "03-boost-client-output.sbol.xml").toFile());
 	}
 
-	
+
+	/**
+	 * 
+	 * @param args
+	 * 
+	 * @throws SBOLValidationException
+	 * @throws IOException
+	 * @throws SBOLConversionException
+	 * @throws BOOSTClientException
+	 * @throws BOOSTBackEndException
+	 */
 	public static void main(String[] args) 
 			throws SBOLValidationException, IOException, SBOLConversionException, BOOSTClientException, BOOSTBackEndException {
-
-		File[] directories = listSubDirectories("./data/test/codon-juggle/");
-		for(File directory : directories) {
-			
-			if(!directory.toString().endsWith("01-single-cds")) { continue; }
-//			if(!directory.toString().endsWith("05-transcriptional-unit")) { continue; }
-			
-			design(directory.toString());
-		}
+		design("./data/test/codon-juggle/01-single-cds/");
 	}
+	
 	
 	public static File[] listSubDirectories(final String directory) {
 		return new File(directory).listFiles(
