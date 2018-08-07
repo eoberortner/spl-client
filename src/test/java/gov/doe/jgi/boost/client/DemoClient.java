@@ -9,6 +9,8 @@ import org.json.JSONObject;
 
 import gov.doe.jgi.boost.client.constants.BOOSTClientConfigs;
 import gov.doe.jgi.boost.client.constants.LoginCredentials;
+import gov.doe.jgi.boost.enums.FileFormat;
+import gov.doe.jgi.boost.enums.Strategy;
 import gov.doe.jgi.boost.enums.Vendor;
 
 /**
@@ -98,39 +100,40 @@ public class DemoClient {
 //		}
 
 
-		// verify against DNA synthesis constraints and sequence patterns
-		String dnaVerificationJobUUID = client.dnaVerification(
-				"./data/test/codon_juggle_input.xml",       // input sequence
-				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE, 	// target namespace
-				Vendor.GEN9,                  				// vendor
-				"./data/patterns.fasta");     				// sequence patterns
-		if (null != dnaVerificationJobUUID) {
-			jobUUIDs.add(dnaVerificationJobUUID);
-			System.out.println("Data for DNA Verification w/ patterns :" + dnaVerificationJobUUID);
-		}
-		
-		String dnaVerificationNoPatternsJobUUID = client.dnaVerification(
-				"./data/test/codon_juggle_input.xml",       // input sequence
-				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE, 	// target namespace
-				Vendor.GEN9,                  				// vendor
-				(String)null);			     				// sequence patterns
-		if (null != dnaVerificationNoPatternsJobUUID) {
-			jobUUIDs.add(dnaVerificationNoPatternsJobUUID);
-			System.out.println("Data for DNA Verification w/o patterns :" + dnaVerificationNoPatternsJobUUID);
-		}
-//
-//		// polish the given DNA
-//		String polishDNAJobUUID = client.polish(
-//				"./data/dna.fasta",           // input sequence
-//				true,                         // encoding sequences support sequence feature annotations
-//				Vendor.JGI,                   // vendor
-//				Strategy.Balanced2Random,     // codon selection strategy
-//				FileFormat.SBOL,              // output format
-//				"Saccharomyces cerevisiae");  // // predefined host
-//		if (null != polishDNAJobUUID) {
-//			jobUUIDs.add(polishDNAJobUUID);
-//			System.out.println("Data for DNA Polish :" + polishDNAJobUUID);
+//		// verify against DNA synthesis constraints and sequence patterns
+//		String dnaVerificationJobUUID = client.dnaVerification(
+//				"./data/test/codon_juggle_input.xml",       // input sequence
+//				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE, 	// target namespace
+//				Vendor.GEN9,                  				// vendor
+//				"./data/patterns.fasta");     				// sequence patterns
+//		if (null != dnaVerificationJobUUID) {
+//			jobUUIDs.add(dnaVerificationJobUUID);
+//			System.out.println("Data for DNA Verification w/ patterns :" + dnaVerificationJobUUID);
 //		}
+//		
+//		String dnaVerificationNoPatternsJobUUID = client.dnaVerification(
+//				"./data/test/codon_juggle_input.xml",       // input sequence
+//				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE, 	// target namespace
+//				Vendor.GEN9,                  				// vendor
+//				(String)null);			     				// sequence patterns
+//		if (null != dnaVerificationNoPatternsJobUUID) {
+//			jobUUIDs.add(dnaVerificationNoPatternsJobUUID);
+//			System.out.println("Data for DNA Verification w/o patterns :" + dnaVerificationNoPatternsJobUUID);
+//		}
+
+		// polish the given DNA
+		String polishDNAJobUUID = client.polish(
+				"./data/dna.fasta",           				// input sequence
+				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE, 	// target namespace
+				true,                         // encoding sequences support sequence feature annotations
+				Vendor.JGI,                   // vendor
+				Strategy.Balanced2Random,     // codon selection strategy
+				FileFormat.SBOL,              // output format
+				"Saccharomyces cerevisiae");  // // predefined host
+		if (null != polishDNAJobUUID) {
+			jobUUIDs.add(polishDNAJobUUID);
+			System.out.println("Data for DNA Polish :" + polishDNAJobUUID);
+		}
 		
 //		// partitioning of DNA
 //		String partitiongDNAJobUUID = client.partition(
