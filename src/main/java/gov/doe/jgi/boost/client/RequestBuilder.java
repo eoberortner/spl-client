@@ -285,7 +285,10 @@ public class RequestBuilder {
 		//-----------------------------------------
 		
 		// constraints
-		modifiedData.put(JSONKeys.VENDOR_NAME, vendor);
+		modifiedData.put(JSONKeys.CONSTRAINTS_INFORMATION, 
+				RequestBuilder.buildConstraintsData(vendor));
+//
+//		modifiedData.put(JSONKeys.VENDOR_NAME, vendor);
 		//------------------------------------------
 		
 		// modification information
