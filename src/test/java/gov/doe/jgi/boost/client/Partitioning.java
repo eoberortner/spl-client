@@ -26,7 +26,7 @@ import gov.doe.jgi.boost.enums.Vendor;
 import gov.doe.jgi.boost.exception.BOOSTBackEndException;
 import gov.doe.jgi.boost.exception.BOOSTClientException;
 
-public class Bug_CDSPolishing_JobRunning {
+public class Partitioning {
 
 	public static final String boostNamespace = "https://boost.jgi.doe.gov/";
 
@@ -42,30 +42,46 @@ public class Bug_CDSPolishing_JobRunning {
 	 * @throws SBOLValidationException
 	 * @throws SBOLConversionException
 	 */
-	public static OutputFiles doPolishing(final String filename) 
+	public static OutputFiles doPartitioning(final String filename) 
 			throws BOOSTClientException, BOOSTBackEndException, IOException, SBOLValidationException, SBOLConversionException {
 		
 		OutputFiles outputFiles = (OutputFiles)null;
 		
 		BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
+		
 		// set the target namespace
 		BOOSTClientConfigs.SBOL_TARGET_NAMESPACE = "https://boost.jgi.doe.gov/";
 		
 		// we store all submitted jobs in a hash-set
 		Set<String> jobUUIDs = new HashSet<String>();
 
+		String fivePrimeVectorOverlap = "ACGTACGTACGT";
+		String threePrimeVectorOverlap = "ACGTACGTACGT";
+		String minLengthBB = "300";
+		String maxLengthBB = "1800";
+		String minOverlapGC = "40";
+		String maxOverlapGC = "70";
+		String optOverlapGC = "62";
+		String minOverlapLength = "20";
+		String optOverlapLength = "20";
+		String maxOverlapLength = "30";
+		String minPrimerLength = "7";
+		String maxPrimerLength = "7";
+		String maxPrimerTm = "60";
+		
 		// polish the given DNA
-		String polishDNAJobUUID = client.polish(
-				filename	,           				// input sequence
+		String partitionJobUUID = client.partition(
+				filename,           						// input sequence
 				BOOSTClientConfigs.SBOL_TARGET_NAMESPACE,	// the target namespace
-				true,                         	// encoding sequences support sequence feature annotations
-				Vendor.LIFE_TECHNOLOGIES,                   	// vendor
-				Strategy.Balanced2Random,     	// codon selection strategy
-				FileFormat.SBOL,              	// output format
-				"Saccharomyces cerevisiae");  	// predefined host
-		if (null != polishDNAJobUUID) {
-			jobUUIDs.add(polishDNAJobUUID);
-			System.out.println("Data for DNA Polish :" + polishDNAJobUUID);
+				fivePrimeVectorOverlap, 
+				threePrimeVectorOverlap, 
+				minLengthBB, maxLengthBB, 
+				minOverlapGC, optOverlapGC, maxOverlapGC, 
+				minOverlapLength, optOverlapLength, maxOverlapLength, 
+				minPrimerLength, maxPrimerLength, maxPrimerTm);
+		if (null != partitionJobUUID) {
+			jobUUIDs.add(partitionJobUUID);
+			System.out.println("Job-UUID for Partition: " + partitionJobUUID);
 		}
 
 		// for all jobs, we check their status
@@ -76,13 +92,10 @@ public class Bug_CDSPolishing_JobRunning {
 				try {
 					Thread.sleep(2000);
 				} catch(Exception e) {}
-				System.out.println("Data for DNA Polish :" + polishDNAJobUUID);
+				System.out.println("Job-UUID for Partition: " + partitionJobUUID);
 			}
-			
-			
-			// save all information to files
-			outputFiles = client.saveJobReport(jobUUID, jobReport);
 
+			outputFiles = client.saveJobReport(jobUUID, jobReport);
 		}
 		
 		return outputFiles;
@@ -105,24 +118,27 @@ public class Bug_CDSPolishing_JobRunning {
 		String sbolDesignerDocumentFilename = directory + "/01-sbol-designer-output.sbol.xml";
 
 		// call BOOST's API to do codon-juggling
-		OutputFiles outputFiles = doPolishing(sbolDesignerDocumentFilename);
+		OutputFiles outputFiles = doPartitioning(sbolDesignerDocumentFilename);
 		
-		// copy the file from the BOOST client's job-directory
-		// to the test-directory
-		//FileUtils.copyFile(Paths.get(outputFilename).toFile(), Paths.get(directory, "02-boost-output.sbol.xml").toFile());
-		
+//		// copy the file from the BOOST client's job-directory
+//		// to the test-directory
+//		FileUtils.copyFile(Paths.get(outputFilename).toFile(), Paths.get(directory, "02-boost-output.sbol.xml").toFile());
+//		
+		// for partitioning, we need to read to Provenance file since BOOST always 
+		// generates a FASTA file for the building blocks
 		// read the SBOLDocument that is being returned by BOOST
-		SBOLDocument document = SBOLReader.read(outputFiles.outputFile.toFile());
+		SBOLDocument document = SBOLReader.read(outputFiles.provenanceFile.toFile());
 
 		//------------------------------------------------------------------------------------
-		// BUG!!!
-		Set<URI> rootUri = null;
+		System.out.println("------------- ROOT COMPONENTDEFINITIONS ------------");
+		Set<URI> wasDerivedFromURIs = null;
         for (org.sbolstandard.core2.ComponentDefinition componentDefinition : 
         			document.getRootComponentDefinitions()) {
-        		System.out.println(componentDefinition);
-        		rootUri = componentDefinition.getWasDerivedFroms();
-        		System.out.println(rootUri);
+        	System.out.println("root CD: " + componentDefinition.getIdentity());
+        	wasDerivedFromURIs = componentDefinition.getWasDerivedFroms();
+        	System.out.println("    wasDerivedFroms: " + wasDerivedFromURIs);
         }
+		System.out.println("----------------------------------------------------");
 		//------------------------------------------------------------------------------------
 
 	}
@@ -140,7 +156,7 @@ public class Bug_CDSPolishing_JobRunning {
 	 */
 	public static void main(String[] args) 
 			throws SBOLValidationException, IOException, SBOLConversionException, BOOSTClientException, BOOSTBackEndException {
-		design("./data/test/cds-polishing/01-single-cds/");
+		design("./data/test/partitioning/01-single-cds/");
 	}
 	
 	
