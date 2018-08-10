@@ -130,8 +130,11 @@ public class Partitioning {
 		// read the SBOLDocument that is being returned by BOOST
 		SBOLDocument document = SBOLReader.read(outputFiles.provenanceFile.toFile());
 
+		//-------------------------------------------------------
+		// Building Block SequenceOntology term
 		SequenceOntology so = new SequenceOntology();
 		URI buildingBlockRoleURI = so.getURIbyId("SO:0001249");
+		//-------------------------------------------------------
 		
 		//------------------------------------------------------------------------------------
 		System.out.println("------------- ROOT COMPONENTDEFINITIONS ------------");
@@ -145,16 +148,23 @@ public class Partitioning {
         	for(org.sbolstandard.core2.SequenceAnnotation sequenceAnnotation : 
         		componentDefinition.getSequenceAnnotations()) {
 
-        		// check if it is a building block:
+        		// check if the SequenceAnnotation points to a Component that 
+        		// refers to a Building Block ComponentDefinition 
         		if(null != sequenceAnnotation.getComponent() && 
         				null != sequenceAnnotation.getComponent().getDefinition()) {
         			
             		// get the ComponentDefinition for the annotation
-	        		org.sbolstandard.core2.ComponentDefinition cd = 
+	        		org.sbolstandard.core2.ComponentDefinition buildingBlockCD = 
 	        				sequenceAnnotation.getComponent().getDefinition();
-	        		if(cd.getRoles().contains(buildingBlockRoleURI)) {
+	        		if(buildingBlockCD.getRoles().contains(buildingBlockRoleURI)) {
 	        			// this is a building block!
-	        			System.out.println("Building-Block: " + cd.getIdentity());
+	        			System.out.println("---- Building Block ----");
+	        			System.out.println("       id: " + buildingBlockCD.getIdentity());
+	        			System.out.println("displayId: " + buildingBlockCD.getDisplayId());
+	        			for(org.sbolstandard.core2.Sequence bbSequence : buildingBlockCD.getSequences()) {
+	        				System.out.println(" sequence: " + bbSequence.getElements());
+	        			}
+	        			System.out.println("------------------------");
 	        		}
         		}
         	}
