@@ -17,6 +17,7 @@ import org.sbolstandard.core2.SBOLConversionException;
 import org.sbolstandard.core2.SBOLDocument;
 import org.sbolstandard.core2.SBOLReader;
 import org.sbolstandard.core2.SBOLValidationException;
+import org.sbolstandard.core2.SequenceOntology;
 
 import gov.doe.jgi.boost.client.constants.BOOSTClientConfigs;
 import gov.doe.jgi.boost.client.constants.LoginCredentials;
@@ -129,11 +130,44 @@ public class Partitioning {
 		// read the SBOLDocument that is being returned by BOOST
 		SBOLDocument document = SBOLReader.read(outputFiles.provenanceFile.toFile());
 
+		//-------------------------------------------------------
+		// Building Block SequenceOntology term
+		SequenceOntology so = new SequenceOntology();
+		URI buildingBlockRoleURI = so.getURIbyId("SO:0001249");
+		//-------------------------------------------------------
+		
 		//------------------------------------------------------------------------------------
 		System.out.println("------------- ROOT COMPONENTDEFINITIONS ------------");
 		Set<URI> wasDerivedFromURIs = null;
+		
+		// every new root component-definition should be pointing to the building blocks
         for (org.sbolstandard.core2.ComponentDefinition componentDefinition : 
         			document.getRootComponentDefinitions()) {
+        	
+        	// get the building blocks based on the sequence annotations
+        	for(org.sbolstandard.core2.SequenceAnnotation sequenceAnnotation : 
+        		componentDefinition.getSequenceAnnotations()) {
+
+        		// check if the SequenceAnnotation points to a Component that 
+        		// refers to a Building Block ComponentDefinition 
+        		if(null != sequenceAnnotation.getComponent() && 
+        				null != sequenceAnnotation.getComponent().getDefinition()) {
+        			
+            		// get the ComponentDefinition for the annotation
+	        		org.sbolstandard.core2.ComponentDefinition buildingBlockCD = 
+	        				sequenceAnnotation.getComponent().getDefinition();
+	        		if(buildingBlockCD.getRoles().contains(buildingBlockRoleURI)) {
+	        			// this is a building block!
+	        			System.out.println("---- Building Block ----");
+	        			System.out.println("       id: " + buildingBlockCD.getIdentity());
+	        			System.out.println("displayId: " + buildingBlockCD.getDisplayId());
+	        			for(org.sbolstandard.core2.Sequence bbSequence : buildingBlockCD.getSequences()) {
+	        				System.out.println(" sequence: " + bbSequence.getElements());
+	        			}
+	        			System.out.println("------------------------");
+	        		}
+        		}
+        	}
         	System.out.println("root CD: " + componentDefinition.getIdentity());
         	wasDerivedFromURIs = componentDefinition.getWasDerivedFroms();
         	System.out.println("    wasDerivedFroms: " + wasDerivedFromURIs);
