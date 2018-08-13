@@ -1,4 +1,4 @@
-package gov.doe.jgi.boost.client.utils;
+package gov.doe.jgi.boost.resopnseparser;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
