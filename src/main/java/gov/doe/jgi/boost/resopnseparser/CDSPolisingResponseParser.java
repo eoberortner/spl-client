@@ -13,6 +13,18 @@ public class CDSPolisingResponseParser {
 		this.responseObject = jsonObject;
 	}
 	
+	public String inputSequence() {
+		JSONObject object = responseObject.getJSONObject("provenance");
+		String inputSequence = object.getString("input-document");
+		return inputSequence;
+	}
+	
+	public String outputSequence() {
+		JSONObject object = responseObject.getJSONObject("provenance");
+		String outputSequence = object.getString("output-document");
+		return outputSequence;
+	}
+	
 	public JSONObject vioBeforePolish() {
 		JSONArray responseArray = responseObject.getJSONArray("response");
 		JSONObject vioBeforeObj = responseArray.getJSONObject(0);
@@ -97,5 +109,4 @@ public class CDSPolisingResponseParser {
 		}
 		return gcContentArrayList;
 	}
-
 }

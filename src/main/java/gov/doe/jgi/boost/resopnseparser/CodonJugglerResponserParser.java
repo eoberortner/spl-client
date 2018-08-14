@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 public class CodonJugglerResponserParser {
 
+	
 	public static String parseCodonJuggleResponse(JSONObject jobResponse){
 		JSONObject responseObject = jobResponse;
 		JSONArray responseArray = responseObject.getJSONArray("response");

@@ -12,11 +12,15 @@ public class DNAVerificationResponseParser {
 		this.responseObject = jsonResponse;
 	}
 
-	public String dnaVeriOutputDoc() {
-		String outputSequence = null;
-		if (responseObject.has("provenenance") && responseObject.has("output-document")) {
-			outputSequence = responseObject.getJSONObject("provenance").getString("output-document");
-		}
+	public String inputSequence() {
+		JSONObject object = responseObject.getJSONObject("provenance");
+		String inputSequence = object.getString("input-document");
+		return inputSequence;
+	}
+	
+	public String outputSequence() {
+		JSONObject object = responseObject.getJSONObject("provenance");
+		String outputSequence = object.getString("output-document");
 		return outputSequence;
 	}
 
