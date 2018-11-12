@@ -590,8 +590,10 @@ public class BOOSTClient {
 		// verify for filename 
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
-		// read the file as SBOLDocument
+		SBOLReader.setURIPrefix(BOOSTConstants.DEFAULT_URI_PREFIX);
 		SBOLDocument document = SBOLReader.read(sequencesFilename);
+		
+		// read the file as SBOLDocument
 		
 		return this.polish(document, targetNamespace, bCodingSequences, vendor, strategy, 
 				outputFormat, codonUsageTable);
