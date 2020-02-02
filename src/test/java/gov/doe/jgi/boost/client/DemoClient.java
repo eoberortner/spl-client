@@ -35,17 +35,17 @@ public class DemoClient {
 		// -- alternative 2: provider you BOOST username and password
   	    BOOSTClient client = new BOOSTClient(LoginCredentials.mJWT);
     
-		// get the predefined hosts
-		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
-		try {
-			System.out.println(jsonPredefinedHosts.toString(4));
-		}catch(NullPointerException e) {
-			System.out.println(e.getMessage() + " Error in jsonPredefinedHosts");
-			System.exit(1);
-		}
+//		// get the predefined hosts
+//		JSONObject jsonPredefinedHosts = client.getPredefinedHosts();
+//		try {
+//			System.out.println(jsonPredefinedHosts.toString(4));
+//		}catch(NullPointerException e) {
+//			System.out.println(e.getMessage() + " Error in jsonPredefinedHosts");
+//			System.exit(1);
+//		}
 
 		// set the target namespace
-		BOOSTClientConfigs.SBOL_TARGET_NAMESPACE = "https://boost.jgi.doe.gov/";
+//		BOOSTClientConfigs.SBOL_TARGET_NAMESPACE = "https://boost.jgi.doe.gov/";
 		
 		// we store all submitted jobs in a hash-set
 		Set<String> jobUUIDs = new HashSet<String>();
@@ -64,11 +64,12 @@ public class DemoClient {
 //
 		// codon juggle
 		String codonJuggleJobUUID = client.codonJuggle(
-				"./data/codon_juggle.sbol.xml",		// input sequences 
-				false,					 			// exclusively 5'-3' coding sequences 
+				"./data/dna.fasta",					// input sequences 
+				true,					 			// exclusively 5'-3' coding sequences 
 				Strategy.Balanced,		  			// codon selection strategy
 				"Saccharomyces cerevisiae",   		// predefined host
-				FileFormat.SBOL);		  			// output format
+				FileFormat.FASTA, 					// FASTA as output format
+				false);		  						// do not convert the content of dna.fasta to SBOL format
 		if(null != codonJuggleJobUUID) {
 			jobUUIDs.add(codonJuggleJobUUID);
 			System.out.println("Data for codon Juggling :" + codonJuggleJobUUID );

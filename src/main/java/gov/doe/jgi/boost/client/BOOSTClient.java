@@ -12,9 +12,11 @@ import org.sbolstandard.core2.SBOLDocument;
 import org.sbolstandard.core2.SBOLReader;
 import org.sbolstandard.core2.SBOLValidationException;
 
+import gov.doe.jgi.boost.client.constants.BOOSTClientConfigs;
 import gov.doe.jgi.boost.client.constants.BOOSTConstants;
 import gov.doe.jgi.boost.client.constants.BOOSTResources;
 import gov.doe.jgi.boost.client.constants.JSONKeys;
+import gov.doe.jgi.boost.client.utils.FileUtils;
 import gov.doe.jgi.boost.enums.FileFormat;
 import gov.doe.jgi.boost.enums.Strategy;
 import gov.doe.jgi.boost.enums.Vendor;
@@ -213,7 +215,7 @@ public class BOOSTClient {
 	public String codonJuggle(
 			final String sequencesFilename, boolean bAutoAnnotate, 
 			Strategy strategy, final String filenameCodonUsageTable,
-			final FileFormat outputFormat)
+			final FileFormat outputFormat, boolean useSBOL)
 				throws BOOSTClientException, BOOSTBackEndException, IOException, 
 				SBOLValidationException, SBOLConversionException {
 		
@@ -221,8 +223,14 @@ public class BOOSTClient {
 		ParameterValueVerifier.verifyFilename(BOOSTConstants.INPUT_FILENAME, sequencesFilename);
 
 		// read the file as SBOLDocument
-		SBOLDocument document = SBOLReader.read(sequencesFilename);
-		return this.codonJuggle(document, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
+		if(useSBOL) {
+			SBOLReader.setURIPrefix(BOOSTClientConfigs.SBOL_TARGET_NAMESPACE);
+			SBOLDocument document = SBOLReader.read(sequencesFilename);
+			return this.codonJuggle(document, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
+		} 
+
+		String sequencesFileContent = FileUtils.readFile(sequencesFilename);
+		return this.codonJuggle(sequencesFileContent, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
 	}
 	
 	
@@ -252,6 +260,38 @@ public class BOOSTClient {
 		// construct the request's JSON object 
 		JSONObject requestData = RequestBuilder.buildCodonJuggle(
 				designSequences, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
+
+		return this.submitJob(requestData);
+	}
+	
+	/**
+	 * 
+	 * @param sequenceFileConten
+	 * @param bAutoAnnotate
+	 * @param strategy
+	 * @param filenameCodonUsageTable
+	 * @param outputFormat
+	 * 
+	 * @return
+	 * 
+	 * @throws BOOSTClientException
+	 * @throws BOOSTBackEndException
+	 * @throws IOException
+	 * @throws JSONException
+	 * @throws SBOLConversionException
+	 */
+	public String codonJuggle(
+			final String sequenceFileContent, boolean bAutoAnnotate, 
+			Strategy strategy, final String filenameCodonUsageTable,
+			final FileFormat outputFormat)
+				throws BOOSTClientException, BOOSTBackEndException, IOException, 
+				JSONException, SBOLConversionException {
+		
+		// read the content of the file
+		
+		// construct the request's JSON object 
+		JSONObject requestData = RequestBuilder.buildCodonJuggle(
+				sequenceFileContent, bAutoAnnotate, strategy, filenameCodonUsageTable, outputFormat);
 
 		return this.submitJob(requestData);
 	}
@@ -402,6 +442,8 @@ public class BOOSTClient {
 	public String submitJob(final JSONObject requestData) 
 			throws BOOSTClientException, BOOSTBackEndException {
 		
+		//System.out.println(BOOSTResources.BOOST_REST_URL + BOOSTResources.SUBMIT_JOB_RESOURCE);
+		
 		// send the request
 		Response response = RESTInvoker.sendPost(
 				BOOSTResources.BOOST_REST_URL + BOOSTResources.SUBMIT_JOB_RESOURCE, 
@@ -418,6 +460,7 @@ public class BOOSTClient {
 			
 			throw new BOOSTClientException("The server returned an unknown response!");
 		}
+		
 		throw new BOOSTBackEndException(
 				response.getStatus(),
 				response.readEntity(String.class));	

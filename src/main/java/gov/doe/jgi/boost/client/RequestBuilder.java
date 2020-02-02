@@ -121,6 +121,47 @@ public class RequestBuilder {
 	/**
 	 * 
 	 * @param designSequences
+	 * @param bAutoAnnotate
+	 * @param strategy
+	 * @param codonUsageTable
+	 * @param outputFormat
+	 * 
+	 * @return
+	 * 
+	 * @throws BOOSTClientException
+	 * @throws JSONException
+	 * @throws UnsupportedEncodingException
+	 * @throws SBOLConversionException
+	 */
+	public static JSONObject buildCodonJuggle(
+			final SBOLDocument designSequences, boolean bAutoAnnotate, 
+			Strategy strategy, final String codonUsageTable, 
+			final FileFormat outputFormat) 
+					throws BOOSTClientException, JSONException, UnsupportedEncodingException, SBOLConversionException {
+		
+		// write the SBOLDocument to a String
+		try (
+				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+			) {
+		
+			SBOLWriter.write(designSequences,  outputStream);
+			String designDoc = outputStream.toString("UTF-8");
+			
+			// put its content into the JSON object
+			if(designDoc != null && !designDoc.isEmpty()) {
+				return buildCodonJuggle(designDoc, bAutoAnnotate, strategy, codonUsageTable, outputFormat);
+			}
+			
+		} catch(Exception e) {
+			throw new BOOSTClientException(e.getMessage());
+		}
+		
+		return (JSONObject)null;
+
+	}
+	/**
+	 * 
+	 * @param designSequences
 	 * @param strategy
 	 * @param codonUsageTable ... either predefined-host or a filename
 	 * @param outputFormat
@@ -131,7 +172,7 @@ public class RequestBuilder {
 	 * @throws JSONException 
 	 */
 	public static JSONObject buildCodonJuggle(
-			final SBOLDocument designSequences, boolean bAutoAnnotate, 
+			final String sequenceFileContent, boolean bAutoAnnotate, 
 			Strategy strategy, final String codonUsageTable, 
 			final FileFormat outputFormat) 
 					throws BOOSTClientException, JSONException, UnsupportedEncodingException, SBOLConversionException {
@@ -151,7 +192,7 @@ public class RequestBuilder {
 
 		// sequence information
 		reverseTranslateData.put(JSONKeys.SEQUENCE_INFORMATION,  
-				RequestBuilder.buildSequenceData(designSequences, SequenceType.DNA, bAutoAnnotate));
+				RequestBuilder.buildSequenceData(sequenceFileContent, SequenceType.DNA, bAutoAnnotate));
 		
 		// modification information
 		reverseTranslateData.put(JSONKeys.MODIFICATION_INFORMATION,
@@ -447,6 +488,11 @@ public class RequestBuilder {
 		return jobInformation;
 	}
 
+	public static JSONObject buildSequenceData(final SBOLDocument designSequences, SequenceType type, 
+			boolean bAutoAnnotate) 
+			throws BOOSTClientException, SBOLConversionException, UnsupportedEncodingException {
+		return buildSequenceData(designSequences, type, bAutoAnnotate);
+	}
 	/**
 	 * 
 	 * @param filename
@@ -458,31 +504,14 @@ public class RequestBuilder {
 	 * @throws UnsupportedEncodingException 
 	 * @throws IOException 
 	 */
-	public static JSONObject buildSequenceData(final SBOLDocument designSequences, SequenceType type, boolean bAutoAnnotate) 
+	public static JSONObject buildSequenceData(final String sequenceFileContent, SequenceType type, boolean bAutoAnnotate) 
 			throws BOOSTClientException, SBOLConversionException, UnsupportedEncodingException {
 
 		// sequence information
 		JSONObject sequenceData = new JSONObject();
 		
-		// write the SBOLDocument to a String
-		try (
-				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-			) {
-		
-			SBOLWriter.write(designSequences,  outputStream);
-			String designDoc = outputStream.toString("UTF-8");
-			
-			System.out.println(designDoc);
-			
-			// put its content into the JSON object
-			if(designDoc != null && !designDoc.isEmpty()) {
-				sequenceData.put(JSONKeys.TEXT, designDoc);
-			}
-			
-		} catch(Exception e) {
-			throw new BOOSTClientException(e.getMessage());
-		}
-		
+		sequenceData.put(JSONKeys.TEXT, sequenceFileContent);
+
 		// sequence type
 		JSONArray types = new JSONArray();
 		types.put(type);
